@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PitStop Coffee · Coffee shop in 182 CCA</title>
+  <meta name="description" content="Experience precision dentistry and smile aesthetics at PitStop Coffee, Sector CCA, DHA Phase 4, Lahore.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #065F46;
+      --primary-hover: #047857;
+      --bg: #FAFAF9;
+      --card-bg: #FFFFFF;
+      --text: #1C1917;
+      --text-muted: #78716C;
+      --border: #E7E5E4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Top Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250, 250, 249, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .header-flex { display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-logo {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 16px;
+    }
+    .brand-title { font-weight: 800; font-size: 16px; color: var(--text); line-height: 1.1; }
+    .brand-sub { font-size: 11px; color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .pulse { width: 6px; height: 6px; border-radius: 50%; background: #059669; }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-phone {
+      font-size: 12px; font-weight: 600; text-decoration: none; color: var(--text);
+      padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border);
+    }
+    .btn-wa {
+      background: var(--primary); color: #fff; text-decoration: none;
+      padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 6px; transition: 0.2s;
+    }
+    .btn-wa:hover { background: var(--primary-hover); }
+
+    /* Hero Section */
+    .hero { padding: 48px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+    .location-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 6px; background: #F5F5F4;
+      border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: #44403C;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: 42px; font-weight: 800; line-height: 1.15; color: #0C0A09;
+      letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .hero-p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
+    .metrics-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }
+    .metric-card {
+      padding: 12px; border-radius: 12px; background: var(--card-bg);
+      border: 1px solid var(--border);
+    }
+    .metric-val { font-size: 18px; font-weight: 800; color: var(--text); }
+    .metric-lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cta-main {
+      padding: 14px 24px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: var(--primary); color: #fff; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+    }
+    .cta-main:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .cta-outline {
+      padding: 14px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      background: #FFFFFF; border: 1px solid var(--border); color: var(--text);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+
+    /* Showcase & Doctor Dock */
+    .showcase-box {
+      background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border);
+      overflow: hidden; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); margin-bottom: 12px;
+    }
+    .showcase-box img { width: 100%; height: 240px; object-fit: cover; }
+    .showcase-info { padding: 14px 18px; border-top: 1px solid var(--border); }
+    .doc-dock {
+      padding: 14px 18px; border-radius: 14px; background: #FFFFFF; border: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .doc-flex { display: flex; align-items: center; gap: 12px; }
+    .doc-avatar {
+      width: 40px; height: 40px; border-radius: 50%; background: #D1FAE5; color: #065F46;
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;
+    }
+
+    /* Signature Section: Smile Matcher */
+    .signature-sec {
+      padding: 56px 0; background: #FFFFFF; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .sec-tag { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--primary); letter-spacing: 1.5px; }
+    .sec-title { font-size: 28px; font-weight: 800; color: #0C0A09; margin: 4px 0 8px; }
+    .sec-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+    .goals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .goal-card {
+      padding: 16px; border-radius: 14px; background: #FAFAF9; border: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; cursor: pointer;
+    }
+    .goal-card:hover { border-color: var(--primary); background: #F0FDF4; }
+
+    /* Services Section */
+    .services-sec { padding: 64px 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .service-card {
+      padding: 22px; border-radius: 16px; background: #FFFFFF; border: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s;
+    }
+    .service-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.06); }
+    .service-icon {
+      width: 32px; height: 32px; border-radius: 8px; background: #F5F5F4; color: #44403C;
+      display: flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 12px;
+    }
+    .service-card h3 { font-size: 16px; font-weight: 700; color: #1C1917; margin-bottom: 6px; }
+    .service-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+    .features { list-style: none; margin-bottom: 16px; font-size: 12px; color: #44403C; }
+    .features li { margin-bottom: 5px; }
+    .service-footer { border-top: 1px solid #F5F5F4; padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .price-tag { font-size: 12px; font-weight: 700; color: var(--primary); }
+    .order-btn {
+      padding: 8px; border-radius: 8px; background: #F5F5F4; color: var(--text);
+      font-size: 12px; font-weight: 700; text-align: center; text-decoration: none; transition: 0.2s;
+    }
+    .order-btn:hover { background: var(--primary); color: #fff; }
+
+    /* Reviews */
+    .reviews-sec { padding: 56px 0; background: #F5F5F4; border-top: 1px solid var(--border); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .review-card { padding: 20px; border-radius: 14px; background: #FFFFFF; border: 1px solid var(--border); }
+    .stars { color: #F59E0B; margin-bottom: 6px; font-size: 14px; letter-spacing: 1px; }
+    .review-card p { font-size: 13px; font-style: italic; color: #44403C; margin-bottom: 12px; }
+    .review-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); }
+
+    /* Booking Form */
+    .booking-sec { padding: 64px 0; }
+    .form-box {
+      max-width: 640px; margin: 0 auto; padding: 36px; border-radius: 20px;
+      background: #FFFFFF; border: 1px solid var(--border); box-shadow: 0 15px 35px -10px rgba(0,0,0,0.06);
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #44403C; margin-bottom: 5px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 10px 12px; border-radius: 8px; background: #FAFAF9;
+      border: 1px solid #D6D3D1; font-size: 13px; font-family: inherit; outline: none;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-submit {
+      width: 100%; padding: 14px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: var(--primary); color: #fff; border: none; cursor: pointer; transition: 0.2s;
+    }
+    .btn-submit:hover { background: var(--primary-hover); }
+
+    /* Location */
+    .location-sec { padding: 56px 0; background: #F5F5F4; border-top: 1px solid var(--border); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: center; }
+    .map-frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); height: 260px; }
+    .map-frame iframe { width: 100%; height: 100%; border: 0; }
+
+    /* Footer */
+    footer { padding: 40px 0; border-top: 1px solid var(--border); background: #FFFFFF; font-size: 12px; color: var(--text-muted); }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 768px) {
+      .hero-grid, .location-grid, .form-grid { grid-template-columns: 1fr; }
+      .metrics-strip { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 30px; }
+      .btn-phone { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <div class="container header-flex">
+      <div class="brand">
+        <div class="brand-logo">DC</div>
+        <div>
+          <div class="brand-title">PitStop Coffee</div>
+          <div class="brand-sub">
+            <span class="pulse"></span>
+            <span>Open Today · Sector CCA, DHA Phase 4</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        
+        <a href="#booking" class="btn-wa">Book Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="location-tag">📍 Sector CCA, DHA Phase 4 Dental Practice</div>
+          <h1>Precision Dentistry & Aesthetic Smile Architecture</h1>
+          <p class="hero-p">Experience gentle, anxiety-free dental surgery and cosmetic smile design in a tranquil, state-of-the-art clinic lounge in DHA Phase 4, Lahore.</p>
+          
+          <div class="metrics-strip">
+            <div class="metric-card">
+              <div class="metric-val">5.0 ★</div>
+              <div class="metric-lbl">84+ Patient Reviews</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val" style="color:#065F46;">100%</div>
+              <div class="metric-lbl">Sterilized Facility</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val">Sector CCA</div>
+              <div class="metric-lbl">Prime DHA Access</div>
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <a href="#booking" class="cta-main">Request Appointment →</a>
+            <a href="#smile-matcher" class="cta-outline">Select Smile Goal ↓</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="showcase-box">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80" alt="PitStop Coffee">
+            <div class="showcase-info">
+              <strong style="font-size:14px;color:#1C1917;">PitStop Coffee</strong>
+              <div style="font-size:12px;color:#78716C;margin-top:2px;">182 CCA, 1 C Block Sector C DHA Phase 6, Lahore, Pakistan</div>
+            </div>
+          </div>
+
+          <div class="doc-dock">
+            <div class="doc-flex">
+              <div class="doc-avatar">Dr.</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:#1C1917;">Dr. Mahwish Khan & Team</div>
+                <div style="font-size:11px;color:#78716C;">Consultant Dental Surgeon · PMDC Verified</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Element: Smile Assessment Matrix -->
+  <section class="signature-sec" id="smile-matcher">
+    <div class="container">
+      <span class="sec-tag">Interactive Patient Assessment</span>
+      <h2 class="sec-title">Select Your Smile Goal for Instant Consultation</h2>
+      <p class="sec-sub">Tap an objective below to prepare your customized treatment recommendation.</p>
+
+      <div class="goals-grid">
+        
+      <div class="goal-card" onclick="selectGoal('Laser Teeth Whitening')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">✨</span>
+            <span style="padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;">Most Requested</span>
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Laser Teeth Whitening</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Noticeable 4-6 shades brighter in 1 gentle session</p>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%20Laser%20Teeth%20Whitening%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Invisalign &amp; Clear Aligners')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">🦷</span>
+            
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Invisalign &amp; Clear Aligners</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Discreet orthodontic correction for adults &amp; teens</p>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%20Invisalign%20%26%20Clear%20Aligners%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Cosmetic Porcelain Veneers')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">💎</span>
+            <span style="padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;">Most Requested</span>
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Cosmetic Porcelain Veneers</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Complete smile symmetry &amp; aesthetic enhancement</p>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%20Cosmetic%20Porcelain%20Veneers%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Dental Implants &amp; Restorations')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">🛡️</span>
+            
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Dental Implants &amp; Restorations</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Permanent tooth replacement with Swiss precision</p>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%20Dental%20Implants%20%26%20Restorations%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Painless Root Canal &amp; Crown')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">🌿</span>
+            
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Painless Root Canal &amp; Crown</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Advanced gentle micro-endodontic therapy</p>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%20Painless%20Root%20Canal%20%26%20Crown%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+  </section>
+
+  <!-- Treatments Section -->
+  <section class="services-sec">
+    <div class="container">
+      <span class="sec-tag">Comprehensive Care</span>
+      <h2 class="sec-title">Clinical Treatments & Specialty Suites</h2>
+      <p class="sec-sub">Performed using digital diagnostic imaging and sterile European protocol.</p>
+      
+      <div class="services-grid">
+        
+      <div class="service-card">
+        <div>
+          <div class="service-icon">★</div>
+          <h3>Specialty Espresso &amp; Hand-Drip Brews</h3>
+          <p>Single-origin beans freshly ground and crafted using precision extraction parameters.</p>
+          <ul class="features">
+            <li>✓ Single-Origin Beans</li><li>✓ V60 &amp; Aeropress Brews</li><li>✓ Silky Microfoam Drinks</li>
+          </ul>
+        </div>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%3A%20Specialty%20Espresso%20%26%20Hand-Drip%20Brews" target="_blank" class="order-btn">
+            Order on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div>
+          <div class="service-icon">★</div>
+          <h3>Signature Cold Brews &amp; Refreshers</h3>
+          <p>Slow-steeped artisan cold brew coffees and botanical iced infusions.</p>
+          <ul class="features">
+            <li>✓ 18-Hour Slow Steeped</li><li>✓ Nitro Cold Brew</li><li>✓ Refreshing Iced Specialties</li>
+          </ul>
+        </div>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%3A%20Signature%20Cold%20Brews%20%26%20Refreshers" target="_blank" class="order-btn">
+            Order on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div>
+          <div class="service-icon">★</div>
+          <h3>Fresh Artisanal Bakes &amp; Pastries</h3>
+          <p>Daily baked croissants, sourdough treats, and gourmet dessert pairings.</p>
+          <ul class="features">
+            <li>✓ Baked Daily In-House</li><li>✓ Flaky Butter Pastries</li><li>✓ Gluten-Conscious Options</li>
+          </ul>
+        </div>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%3A%20Fresh%20Artisanal%20Bakes%20%26%20Pastries" target="_blank" class="order-btn">
+            Order on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div>
+          <div class="service-icon">★</div>
+          <h3>Gourmet Savory Bites &amp; Brunch</h3>
+          <p>Wholesome sandwiches, toasts, and warm savory plates made to order.</p>
+          <ul class="features">
+            <li>✓ Fresh Ingredients</li><li>✓ Breakfast &amp; Lunch Menus</li><li>✓ Dine-in &amp; Takeaway</li>
+          </ul>
+        </div>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/?text=Hi%20PitStop%20Coffee!%20I%20would%20like%20to%20consult%20about%3A%20Gourmet%20Savory%20Bites%20%26%20Brunch" target="_blank" class="order-btn">
+            Order on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Reviews -->
+  <section class="reviews-sec">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;">
+        <div>
+          <span class="sec-tag" style="color:#B45309;">Verified Proof</span>
+          <h2 class="sec-title" style="margin-top:2px;">Trusted by Patients Across Lahore & DHA</h2>
+        </div>
+        <div style="padding:6px 12px;background:#fff;border-radius:8px;border:1px solid var(--border);font-size:12px;font-weight:700;">
+          ★ 5.0 Rating · 84+ Patient Reviews
+        </div>
+      </div>
+      <div class="reviews-grid">
+        
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Top-rated Coffee shop in Lahore with authentic Google verified customer satisfaction.</p>
+          <div class="review-meta">
+            <strong>Google Maps Community</strong>
+            <span>4.3★ Satisfaction</span>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section class="booking-sec" id="booking">
+    <div class="container">
+      <div class="form-box">
+        <div style="text-align:center;margin-bottom:20px;">
+          <span class="sec-tag">Direct Clinical Dispatch</span>
+          <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin-top:2px;">Request Your Dental Consultation</h2>
+          <p style="font-size:12px;color:var(--text-muted);">Our front-desk coordinator in DHA Phase 4 will confirm your time window on WhatsApp.</p>
+        </div>
+
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>1. Select Treatment</label>
+            <select id="formService" required>
+              <option value="Specialty Espresso &amp; Hand-Drip Brews">Specialty Espresso &amp; Hand-Drip Brews</option><option value="Signature Cold Brews &amp; Refreshers">Signature Cold Brews &amp; Refreshers</option><option value="Fresh Artisanal Bakes &amp; Pastries">Fresh Artisanal Bakes &amp; Pastries</option><option value="Gourmet Savory Bites &amp; Brunch">Gourmet Savory Bites &amp; Brunch</option>
+            </select>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>2. Full Name</label>
+              <input type="text" id="formName" placeholder="Patient Name" required>
+            </div>
+            <div class="form-group">
+              <label>3. Contact WhatsApp Number</label>
+              <input type="tel" id="formPhone" placeholder="0300 1234567" required>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>4. Preferred Date</label>
+              <input type="date" id="formDate" required>
+            </div>
+            <div class="form-group">
+              <label>5. Preferred Time Window</label>
+              <select id="formTime">
+                <option value="Morning (11:00 AM - 02:00 PM)">Morning (11:00 AM - 02:00 PM)</option>
+                <option value="Afternoon (03:00 PM - 06:00 PM)">Afternoon (03:00 PM - 06:00 PM)</option>
+                <option value="Evening (06:00 PM - 09:00 PM)" selected>Evening (06:00 PM - 09:00 PM)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>6. Dental Notes or Chief Complaint</label>
+            <textarea id="formNotes" rows="2" placeholder="Any specific tooth sensitivity, previous treatment, or aesthetic goals?"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            💬 Submit Appointment Request on WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="location-sec">
+    <div class="container">
+      <div class="location-grid">
+        <div>
+          <span class="sec-tag" style="color:#B91C1C;">Clinic Location</span>
+          <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin:4px 0 8px;">Sector CCA, DHA Phase 4</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">182 CCA, 1 C Block Sector C DHA Phase 6, Lahore, Pakistan</p>
+          <div style="padding:12px;background:#fff;border-radius:10px;border:1px solid var(--border);margin-bottom:14px;font-size:12px;">
+            <strong>🕒 Clinic Operating Hours</strong>
+            <div style="color:var(--text-muted);margin-top:2px;">Monday – Sunday: 10:00 AM – 09:00 PM</div>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=PitStop%20Coffee%2C%20182%20CCA%2C%201%20C%20Block%20Sector%20C%20DHA%20Phase%206%2C%20Lahore%2C%20Pakistan" target="_blank" style="padding:8px 14px;border-radius:8px;background:#fff;border:1px solid var(--border);color:#1C1917;font-size:12px;font-weight:600;text-decoration:none;">
+            🗺️ Driving Directions on Google Maps ↗
+          </a>
+        </div>
+        <div>
+          <div class="map-frame">
+            <iframe src="https://maps.google.com/maps?q=PitStop%20Coffee%2C%20182%20CCA%2C%201%20C%20Block%20Sector%20C%20DHA%20Phase%206%2C%20Lahore%2C%20Pakistan&t=&z=15&ie=UTF8&iwloc=&output=embed" title="PitStop Coffee Map"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-flex">
+      <div>
+        <strong style="color:#1C1917;font-size:13px;">PitStop Coffee</strong>
+        <div>Coffee shop · Sector CCA, DHA Phase 4, Lahore</div>
+      </div>
+      <div>Digital Experience crafted by Octaite Team</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
+    function selectGoal(goal) {
+      document.getElementById('formNotes').value = "Smile Goal: " + goal;
+      const el = document.getElementById('booking');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const service = document.getElementById('formService').value;
+      const name = document.getElementById('formName').value;
+      const phone = document.getElementById('formPhone').value;
+      const date = document.getElementById('formDate').value;
+      const time = document.getElementById('formTime').value;
+      const notes = document.getElementById('formNotes').value;
+
+      const msg = "Hi PitStop Coffee! 👋\n\nI would like to request a dental consultation via your website:\n\n👤 *Patient Name:* " + name + "\n📞 *Phone:* " + phone + "\n💼 *Treatment:* " + service + "\n📅 *Date & Time:* " + date + " at " + time + "\n📝 *Notes:* " + (notes || "None") + "\n\nPlease confirm availability.";
+      window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
+    }
+  </script>
+</body>
+</html>
