@@ -3,607 +3,391 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xtreme Fitness &amp; Athletic Club · Gym in Commercial Area</title>
-  <meta name="description" content="Transform your physical potential with Olympic-grade equipment, tailored athletic protocols, and high-energy coaching in Commercial Area.">
+  <title>Xtreme Fitness &amp; Athletic Club · Heavyweight Athletic & Performance Club</title>
+  <meta name="description" content="12,000 sq ft high-performance training arena, 100% Eleiko loaded, Olympic lifting platforms, and CSCS coach-led protocols in Commercial Area.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800&family=Fraunces:opsz,wght@9..144,600;700;800&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #E11D48;
-      --primary-hover: #F59E0B;
-      --accent: #FB7185;
       --bg: #090D14;
       --card-bg: #131926;
+      --primary: #E11D48;
+      --primary-hover: #BE123C;
+      --accent: #F59E0B;
       --text: #F8FAFC;
       --text-muted: #94A3B8;
       --border: #1E293B;
-      --heading-font: Syne, sans-serif;
-      --body-font: Plus Jakarta Sans, sans-serif;
+      --display: 'Syne', sans-serif;
+      --sans: 'Plus Jakarta Sans', sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: var(--body-font), -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+      font-family: var(--sans); background: var(--bg); color: var(--text);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-    
-    /* Top Header */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top Ticker & Header */
+    .ticker-bar {
+      background: var(--primary); color: #fff; font-size: 11px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase; text-align: center; padding: 8px 0;
+    }
     header {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(9, 13, 22, 0.95);
-      backdrop-filter: blur(12px);
+      background: rgba(9, 13, 20, 0.94); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border); padding: 16px 0;
+    }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .brand-title { font-family: var(--display); font-size: 22px; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: -0.02em; }
+    .btn-claim-nav {
+      background: var(--primary); color: #fff; text-decoration: none;
+      padding: 10px 22px; border-radius: 8px; font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.5px; transition: 0.2s;
+    }
+    .btn-claim-nav:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+    /* Section 1: Full-Bleed Heavyweight Arena Hero */
+    .hero-athletic {
+      padding: 70px 0 80px; position: relative; overflow: hidden;
       border-bottom: 1px solid var(--border);
-      padding: 14px 0;
     }
-    .header-flex { display: flex; justify-content: space-between; align-items: center; }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-logo {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--primary); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--heading-font);
-      font-weight: 800; font-size: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    .hero-athletic-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+    .live-floor-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 6px; background: rgba(225, 29, 72, 0.15);
+      border: 1px solid rgba(225, 29, 72, 0.3); color: #FB7185;
+      font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
     }
-    .brand-title { font-family: var(--heading-font); font-weight: 800; font-size: 16px; color: var(--text); line-height: 1.1; letter-spacing: -0.01em; }
-    .brand-sub { font-size: 11px; color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 6px; }
-    .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 8px var(--primary); }
-    .header-actions { display: flex; align-items: center; gap: 10px; }
-    .btn-phone {
-      font-size: 12px; font-weight: 600; text-decoration: none; color: var(--text);
-      padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #FB7185; box-shadow: 0 0 10px #FB7185; }
+    .hero-athletic h1 {
+      font-family: var(--display); font-size: 50px; font-weight: 800; line-height: 1.05;
+      color: #fff; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 20px;
     }
-    .btn-wa {
+    .hero-athletic h1 span { color: var(--primary); }
+    .hero-athletic p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 32px; }
+    .btn-claim-large {
       background: var(--primary); color: #fff; text-decoration: none;
-      padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
-      display: inline-flex; align-items: center; gap: 6px; transition: 0.2s;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+      padding: 16px 32px; border-radius: 10px; font-size: 14px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.4); transition: 0.2s;
     }
-    .btn-wa:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .btn-claim-large:hover { background: var(--primary-hover); transform: translateY(-2px); }
 
-    /* Hero Section */
-    .hero { padding: 48px 0 64px; }
-    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
-    .location-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 12px; border-radius: 6px; 
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: #E2E8F0;
-      margin-bottom: 16px;
+    .hero-media-card {
+      border-radius: 20px; overflow: hidden; border: 1px solid var(--border);
+      background: var(--card-bg); position: relative;
     }
-    .hero h1 {
-      font-family: var(--heading-font);
-      font-size: 42px; font-weight: 800; line-height: 1.12; color: var(--text);
-      letter-spacing: -0.02em; margin-bottom: 16px;
-      text-transform: uppercase;
-    }
-    .hero-p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
-    .metrics-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }
-    .metric-card {
-      padding: 14px; border-radius: 12px; background: var(--card-bg);
-      border: 1px solid var(--border);
-    }
-    .metric-val { font-family: var(--heading-font); font-size: 19px; font-weight: 800; color: var(--text); }
-    .metric-lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-    .cta-main {
-      padding: 14px 24px; border-radius: 10px; font-size: 14px; font-weight: 700;
-      background: var(--primary); color: #fff; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    }
-    .cta-main:hover { background: var(--primary-hover); transform: translateY(-1px); }
-    .cta-outline {
-      padding: 14px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text);
-      text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
-    }
-    .cta-outline:hover { background: rgba(255,255,255,0.08); }
+    .hero-media-card img { width: 100%; height: 340px; object-fit: cover; }
+    .media-card-bar { padding: 16px 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
 
-    /* Showcase & Specialist Dock */
-    .showcase-box {
-      background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border);
-      overflow: hidden; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5); margin-bottom: 12px;
+    /* Section 2: 4 Hardware Proof Badges */
+    .specs-strip { padding: 48px 0; border-bottom: 1px solid var(--border); background: #0C111B; }
+    .specs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .spec-box {
+      padding: 20px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border);
     }
-    .showcase-box img { width: 100%; height: 240px; object-fit: cover; }
-    .showcase-info { padding: 14px 18px; border-top: 1px solid var(--border); }
-    .doc-dock {
-      padding: 14px 18px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center; gap: 12px;
-    }
-    .doc-flex { display: flex; align-items: center; gap: 12px; }
-    .doc-avatar {
-      width: 42px; height: 42px; border-radius: 50%; 
-      background: rgba(255,255,255,0.08); 
-      color: var(--primary);
-      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;
-      border: 1px solid var(--border);
-    }
+    .spec-val { font-family: var(--display); font-size: 24px; font-weight: 800; color: #fff; }
+    .spec-lbl { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+    .spec-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
 
-    /* Signature Section: Assessment / Matcher */
-    .signature-sec {
-      padding: 56px 0; background: rgba(255,255,255,0.02); 
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    }
-    .sec-tag { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--primary); letter-spacing: 1.5px; }
-    .sec-title { font-family: var(--heading-font); font-size: 28px; font-weight: 800; color: var(--text); margin: 4px 0 8px; }
-    .sec-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
-    .goals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
-    .goal-card {
-      padding: 16px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border);
-      display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; cursor: pointer;
-    }
-    .goal-card:hover { border-color: var(--primary); transform: translateY(-2px); }
-
-    /* Services Section */
-    .services-sec { padding: 64px 0; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
-    .service-card {
-      padding: 22px; border-radius: 16px; background: var(--card-bg); border: 1px solid var(--border);
+    /* Section 3: Training Disciplines Matrix (4-Card Athletic Bento) */
+    .disciplines-sec { padding: 80px 0; border-bottom: 1px solid var(--border); }
+    .sec-tag { font-size: 11px; text-transform: uppercase; font-weight: 800; color: var(--primary); letter-spacing: 2px; margin-bottom: 8px; }
+    .sec-title { font-family: var(--display); font-size: 36px; font-weight: 800; color: #fff; text-transform: uppercase; line-height: 1.1; margin-bottom: 40px; }
+    .discipline-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .d-card {
+      padding: 30px; border-radius: 18px; background: var(--card-bg); border: 1px solid var(--border);
       display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s;
     }
-    .service-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5); border-color: var(--primary); }
-    .service-icon {
-      width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.06); color: var(--primary);
-      display: flex; align-items: center; justify-content: center; font-size: 13px; margin-bottom: 12px;
-    }
-    .service-card h3 { font-family: var(--heading-font); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .service-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
-    .features { list-style: none; margin-bottom: 16px; font-size: 12px; color: var(--text); }
-    .features li { margin-bottom: 5px; }
-    .service-footer { border-top: 1px solid var(--border); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
-    .price-tag { font-size: 12px; font-weight: 700; color: var(--primary); }
-    .order-btn {
-      padding: 9px; border-radius: 8px; background: rgba(255,255,255,0.06); color: var(--text);
-      font-size: 12px; font-weight: 700; text-align: center; text-decoration: none; transition: 0.2s;
-    }
-    .order-btn:hover { background: var(--primary); color: #fff; }
+    .d-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .d-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .d-num { font-family: var(--display); font-size: 18px; font-weight: 800; color: var(--primary); }
+    .d-title { font-family: var(--display); font-size: 22px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 8px; }
+    .d-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+    .d-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .d-tag { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,0.06); color: #E2E8F0; }
 
-    /* Reviews */
-    .reviews-sec { padding: 56px 0; background: rgba(255,255,255,0.01); border-top: 1px solid var(--border); }
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .review-card { padding: 20px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border); }
-    .stars { color: #F59E0B; margin-bottom: 6px; font-size: 14px; letter-spacing: 1px; }
-    .review-card p { font-size: 13px; font-style: italic; color: var(--text); margin-bottom: 12px; }
-    .review-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); }
-
-    /* Booking Form */
-    .booking-sec { padding: 64px 0; }
-    .form-box {
-      max-width: 640px; margin: 0 auto; padding: 36px; border-radius: 20px;
-      background: var(--card-bg); border: 1px solid var(--border); box-shadow: 0 15px 35px -10px rgba(0,0,0,0.5);
+    /* Section 4: CSCS Coaching Command */
+    .coach-sec { padding: 80px 0; border-bottom: 1px solid var(--border); background: #0C111B; }
+    .coach-box {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;
+      padding: 36px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--border);
     }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 5px; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border); color: var(--text); font-size: 13px; font-family: inherit; outline: none;
+    .coach-avatar {
+      width: 64px; height: 64px; border-radius: 16px; background: var(--primary);
+      color: #fff; font-family: var(--display); font-size: 24px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
     }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .btn-submit {
-      width: 100%; padding: 14px; border-radius: 10px; font-size: 14px; font-weight: 700;
-      background: var(--primary); color: #fff; border: none; cursor: pointer; transition: 0.2s;
+
+    /* Section 5: 3-Tier Membership Pass Matrix */
+    .pricing-sec { padding: 80px 0; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .tier-card {
+      padding: 32px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between; position: relative;
     }
-    .btn-submit:hover { background: var(--primary-hover); }
+    .tier-card.featured { border-color: var(--primary); background: #171F30; }
+    .tier-badge {
+      position: absolute; top: 16px; right: 16px; padding: 4px 10px;
+      border-radius: 6px; background: var(--primary); color: #fff; font-size: 10px; font-weight: 800; text-transform: uppercase;
+    }
+    .tier-title { font-family: var(--display); font-size: 20px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 8px; }
+    .tier-price { font-family: var(--display); font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 16px; }
+    .tier-features { list-style: none; margin-bottom: 24px; font-size: 13px; color: var(--text-muted); line-height: 2; }
+    .tier-features li { display: flex; align-items: center; gap: 8px; }
+    .btn-tier {
+      padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.08);
+      color: #fff; text-align: center; text-decoration: none; font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.5px; transition: 0.2s;
+    }
+    .btn-tier:hover { background: var(--primary); }
 
-    /* Location */
-    .location-sec { padding: 56px 0; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); }
-    .location-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: center; }
-    .map-frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); height: 260px; }
-    .map-frame iframe { width: 100%; height: 100%; border: 0; }
-
-    /* Footer */
-    footer { padding: 40px 0; border-top: 1px solid var(--border); background: var(--bg); font-size: 12px; color: var(--text-muted); }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
     .footer-flex { display: flex; justify-content: space-between; align-items: center; }
 
     @media (max-width: 768px) {
-      .hero-grid, .location-grid, .form-grid { grid-template-columns: 1fr; }
-      .metrics-strip { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 30px; }
-      .btn-phone { display: none; }
+      .hero-athletic-grid { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: 1fr 1fr; }
+      .discipline-grid, .pricing-grid, .coach-box { grid-template-columns: 1fr; }
+      .hero-athletic h1 { font-size: 36px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Header -->
+  <div class="ticker-bar">
+    ⚡ 24/7 Biometric Entry · 12,000 SQ FT High-Performance Arena · Eleiko Loaded
+  </div>
+
   <header>
-    <div class="container header-flex">
-      <div class="brand">
-        <div class="brand-logo">XF</div>
-        <div>
-          <div class="brand-title">Xtreme Fitness &amp; Athletic Club</div>
-          <div class="brand-sub">
-            <span class="pulse"></span>
-            <span>Open Today · Commercial Area, Lahore</span>
-          </div>
-        </div>
+    <div class="container nav-flex">
+      <div>
+        <div class="brand-title">Xtreme Fitness &amp; Athletic Club</div>
+        <div style="font-size:11px;color:var(--text-muted);">Commercial Area · DHA Phase 5, Lahore</div>
       </div>
-      <div class="header-actions">
-        <a href="tel:+923219876543" class="btn-phone">📞 +92 321 9876543</a>
-        <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20consult%20about%20your%20services%20in%20Commercial%20Area." target="_blank" class="btn-wa">
-                Book on WhatsApp
-              </a>
-      </div>
+      <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20claim%20a%201-day%20VIP%20trial%20pass." target="_blank" class="btn-claim-nav">
+        Claim Day Pass →
+      </a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- 1. Heavyweight Arena Hero -->
+  <section class="hero-athletic">
     <div class="container">
-      <div class="hero-grid">
+      <div class="hero-athletic-grid">
         <div>
-          <div class="location-tag">📍 High-Performance Training Ground · Commercial Area</div>
-          <h1>Elite Strength, Conditioning &amp; Coaching</h1>
-          <p class="hero-p">Transform your physical potential with Olympic-grade equipment, tailored athletic protocols, and high-energy coaching in Commercial Area.</p>
-          
-          <div class="metrics-strip">
-            <div class="metric-card">
-              <div class="metric-val">4.9 ★</div>
-              <div class="metric-lbl">184+ Reviews</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-val" style="color:var(--primary);">100%</div>
-              <div class="metric-lbl">Verified Facility</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-val">Commercial Area</div>
-              <div class="metric-lbl">Prime Lahore Access</div>
-            </div>
+          <div class="live-floor-badge">
+            <span class="pulse-dot"></span>
+            <span>Live Arena Floor Active · 24/7 Access</span>
           </div>
-
-          <div class="hero-ctas">
-            <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20schedule%20an%20inquiry." target="_blank" class="cta-main">
-                    💬 Book on WhatsApp →
-                  </a>
-            <a href="#signature-matcher" class="cta-outline">Select Your Per ↓</a>
-          </div>
+          <h1>Uncompromising <span>Strength</span> & Athletic Performance.</h1>
+          <p>DHA's premier athletic training facility engineered for hypertrophy, Olympic lifting, and periodized metabolic conditioning. Zero crowds. Real coaching.</p>
+          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20claim%20a%201-day%20trial%20pass%20and%20tour%20the%20gym." target="_blank" class="btn-claim-large">
+            <span>Claim Free 1-Day Trial Pass</span> →
+          </a>
         </div>
-
-        <div>
-          <div class="showcase-box">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Xtreme Fitness &amp; Athletic Club">
-            <div class="showcase-info">
-              <strong style="font-size:14px;color:#1C1917;">Xtreme Fitness &amp; Athletic Club</strong>
-              <div style="font-size:12px;color:#78716C;margin-top:2px;">Commercial Area, DHA Phase 5, Lahore</div>
+        <div class="hero-media-card">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Xtreme Fitness & Athletic Club">
+          <div class="media-card-bar">
+            <div>
+              <div style="font-weight:700;font-size:13px;color:#fff;">Xtreme Fitness &amp; Athletic Club</div>
+              <div style="font-size:11px;color:var(--text-muted);">DHA Phase 5, Lahore</div>
             </div>
-          </div>
-
-          <div class="doc-dock">
-            <div class="doc-flex">
-              <div class="doc-avatar">HC</div>
-              <div>
-                <div style="font-size:12px;font-weight:700;color:#1C1917;">Head Strength Coach &amp; Floor Lead <span style="padding:1px 6px;background:#D1FAE5;color:#065F46;border-radius:4px;font-size:9px;margin-left:4px;">On Floor</span></div>
-                <div style="font-size:11px;color:#78716C;">CSCS Certified Performance Coach</div>
-              </div>
-            </div>
-            <a href="https://wa.me/923219876543?text=Hi%20Coach!%20I%20would%20like%20to%20claim%20a%20trial%20pass%20and%20tour%20Xtreme%20Fitness%20%26%20Athletic%20Club." target="_blank" style="padding:6px 12px;border-radius:6px;background:#D1FAE5;color:#065F46;font-size:11px;font-weight:700;text-decoration:none;">Chat Direct</a>
+            <div style="font-family:var(--display);font-size:14px;color:var(--accent);font-weight:800;">4.9★ (184+ Reviews)</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Signature Element: Assessment & Matcher Matrix -->
-  <section class="signature-sec" id="signature-matcher">
+  <!-- 2. 4 Hardware Proof Badges -->
+  <section class="specs-strip">
     <div class="container">
-      <span class="sec-tag">Athletic Goal Assessment</span>
-      <h2 class="sec-title">Select Your Performance Target &amp; Training Split</h2>
-      <p class="sec-sub">Choose your primary fitness objective to receive custom workout and pass details in Commercial Area.</p>
-
-      <div class="goals-grid">
-        
-      <div class="goal-card" onclick="selectGoal('Hypertrophy &amp; Muscle Building')">
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1a2 2 0 0 0-2.83 0l-1.58 1.58a2 2 0 0 1-2.83 0l-1.59-1.58a2 2 0 0 0-2.83 0L7.76 21.58a2 2 0 0 1-2.83 0L3.41 20.06a2 2 0 0 1 0-2.83l1.58-1.58a2 2 0 0 0 0-2.83L3.41 11.24a2 2 0 0 1 0-2.83l1.58-1.58a2 2 0 0 0 0-2.83L3.41 2.42a2 2 0 0 1 0-2.83l1.52-1.52"/><path d="m14.5 9.5 3-3"/></svg>
-            </div>
-            <span style="padding:2px 8px;border-radius:4px;background:rgba(245,158,11,0.15);color:#FBBF24;font-size:10px;font-weight:700;letter-spacing:0.5px;">MOST REQUESTED</span>
-          </div>
-          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">Hypertrophy &amp; Muscle Building</h4>
-          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Targeted resistance splits with calibrated free weights</p>
+      <div class="specs-grid">
+        <div class="spec-box">
+          <div class="spec-val">12,000 SQ FT</div>
+          <div class="spec-lbl">Arena Footprint</div>
+          <div class="spec-sub">Dedicated strength & turf zones</div>
         </div>
-        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20inquire%20about%20Hypertrophy%20%26%20Muscle%20Building%20in%20Commercial%20Area." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Claim Pass →</a>
+        <div class="spec-box">
+          <div class="spec-val">100% ELEIKO</div>
+          <div class="spec-lbl">Calibrated Hardware</div>
+          <div class="spec-sub">IPF competition barbells & plates</div>
         </div>
-      </div>
-    
-      <div class="goal-card" onclick="selectGoal('Olympic Strength &amp; Power')">
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.45.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-            </div>
-            
-          </div>
-          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">Olympic Strength &amp; Power</h4>
-          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Dedicated lifting platforms &amp; coach-led technique</p>
+        <div class="spec-box">
+          <div class="spec-val">ROGUE MONSTER</div>
+          <div class="spec-lbl">Power Rigs & Turf</div>
+          <div class="spec-sub">40m sled track & lifting bays</div>
         </div>
-        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20inquire%20about%20Olympic%20Strength%20%26%20Power%20in%20Commercial%20Area." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Claim Pass →</a>
+        <div class="spec-box">
+          <div class="spec-val">HEPA MEDICAL</div>
+          <div class="spec-lbl">Air Exchange</div>
+          <div class="spec-sub">Continuous climate-controlled airflow</div>
         </div>
-      </div>
-    
-      <div class="goal-card" onclick="selectGoal('High-Intensity Metabolic HIIT')">
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
-            </div>
-            <span style="padding:2px 8px;border-radius:4px;background:rgba(245,158,11,0.15);color:#FBBF24;font-size:10px;font-weight:700;letter-spacing:0.5px;">MOST REQUESTED</span>
-          </div>
-          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">High-Intensity Metabolic HIIT</h4>
-          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Cardiovascular stamina &amp; calorie-burning circuits</p>
-        </div>
-        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20inquire%20about%20High-Intensity%20Metabolic%20HIIT%20in%20Commercial%20Area." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Claim Pass →</a>
-        </div>
-      </div>
-    
-      <div class="goal-card" onclick="selectGoal('1-on-1 Personalized Coaching')">
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-            </div>
-            
-          </div>
-          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">1-on-1 Personalized Coaching</h4>
-          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Custom macro protocols &amp; biomechanical form coaching</p>
-        </div>
-        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20inquire%20about%201-on-1%20Personalized%20Coaching%20in%20Commercial%20Area." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Claim Pass →</a>
-        </div>
-      </div>
-    
-      <div class="goal-card" onclick="selectGoal('Athletic Recovery &amp; Mobility')">
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.48 12H2"/></svg>
-            </div>
-            
-          </div>
-          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">Athletic Recovery &amp; Mobility</h4>
-          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Mobility routines &amp; functional joint stabilization</p>
-        </div>
-        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20inquire%20about%20Athletic%20Recovery%20%26%20Mobility%20in%20Commercial%20Area." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Claim Pass →</a>
-        </div>
-      </div>
-    
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="services-sec">
+  <!-- 3. Training Disciplines (2x2 Heavy-Duty Matrix) -->
+  <section class="disciplines-sec">
     <div class="container">
-      <span class="sec-tag">Comprehensive Care</span>
-      <h2 class="sec-title">Specialty Services & Capabilities</h2>
-      <p class="sec-sub">Delivered with verified craftsmanship and dedicated customer satisfaction.</p>
+      <div class="sec-tag">Performance Programs</div>
+      <h2 class="sec-title">Engineered Training Disciplines.</h2>
       
-      <div class="services-grid">
-        
-      <div class="service-card">
-        <div>
-          <div class="service-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h3>Strength &amp; Functional Hypertrophy</h3>
-          <p>Olympic free-weight platforms, Eleiko calibrated plates, and periodized hypertrophy protocols.</p>
-          <ul class="features">
-            <li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Calibrated Olympic Plates</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Custom Lifting Zones</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Bio-Mechanical Guidance</span></li>
-          </ul>
+      <div class="discipline-grid">
+        <div class="d-card">
+          <div>
+            <div class="d-card-header">
+              <div class="d-num">[01]</div>
+              <div style="color:var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1a2 2 0 0 0-2.83 0l-1.58 1.58a2 2 0 0 1-2.83 0l-1.59-1.58a2 2 0 0 0-2.83 0L7.76 21.58a2 2 0 0 1-2.83 0L3.41 20.06a2 2 0 0 1 0-2.83l1.58-1.58a2 2 0 0 0 0-2.83L3.41 11.24a2 2 0 0 1 0-2.83l1.58-1.58a2 2 0 0 0 0-2.83L3.41 2.42a2 2 0 0 1 0-2.83l1.52-1.52"/><path d="m14.5 9.5 3-3"/></svg></div>
+            </div>
+            <div class="d-title">Hypertrophy & Free Weights</div>
+            <div class="d-desc">Periodized mass protocols, calibrated dumbbell racks up to 60kg, and custom biomechanical leverage machines.</div>
+          </div>
+          <div class="d-tags">
+            <span class="d-tag">Calibrated Plates</span>
+            <span class="d-tag">Lifting Platforms</span>
+            <span class="d-tag">Mass Architecture</span>
+          </div>
         </div>
-        <div class="service-footer">
-          <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20consult%20about%3A%20Strength%20%26%20Functional%20Hypertrophy" target="_blank" class="order-btn">
-            Book on WhatsApp →
-          </a>
+
+        <div class="d-card">
+          <div>
+            <div class="d-card-header">
+              <div class="d-num">[02]</div>
+              <div style="color:var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.45.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+            </div>
+            <div class="d-title">Olympic Weightlifting & Power</div>
+            <div class="d-desc">Dedicated Eleiko drop platforms, chalk stations, bumper plates, and coach-supervised technical lifting.</div>
+          </div>
+          <div class="d-tags">
+            <span class="d-tag">Eleiko Barbells</span>
+            <span class="d-tag">Technique Coaching</span>
+            <span class="d-tag">Explosive Power</span>
+          </div>
         </div>
-      </div>
-    
-      <div class="service-card">
-        <div>
-          <div class="service-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h3>1-on-1 Athletic Performance Coaching</h3>
-          <p>Specialized biomechanical coaching tailored to muscle gain, body composition, and functional power.</p>
-          <ul class="features">
-            <li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Body Composition Telemetry</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Form Correction &amp; Video Analysis</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Weekly Target Audits</span></li>
-          </ul>
+
+        <div class="d-card">
+          <div>
+            <div class="d-card-header">
+              <div class="d-num">[03]</div>
+              <div style="color:var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+            </div>
+            <div class="d-title">High-Intensity Conditioning</div>
+            <div class="d-desc">Sled pushes on 40m turf, Concept2 rowers, SkiErgs, assault bikes, and VO2 max metabolic circuits.</div>
+          </div>
+          <div class="d-tags">
+            <span class="d-tag">Turf Sprints</span>
+            <span class="d-tag">Concept2 Suite</span>
+            <span class="d-tag">VO2 Max Burn</span>
+          </div>
         </div>
-        <div class="service-footer">
-          <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20consult%20about%3A%201-on-1%20Athletic%20Performance%20Coaching" target="_blank" class="order-btn">
-            Book on WhatsApp →
-          </a>
+
+        <div class="d-card">
+          <div>
+            <div class="d-card-header">
+              <div class="d-num">[04]</div>
+              <div style="color:var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            </div>
+            <div class="d-title">1-on-1 Transformation</div>
+            <div class="d-desc">Tailored macro protocols, weekly body composition telemetry, and biomechanical form audits.</div>
+          </div>
+          <div class="d-tags">
+            <span class="d-tag">InBody Scans</span>
+            <span class="d-tag">Custom Macros</span>
+            <span class="d-tag">Accountability</span>
+          </div>
         </div>
-      </div>
-    
-      <div class="service-card">
-        <div>
-          <div class="service-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h3>High-Intensity Metabolic Sprints</h3>
-          <p>Coach-led interval sessions engineered for cardiovascular endurance, VO2 max, and stamina.</p>
-          <ul class="features">
-            <li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Dynamic HIIT Sprints</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>High-Energy Athletic Squad</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>All Performance Levels</span></li>
-          </ul>
-        </div>
-        <div class="service-footer">
-          <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20consult%20about%3A%20High-Intensity%20Metabolic%20Sprints" target="_blank" class="order-btn">
-            Book on WhatsApp →
-          </a>
-        </div>
-      </div>
-    
-      <div class="service-card">
-        <div>
-          <div class="service-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h3>Nutrition &amp; Athletic Macro Planning</h3>
-          <p>Structured macronutrient guidance and metabolic planning for sustainable performance.</p>
-          <ul class="features">
-            <li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Caloric Baseline Analysis</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Custom Macro Protocols</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Accountability Tracking</span></li>
-          </ul>
-        </div>
-        <div class="service-footer">
-          <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20consult%20about%3A%20Nutrition%20%26%20Athletic%20Macro%20Planning" target="_blank" class="order-btn">
-            Book on WhatsApp →
-          </a>
-        </div>
-      </div>
-    
       </div>
     </div>
   </section>
 
-  <!-- Real Reviews -->
-  <section class="reviews-sec">
+  <!-- 4. CSCS Coaching Command Roster -->
+  <section class="coach-sec">
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;">
+      <div class="coach-box">
         <div>
-          <span class="sec-tag" style="color:#B45309;">Verified Proof</span>
-          <h2 class="sec-title" style="margin-top:2px;">Trusted by Clients Across Lahore</h2>
+          <div class="coach-avatar">HC</div>
+          <div style="font-family:var(--display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;">Head Strength Coach & Floor Leads</div>
+          <div style="font-size:12px;color:var(--accent);font-weight:700;margin-top:4px;">CSCS Certified · Olympic Lifting & Biomechanics</div>
         </div>
-        <div style="padding:6px 12px;background:#fff;border-radius:8px;border:1px solid var(--border);font-size:12px;font-weight:700;">
-          ★ 4.9 Rating · 184+ Reviews
+        <div style="border-left:1px solid var(--border);padding-left:32px;">
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:16px;">
+            "We don't do generic workout routines. Every member at Xtreme Fitness trains with purpose, verified lifting form, and structured progressive overload."
+          </p>
+          <a href="https://wa.me/923219876543?text=Hi%20Coach!%20I%20would%20like%20to%20consult%20about%201-on-1%20athletic%20coaching%20at%20Xtreme%20Fitness%20%26%20Athletic%20Club." target="_blank" style="color:#FB7185;font-weight:700;text-decoration:none;font-size:13px;">
+            Chat Direct with Coaching Staff on WhatsApp →
+          </a>
         </div>
       </div>
-      <div class="reviews-grid">
-        
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>Top-rated Gym in Lahore with authentic Google verified customer satisfaction.</p>
-          <div class="review-meta">
-            <strong>Google Maps Community</strong>
-            <span>4.9★ Satisfaction</span>
-          </div>
-        </div>
+    </div>
+  </section>
+
+  <!-- 5. 3-Tier Membership Pass Matrix -->
+  <section class="pricing-sec">
+    <div class="container">
+      <div class="sec-tag">Membership Passes</div>
+      <h2 class="sec-title">Transparent Tier Options.</h2>
       
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking Form -->
-  <section class="booking-sec" id="booking">
-    <div class="container">
-      <div class="form-box">
-        <div style="text-align:center;margin-bottom:20px;">
-          <span class="sec-tag">Direct WhatsApp Dispatch</span>
-          <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin-top:2px;">Request an Appointment or Consultation</h2>
-          <p style="font-size:12px;color:var(--text-muted);">Our team in Commercial Area will confirm your time window on WhatsApp promptly.</p>
-        </div>
-
-        <form onsubmit="handleFormSubmit(event)">
-          <div class="form-group">
-            <label>1. Select Treatment</label>
-            <select id="formService" required>
-              <option value="Strength &amp; Functional Hypertrophy">Strength &amp; Functional Hypertrophy</option><option value="1-on-1 Athletic Performance Coaching">1-on-1 Athletic Performance Coaching</option><option value="High-Intensity Metabolic Sprints">High-Intensity Metabolic Sprints</option><option value="Nutrition &amp; Athletic Macro Planning">Nutrition &amp; Athletic Macro Planning</option>
-            </select>
+      <div class="pricing-grid">
+        <div class="tier-card">
+          <div>
+            <div class="tier-title">VIP 1-Day Trial Pass</div>
+            <div class="tier-price">FREE</div>
+            <ul class="tier-features">
+              <li>✓ Full arena floor access</li>
+              <li>✓ Eleiko lifting platform trial</li>
+              <li>✓ Coach movement screen</li>
+            </ul>
           </div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>2. Full Name</label>
-              <input type="text" id="formName" placeholder="Patient Name" required>
-            </div>
-            <div class="form-group">
-              <label>3. Contact WhatsApp Number</label>
-              <input type="tel" id="formPhone" placeholder="0300 1234567" required>
-            </div>
-          </div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>4. Preferred Date</label>
-              <input type="date" id="formDate" required>
-            </div>
-            <div class="form-group">
-              <label>5. Preferred Time Window</label>
-              <select id="formTime">
-                <option value="Morning (11:00 AM - 02:00 PM)">Morning (11:00 AM - 02:00 PM)</option>
-                <option value="Afternoon (03:00 PM - 06:00 PM)">Afternoon (03:00 PM - 06:00 PM)</option>
-                <option value="Evening (06:00 PM - 09:00 PM)" selected>Evening (06:00 PM - 09:00 PM)</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>6. Additional Notes or Specific Requirements</label>
-            <textarea id="formNotes" rows="2" placeholder="Any specific questions, requirements, or focus areas?"></textarea>
-          </div>
-          <button type="submit" class="btn-submit">
-            💬 Submit Request on WhatsApp
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Location -->
-  <section class="location-sec">
-    <div class="container">
-      <div class="location-grid">
-        <div>
-          <span class="sec-tag" style="color:var(--primary);">Location & Directions</span>
-          <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin:4px 0 8px;">Commercial Area</h2>
-          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Commercial Area, DHA Phase 5, Lahore</p>
-          <div style="padding:12px;background:#fff;border-radius:10px;border:1px solid var(--border);margin-bottom:14px;font-size:12px;">
-            <strong>🕒 Operating Hours</strong>
-            <div style="color:var(--text-muted);margin-top:2px;">Monday – Sunday: Open Daily</div>
-          </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Xtreme%20Fitness%20%26%20Athletic%20Club%2C%20Commercial%20Area%2C%20DHA%20Phase%205%2C%20Lahore" target="_blank" style="padding:8px 14px;border-radius:8px;background:#fff;border:1px solid var(--border);color:#1C1917;font-size:12px;font-weight:600;text-decoration:none;">
-            🗺️ Open Google Maps Directions ↗
+          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20claim%20my%20free%201-day%20trial%20pass." target="_blank" class="btn-tier">
+            Claim Free Pass →
           </a>
         </div>
-        <div>
-          <div class="map-frame">
-            <iframe src="https://maps.google.com/maps?q=Xtreme%20Fitness%20%26%20Athletic%20Club%2C%20Commercial%20Area%2C%20DHA%20Phase%205%2C%20Lahore&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Xtreme Fitness &amp; Athletic Club Map"></iframe>
+
+        <div class="tier-card featured">
+          <div class="tier-badge">Most Popular</div>
+          <div>
+            <div class="tier-title">Open Arena Monthly</div>
+            <div class="tier-price">Full Access</div>
+            <ul class="tier-features">
+              <li>✓ 24/7 Biometric keyless access</li>
+              <li>✓ All lifting platforms & turf</li>
+              <li>✓ Chilled locker & recovery room</li>
+              <li>✓ Monthly InBody telemetry</li>
+            </ul>
           </div>
+          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20join%20on%20the%20Open%20Arena%20Monthly%20pass." target="_blank" class="btn-tier" style="background:var(--primary);">
+            Join on WhatsApp →
+          </a>
+        </div>
+
+        <div class="tier-card">
+          <div>
+            <div class="tier-title">1-on-1 Performance</div>
+            <div class="tier-price">Coaching</div>
+            <ul class="tier-features">
+              <li>✓ 3x Weekly private coach sessions</li>
+              <li>✓ Custom macro & meal strategy</li>
+              <li>✓ Video form breakdown</li>
+              <li>✓ Bi-weekly body composition audit</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20apply%20for%201-on-1%20performance%20coaching." target="_blank" class="btn-tier">
+            Apply for Coaching →
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container footer-flex">
-      <div>
-        <strong style="color:#1C1917;font-size:13px;">Xtreme Fitness &amp; Athletic Club</strong>
-        <div>Gym · Commercial Area, Lahore</div>
-      </div>
-      <div>Digital Experience crafted for Xtreme Fitness &amp; Athletic Club</div>
+      <div>© 2026 Xtreme Fitness &amp; Athletic Club · All Rights Reserved.</div>
+      <div>Commercial Area, DHA Phase 5, Lahore · +92 321 9876543</div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
-    function selectGoal(goal) {
-      document.getElementById('formNotes').value = "Selected Goal: " + goal;
-      const el = document.getElementById('booking');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const service = document.getElementById('formService').value;
-      const name = document.getElementById('formName').value;
-      const phone = document.getElementById('formPhone').value;
-      const date = document.getElementById('formDate').value;
-      const time = document.getElementById('formTime').value;
-      const notes = document.getElementById('formNotes').value;
-
-      const msg = "Hi Xtreme Fitness &amp; Athletic Club! 👋\n\nI would like to request an appointment/inquiry via your website:\n\n👤 *Name:* " + name + "\n📞 *Phone:* " + phone + "\n💼 *Service:* " + service + "\n📅 *Date & Time:* " + date + " at " + time + "\n📝 *Notes:* " + (notes || "None") + "\n\nPlease confirm availability.";
-      window.open("https://wa.me/923219876543?text=" + encodeURIComponent(msg), "_blank");
-    }
-  </script>
 </body>
 </html>
