@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rahman and Rahman Dental Surgeons · Dental clinic in Shop #G-010</title>
+  <meta name="description" content="Experience high-standard Dental clinic at Rahman and Rahman Dental Surgeons, Shop #G-010, Packages Mall, Khayaban-e-Iqbal, Sector XX DHA Phase 3, Lahore, Pakistan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --secondary: #0284c7;
+      --accent: #10b981;
+      --bg: #09121d;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Navbar */
+    .nav-wrap { position: sticky; top: 12px; z-index: 50; padding: 0 16px; }
+    .navbar {
+      max-width: 1140px; margin: 0 auto;
+      background: rgba(10, 16, 26, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-logo {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; font-size: 18px;
+    }
+    .brand-name { font-weight: 700; font-size: 16px; color: #fff; }
+    .brand-cat { font-size: 11px; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-btn {
+      padding: 8px 18px; border-radius: 10px; font-size: 13px; font-weight: 700;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-btn-wa { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; }
+    .nav-btn-wa:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3); }
+
+    /* Hero */
+    .hero { padding: 60px 0 80px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 600;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 46px; font-weight: 800; line-height: 1.15; color: #fff; margin-bottom: 16px; }
+    .hero-highlight { font-size: 20px; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+    .hero-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; max-width: 540px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .cta-primary {
+      padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3); transition: all 0.2s;
+    }
+    .cta-primary:hover { transform: translateY(-2px); }
+    .cta-sec {
+      padding: 14px 24px; border-radius: 12px; font-size: 15px; font-weight: 600;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .cta-sec:hover { background: rgba(255,255,255,0.1); }
+
+    /* Media Box */
+    .media-frame {
+      position: relative; border-radius: 24px; overflow: hidden;
+      border: 1px solid var(--border); background: #0c121e;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); height: 340px;
+    }
+    .media-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .media-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+      display: flex; flex-direction: column; justify-content: space-between; padding: 20px;
+    }
+    .media-tag {
+      align-self: flex-start; padding: 4px 12px; border-radius: 99px;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2); font-size: 11px; font-weight: 700; color: #fff;
+    }
+    .media-caption h4 { color: #fff; font-size: 16px; font-weight: 700; }
+    .media-caption p { color: var(--accent); font-size: 12px; font-weight: 600; }
+
+    /* Trust Strip */
+    .trust-strip { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.015); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .trust-card {
+      padding: 18px; border-radius: 16px; background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border); text-align: left;
+    }
+    .trust-title { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .trust-sub { font-size: 13px; color: var(--text-muted); }
+
+    /* Services */
+    .section { padding: 80px 0; }
+    .sec-head { text-align: center; max-width: 600px; margin: 0 auto 50px; }
+    .sec-tag { font-size: 12px; text-transform: uppercase; font-weight: 700; color: var(--accent); letter-spacing: 2px; }
+    .sec-head h2 { font-size: 36px; font-weight: 800; color: #fff; margin-top: 8px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .service-card {
+      padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); }
+    .service-num {
+      width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: #fff; margin-bottom: 16px;
+    }
+    .service-card h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .service-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+    .features { list-style: none; margin-bottom: 20px; font-size: 13px; color: #cbd5e1; }
+    .features li { margin-bottom: 6px; }
+    .service-footer { border-top: 1px solid var(--border); padding-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .price-tag { font-size: 12px; font-weight: 700; color: var(--accent); }
+    .order-btn {
+      padding: 10px; border-radius: 10px; background: rgba(255,255,255,0.08); color: #fff;
+      font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; transition: 0.2s;
+    }
+    .order-btn:hover { background: var(--primary); }
+
+    /* Reviews */
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .review-card {
+      padding: 24px; border-radius: 18px; background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+    }
+    .stars { color: #f59e0b; margin-bottom: 10px; letter-spacing: 2px; font-size: 16px; }
+    .review-card p { font-size: 14px; font-style: italic; color: #e2e8f0; margin-bottom: 16px; }
+    .review-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); }
+
+    /* Booking / Order Wizard */
+    .wizard-card {
+      max-width: 700px; margin: 0 auto; padding: 40px; border-radius: 28px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; color: #cbd5e1; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 16px; border-radius: 12px; background: rgba(0,0,0,0.5);
+      border: 1px solid var(--border); color: #fff; font-size: 14px; font-family: inherit;
+    }
+    .submit-btn {
+      width: 100%; padding: 16px; border-radius: 14px; font-size: 16px; font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff;
+      border: none; cursor: pointer; transition: 0.2s;
+    }
+    .submit-btn:hover { transform: translateY(-1px); }
+
+    /* Footer */
+    footer { padding: 50px 0; border-top: 1px solid var(--border); background: #060a12; text-align: center; font-size: 13px; color: var(--text-muted); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .hero h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Floating Nav -->
+  <div class="nav-wrap">
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-logo">R</div>
+        <div>
+          <div class="brand-name">Rahman and Rahman Dental Surgeons</div>
+          <div class="brand-cat">● Open Now · Dental clinic</div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="https://wa.me/03222231119?text=Hi%20Rahman%20and%20Rahman%20Dental%20Surgeons!%20I%20would%20like%20to%20inquire%20about%20your%20services%20%2F%20menu." target="_blank" class="nav-btn nav-btn-wa">💬 WhatsApp</a>
+      </div>
+    </header>
+  </div>
+
+  <!-- 2. Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">★ Verified Business · Shop #G-010</div>
+          <h1>Rahman and Rahman Dental Surgeons</h1>
+          <div class="hero-highlight">Experience Exceptional Dental clinic</div>
+          <p class="hero-sub">Delivering dedicated, high-standard dental clinic services located conveniently in Shop #G-010.</p>
+          <div class="hero-ctas">
+            <a href="https://wa.me/03222231119?text=Hi%20Rahman%20and%20Rahman%20Dental%20Surgeons!%20I%20would%20like%20to%20inquire%20about%20services." target="_blank" class="cta-primary">💬 Book on WhatsApp</a>
+            <a href="tel:03222231119" class="cta-sec">📞 Call 03222231119</a>
+          </div>
+        </div>
+        <div>
+          <div class="media-frame">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnHwwgP5egAMujkqKt_8v-fRKdAxrg5Xf0XoyA05G08k5vOdTV2rVYWXZCWFn1ZAWvv7u7UeqrUDQQOMaQmAp_WBuNAVL8RszcStg7EiBKiED-U_9L0oF_PWiR6mn6rO8PO9ILhkQpw2w0S=w426-h240-k-no" alt="Rahman and Rahman Dental Surgeons Showcase" onerror="this.src='https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80'">
+            <div class="media-overlay">
+              <div class="media-tag">✓ 100% Verified Place</div>
+              <div class="media-caption">
+                <h4>Rahman and Rahman Dental Surgeons</h4>
+                <p>Dental clinic · Shop #G-010</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Trust Strip -->
+  <div class="trust-strip">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-title">Verified Location</div>
+          <div class="trust-sub">Shop #G-010, Lahore</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-title">Google Rating</div>
+          <div class="trust-sub">4.8★ Satisfaction</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-title">Fast Response</div>
+          <div class="trust-sub">Direct WhatsApp Service</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-title">Quality Standard</div>
+          <div class="trust-sub">100% Customer First</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Services / Menu -->
+  <section class="section">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-tag">Featured Services</div>
+        <h2>Tailored Solutions for You</h2>
+      </div>
+      <div class="services-grid">
+        
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Comprehensive Dental Consultations &amp; Diagnostics</h3>
+        <p>Advanced digital clinical examination, oral health diagnostics, and personalized treatment planning.</p>
+        <ul class="features">
+          <li>✓ Digital Oral Examination</li><li>✓ Preventive Care Plans</li><li>✓ Patient Comfort Care</li>
+        </ul>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/03222231119?text=Hi%20Rahman%20and%20Rahman%20Dental%20Surgeons!%20I%20would%20like%20to%20order%20%2F%20inquire%20about%3A%20Comprehensive%20Dental%20Consultations%20%26%20Diagnostics" target="_blank" class="order-btn">
+            Book on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Cosmetic Dentistry &amp; Smile Enhancement</h3>
+        <p>Precision dental aesthetics, teeth whitening, veneers, and smile transformation procedures.</p>
+        <ul class="features">
+          <li>✓ Professional Teeth Whitening</li><li>✓ Aesthetic Restorations</li><li>✓ Enamel Care</li>
+        </ul>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/03222231119?text=Hi%20Rahman%20and%20Rahman%20Dental%20Surgeons!%20I%20would%20like%20to%20order%20%2F%20inquire%20about%3A%20Cosmetic%20Dentistry%20%26%20Smile%20Enhancement" target="_blank" class="order-btn">
+            Book on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Restorative Care &amp; Orthodontics</h3>
+        <p>Structural tooth restorations, alignment therapies, and long-term oral rehabilitation.</p>
+        <ul class="features">
+          <li>✓ Precision Fillings &amp; Crowns</li><li>✓ Alignment Consultations</li><li>✓ Long-term Durability</li>
+        </ul>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/03222231119?text=Hi%20Rahman%20and%20Rahman%20Dental%20Surgeons!%20I%20would%20like%20to%20order%20%2F%20inquire%20about%3A%20Restorative%20Care%20%26%20Orthodontics" target="_blank" class="order-btn">
+            Book on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>Pediatric &amp; Family Dental Care</h3>
+        <p>Gentle, stress-free dental care designed specifically for families and young patients.</p>
+        <ul class="features">
+          <li>✓ Gentle Approach</li><li>✓ Family Oral Wellness</li><li>✓ Preventive Fluoride Care</li>
+        </ul>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/03222231119?text=Hi%20Rahman%20and%20Rahman%20Dental%20Surgeons!%20I%20would%20like%20to%20order%20%2F%20inquire%20about%3A%20Pediatric%20%26%20Family%20Dental%20Care" target="_blank" class="order-btn">
+            Book on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Real Reviews -->
+  <section class="section" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-tag">Google Verified Feedback</div>
+        <h2>Trusted by Locals in Lahore</h2>
+      </div>
+      <div class="reviews-grid">
+        
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Top-rated Dental clinic in Lahore with authentic Google verified customer satisfaction.</p>
+          <div class="review-meta">
+            <strong>Google Maps Community</strong>
+            <span>4.8★ Satisfaction</span>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Action Box / Order & Booking Wizard -->
+  <section class="section" id="action-box">
+    <div class="container">
+      <div class="wizard-card">
+        <div class="sec-head" style="margin-bottom: 24px;">
+          <div class="sec-tag">Direct Inquiry</div>
+          <h2 style="font-size: 26px;">Request Online Appointment</h2>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Choose your preferred service slot for prompt confirmation.</p>
+        </div>
+        <form onsubmit="handleDispatch(event)">
+          <div class="form-group">
+            <label>1. Select Service</label>
+            <select id="f-service">
+              <option value="Comprehensive Dental Consultations &amp; Diagnostics">Comprehensive Dental Consultations &amp; Diagnostics</option><option value="Cosmetic Dentistry &amp; Smile Enhancement">Cosmetic Dentistry &amp; Smile Enhancement</option><option value="Restorative Care &amp; Orthodontics">Restorative Care &amp; Orthodontics</option><option value="Pediatric &amp; Family Dental Care">Pediatric &amp; Family Dental Care</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>2. Your Full Name</label>
+            <input type="text" id="f-name" required placeholder="e.g. Ali Ahmed">
+          </div>
+          <div class="form-group">
+            <label>3. Contact Phone / WhatsApp</label>
+            <input type="tel" id="f-phone" required placeholder="e.g. 0300 1234567">
+          </div>
+          <div class="form-group">
+            <label>4. Preferred Date & Time</label>
+            <input type="text" id="f-date" placeholder="e.g. Tomorrow at 7:00 PM">
+          </div>
+          <div class="form-group">
+            <label>5. Specific Notes / Requests</label>
+            <textarea id="f-notes" rows="2" placeholder="Any special requests or instructions?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            💬 Submit on WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Footer -->
+  <footer>
+    <div class="container">
+      <p style="color: #fff; font-weight: 700; margin-bottom: 6px;">Rahman and Rahman Dental Surgeons</p>
+      <p>Dental clinic · Shop #G-010, Packages Mall, Khayaban-e-Iqbal, Sector XX DHA Phase 3, Lahore, Pakistan</p>
+      <p style="margin-top: 16px; font-size: 11px; opacity: 0.6;">Digital Experience created by Octaite Team</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleDispatch(e) {
+      e.preventDefault();
+      const s = document.getElementById('f-service').value;
+      const n = document.getElementById('f-name').value;
+      const p = document.getElementById('f-phone').value;
+      const d = document.getElementById('f-date').value;
+      const notes = document.getElementById('f-notes').value;
+      const wa = "03222231119";
+      
+      const msg = "Hi Rahman and Rahman Dental Surgeons! 👋\n\nI would like to book a service:\n\n👤 Name: " + n + "\n📞 Phone: " + p + "\n💼 Service: " + s + "\n📅 Date/Time: " + d + "\n📝 Notes: " + (notes || "None");
+      
+      if (wa) {
+        window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(msg), "_blank");
+      } else {
+        alert("Thank you! Your request has been recorded.");
+      }
+    }
+  </script>
+</body>
+</html>
