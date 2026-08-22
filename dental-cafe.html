@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dental Cafe - DHA Phase 4 · Dentist in Sector CCA</title>
+  <meta name="description" content="Experience gentle, anxiety-free micro-dentistry and cosmetic smile design in a tranquil, state-of-the-art clinic lounge in Sector CCA, Lahore. Backed by 38+ five-star patient reviews.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800&family=Fraunces:opsz,wght@9..144,600;700;800&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0D3B2E;
+      --primary-hover: #1B4D3E;
+      --accent: #C9A86A;
+      --bg: #FDFBF7;
+      --card-bg: #FFFFFF;
+      --text: #1A1816;
+      --text-muted: #6B7280;
+      --border: #EAE6DF;
+      --heading-font: Fraunces, serif;
+      --body-font: DM Sans, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--body-font), -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Top Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250, 250, 249, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .header-flex { display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-logo {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--heading-font);
+      font-weight: 800; font-size: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .brand-title { font-family: var(--heading-font); font-weight: 800; font-size: 16px; color: var(--text); line-height: 1.1; letter-spacing: -0.01em; }
+    .brand-sub { font-size: 11px; color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 8px var(--primary); }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-phone {
+      font-size: 12px; font-weight: 600; text-decoration: none; color: var(--text);
+      padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border);
+      background: rgba(0,0,0,0.02);
+    }
+    .btn-wa {
+      background: var(--primary); color: #fff; text-decoration: none;
+      padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 6px; transition: 0.2s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+    .btn-wa:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+    /* Hero Section */
+    .hero { padding: 48px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+    .location-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 6px; 
+      background: #F5F5F4;
+      border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: #44403C;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--heading-font);
+      font-size: 42px; font-weight: 800; line-height: 1.12; color: var(--text);
+      letter-spacing: -0.02em; margin-bottom: 16px;
+      text-transform: none;
+    }
+    .hero-p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
+    .metrics-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }
+    .metric-card {
+      padding: 14px; border-radius: 12px; background: var(--card-bg);
+      border: 1px solid var(--border);
+    }
+    .metric-val { font-family: var(--heading-font); font-size: 19px; font-weight: 800; color: var(--text); }
+    .metric-lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cta-main {
+      padding: 14px 24px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: var(--primary); color: #fff; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .cta-main:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .cta-outline {
+      padding: 14px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      background: #FFFFFF; border: 1px solid var(--border); color: var(--text);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+    }
+    .cta-outline:hover { background: #F5F5F4; }
+
+    /* Showcase & Specialist Dock */
+    .showcase-box {
+      background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border);
+      overflow: hidden; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.06); margin-bottom: 12px;
+    }
+    .showcase-box img { width: 100%; height: 240px; object-fit: cover; }
+    .showcase-info { padding: 14px 18px; border-top: 1px solid var(--border); }
+    .doc-dock {
+      padding: 14px 18px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .doc-flex { display: flex; align-items: center; gap: 12px; }
+    .doc-avatar {
+      width: 42px; height: 42px; border-radius: 50%; 
+      background: rgba(0,0,0,0.04); 
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;
+      border: 1px solid var(--border);
+    }
+
+    /* Signature Section: Assessment / Matcher */
+    .signature-sec {
+      padding: 56px 0; background: #FFFFFF; 
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .sec-tag { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--primary); letter-spacing: 1.5px; }
+    .sec-title { font-family: var(--heading-font); font-size: 28px; font-weight: 800; color: var(--text); margin: 4px 0 8px; }
+    .sec-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+    .goals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .goal-card {
+      padding: 16px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; cursor: pointer;
+    }
+    .goal-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+    /* Services Section */
+    .services-sec { padding: 64px 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .service-card {
+      padding: 22px; border-radius: 16px; background: var(--card-bg); border: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s;
+    }
+    .service-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.06); border-color: var(--primary); }
+    .service-icon {
+      width: 34px; height: 34px; border-radius: 8px; background: #F5F5F4; color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-size: 13px; margin-bottom: 12px;
+    }
+    .service-card h3 { font-family: var(--heading-font); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .service-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+    .features { list-style: none; margin-bottom: 16px; font-size: 12px; color: var(--text); }
+    .features li { margin-bottom: 5px; }
+    .service-footer { border-top: 1px solid var(--border); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .price-tag { font-size: 12px; font-weight: 700; color: var(--primary); }
+    .order-btn {
+      padding: 9px; border-radius: 8px; background: #F5F5F4; color: var(--text);
+      font-size: 12px; font-weight: 700; text-align: center; text-decoration: none; transition: 0.2s;
+    }
+    .order-btn:hover { background: var(--primary); color: #fff; }
+
+    /* Reviews */
+    .reviews-sec { padding: 56px 0; background: #F5F5F4; border-top: 1px solid var(--border); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .review-card { padding: 20px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border); }
+    .stars { color: #F59E0B; margin-bottom: 6px; font-size: 14px; letter-spacing: 1px; }
+    .review-card p { font-size: 13px; font-style: italic; color: var(--text); margin-bottom: 12px; }
+    .review-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); }
+
+    /* Booking Form */
+    .booking-sec { padding: 64px 0; }
+    .form-box {
+      max-width: 640px; margin: 0 auto; padding: 36px; border-radius: 20px;
+      background: var(--card-bg); border: 1px solid var(--border); box-shadow: 0 15px 35px -10px rgba(0,0,0,0.06);
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 5px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 10px 12px; border-radius: 8px; background: #FAFAF9;
+      border: 1px solid var(--border); color: var(--text); font-size: 13px; font-family: inherit; outline: none;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-submit {
+      width: 100%; padding: 14px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: var(--primary); color: #fff; border: none; cursor: pointer; transition: 0.2s;
+    }
+    .btn-submit:hover { background: var(--primary-hover); }
+
+    /* Location */
+    .location-sec { padding: 56px 0; background: #F5F5F4; border-top: 1px solid var(--border); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: center; }
+    .map-frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); height: 260px; }
+    .map-frame iframe { width: 100%; height: 100%; border: 0; }
+
+    /* Footer */
+    footer { padding: 40px 0; border-top: 1px solid var(--border); background: var(--bg); font-size: 12px; color: var(--text-muted); }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 768px) {
+      .hero-grid, .location-grid, .form-grid { grid-template-columns: 1fr; }
+      .metrics-strip { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 30px; }
+      .btn-phone { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <div class="container header-flex">
+      <div class="brand">
+        <div class="brand-logo">DC</div>
+        <div>
+          <div class="brand-title">Dental Cafe - DHA Phase 4</div>
+          <div class="brand-sub">
+            <span class="pulse"></span>
+            <span>Open Today · Sector CCA, Lahore</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="tel:+923001234567" class="btn-phone">📞 +92 300 1234567</a>
+        <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%20your%20services%20in%20Sector%20CCA." target="_blank" class="btn-wa">
+                Book on WhatsApp
+              </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="location-tag">📍 Boutique Dental &amp; Aesthetic Studio · Sector CCA</div>
+          <h1>Precision Dentistry &amp; Aesthetic Smile Architecture</h1>
+          <p class="hero-p">Experience gentle, anxiety-free micro-dentistry and cosmetic smile design in a tranquil, state-of-the-art clinic lounge in Sector CCA, Lahore. Backed by 38+ five-star patient reviews.</p>
+          
+          <div class="metrics-strip">
+            <div class="metric-card">
+              <div class="metric-val">5.0 ★</div>
+              <div class="metric-lbl">38+ Reviews</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val" style="color:var(--primary);">100%</div>
+              <div class="metric-lbl">Verified Facility</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val">Sector CCA</div>
+              <div class="metric-lbl">Prime Lahore Access</div>
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20schedule%20an%20inquiry." target="_blank" class="cta-main">
+                    💬 Book on WhatsApp →
+                  </a>
+            <a href="#signature-matcher" class="cta-outline">Select Your Smile Goal ↓</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="showcase-box">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Dental Cafe - DHA Phase 4">
+            <div class="showcase-info">
+              <strong style="font-size:14px;color:#1C1917;">Dental Cafe - DHA Phase 4</strong>
+              <div style="font-size:12px;color:#78716C;margin-top:2px;">Sector CCA, DHA Phase 4, Lahore</div>
+            </div>
+          </div>
+
+          <div class="doc-dock">
+            <div class="doc-flex">
+              <div class="doc-avatar">DR</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:#1C1917;">Dr. Mahwish Khan &amp; Team <span style="padding:1px 6px;background:#D1FAE5;color:#065F46;border-radius:4px;font-size:9px;margin-left:4px;">On Duty</span></div>
+                <div style="font-size:11px;color:#78716C;">Consultant Dental Surgeon · PMDC Certified</div>
+              </div>
+            </div>
+            <a href="https://wa.me/923001234567?text=Hi%20Doctor!%20I%20would%20like%20to%20consult%20about%20dental%20treatments%20at%20Dental%20Cafe%20-%20DHA%20Phase%204." target="_blank" style="padding:6px 12px;border-radius:6px;background:#D1FAE5;color:#065F46;font-size:11px;font-weight:700;text-decoration:none;">Chat Direct</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Element: Assessment & Matcher Matrix -->
+  <section class="signature-sec" id="signature-matcher">
+    <div class="container">
+      <span class="sec-tag">Interactive Patient Assessment</span>
+      <h2 class="sec-title">Select Your Smile Goal for Instant Consultation</h2>
+      <p class="sec-sub">Tap an objective below to prepare your customized treatment recommendation in Sector CCA.</p>
+
+      <div class="goals-grid">
+        
+      <div class="goal-card" onclick="selectGoal('Laser Teeth Whitening')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <span style="padding:2px 8px;border-radius:4px;background:rgba(245,158,11,0.15);color:#FBBF24;font-size:10px;font-weight:700;letter-spacing:0.5px;">MOST REQUESTED</span>
+          </div>
+          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">Laser Teeth Whitening</h4>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Noticeable 4-6 shades brighter in 1 gentle session</p>
+        </div>
+        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20inquire%20about%20Laser%20Teeth%20Whitening%20in%20Sector%20CCA." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Invisalign &amp; Clear Aligners')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
+            </div>
+            
+          </div>
+          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">Invisalign &amp; Clear Aligners</h4>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Discreet orthodontic correction for adults &amp; teens</p>
+        </div>
+        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20inquire%20about%20Invisalign%20%26%20Clear%20Aligners%20in%20Sector%20CCA." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Cosmetic Porcelain Veneers')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <span style="padding:2px 8px;border-radius:4px;background:rgba(245,158,11,0.15);color:#FBBF24;font-size:10px;font-weight:700;letter-spacing:0.5px;">MOST REQUESTED</span>
+          </div>
+          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">Cosmetic Porcelain Veneers</h4>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Complete smile symmetry &amp; aesthetic enhancement</p>
+        </div>
+        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20inquire%20about%20Cosmetic%20Porcelain%20Veneers%20in%20Sector%20CCA." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Dental Implants &amp; Restorations')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.48 12H2"/></svg>
+            </div>
+            
+          </div>
+          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">Dental Implants &amp; Restorations</h4>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Permanent tooth replacement with Swiss precision</p>
+        </div>
+        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20inquire%20about%20Dental%20Implants%20%26%20Restorations%20in%20Sector%20CCA." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Painless Root Canal &amp; Crown')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--primary);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+            </div>
+            
+          </div>
+          <h4 style="font-family:var(--heading-font);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3;">Painless Root Canal &amp; Crown</h4>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.5;">Advanced gentle micro-endodontic therapy</p>
+        </div>
+        <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:var(--primary);">Select Goal ✓</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20inquire%20about%20Painless%20Root%20Canal%20%26%20Crown%20in%20Sector%20CCA." target="_blank" style="padding:5px 12px;border-radius:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Inquire →</a>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-sec">
+    <div class="container">
+      <span class="sec-tag">Comprehensive Care</span>
+      <h2 class="sec-title">Specialty Services & Capabilities</h2>
+      <p class="sec-sub">Delivered with verified craftsmanship and dedicated customer satisfaction.</p>
+      
+      <div class="services-grid">
+        
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3>Porcelain Veneers &amp; Smile Architecture</h3>
+          <p>Custom ultra-thin ceramic facings, structural smile design, and natural enamel preservation.</p>
+          <ul class="features">
+            <li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Minimal-Prep Veneers</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>3D Digital Smile Simulation</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Natural Translucency</span></li>
+          </ul>
+        </div>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%3A%20Porcelain%20Veneers%20%26%20Smile%20Architecture" target="_blank" class="order-btn">
+            Book on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3>Micro-Endodontics &amp; Tooth Preservation</h3>
+          <p>High-magnification root canal therapy and restorative pulp care using gentle, zero-anxiety protocols.</p>
+          <ul class="features">
+            <li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Microscopic Precision</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Painless Single-Visit Care</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Structural Core Buildup</span></li>
+          </ul>
+        </div>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%3A%20Micro-Endodontics%20%26%20Tooth%20Preservation" target="_blank" class="order-btn">
+            Book on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3>Invisalign &amp; Clear Orthodontic Alignment</h3>
+          <p>Customized clear aligner therapy engineered for discrete teeth realignment and healthy occlusion.</p>
+          <ul class="features">
+            <li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Discreet Clear Aligners</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Predictable Movement Tracking</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Adult &amp; Teen Orthodontics</span></li>
+          </ul>
+        </div>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%3A%20Invisalign%20%26%20Clear%20Orthodontic%20Alignment" target="_blank" class="order-btn">
+            Book on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3>Laser Teeth Whitening &amp; Enamel Care</h3>
+          <p>In-office gentle photo-activation delivering 4-6 shades brighter results in a single calm session.</p>
+          <ul class="features">
+            <li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Non-Invasive Enamel Brightening</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Desensitizing Protocol</span></li><li style="display:flex;align-items:center;gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Immediate Visible Results</span></li>
+          </ul>
+        </div>
+        <div class="service-footer">
+          <span class="price-tag">Contact for personalized quote</span>
+          <a href="https://wa.me/923001234567?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%3A%20Laser%20Teeth%20Whitening%20%26%20Enamel%20Care" target="_blank" class="order-btn">
+            Book on WhatsApp →
+          </a>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Reviews -->
+  <section class="reviews-sec">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;">
+        <div>
+          <span class="sec-tag" style="color:#B45309;">Verified Proof</span>
+          <h2 class="sec-title" style="margin-top:2px;">Trusted by Clients Across Lahore</h2>
+        </div>
+        <div style="padding:6px 12px;background:#fff;border-radius:8px;border:1px solid var(--border);font-size:12px;font-weight:700;">
+          ★ 5.0 Rating · 38+ Reviews
+        </div>
+      </div>
+      <div class="reviews-grid">
+        
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Dr. Mahwish and her team provided the most gentle, pain-free root canal treatment. Beautiful clinic atmosphere in Sector CCA!"</p>
+          <div class="review-meta">
+            <strong>Verified DHA Patient</strong>
+            <span>Verified Customer Review</span>
+          </div>
+        </div>
+      
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Got laser teeth whitening done before my wedding. The results were 5 shades brighter with zero sensitivity. Highly recommend Dental Cafe!"</p>
+          <div class="review-meta">
+            <strong>Cosmetic Dental Patient</strong>
+            <span>Verified Customer Review</span>
+          </div>
+        </div>
+      
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Extremely professional, sterile environment and very welcoming staff. Best dental experience in DHA Phase 4 Lahore."</p>
+          <div class="review-meta">
+            <strong>Family Care Review</strong>
+            <span>Verified Customer Review</span>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section class="booking-sec" id="booking">
+    <div class="container">
+      <div class="form-box">
+        <div style="text-align:center;margin-bottom:20px;">
+          <span class="sec-tag">Direct WhatsApp Dispatch</span>
+          <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin-top:2px;">Request an Appointment or Consultation</h2>
+          <p style="font-size:12px;color:var(--text-muted);">Our team in Sector CCA will confirm your time window on WhatsApp promptly.</p>
+        </div>
+
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>1. Select Treatment</label>
+            <select id="formService" required>
+              <option value="Porcelain Veneers &amp; Smile Architecture">Porcelain Veneers &amp; Smile Architecture</option><option value="Micro-Endodontics &amp; Tooth Preservation">Micro-Endodontics &amp; Tooth Preservation</option><option value="Invisalign &amp; Clear Orthodontic Alignment">Invisalign &amp; Clear Orthodontic Alignment</option><option value="Laser Teeth Whitening &amp; Enamel Care">Laser Teeth Whitening &amp; Enamel Care</option>
+            </select>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>2. Full Name</label>
+              <input type="text" id="formName" placeholder="Patient Name" required>
+            </div>
+            <div class="form-group">
+              <label>3. Contact WhatsApp Number</label>
+              <input type="tel" id="formPhone" placeholder="0300 1234567" required>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>4. Preferred Date</label>
+              <input type="date" id="formDate" required>
+            </div>
+            <div class="form-group">
+              <label>5. Preferred Time Window</label>
+              <select id="formTime">
+                <option value="Morning (11:00 AM - 02:00 PM)">Morning (11:00 AM - 02:00 PM)</option>
+                <option value="Afternoon (03:00 PM - 06:00 PM)">Afternoon (03:00 PM - 06:00 PM)</option>
+                <option value="Evening (06:00 PM - 09:00 PM)" selected>Evening (06:00 PM - 09:00 PM)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>6. Additional Notes or Specific Requirements</label>
+            <textarea id="formNotes" rows="2" placeholder="Any specific questions, requirements, or focus areas?"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            💬 Submit Request on WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="location-sec">
+    <div class="container">
+      <div class="location-grid">
+        <div>
+          <span class="sec-tag" style="color:var(--primary);">Location & Directions</span>
+          <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin:4px 0 8px;">Sector CCA</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Sector CCA, DHA Phase 4, Lahore</p>
+          <div style="padding:12px;background:#fff;border-radius:10px;border:1px solid var(--border);margin-bottom:14px;font-size:12px;">
+            <strong>🕒 Operating Hours</strong>
+            <div style="color:var(--text-muted);margin-top:2px;">Monday – Sunday: Open Daily</div>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Dental%20Cafe%20-%20DHA%20Phase%204%2C%20Sector%20CCA%2C%20DHA%20Phase%204%2C%20Lahore" target="_blank" style="padding:8px 14px;border-radius:8px;background:#fff;border:1px solid var(--border);color:#1C1917;font-size:12px;font-weight:600;text-decoration:none;">
+            🗺️ Open Google Maps Directions ↗
+          </a>
+        </div>
+        <div>
+          <div class="map-frame">
+            <iframe src="https://maps.google.com/maps?q=Dental%20Cafe%20-%20DHA%20Phase%204%2C%20Sector%20CCA%2C%20DHA%20Phase%204%2C%20Lahore&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Dental Cafe - DHA Phase 4 Map"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-flex">
+      <div>
+        <strong style="color:#1C1917;font-size:13px;">Dental Cafe - DHA Phase 4</strong>
+        <div>Dentist · Sector CCA, Lahore</div>
+      </div>
+      <div>Digital Experience crafted for Dental Cafe - DHA Phase 4</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
+    function selectGoal(goal) {
+      document.getElementById('formNotes').value = "Selected Goal: " + goal;
+      const el = document.getElementById('booking');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const service = document.getElementById('formService').value;
+      const name = document.getElementById('formName').value;
+      const phone = document.getElementById('formPhone').value;
+      const date = document.getElementById('formDate').value;
+      const time = document.getElementById('formTime').value;
+      const notes = document.getElementById('formNotes').value;
+
+      const msg = "Hi Dental Cafe - DHA Phase 4! 👋\n\nI would like to request an appointment/inquiry via your website:\n\n👤 *Name:* " + name + "\n📞 *Phone:* " + phone + "\n💼 *Service:* " + service + "\n📅 *Date & Time:* " + date + " at " + time + "\n📝 *Notes:* " + (notes || "None") + "\n\nPlease confirm availability.";
+      window.open("https://wa.me/923001234567?text=" + encodeURIComponent(msg), "_blank");
+    }
+  </script>
+</body>
+</html>
