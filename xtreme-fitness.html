@@ -3,391 +3,1029 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xtreme Fitness &amp; Athletic Club · Heavyweight Athletic & Performance Club</title>
-  <meta name="description" content="12,000 sq ft high-performance training arena, 100% Eleiko loaded, Olympic lifting platforms, and CSCS coach-led protocols in Commercial Area.">
+  <title>Xtreme Fitness &amp; Athletic Club · DHA Phase 5 Lahore</title>
+  <meta name="description" content="12,000 sq ft Olympic-grade athletic facility in DHA Phase 5, Lahore. 100% Eleiko loaded, Rogue Monster rigs, and CSCS coach-led periodized strength protocols.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #090D14;
-      --card-bg: #131926;
-      --primary: #E11D48;
-      --primary-hover: #BE123C;
-      --accent: #F59E0B;
-      --text: #F8FAFC;
+      --bg-dark: #080A0F;
+      --bg-surface: #111622;
+      --bg-card: #161D2B;
+      --bg-stone: #F4F2EC;
+      --border-dark: rgba(255, 255, 255, 0.08);
+      --border-dark-strong: rgba(255, 255, 255, 0.16);
+      --border-stone: rgba(0, 0, 0, 0.09);
+      --accent: #E11D48;
+      --accent-hover: #BE123C;
+      --amber: #F59E0B;
+      --text-white: #F8FAFC;
       --text-muted: #94A3B8;
-      --border: #1E293B;
-      --display: 'Syne', sans-serif;
-      --sans: 'Plus Jakarta Sans', sans-serif;
+      --text-stone-dark: #0B0E14;
+      --text-stone-muted: #526071;
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: var(--sans); background: var(--bg); color: var(--text);
-      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      font-family: var(--font-sans);
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-    /* Top Ticker & Header */
-    .ticker-bar {
-      background: var(--primary); color: #fff; font-size: 11px; font-weight: 800;
-      letter-spacing: 1.5px; text-transform: uppercase; text-align: center; padding: 8px 0;
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
     }
+
+    /* Top Hairline Telemetry Ticker */
+    .top-ticker {
+      background: #0B0E14;
+      border-bottom: 1px solid var(--border-dark);
+      padding: 10px 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .ticker-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #34D399;
+    }
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 10px #10B981;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Architectural Header */
     header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(9, 13, 20, 0.94); backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border); padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 10, 15, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 18px 0;
     }
-    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-    .brand-title { font-family: var(--display); font-size: 22px; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: -0.02em; }
-    .btn-claim-nav {
-      background: var(--primary); color: #fff; text-decoration: none;
-      padding: 10px 22px; border-radius: 8px; font-size: 12px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 0.5px; transition: 0.2s;
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .btn-claim-nav:hover { background: var(--primary-hover); transform: translateY(-1px); }
-
-    /* Section 1: Full-Bleed Heavyweight Arena Hero */
-    .hero-athletic {
-      padding: 70px 0 80px; position: relative; overflow: hidden;
-      border-bottom: 1px solid var(--border);
+    .brand-group {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
     }
-    .hero-athletic-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
-    .live-floor-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 6px; background: rgba(225, 29, 72, 0.15);
-      border: 1px solid rgba(225, 29, 72, 0.3); color: #FB7185;
-      font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #fff;
     }
-    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #FB7185; box-shadow: 0 0 10px #FB7185; }
-    .hero-athletic h1 {
-      font-family: var(--display); font-size: 50px; font-weight: 800; line-height: 1.05;
-      color: #fff; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 20px;
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
     }
-    .hero-athletic h1 span { color: var(--primary); }
-    .hero-athletic p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 32px; }
-    .btn-claim-large {
-      background: var(--primary); color: #fff; text-decoration: none;
-      padding: 16px 32px; border-radius: 10px; font-size: 14px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 10px;
-      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.4); transition: 0.2s;
+    .btn-nav-pass {
+      background: #FFFFFF;
+      color: #000000;
+      text-decoration: none;
+      padding: 11px 22px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
     }
-    .btn-claim-large:hover { background: var(--primary-hover); transform: translateY(-2px); }
-
-    .hero-media-card {
-      border-radius: 20px; overflow: hidden; border: 1px solid var(--border);
-      background: var(--card-bg); position: relative;
-    }
-    .hero-media-card img { width: 100%; height: 340px; object-fit: cover; }
-    .media-card-bar { padding: 16px 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-
-    /* Section 2: 4 Hardware Proof Badges */
-    .specs-strip { padding: 48px 0; border-bottom: 1px solid var(--border); background: #0C111B; }
-    .specs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .spec-box {
-      padding: 20px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border);
-    }
-    .spec-val { font-family: var(--display); font-size: 24px; font-weight: 800; color: #fff; }
-    .spec-lbl { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-    .spec-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-    /* Section 3: Training Disciplines Matrix (4-Card Athletic Bento) */
-    .disciplines-sec { padding: 80px 0; border-bottom: 1px solid var(--border); }
-    .sec-tag { font-size: 11px; text-transform: uppercase; font-weight: 800; color: var(--primary); letter-spacing: 2px; margin-bottom: 8px; }
-    .sec-title { font-family: var(--display); font-size: 36px; font-weight: 800; color: #fff; text-transform: uppercase; line-height: 1.1; margin-bottom: 40px; }
-    .discipline-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .d-card {
-      padding: 30px; border-radius: 18px; background: var(--card-bg); border: 1px solid var(--border);
-      display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s;
-    }
-    .d-card:hover { border-color: var(--primary); transform: translateY(-2px); }
-    .d-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-    .d-num { font-family: var(--display); font-size: 18px; font-weight: 800; color: var(--primary); }
-    .d-title { font-family: var(--display); font-size: 22px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 8px; }
-    .d-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
-    .d-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .d-tag { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,0.06); color: #E2E8F0; }
-
-    /* Section 4: CSCS Coaching Command */
-    .coach-sec { padding: 80px 0; border-bottom: 1px solid var(--border); background: #0C111B; }
-    .coach-box {
-      display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;
-      padding: 36px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--border);
-    }
-    .coach-avatar {
-      width: 64px; height: 64px; border-radius: 16px; background: var(--primary);
-      color: #fff; font-family: var(--display); font-size: 24px; font-weight: 800;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    .btn-nav-pass:hover {
+      background: #E2E8F0;
+      transform: translateY(-1px);
     }
 
-    /* Section 5: 3-Tier Membership Pass Matrix */
-    .pricing-sec { padding: 80px 0; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .tier-card {
-      padding: 32px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--border);
-      display: flex; flex-direction: column; justify-content: space-between; position: relative;
+    /* SECTION 1: Asymmetric 60/40 Hero with Floating Telemetry */
+    .hero-sec {
+      padding: 80px 0 100px;
+      border-bottom: 1px solid var(--border-dark);
+      position: relative;
     }
-    .tier-card.featured { border-color: var(--primary); background: #171F30; }
-    .tier-badge {
-      position: absolute; top: 16px; right: 16px; padding: 4px 10px;
-      border-radius: 6px; background: var(--primary); color: #fff; font-size: 10px; font-weight: 800; text-transform: uppercase;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 56px;
+      align-items: center;
     }
-    .tier-title { font-family: var(--display); font-size: 20px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 8px; }
-    .tier-price { font-family: var(--display); font-size: 32px; font-weight: 800; color: var(--accent); margin-bottom: 16px; }
-    .tier-features { list-style: none; margin-bottom: 24px; font-size: 13px; color: var(--text-muted); line-height: 2; }
-    .tier-features li { display: flex; align-items: center; gap: 8px; }
-    .btn-tier {
-      padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.08);
-      color: #fff; text-align: center; text-decoration: none; font-size: 12px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 0.5px; transition: 0.2s;
+    .hero-badge-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      background: rgba(225, 29, 72, 0.12);
+      border: 1px solid rgba(225, 29, 72, 0.28);
+      color: #FB7185;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
-    .btn-tier:hover { background: var(--primary); }
+    .hero-sec h1 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+    }
+    .hero-sec h1 span {
+      color: var(--accent);
+      display: inline;
+    }
+    .hero-lead {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary-action {
+      background: var(--accent);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 28px rgba(225, 29, 72, 0.35);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-primary-action:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(225, 29, 72, 0.5);
+    }
+    .btn-secondary-link {
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 4px;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary-link:hover {
+      border-color: #FFFFFF;
+    }
 
-    footer { padding: 40px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
-    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+    /* Right Overlapping Photo Card */
+    .hero-photo-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .hero-main-photo {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border-dark);
+      display: block;
+      filter: contrast(1.05) brightness(0.95);
+    }
+    .photo-overlay-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: rgba(17, 22, 34, 0.96);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-dark-strong);
+      border-radius: 10px;
+      padding: 18px 22px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      max-width: 280px;
+    }
+    .photo-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+    .photo-rating-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-white);
+    }
+    .photo-loc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
 
-    @media (max-width: 768px) {
-      .hero-athletic-grid { grid-template-columns: 1fr; }
-      .specs-grid { grid-template-columns: 1fr 1fr; }
-      .discipline-grid, .pricing-grid, .coach-box { grid-template-columns: 1fr; }
-      .hero-athletic h1 { font-size: 36px; }
+    /* SECTION 2: 60/40 Staggered Hardware Telemetry (BLK BOX cue) */
+    .hardware-sec {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border-dark);
+      background: #0B0E14;
+    }
+    .hardware-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .hardware-feature-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 44px 36px;
+    }
+    .hw-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .hw-big-stat {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 4vw, 54px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+    }
+    .hw-feature-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .hardware-specs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hw-spec-row {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-dark);
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      align-items: center;
+      transition: border-color 0.2s;
+    }
+    .hw-spec-row:hover {
+      border-color: var(--border-dark-strong);
+    }
+    .hw-spec-label {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+    .hw-spec-details {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* SECTION 3: High-Contrast Raw Stone Section (Third Space cue) */
+    .stone-sec {
+      background: var(--bg-stone);
+      color: var(--text-stone-dark);
+      padding: 110px 0;
+      border-bottom: 1px solid var(--border-stone);
+    }
+    .stone-header {
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+    .stone-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .stone-sec h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--text-stone-dark);
+      margin-bottom: 16px;
+    }
+    .stone-subtitle {
+      font-size: 16px;
+      color: var(--text-stone-muted);
+      line-height: 1.6;
+    }
+
+    /* Interactive Protocol Matcher (21st.dev Component) */
+    .protocol-container {
+      background: #FFFFFF;
+      border-radius: 14px;
+      border: 1px solid var(--border-stone);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+    .protocol-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--border-stone);
+      background: #FAF8F5;
+    }
+    .protocol-tab-btn {
+      background: transparent;
+      border: none;
+      padding: 22px 18px;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #8C98A4;
+      transition: all 0.2s ease;
+      border-right: 1px solid var(--border-stone);
+      position: relative;
+    }
+    .protocol-tab-btn:last-child {
+      border-right: none;
+    }
+    .protocol-tab-btn.active {
+      color: #000000;
+      background: #FFFFFF;
+    }
+    .protocol-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .protocol-body {
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .proto-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: var(--text-stone-dark);
+      margin-bottom: 12px;
+    }
+    .proto-desc {
+      font-size: 14px;
+      color: var(--text-stone-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .proto-specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .proto-spec-pill {
+      background: #F4F2EC;
+      padding: 14px 18px;
+      border-radius: 8px;
+    }
+    .proto-spec-lbl {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #718096;
+      margin-bottom: 4px;
+    }
+    .proto-spec-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0B0E14;
+    }
+    .proto-cta-btn {
+      background: #0B0E14;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .proto-cta-btn:hover {
+      background: #2D3748;
+    }
+    .proto-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* SECTION 4: CSCS Coaching Command Roster */
+    .coach-sec {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border-dark);
+      background: var(--bg-dark);
+    }
+    .coach-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-dark);
+      border-radius: 14px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .coach-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--amber);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .coach-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .coach-creds {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .coach-quote-box {
+      border-left: 2px solid var(--accent);
+      padding-left: 28px;
+    }
+    .coach-quote {
+      font-size: 15px;
+      color: #E2E8F0;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .btn-coach-whatsapp {
+      color: #FB7185;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-coach-whatsapp:hover {
+      text-decoration: underline;
+    }
+
+    /* SECTION 5: Asymmetric Pass Architecture & Capacity Cap */
+    .passes-sec {
+      padding: 110px 0;
+      border-bottom: 1px solid var(--border-dark);
+      background: #0B0E14;
+    }
+    .passes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .passes-narrative {
+      max-width: 460px;
+    }
+    .cap-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-dark-strong);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-white);
+      margin-bottom: 20px;
+    }
+    .passes-sec h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.8vw, 44px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+    }
+    .passes-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .passes-cards-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .pass-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      transition: all 0.2s ease;
+    }
+    .pass-card.featured {
+      background: #141A28;
+      border-color: var(--accent);
+    }
+    .pass-info-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+    .pass-info-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .pass-cta-btn {
+      white-space: nowrap;
+      background: #FFFFFF;
+      color: #000000;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .pass-card.featured .pass-cta-btn {
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+    .pass-cta-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* FOOTER: Minimal Architectural Dark */
+    footer {
+      padding: 60px 0 40px;
+      background: var(--bg-dark);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-dark);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 900px) {
+      .hero-grid, .hardware-grid, .protocol-body, .coach-card, .passes-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .protocol-tabs {
+        grid-template-columns: 1fr 1fr;
+      }
+      .photo-overlay-card {
+        position: static;
+        margin-top: 16px;
+        max-width: 100%;
+      }
+      .pass-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    @media (max-width: 600px) {
+      .protocol-tabs {
+        grid-template-columns: 1fr;
+      }
+      .hw-spec-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .ticker-flex {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="ticker-bar">
-    ⚡ 24/7 Biometric Entry · 12,000 SQ FT High-Performance Arena · Eleiko Loaded
+  <!-- Top Hairline Telemetry Ticker -->
+  <div class="top-ticker">
+    <div class="container ticker-flex">
+      <div class="status-indicator">
+        <span class="live-dot"></span>
+        <span>ARENA ACCESS: LIVE · BIOMETRIC ENTRY ACTIVE 24/7</span>
+      </div>
+      <div>COMMERCIAL AREA · DHA PHASE 5, LAHORE · 12,000 SQ FT</div>
+    </div>
   </div>
 
+  <!-- Architectural Sticky Header -->
   <header>
     <div class="container nav-flex">
-      <div>
-        <div class="brand-title">Xtreme Fitness &amp; Athletic Club</div>
-        <div style="font-size:11px;color:var(--text-muted);">Commercial Area · DHA Phase 5, Lahore</div>
+      <div class="brand-group">
+        <div class="brand-name">Xtreme Fitness</div>
+        <div class="brand-tag">Athletic Club</div>
       </div>
-      <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20claim%20a%201-day%20VIP%20trial%20pass." target="_blank" class="btn-claim-nav">
+      <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20claim%20a%201-day%20VIP%20trial%20pass." target="_blank" class="btn-nav-pass">
         Claim Day Pass →
       </a>
     </div>
   </header>
 
-  <!-- 1. Heavyweight Arena Hero -->
-  <section class="hero-athletic">
+  <!-- SECTION 1: Asymmetric 60/40 Hero with Floating Telemetry (Equinox + Barry's Cue) -->
+  <section class="hero-sec">
     <div class="container">
-      <div class="hero-athletic-grid">
+      <div class="hero-grid">
         <div>
-          <div class="live-floor-badge">
-            <span class="pulse-dot"></span>
-            <span>Live Arena Floor Active · 24/7 Access</span>
+          <div class="hero-badge-strip">
+            <span>●</span>
+            <span>Uncompromised Strength Architecture</span>
           </div>
-          <h1>Uncompromising <span>Strength</span> & Athletic Performance.</h1>
-          <p>DHA's premier athletic training facility engineered for hypertrophy, Olympic lifting, and periodized metabolic conditioning. Zero crowds. Real coaching.</p>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20claim%20a%201-day%20trial%20pass%20and%20tour%20the%20gym." target="_blank" class="btn-claim-large">
-            <span>Claim Free 1-Day Trial Pass</span> →
-          </a>
+          <h1>Uncompromising <span>Strength.</span> Zero Crowds.</h1>
+          <p class="hero-lead">
+            DHA Phase 5's dedicated high-performance arena. 12,000 sq ft equipped with 100% calibrated Eleiko iron, competition lifting platforms, and coach-supervised strength protocols.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20claim%20my%20free%201-day%20VIP%20trial%20pass%20and%20tour%20the%20facility." target="_blank" class="btn-primary-action">
+              <span>Claim Free 1-Day Trial Pass</span> →
+            </a>
+            <a href="#disciplines" class="btn-secondary-link">
+              Explore Disciplines ↓
+            </a>
+          </div>
         </div>
-        <div class="hero-media-card">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Xtreme Fitness & Athletic Club">
-          <div class="media-card-bar">
-            <div>
-              <div style="font-weight:700;font-size:13px;color:#fff;">Xtreme Fitness &amp; Athletic Club</div>
-              <div style="font-size:11px;color:var(--text-muted);">DHA Phase 5, Lahore</div>
+
+        <div class="hero-photo-wrapper">
+          <img class="hero-main-photo" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Xtreme Fitness High Performance Arena">
+          <div class="photo-overlay-card">
+            <div class="photo-rating">
+              <span>★ 4.9</span>
             </div>
-            <div style="font-family:var(--display);font-size:14px;color:var(--accent);font-weight:800;">4.9★ (184+ Reviews)</div>
+            <div class="photo-rating-text">184+ Verified Athlete Reviews</div>
+            <div class="photo-loc">Commercial Area, DHA Phase 5, Lahore</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. 4 Hardware Proof Badges -->
-  <section class="specs-strip">
+  <!-- SECTION 2: 60/40 Staggered Hardware Telemetry (BLK BOX Cue) -->
+  <section class="hardware-sec">
     <div class="container">
-      <div class="specs-grid">
-        <div class="spec-box">
-          <div class="spec-val">12,000 SQ FT</div>
-          <div class="spec-lbl">Arena Footprint</div>
-          <div class="spec-sub">Dedicated strength & turf zones</div>
+      <div class="hardware-grid">
+        <div class="hardware-feature-card">
+          <div class="hw-tag">Hardware Standard</div>
+          <div class="hw-big-stat">12,000 SQ FT</div>
+          <p class="hw-feature-desc">
+            Engineered exclusively for progressive overload, technical weightlifting, and high-velocity conditioning. No waiting for racks. No decorative machines.
+          </p>
         </div>
-        <div class="spec-box">
-          <div class="spec-val">100% ELEIKO</div>
-          <div class="spec-lbl">Calibrated Hardware</div>
-          <div class="spec-sub">IPF competition barbells & plates</div>
-        </div>
-        <div class="spec-box">
-          <div class="spec-val">ROGUE MONSTER</div>
-          <div class="spec-lbl">Power Rigs & Turf</div>
-          <div class="spec-sub">40m sled track & lifting bays</div>
-        </div>
-        <div class="spec-box">
-          <div class="spec-val">HEPA MEDICAL</div>
-          <div class="spec-lbl">Air Exchange</div>
-          <div class="spec-sub">Continuous climate-controlled airflow</div>
+
+        <div class="hardware-specs-list">
+          <div class="hw-spec-row">
+            <div class="hw-spec-label">100% ELEIKO</div>
+            <div class="hw-spec-details">IPF certified competition barbells, calibrated steel discs, and shock-absorbing drop platforms.</div>
+          </div>
+          <div class="hw-spec-row">
+            <div class="hw-spec-label">ROGUE MONSTER</div>
+            <div class="hw-spec-details">Full heavy-gauge power rack cages, 40-meter indoor sprint turf, and Concept2 ergometer suite.</div>
+          </div>
+          <div class="hw-spec-row">
+            <div class="hw-spec-label">HEPA CLIMATE</div>
+            <div class="hw-spec-details">Continuous medical-grade air filtration and multi-zone climate control for maximum output.</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. Training Disciplines (2x2 Heavy-Duty Matrix) -->
-  <section class="disciplines-sec">
+  <!-- SECTION 3: High-Contrast Raw Stone Section (Third Space Cue) -->
+  <section class="stone-sec" id="disciplines">
     <div class="container">
-      <div class="sec-tag">Performance Programs</div>
-      <h2 class="sec-title">Engineered Training Disciplines.</h2>
-      
-      <div class="discipline-grid">
-        <div class="d-card">
-          <div>
-            <div class="d-card-header">
-              <div class="d-num">[01]</div>
-              <div style="color:var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1a2 2 0 0 0-2.83 0l-1.58 1.58a2 2 0 0 1-2.83 0l-1.59-1.58a2 2 0 0 0-2.83 0L7.76 21.58a2 2 0 0 1-2.83 0L3.41 20.06a2 2 0 0 1 0-2.83l1.58-1.58a2 2 0 0 0 0-2.83L3.41 11.24a2 2 0 0 1 0-2.83l1.58-1.58a2 2 0 0 0 0-2.83L3.41 2.42a2 2 0 0 1 0-2.83l1.52-1.52"/><path d="m14.5 9.5 3-3"/></svg></div>
-            </div>
-            <div class="d-title">Hypertrophy & Free Weights</div>
-            <div class="d-desc">Periodized mass protocols, calibrated dumbbell racks up to 60kg, and custom biomechanical leverage machines.</div>
-          </div>
-          <div class="d-tags">
-            <span class="d-tag">Calibrated Plates</span>
-            <span class="d-tag">Lifting Platforms</span>
-            <span class="d-tag">Mass Architecture</span>
-          </div>
+      <div class="stone-header">
+        <div class="stone-tag">Training Architecture</div>
+        <h2>Engineered Athletic Disciplines.</h2>
+        <p class="stone-subtitle">
+          Select a discipline below to view the dedicated training split, target weekly volume, and coaching protocol.
+        </p>
+      </div>
+
+      <!-- Interactive 4-Split Protocol Matcher (21st.dev Component) -->
+      <div class="protocol-container">
+        <div class="protocol-tabs">
+          <button class="protocol-tab-btn active" onclick="switchProtocol(0)">01 / Hypertrophy</button>
+          <button class="protocol-tab-btn" onclick="switchProtocol(1)">02 / Olympic Lifting</button>
+          <button class="protocol-tab-btn" onclick="switchProtocol(2)">03 / Hyrox &amp; MetCon</button>
+          <button class="protocol-tab-btn" onclick="switchProtocol(3)">04 / 1-on-1 Transformation</button>
         </div>
 
-        <div class="d-card">
+        <div class="protocol-body">
           <div>
-            <div class="d-card-header">
-              <div class="d-num">[02]</div>
-              <div style="color:var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.45.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+            <div class="proto-title" id="proto-title">Hypertrophy &amp; Heavy Free Weights</div>
+            <p class="proto-desc" id="proto-desc">
+              Periodized mechanical tension protocols, calibrated dumbbell racks from 2.5kg to 60kg, and precision leverage machines designed for optimal biomechanical loading.
+            </p>
+            <div class="proto-specs-grid">
+              <div class="proto-spec-pill">
+                <div class="proto-spec-lbl">Primary Equipment</div>
+                <div class="proto-spec-val" id="proto-eq">Eleiko Dumbbells &amp; Leverage Racks</div>
+              </div>
+              <div class="proto-spec-pill">
+                <div class="proto-spec-lbl">Weekly Volume Target</div>
+                <div class="proto-spec-val" id="proto-vol">16–22 Sets Per Muscle Group</div>
+              </div>
             </div>
-            <div class="d-title">Olympic Weightlifting & Power</div>
-            <div class="d-desc">Dedicated Eleiko drop platforms, chalk stations, bumper plates, and coach-supervised technical lifting.</div>
+            <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness!%20I%20am%20interested%20in%20the%20Hypertrophy%20%26%20Heavy%20Free%20Weights%20program." target="_blank" class="proto-cta-btn" id="proto-cta">
+              <span>Book Hypertrophy Protocol on WhatsApp</span> →
+            </a>
           </div>
-          <div class="d-tags">
-            <span class="d-tag">Eleiko Barbells</span>
-            <span class="d-tag">Technique Coaching</span>
-            <span class="d-tag">Explosive Power</span>
-          </div>
-        </div>
-
-        <div class="d-card">
           <div>
-            <div class="d-card-header">
-              <div class="d-num">[03]</div>
-              <div style="color:var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
-            </div>
-            <div class="d-title">High-Intensity Conditioning</div>
-            <div class="d-desc">Sled pushes on 40m turf, Concept2 rowers, SkiErgs, assault bikes, and VO2 max metabolic circuits.</div>
-          </div>
-          <div class="d-tags">
-            <span class="d-tag">Turf Sprints</span>
-            <span class="d-tag">Concept2 Suite</span>
-            <span class="d-tag">VO2 Max Burn</span>
-          </div>
-        </div>
-
-        <div class="d-card">
-          <div>
-            <div class="d-card-header">
-              <div class="d-num">[04]</div>
-              <div style="color:var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            </div>
-            <div class="d-title">1-on-1 Transformation</div>
-            <div class="d-desc">Tailored macro protocols, weekly body composition telemetry, and biomechanical form audits.</div>
-          </div>
-          <div class="d-tags">
-            <span class="d-tag">InBody Scans</span>
-            <span class="d-tag">Custom Macros</span>
-            <span class="d-tag">Accountability</span>
+            <img id="proto-img" class="proto-img" src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="Training Protocol">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. CSCS Coaching Command Roster -->
+  <!-- SECTION 4: CSCS Coaching Command Roster -->
   <section class="coach-sec">
     <div class="container">
-      <div class="coach-box">
+      <div class="coach-card">
         <div>
-          <div class="coach-avatar">HC</div>
-          <div style="font-family:var(--display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;">Head Strength Coach & Floor Leads</div>
-          <div style="font-size:12px;color:var(--accent);font-weight:700;margin-top:4px;">CSCS Certified · Olympic Lifting & Biomechanics</div>
+          <div class="coach-badge">Floor Supervision</div>
+          <div class="coach-title">CSCS Coaching Command</div>
+          <div class="coach-creds">Certified Strength &amp; Conditioning Specialists</div>
         </div>
-        <div style="border-left:1px solid var(--border);padding-left:32px;">
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:16px;">
-            "We don't do generic workout routines. Every member at Xtreme Fitness trains with purpose, verified lifting form, and structured progressive overload."
+        <div class="coach-quote-box">
+          <p class="coach-quote">
+            "We reject random workouts. Every session at Xtreme Fitness is built on barbell mechanics, calibrated load progression, and injury mitigation."
           </p>
-          <a href="https://wa.me/923219876543?text=Hi%20Coach!%20I%20would%20like%20to%20consult%20about%201-on-1%20athletic%20coaching%20at%20Xtreme%20Fitness%20%26%20Athletic%20Club." target="_blank" style="color:#FB7185;font-weight:700;text-decoration:none;font-size:13px;">
-            Chat Direct with Coaching Staff on WhatsApp →
+          <a href="https://wa.me/923219876543?text=Hi%20Coach!%20I%20would%20like%20to%20consult%20about%20athletic%20coaching%20at%20Xtreme%20Fitness." target="_blank" class="btn-coach-whatsapp">
+            Consult With Head Strength Coach on WhatsApp →
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. 3-Tier Membership Pass Matrix -->
-  <section class="pricing-sec">
+  <!-- SECTION 5: Asymmetric Pass Architecture & Capacity Cap -->
+  <section class="passes-sec">
     <div class="container">
-      <div class="sec-tag">Membership Passes</div>
-      <h2 class="sec-title">Transparent Tier Options.</h2>
-      
-      <div class="pricing-grid">
-        <div class="tier-card">
-          <div>
-            <div class="tier-title">VIP 1-Day Trial Pass</div>
-            <div class="tier-price">FREE</div>
-            <ul class="tier-features">
-              <li>✓ Full arena floor access</li>
-              <li>✓ Eleiko lifting platform trial</li>
-              <li>✓ Coach movement screen</li>
-            </ul>
+      <div class="passes-grid">
+        <div class="passes-narrative">
+          <div class="cap-badge">
+            <span>●</span>
+            <span>Capacity Capped at 250 Members</span>
           </div>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20claim%20my%20free%201-day%20trial%20pass." target="_blank" class="btn-tier">
-            Claim Free Pass →
-          </a>
+          <h2>Dedicated Training Floor Access.</h2>
+          <p class="passes-desc">
+            To ensure immediate platform availability and zero crowd congestion, membership is strictly regulated. Start with a complimentary 1-day evaluation pass.
+          </p>
         </div>
 
-        <div class="tier-card featured">
-          <div class="tier-badge">Most Popular</div>
-          <div>
-            <div class="tier-title">Open Arena Monthly</div>
-            <div class="tier-price">Full Access</div>
-            <ul class="tier-features">
-              <li>✓ 24/7 Biometric keyless access</li>
-              <li>✓ All lifting platforms & turf</li>
-              <li>✓ Chilled locker & recovery room</li>
-              <li>✓ Monthly InBody telemetry</li>
-            </ul>
+        <div class="passes-cards-col">
+          <div class="pass-card">
+            <div>
+              <div class="pass-info-name">VIP 1-Day Trial Pass</div>
+              <div class="pass-info-desc">Complimentary full arena access, platform trial, and movement screen.</div>
+            </div>
+            <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20claim%20my%20complimentary%201-day%20trial%20pass." target="_blank" class="pass-cta-btn">
+              Claim Free Pass →
+            </a>
           </div>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20join%20on%20the%20Open%20Arena%20Monthly%20pass." target="_blank" class="btn-tier" style="background:var(--primary);">
-            Join on WhatsApp →
-          </a>
-        </div>
 
-        <div class="tier-card">
-          <div>
-            <div class="tier-title">1-on-1 Performance</div>
-            <div class="tier-price">Coaching</div>
-            <ul class="tier-features">
-              <li>✓ 3x Weekly private coach sessions</li>
-              <li>✓ Custom macro & meal strategy</li>
-              <li>✓ Video form breakdown</li>
-              <li>✓ Bi-weekly body composition audit</li>
-            </ul>
+          <div class="pass-card featured">
+            <div>
+              <div class="pass-info-name">Open Arena Monthly</div>
+              <div class="pass-info-desc">24/7 keyless biometric access, all Eleiko platforms, turf sprint track, and monthly InBody telemetry.</div>
+            </div>
+            <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20join%20on%20the%20Open%20Arena%20Monthly%20pass." target="_blank" class="pass-cta-btn">
+              Join on WhatsApp →
+            </a>
           </div>
-          <a href="https://wa.me/923219876543?text=Hi%20Xtreme%20Fitness%20%26%20Athletic%20Club!%20I%20would%20like%20to%20apply%20for%201-on-1%20performance%20coaching." target="_blank" class="btn-tier">
-            Apply for Coaching →
-          </a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER: Minimal Architectural Dark -->
   <footer>
-    <div class="container footer-flex">
-      <div>© 2026 Xtreme Fitness &amp; Athletic Club · All Rights Reserved.</div>
-      <div>Commercial Area, DHA Phase 5, Lahore · +92 321 9876543</div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">Xtreme Fitness &amp; Athletic Club</div>
+        <ul class="footer-links">
+          <li><a href="#disciplines">Disciplines</a></li>
+          <li><a href="https://wa.me/923219876543" target="_blank">WhatsApp Desk</a></li>
+          <li><a href="tel:+923219876543">+92 321 9876543</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <div>Commercial Area, DHA Phase 5, Lahore · 4.9★ (184+ Google Reviews)</div>
+        <div>© 2026 Xtreme Fitness &amp; Athletic Club. All rights reserved.</div>
+      </div>
     </div>
   </footer>
 
+  <!-- Script for 21st.dev Interactive Protocol Matcher -->
+  <script>
+    const protocols = [
+      {
+        title: "Hypertrophy & Heavy Free Weights",
+        desc: "Periodized mechanical tension protocols, calibrated dumbbell racks from 2.5kg to 60kg, and precision leverage machines designed for optimal biomechanical loading.",
+        equipment: "Eleiko Dumbbells & Leverage Racks",
+        volume: "16–22 Sets Per Muscle Group",
+        image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80",
+        waText: "Hi Xtreme Fitness! I am interested in the Hypertrophy & Heavy Free Weights program."
+      },
+      {
+        title: "Olympic Weightlifting & Power",
+        desc: "Competition-grade Eleiko drop platforms, high-spin needle bearing barbells, competition bumper plates, and supervised technical coaching for snatch and clean & jerk.",
+        equipment: "Eleiko IWF Platforms & Competition Discs",
+        volume: "3–5 Rep Max Technical Waves",
+        image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+        waText: "Hi Xtreme Fitness! I am interested in the Olympic Weightlifting & Power protocol."
+      },
+      {
+        title: "Hyrox Conditioning & Turf Sprints",
+        desc: "High-intensity aerobic power on our 40-meter indoor sled turf, Concept2 Rowers, SkiErgs, Echo Bikes, and lactate threshold circuit programming.",
+        equipment: "Rogue Sleds, Concept2 Fleet, Echo Bikes",
+        volume: "45-Min Threshold Engine Blocks",
+        image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=80",
+        waText: "Hi Xtreme Fitness! I am interested in the Hyrox Conditioning & Turf Sprints program."
+      },
+      {
+        title: "1-on-1 Biomechanical Transformation",
+        desc: "Dedicated personal coaching with weekly InBody body-composition telemetry, custom macronutrient design, video form auditing, and progressive overload tracking.",
+        equipment: "InBody 570 & Private Coaching Bay",
+        volume: "3x Weekly Dedicated 60-Min Sessions",
+        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+        waText: "Hi Xtreme Fitness! I would like to apply for 1-on-1 Biomechanical Transformation coaching."
+      }
+    ];
+
+    function switchProtocol(index) {
+      const p = protocols[index];
+      const buttons = document.querySelectorAll('.protocol-tab-btn');
+      buttons.forEach((btn, i) => {
+        if (i === index) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+
+      document.getElementById('proto-title').textContent = p.title;
+      document.getElementById('proto-desc').textContent = p.desc;
+      document.getElementById('proto-eq').textContent = p.equipment;
+      document.getElementById('proto-vol').textContent = p.volume;
+      document.getElementById('proto-img').src = p.image;
+      document.getElementById('proto-cta').href = `https://wa.me/923219876543?text=${encodeURIComponent(p.waText)}`;
+      document.getElementById('proto-cta').querySelector('span').textContent = `Book ${p.title.split('&')[0].trim()} on WhatsApp`;
+    }
+  </script>
 </body>
 </html>
