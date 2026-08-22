@@ -4,24 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dental Cafe - DHA Phase 4 · Dental clinic in DHA Phase 4 Sector CCA</title>
-  <meta name="description" content="Experience high-standard Dental clinic at Dental Cafe - DHA Phase 4, DHA Phase 4 Sector CCA, Lahore.">
+  <meta name="description" content="Experience precision dentistry and smile aesthetics at Dental Cafe - DHA Phase 4, Sector CCA, DHA Phase 4, Lahore.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0d9488;
-      --secondary: #0284c7;
-      --accent: #0f766e;
-      --bg: #F8FAFC;
+      --primary: #065F46;
+      --primary-hover: #047857;
+      --bg: #FAFAF9;
       --card-bg: #FFFFFF;
-      --text: #0F172A;
-      --text-muted: #64748B;
-      --border: #E2E8F0;
+      --text: #1C1917;
+      --text-muted: #78716C;
+      --border: #E7E5E4;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -30,312 +29,351 @@
     }
     .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
     
-    /* Top Navigation (Google Stitch Style) */
-    .nav-wrap { position: sticky; top: 12px; z-index: 50; padding: 0 16px; }
-    .navbar {
-      max-width: 1140px; margin: 0 auto;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: 9999px;
-      padding: 10px 24px;
-      display: flex; justify-content: space-between; align-items: center;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+    /* Top Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250, 250, 249, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
     }
+    .header-flex { display: flex; justify-content: space-between; align-items: center; }
     .brand { display: flex; align-items: center; gap: 12px; }
     .brand-logo {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--primary);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; color: #fff; font-size: 16px;
-    }
-    .brand-name { font-weight: 700; font-size: 15px; color: var(--text); }
-    .brand-status { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #10B981; }
-    .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: #10B981; }
-    .nav-actions { display: flex; align-items: center; gap: 12px; }
-    .nav-phone {
-      font-size: 13px; font-weight: 600; text-decoration: none; color: var(--text);
-      padding: 6px 14px; border-radius: 9999px; border: 1px solid var(--border);
-    }
-    .nav-btn-wa {
+      width: 38px; height: 38px; border-radius: 10px;
       background: var(--primary); color: #fff;
-      padding: 8px 18px; border-radius: 9999px; font-size: 13px; font-weight: 700;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-      transition: all 0.2s ease; shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 16px;
     }
-    .nav-btn-wa:hover { opacity: 0.95; transform: scale(1.02); }
+    .brand-title { font-weight: 800; font-size: 16px; color: var(--text); line-height: 1.1; }
+    .brand-sub { font-size: 11px; color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .pulse { width: 6px; height: 6px; border-radius: 50%; background: #059669; }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-phone {
+      font-size: 12px; font-weight: 600; text-decoration: none; color: var(--text);
+      padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border);
+    }
+    .btn-wa {
+      background: var(--primary); color: #fff; text-decoration: none;
+      padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 6px; transition: 0.2s;
+    }
+    .btn-wa:hover { background: var(--primary-hover); }
 
     /* Hero Section */
-    .hero { padding: 48px 0 64px; position: relative; }
+    .hero { padding: 48px 0 64px; }
     .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
-    .trust-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 700;
-      background: #FFFFFF;
-      border: 1px solid var(--border); color: var(--text);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03); margin-bottom: 20px;
+    .location-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 6px; background: #F5F5F4;
+      border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: #44403C;
+      margin-bottom: 16px;
     }
-    .trust-stars { color: #F59E0B; letter-spacing: 2px; }
     .hero h1 {
-      font-size: 44px; font-weight: 800; line-height: 1.15; color: var(--text);
+      font-size: 42px; font-weight: 800; line-height: 1.15; color: #0C0A09;
       letter-spacing: -0.02em; margin-bottom: 16px;
     }
-    .hero-sub { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; max-width: 520px; line-height: 1.6; }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 28px; }
-    .rating-badge {
-      display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
-      border-radius: 8px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2);
-      color: #D97706; font-size: 13px; font-weight: 700;
-    }
-    .address-badge { font-size: 13px; color: var(--text-muted); }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-    .cta-primary {
-      padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 700;
-      background: var(--primary); color: #fff;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.12); transition: all 0.2s;
-    }
-    .cta-primary:hover { opacity: 0.95; transform: translateY(-1px); }
-    .cta-sec {
-      padding: 14px 24px; border-radius: 12px; font-size: 15px; font-weight: 600;
-      background: #FFFFFF;
-      border: 1px solid var(--border); color: var(--text);
-      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-      transition: all 0.2s;
-    }
-    .cta-sec:hover { background: #F1F5F9; }
-
-    /* Media Box (Stitch Showcase Framing) */
-    .media-card {
-      background: #FFFFFF;
-      border-radius: 20px; padding: 8px; border: 4px solid #FFFFFF;
-      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
-    }
-    .media-frame {
-      position: relative; border-radius: 14px; overflow: hidden; height: 320px; background: #000;
-    }
-    .media-frame img { width: 100%; height: 100%; object-fit: cover; }
-    .media-stats {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; padding: 4px;
-    }
-    .stat-box {
+    .hero-p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
+    .metrics-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }
+    .metric-card {
       padding: 12px; border-radius: 12px; background: var(--card-bg);
       border: 1px solid var(--border);
     }
-    .stat-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
-    .stat-value { font-size: 16px; font-weight: 800; margin-top: 2px; }
+    .metric-val { font-size: 18px; font-weight: 800; color: var(--text); }
+    .metric-lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cta-main {
+      padding: 14px 24px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: var(--primary); color: #fff; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+    }
+    .cta-main:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .cta-outline {
+      padding: 14px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      background: #FFFFFF; border: 1px solid var(--border); color: var(--text);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
 
-    /* Trust Strip */
-    .trust-strip {
-      padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      background: #FFFFFF;
+    /* Showcase & Doctor Dock */
+    .showcase-box {
+      background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border);
+      overflow: hidden; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); margin-bottom: 12px;
     }
-    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .trust-card {
-      padding: 18px; border-radius: 16px; background: var(--card-bg);
-      border: 1px solid var(--border); text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    .showcase-box img { width: 100%; height: 240px; object-fit: cover; }
+    .showcase-info { padding: 14px 18px; border-top: 1px solid var(--border); }
+    .doc-dock {
+      padding: 14px 18px; border-radius: 14px; background: #FFFFFF; border: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
     }
-    .trust-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--primary); margin-bottom: 4px; }
-    .trust-sub { font-size: 13px; color: var(--text-muted); }
+    .doc-flex { display: flex; align-items: center; gap: 12px; }
+    .doc-avatar {
+      width: 40px; height: 40px; border-radius: 50%; background: #D1FAE5; color: #065F46;
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;
+    }
 
-    /* Services Bento */
-    .section { padding: 64px 0; }
-    .sec-head { text-align: center; max-width: 600px; margin: 0 auto 40px; }
-    .sec-tag {
-      display: inline-block; font-size: 11px; text-transform: uppercase; font-weight: 700;
-      color: var(--primary); letter-spacing: 1.5px; padding: 4px 12px; border-radius: 9999px;
-      background: rgba(13, 148, 136, 0.1); border: 1px solid rgba(13, 148, 136, 0.2); margin-bottom: 8px;
+    /* Signature Section: Smile Matcher */
+    .signature-sec {
+      padding: 56px 0; background: #FFFFFF; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     }
-    .sec-head h2 { font-size: 32px; font-weight: 800; color: var(--text); letter-spacing: -0.01em; margin-bottom: 8px; }
-    .sec-head p { font-size: 14px; color: var(--text-muted); }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .sec-tag { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--primary); letter-spacing: 1.5px; }
+    .sec-title { font-size: 28px; font-weight: 800; color: #0C0A09; margin: 4px 0 8px; }
+    .sec-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+    .goals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .goal-card {
+      padding: 16px; border-radius: 14px; background: #FAFAF9; border: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; cursor: pointer;
+    }
+    .goal-card:hover { border-color: var(--primary); background: #F0FDF4; }
+
+    /* Services Section */
+    .services-sec { padding: 64px 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
     .service-card {
-      padding: 24px; border-radius: 18px; background: var(--card-bg);
-      border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.03); transition: all 0.2s ease;
+      padding: 22px; border-radius: 16px; background: #FFFFFF; border: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s;
     }
-    .service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08); border-color: var(--primary); }
-    .service-num {
-      width: 32px; height: 32px; border-radius: 8px; background: var(--primary);
-      display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: #fff; margin-bottom: 14px;
+    .service-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.06); }
+    .service-icon {
+      width: 32px; height: 32px; border-radius: 8px; background: #F5F5F4; color: #44403C;
+      display: flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 12px;
     }
-    .service-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-    .service-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
-    .features { list-style: none; margin-bottom: 20px; font-size: 12px; color: var(--text); }
-    .features li { margin-bottom: 6px; }
-    .service-footer { border-top: 1px solid var(--border); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .service-card h3 { font-size: 16px; font-weight: 700; color: #1C1917; margin-bottom: 6px; }
+    .service-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+    .features { list-style: none; margin-bottom: 16px; font-size: 12px; color: #44403C; }
+    .features li { margin-bottom: 5px; }
+    .service-footer { border-top: 1px solid #F5F5F4; padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
     .price-tag { font-size: 12px; font-weight: 700; color: var(--primary); }
     .order-btn {
-      padding: 10px; border-radius: 10px; background: #F1F5F9; color: var(--text);
+      padding: 8px; border-radius: 8px; background: #F5F5F4; color: var(--text);
       font-size: 12px; font-weight: 700; text-align: center; text-decoration: none; transition: 0.2s;
     }
     .order-btn:hover { background: var(--primary); color: #fff; }
 
     /* Reviews */
-    .reviews-bg { background: #F1F5F9; border-top: 1px solid var(--border); }
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .review-card {
-      padding: 24px; border-radius: 16px; background: var(--card-bg);
-      border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-    }
-    .stars { color: #F59E0B; margin-bottom: 8px; letter-spacing: 2px; font-size: 14px; }
-    .review-card p { font-size: 13px; font-style: italic; color: var(--text); margin-bottom: 14px; line-height: 1.5; }
+    .reviews-sec { padding: 56px 0; background: #F5F5F4; border-top: 1px solid var(--border); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .review-card { padding: 20px; border-radius: 14px; background: #FFFFFF; border: 1px solid var(--border); }
+    .stars { color: #F59E0B; margin-bottom: 6px; font-size: 14px; letter-spacing: 1px; }
+    .review-card p { font-size: 13px; font-style: italic; color: #44403C; margin-bottom: 12px; }
     .review-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); }
 
-    /* Booking / Ordering Wizard Card */
-    .wizard-wrap { max-width: 680px; margin: 0 auto; }
-    .wizard-card {
-      padding: 36px; border-radius: 24px; background: var(--card-bg);
-      border: 1px solid var(--border); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
+    /* Booking Form */
+    .booking-sec { padding: 64px 0; }
+    .form-box {
+      max-width: 640px; margin: 0 auto; padding: 36px; border-radius: 20px;
+      background: #FFFFFF; border: 1px solid var(--border); box-shadow: 0 15px 35px -10px rgba(0,0,0,0.06);
     }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #44403C; margin-bottom: 5px; }
     .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 12px 14px; border-radius: 10px; background: #FFFFFF;
-      border: 1px solid var(--border); color: var(--text); font-size: 14px; font-family: inherit; outline: none;
+      width: 100%; padding: 10px 12px; border-radius: 8px; background: #FAFAF9;
+      border: 1px solid #D6D3D1; font-size: 13px; font-family: inherit; outline: none;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .submit-btn {
-      width: 100%; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 700;
-      background: var(--primary); color: #fff;
-      border: none; cursor: pointer; transition: 0.2s; margin-top: 8px;
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-submit {
+      width: 100%; padding: 14px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: var(--primary); color: #fff; border: none; cursor: pointer; transition: 0.2s;
     }
-    .submit-btn:hover { opacity: 0.95; }
+    .btn-submit:hover { background: var(--primary-hover); }
 
-    /* Location Card */
+    /* Location */
+    .location-sec { padding: 56px 0; background: #F5F5F4; border-top: 1px solid var(--border); }
     .location-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: center; }
-    .map-frame { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); height: 300px; }
+    .map-frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); height: 260px; }
     .map-frame iframe { width: 100%; height: 100%; border: 0; }
 
     /* Footer */
-    footer { padding: 48px 0; border-top: 1px solid var(--border); background: #FFFFFF; font-size: 13px; color: var(--text-muted); }
-    .footer-flex { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); background: #FFFFFF; font-size: 12px; color: var(--text-muted); }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
 
-    /* Sticky Mobile Bottom Bar */
-    .mobile-bar { display: none; }
     @media (max-width: 768px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .trust-grid { grid-template-columns: 1fr 1fr; }
-      .location-grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 32px; }
-      .nav-phone { display: none; }
-      .mobile-bar {
-        display: block; position: fixed; bottom: 12px; left: 16px; right: 16px; z-index: 50;
-      }
-      .mobile-bar a {
-        display: block; width: 100%; padding: 14px; border-radius: 14px; background: var(--primary);
-        color: #fff; text-align: center; font-weight: 700; font-size: 14px; text-decoration: none;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      }
+      .hero-grid, .location-grid, .form-grid { grid-template-columns: 1fr; }
+      .metrics-strip { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 30px; }
+      .btn-phone { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. Top Navbar -->
-  <div class="nav-wrap">
-    <nav class="navbar">
+  <!-- Top Header -->
+  <header>
+    <div class="container header-flex">
       <div class="brand">
-        <div class="brand-logo">★</div>
+        <div class="brand-logo">DC</div>
         <div>
-          <div class="brand-name">Dental Cafe - DHA Phase 4</div>
-          <div class="brand-status">
-            <span class="pulse-dot"></span>
-            <span>Open Now</span>
+          <div class="brand-title">Dental Cafe - DHA Phase 4</div>
+          <div class="brand-sub">
+            <span class="pulse"></span>
+            <span>Open Today · Sector CCA, DHA Phase 4</span>
           </div>
         </div>
       </div>
-      <div class="nav-actions">
-        <a href="tel:03324679934" class="nav-phone">📞 03324679934</a>
-        <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="nav-btn-wa">
+      <div class="header-actions">
+        <a href="tel:03324679934" class="btn-phone">📞 03324679934</a>
+        <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20book%20a%20dental%20consultation." target="_blank" class="btn-wa">
                 Book on WhatsApp
               </a>
       </div>
-    </nav>
-  </div>
+    </div>
+  </header>
 
-  <!-- 2. Hero Section -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div>
-          <div class="trust-pill">
-            <span>✓ Verified Google 5.0★ Business</span>
-            <span class="trust-stars">★★★★★</span>
+          <div class="location-tag">📍 Sector CCA, DHA Phase 4 Dental Practice</div>
+          <h1>Precision Dentistry & Aesthetic Smile Architecture</h1>
+          <p class="hero-p">Experience gentle, anxiety-free dental surgery and cosmetic smile design in a tranquil, state-of-the-art clinic lounge in DHA Phase 4, Lahore.</p>
+          
+          <div class="metrics-strip">
+            <div class="metric-card">
+              <div class="metric-val">5.0 ★</div>
+              <div class="metric-lbl">84+ Patient Reviews</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val" style="color:#065F46;">100%</div>
+              <div class="metric-lbl">Sterilized Facility</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val">Sector CCA</div>
+              <div class="metric-lbl">Prime DHA Access</div>
+            </div>
           </div>
-          <h1>Dr. Khan&#039;s Dentist Clinic</h1>
-          <p class="hero-sub">Delivering dedicated, high-standard dentist services located conveniently in DHA Phase 5.</p>
-          <div class="hero-meta">
-            <span class="rating-badge">★ 5.0 Rating (84 reviews)</span>
-            <span class="address-badge">📍 DHA Phase 4 Sector CCA, Lahore</span>
-          </div>
+
           <div class="hero-ctas">
-            <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20inquire%20about%20services." target="_blank" class="cta-primary">
-                    💬 Book on WhatsApp →
+            <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20schedule%20an%20appointment." target="_blank" class="cta-main">
+                    💬 Request Appointment on WhatsApp →
                   </a>
-            <a href="tel:03324679934" class="cta-sec">📞 Call Direct</a>
+            <a href="#smile-matcher" class="cta-outline">Select Smile Goal ↓</a>
           </div>
         </div>
+
         <div>
-          <div class="media-card">
-            <div class="media-frame">
-              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Dental Cafe - DHA Phase 4">
+          <div class="showcase-box">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Dental Cafe - DHA Phase 4">
+            <div class="showcase-info">
+              <strong style="font-size:14px;color:#1C1917;">Dental Cafe - DHA Phase 4</strong>
+              <div style="font-size:12px;color:#78716C;margin-top:2px;">DHA Phase 4 Sector CCA, Lahore</div>
             </div>
-            <div class="media-stats">
-              <div class="stat-box">
-                <div class="stat-label">Google Rating</div>
-                <div class="stat-value" style="color: #F59E0B;">★ 5.0 / 5.0</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">Verified Proof</div>
-                <div class="stat-value" style="color: var(--primary);">84+ Reviews</div>
+          </div>
+
+          <div class="doc-dock">
+            <div class="doc-flex">
+              <div class="doc-avatar">Dr.</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:#1C1917;">Dr. Mahwish Khan & Team</div>
+                <div style="font-size:11px;color:#78716C;">Consultant Dental Surgeon · PMDC Verified</div>
               </div>
             </div>
+            <a href="https://wa.me/03324679934?text=Hi%20Dr.%20Mahwish!%20I%20would%20like%20to%20consult%20about%20dental%20treatments%20at%20Dental%20Cafe." target="_blank" style="padding:6px 12px;border-radius:6px;background:#D1FAE5;color:#065F46;font-size:11px;font-weight:700;text-decoration:none;">Chat Direct</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. Trust Strip -->
-  <section class="trust-strip">
+  <!-- Signature Element: Smile Assessment Matrix -->
+  <section class="signature-sec" id="smile-matcher">
     <div class="container">
-      <div class="trust-grid">
-        <div class="trust-card">
-          <div class="trust-title">Verified Location</div>
-          <div class="trust-sub">DHA Phase 4 Sector CCA, Lahore</div>
+      <span class="sec-tag">Interactive Patient Assessment</span>
+      <h2 class="sec-title">Select Your Smile Goal for Instant Consultation</h2>
+      <p class="sec-sub">Tap an objective below to prepare your customized treatment recommendation.</p>
+
+      <div class="goals-grid">
+        
+      <div class="goal-card" onclick="selectGoal('Laser Teeth Whitening')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">✨</span>
+            <span style="padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;">Most Requested</span>
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Laser Teeth Whitening</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Noticeable 4-6 shades brighter in 1 gentle session</p>
         </div>
-        <div class="trust-card">
-          <div class="trust-title">Google Satisfaction</div>
-          <div class="trust-sub">5.0★ Verified Feedback</div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%20Laser%20Teeth%20Whitening%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
         </div>
-        <div class="trust-card">
-          <div class="trust-title">Direct WhatsApp</div>
-          <div class="trust-sub">Instant Booking Support</div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Invisalign &amp; Clear Aligners')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">🦷</span>
+            
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Invisalign &amp; Clear Aligners</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Discreet orthodontic correction for adults &amp; teens</p>
         </div>
-        <div class="trust-card">
-          <div class="trust-title">Dedicated Quality</div>
-          <div class="trust-sub">100% Customer Priority</div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%20Invisalign%20%26%20Clear%20Aligners%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
         </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Cosmetic Porcelain Veneers')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">💎</span>
+            <span style="padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;">Most Requested</span>
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Cosmetic Porcelain Veneers</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Complete smile symmetry &amp; aesthetic enhancement</p>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%20Cosmetic%20Porcelain%20Veneers%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Dental Implants &amp; Restorations')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">🛡️</span>
+            
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Dental Implants &amp; Restorations</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Permanent tooth replacement with Swiss precision</p>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%20Dental%20Implants%20%26%20Restorations%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
+        </div>
+      </div>
+    
+      <div class="goal-card" onclick="selectGoal('Painless Root Canal &amp; Crown')">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:22px;">🌿</span>
+            
+          </div>
+          <h4 style="font-size:14px;font-weight:700;color:#1C1917;margin-bottom:4px;">Painless Root Canal &amp; Crown</h4>
+          <p style="font-size:12px;color:#78716C;line-height:1.5;">Advanced gentle micro-endodontic therapy</p>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%20Painless%20Root%20Canal%20%26%20Crown%20in%20DHA%20Phase%204." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Inquire →</a>
+        </div>
+      </div>
+    
       </div>
     </div>
   </section>
 
-  <!-- 4. Services Grid -->
-  <section class="section">
+  <!-- Treatments Section -->
+  <section class="services-sec">
     <div class="container">
-      <div class="sec-head">
-        <span class="sec-tag">Treatments & Procedures</span>
-        <h2>Specialized Clinical Offerings</h2>
-        <p>Premium dental clinic services delivered with precision in DHA Phase 4 Sector CCA.</p>
-      </div>
+      <span class="sec-tag">Comprehensive Care</span>
+      <h2 class="sec-title">Clinical Treatments & Specialty Suites</h2>
+      <p class="sec-sub">Performed using digital diagnostic imaging and sterile European protocol.</p>
+      
       <div class="services-grid">
         
       <div class="service-card">
         <div>
-          <div class="service-num">01</div>
+          <div class="service-icon">★</div>
           <h3>Comprehensive Dental Consultations &amp; Diagnostics</h3>
           <p>Advanced digital clinical examination, oral health diagnostics, and personalized treatment planning.</p>
           <ul class="features">
@@ -344,7 +382,7 @@
         </div>
         <div class="service-footer">
           <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20order%20%2F%20inquire%20about%3A%20Comprehensive%20Dental%20Consultations%20%26%20Diagnostics" target="_blank" class="order-btn">
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%3A%20Comprehensive%20Dental%20Consultations%20%26%20Diagnostics" target="_blank" class="order-btn">
             Book on WhatsApp →
           </a>
         </div>
@@ -352,7 +390,7 @@
     
       <div class="service-card">
         <div>
-          <div class="service-num">02</div>
+          <div class="service-icon">★</div>
           <h3>Cosmetic Dentistry &amp; Smile Enhancement</h3>
           <p>Precision dental aesthetics, teeth whitening, veneers, and smile transformation procedures.</p>
           <ul class="features">
@@ -361,7 +399,7 @@
         </div>
         <div class="service-footer">
           <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20order%20%2F%20inquire%20about%3A%20Cosmetic%20Dentistry%20%26%20Smile%20Enhancement" target="_blank" class="order-btn">
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%3A%20Cosmetic%20Dentistry%20%26%20Smile%20Enhancement" target="_blank" class="order-btn">
             Book on WhatsApp →
           </a>
         </div>
@@ -369,7 +407,7 @@
     
       <div class="service-card">
         <div>
-          <div class="service-num">03</div>
+          <div class="service-icon">★</div>
           <h3>Restorative Care &amp; Orthodontics</h3>
           <p>Structural tooth restorations, alignment therapies, and long-term oral rehabilitation.</p>
           <ul class="features">
@@ -378,7 +416,7 @@
         </div>
         <div class="service-footer">
           <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20order%20%2F%20inquire%20about%3A%20Restorative%20Care%20%26%20Orthodontics" target="_blank" class="order-btn">
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%3A%20Restorative%20Care%20%26%20Orthodontics" target="_blank" class="order-btn">
             Book on WhatsApp →
           </a>
         </div>
@@ -386,7 +424,7 @@
     
       <div class="service-card">
         <div>
-          <div class="service-num">04</div>
+          <div class="service-icon">★</div>
           <h3>Pediatric &amp; Family Dental Care</h3>
           <p>Gentle, stress-free dental care designed specifically for families and young patients.</p>
           <ul class="features">
@@ -395,7 +433,7 @@
         </div>
         <div class="service-footer">
           <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20order%20%2F%20inquire%20about%3A%20Pediatric%20%26%20Family%20Dental%20Care" target="_blank" class="order-btn">
+          <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20consult%20about%3A%20Pediatric%20%26%20Family%20Dental%20Care" target="_blank" class="order-btn">
             Book on WhatsApp →
           </a>
         </div>
@@ -405,19 +443,23 @@
     </div>
   </section>
 
-  <!-- 5. Real Reviews -->
-  <section class="section reviews-bg">
+  <!-- Real Reviews -->
+  <section class="reviews-sec">
     <div class="container">
-      <div class="sec-head">
-        <span class="sec-tag" style="color: #D97706; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2);">Verified Proof</span>
-        <h2>Trusted by Locals in Lahore</h2>
-        <p>Backed by genuine community reviews on Google Maps.</p>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;">
+        <div>
+          <span class="sec-tag" style="color:#B45309;">Verified Proof</span>
+          <h2 class="sec-title" style="margin-top:2px;">Trusted by Patients Across Lahore & DHA</h2>
+        </div>
+        <div style="padding:6px 12px;background:#fff;border-radius:8px;border:1px solid var(--border);font-size:12px;font-weight:700;">
+          ★ 5.0 Rating · 84+ Patient Reviews
+        </div>
       </div>
       <div class="reviews-grid">
         
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p>Top-rated Dental clinic in Lahore with verified Google customer satisfaction.</p>
+          <p>Top-rated Dental clinic in Lahore with authentic Google verified customer satisfaction.</p>
           <div class="review-meta">
             <strong>Google Maps Community</strong>
             <span>5.0★ Satisfaction</span>
@@ -428,74 +470,73 @@
     </div>
   </section>
 
-  <!-- 6. Booking Wizard -->
-  <section class="section" id="booking">
+  <!-- Booking Form -->
+  <section class="booking-sec" id="booking">
     <div class="container">
-      <div class="wizard-wrap">
-        <div class="wizard-card">
-          <div class="sec-head" style="margin-bottom: 24px;">
-            <span class="sec-tag">Direct WhatsApp Request</span>
-            <h2>Request Online Appointment</h2>
-            <p>Choose your preferred treatment slot for prompt confirmation.</p>
+      <div class="form-box">
+        <div style="text-align:center;margin-bottom:20px;">
+          <span class="sec-tag">Direct Clinical Dispatch</span>
+          <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin-top:2px;">Request Your Dental Consultation</h2>
+          <p style="font-size:12px;color:var(--text-muted);">Our front-desk coordinator in DHA Phase 4 will confirm your time window on WhatsApp.</p>
+        </div>
+
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>1. Select Treatment</label>
+            <select id="formService" required>
+              <option value="Comprehensive Dental Consultations &amp; Diagnostics">Comprehensive Dental Consultations &amp; Diagnostics</option><option value="Cosmetic Dentistry &amp; Smile Enhancement">Cosmetic Dentistry &amp; Smile Enhancement</option><option value="Restorative Care &amp; Orthodontics">Restorative Care &amp; Orthodontics</option><option value="Pediatric &amp; Family Dental Care">Pediatric &amp; Family Dental Care</option>
+            </select>
           </div>
-          <form onsubmit="handleFormSubmit(event)">
+          <div class="form-grid">
             <div class="form-group">
-              <label>1. Select Preferred Option</label>
-              <select id="formService" required>
-                <option value="Comprehensive Dental Consultations &amp; Diagnostics">Comprehensive Dental Consultations &amp; Diagnostics</option><option value="Cosmetic Dentistry &amp; Smile Enhancement">Cosmetic Dentistry &amp; Smile Enhancement</option><option value="Restorative Care &amp; Orthodontics">Restorative Care &amp; Orthodontics</option><option value="Pediatric &amp; Family Dental Care">Pediatric &amp; Family Dental Care</option>
+              <label>2. Full Name</label>
+              <input type="text" id="formName" placeholder="Patient Name" required>
+            </div>
+            <div class="form-group">
+              <label>3. Contact WhatsApp Number</label>
+              <input type="tel" id="formPhone" placeholder="0300 1234567" required>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>4. Preferred Date</label>
+              <input type="date" id="formDate" required>
+            </div>
+            <div class="form-group">
+              <label>5. Preferred Time Window</label>
+              <select id="formTime">
+                <option value="Morning (11:00 AM - 02:00 PM)">Morning (11:00 AM - 02:00 PM)</option>
+                <option value="Afternoon (03:00 PM - 06:00 PM)">Afternoon (03:00 PM - 06:00 PM)</option>
+                <option value="Evening (06:00 PM - 09:00 PM)" selected>Evening (06:00 PM - 09:00 PM)</option>
               </select>
             </div>
-            <div class="form-grid">
-              <div class="form-group">
-                <label>2. Full Name</label>
-                <input type="text" id="formName" placeholder="Your name" required>
-              </div>
-              <div class="form-group">
-                <label>3. WhatsApp Phone</label>
-                <input type="tel" id="formPhone" placeholder="0300 1234567" required>
-              </div>
-            </div>
-            <div class="form-grid">
-              <div class="form-group">
-                <label>4. Preferred Date</label>
-                <input type="date" id="formDate" required>
-              </div>
-              <div class="form-group">
-                <label>5. Preferred Time Window</label>
-                <select id="formTime">
-                  <option value="Morning (11:00 AM - 02:00 PM)">Morning (11:00 AM - 02:00 PM)</option>
-                  <option value="Afternoon (03:00 PM - 06:00 PM)">Afternoon (03:00 PM - 06:00 PM)</option>
-                  <option value="Evening (06:00 PM - 09:00 PM)" selected>Evening (06:00 PM - 09:00 PM)</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>6. Notes / Special Inquiries</label>
-              <textarea id="formNotes" rows="2" placeholder="Any specific requirements or details?"></textarea>
-            </div>
-            <button type="submit" class="submit-btn">
-              💬 Submit Request on WhatsApp
-            </button>
-          </form>
-        </div>
+          </div>
+          <div class="form-group">
+            <label>6. Dental Notes or Chief Complaint</label>
+            <textarea id="formNotes" rows="2" placeholder="Any specific tooth sensitivity, previous treatment, or aesthetic goals?"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            💬 Submit Appointment Request on WhatsApp
+          </button>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- 7. Location -->
-  <section class="section" style="border-top: 1px solid var(--border);">
+  <!-- Location -->
+  <section class="location-sec">
     <div class="container">
       <div class="location-grid">
         <div>
-          <span class="sec-tag" style="color: #E11D48; background: rgba(225, 29, 72, 0.1); border-color: rgba(225, 29, 72, 0.2);">Find & Visit Us</span>
-          <h2 style="font-size: 28px; font-weight: 800; margin: 8px 0 12px;">Conveniently Located in DHA Phase 4 Sector CCA</h2>
-          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">DHA Phase 4 Sector CCA, Lahore</p>
-          <div style="padding: 14px; border-radius: 12px; background: var(--card-bg); border: 1px solid var(--border); margin-bottom: 16px;">
-            <div style="font-size: 12px; font-weight: 700;">🕒 Opening Hours</div>
-            <div style="font-size: 13px; color: var(--text-muted);">Monday – Sunday: Open Everyday (10:00 AM – 09:00 PM)</div>
+          <span class="sec-tag" style="color:#B91C1C;">Clinic Location</span>
+          <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin:4px 0 8px;">Sector CCA, DHA Phase 4</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">DHA Phase 4 Sector CCA, Lahore</p>
+          <div style="padding:12px;background:#fff;border-radius:10px;border:1px solid var(--border);margin-bottom:14px;font-size:12px;">
+            <strong>🕒 Clinic Operating Hours</strong>
+            <div style="color:var(--text-muted);margin-top:2px;">Monday – Sunday: 10:00 AM – 09:00 PM</div>
           </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Dr.%20Khan's%20Dentist%20Clinic%2C%20DHA%20Phase%205%2C%20Lahore" target="_blank" class="cta-sec" style="font-size: 13px; padding: 10px 18px;">
-            🗺️ Get Driving Directions on Google Maps ↗
+          <a href="https://www.google.com/maps/search/?api=1&query=Dr.%20Khan's%20Dentist%20Clinic%2C%20DHA%20Phase%205%2C%20Lahore" target="_blank" style="padding:8px 14px;border-radius:8px;background:#fff;border:1px solid var(--border);color:#1C1917;font-size:12px;font-weight:600;text-decoration:none;">
+            🗺️ Driving Directions on Google Maps ↗
           </a>
         </div>
         <div>
@@ -507,32 +548,24 @@
     </div>
   </section>
 
-  <!-- 8. Footer -->
+  <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="footer-flex">
-        <div>
-          <strong style="color: var(--text); font-size: 15px;">Dental Cafe - DHA Phase 4</strong>
-          <div>Dental clinic · DHA Phase 4 Sector CCA, Lahore</div>
-        </div>
-        <div>
-          Phone: 03324679934 · 
-          
-        </div>
-        <div>Digital Experience crafted by Octaite Team</div>
+    <div class="container footer-flex">
+      <div>
+        <strong style="color:#1C1917;font-size:13px;">Dental Cafe - DHA Phase 4</strong>
+        <div>Dental clinic · Sector CCA, DHA Phase 4, Lahore</div>
       </div>
+      <div>Digital Experience crafted by Octaite Team</div>
     </div>
   </footer>
 
-  <!-- 9. Mobile Sticky Action Bar -->
-  <div class="mobile-bar">
-    <a href="https://wa.me/03324679934?text=Hi%20Dental%20Cafe%20-%20DHA%20Phase%204!%20I%20would%20like%20to%20inquire%20about%20services." target="_blank">
-      💬 Book on WhatsApp
-    </a>
-  </div>
-
   <script>
     document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
+    function selectGoal(goal) {
+      document.getElementById('formNotes').value = "Smile Goal: " + goal;
+      const el = document.getElementById('booking');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
     function handleFormSubmit(e) {
       e.preventDefault();
       const service = document.getElementById('formService').value;
@@ -542,9 +575,7 @@
       const time = document.getElementById('formTime').value;
       const notes = document.getElementById('formNotes').value;
 
-      const action = "request an appointment";
-      const msg = "Hi Dental Cafe - DHA Phase 4! 👋\n\nI would like to " + action + " via your website:\n\n👤 *Name:* " + name + "\n📞 *Phone:* " + phone + "\n💼 *Service:* " + service + "\n📅 *Date & Time:* " + date + " at " + time + "\n📝 *Notes:* " + (notes || "None") + "\n\nPlease confirm availability.";
-
+      const msg = "Hi Dental Cafe - DHA Phase 4! 👋\n\nI would like to request a dental consultation via your website:\n\n👤 *Patient Name:* " + name + "\n📞 *Phone:* " + phone + "\n💼 *Treatment:* " + service + "\n📅 *Date & Time:* " + date + " at " + time + "\n📝 *Notes:* " + (notes || "None") + "\n\nPlease confirm availability.";
       window.open("https://wa.me/03324679934?text=" + encodeURIComponent(msg), "_blank");
     }
   </script>
