@@ -3,24 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xtreme Fitness · Fitness center in DHA Phase 8 - Ex Air Avenue Block M Air Avenue</title>
+  <title>Xtreme Fitness · Gym / Fitness Center in DHA Phase 8 - Ex Air Avenue Block M Air Avenue</title>
   <meta name="description" content="Transform your physical potential with Olympic-grade equipment, tailored athletic protocols, and high-energy coaching in DHA Phase 8 - Ex Air Avenue Block M Air Avenue.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800&family=Fraunces:opsz,wght@9..144,600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800&family=Fraunces:opsz,wght@9..144,600;700;800&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #065F46;
-      --primary-hover: #047857;
-      --bg: #FAFAF9;
-      --card-bg: #FFFFFF;
-      --text: #1C1917;
-      --text-muted: #78716C;
-      --border: #E7E5E4;
+      --primary: #E11D48;
+      --primary-hover: #EA580C;
+      --accent: #F43F5E;
+      --bg: #090D16;
+      --card-bg: #121826;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: #1E293B;
+      --heading-font: Plus Jakarta Sans, sans-serif;
+      --body-font: DM Sans, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--body-font), -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -32,7 +35,7 @@
     /* Top Header */
     header {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(250, 250, 249, 0.95);
+      background: rgba(9, 13, 22, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 14px 0;
@@ -40,134 +43,147 @@
     .header-flex { display: flex; justify-content: space-between; align-items: center; }
     .brand { display: flex; align-items: center; gap: 12px; }
     .brand-logo {
-      width: 38px; height: 38px; border-radius: 10px;
+      width: 40px; height: 40px; border-radius: 10px;
       background: var(--primary); color: #fff;
       display: flex; align-items: center; justify-content: center;
+      font-family: var(--heading-font);
       font-weight: 800; font-size: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
-    .brand-title { font-weight: 800; font-size: 16px; color: var(--text); line-height: 1.1; }
+    .brand-title { font-family: var(--heading-font); font-weight: 800; font-size: 16px; color: var(--text); line-height: 1.1; letter-spacing: -0.01em; }
     .brand-sub { font-size: 11px; color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 6px; }
-    .pulse { width: 6px; height: 6px; border-radius: 50%; background: #059669; }
+    .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 8px var(--primary); }
     .header-actions { display: flex; align-items: center; gap: 10px; }
     .btn-phone {
       font-size: 12px; font-weight: 600; text-decoration: none; color: var(--text);
       padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
     }
     .btn-wa {
       background: var(--primary); color: #fff; text-decoration: none;
       padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
       display: inline-flex; align-items: center; gap: 6px; transition: 0.2s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.6);
     }
-    .btn-wa:hover { background: var(--primary-hover); }
+    .btn-wa:hover { background: var(--primary-hover); transform: translateY(-1px); }
 
     /* Hero Section */
     .hero { padding: 48px 0 64px; }
     .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
     .location-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 12px; border-radius: 6px; background: #F5F5F4;
-      border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: #44403C;
+      padding: 5px 12px; border-radius: 6px; 
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: #E2E8F0;
       margin-bottom: 16px;
     }
     .hero h1 {
-      font-size: 42px; font-weight: 800; line-height: 1.15; color: #0C0A09;
+      font-family: var(--heading-font);
+      font-size: 42px; font-weight: 800; line-height: 1.12; color: var(--text);
       letter-spacing: -0.02em; margin-bottom: 16px;
+      text-transform: uppercase;
     }
     .hero-p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
     .metrics-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }
     .metric-card {
-      padding: 12px; border-radius: 12px; background: var(--card-bg);
+      padding: 14px; border-radius: 12px; background: var(--card-bg);
       border: 1px solid var(--border);
     }
-    .metric-val { font-size: 18px; font-weight: 800; color: var(--text); }
+    .metric-val { font-family: var(--heading-font); font-size: 19px; font-weight: 800; color: var(--text); }
     .metric-lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
     .cta-main {
       padding: 14px 24px; border-radius: 10px; font-size: 14px; font-weight: 700;
       background: var(--primary); color: #fff; text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
     }
     .cta-main:hover { background: var(--primary-hover); transform: translateY(-1px); }
     .cta-outline {
       padding: 14px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
-      background: #FFFFFF; border: 1px solid var(--border); color: var(--text);
-      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
     }
+    .cta-outline:hover { background: rgba(255,255,255,0.08); }
 
     /* Showcase & Specialist Dock */
     .showcase-box {
       background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border);
-      overflow: hidden; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); margin-bottom: 12px;
+      overflow: hidden; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5); margin-bottom: 12px;
     }
     .showcase-box img { width: 100%; height: 240px; object-fit: cover; }
     .showcase-info { padding: 14px 18px; border-top: 1px solid var(--border); }
     .doc-dock {
-      padding: 14px 18px; border-radius: 14px; background: #FFFFFF; border: 1px solid var(--border);
+      padding: 14px 18px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: center; gap: 12px;
     }
     .doc-flex { display: flex; align-items: center; gap: 12px; }
     .doc-avatar {
-      width: 40px; height: 40px; border-radius: 50%; background: #D1FAE5; color: #065F46;
-      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;
+      width: 42px; height: 42px; border-radius: 50%; 
+      background: rgba(255,255,255,0.08); 
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;
+      border: 1px solid var(--border);
     }
 
     /* Signature Section: Assessment / Matcher */
     .signature-sec {
-      padding: 56px 0; background: #FFFFFF; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 56px 0; background: rgba(255,255,255,0.02); 
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     }
     .sec-tag { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--primary); letter-spacing: 1.5px; }
-    .sec-title { font-size: 28px; font-weight: 800; color: #0C0A09; margin: 4px 0 8px; }
+    .sec-title { font-family: var(--heading-font); font-size: 28px; font-weight: 800; color: var(--text); margin: 4px 0 8px; }
     .sec-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
     .goals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
     .goal-card {
-      padding: 16px; border-radius: 14px; background: #FAFAF9; border: 1px solid var(--border);
+      padding: 16px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border);
       display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; cursor: pointer;
     }
-    .goal-card:hover { border-color: var(--primary); background: #F0FDF4; }
+    .goal-card:hover { border-color: var(--primary); transform: translateY(-2px); }
 
     /* Services Section */
     .services-sec { padding: 64px 0; }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
     .service-card {
-      padding: 22px; border-radius: 16px; background: #FFFFFF; border: 1px solid var(--border);
+      padding: 22px; border-radius: 16px; background: var(--card-bg); border: 1px solid var(--border);
       display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s;
     }
-    .service-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.06); }
+    .service-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5); border-color: var(--primary); }
     .service-icon {
-      width: 32px; height: 32px; border-radius: 8px; background: #F5F5F4; color: #44403C;
-      display: flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 12px;
+      width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.06); color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-size: 13px; margin-bottom: 12px;
     }
-    .service-card h3 { font-size: 16px; font-weight: 700; color: #1C1917; margin-bottom: 6px; }
+    .service-card h3 { font-family: var(--heading-font); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .service-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
-    .features { list-style: none; margin-bottom: 16px; font-size: 12px; color: #44403C; }
+    .features { list-style: none; margin-bottom: 16px; font-size: 12px; color: var(--text); }
     .features li { margin-bottom: 5px; }
-    .service-footer { border-top: 1px solid #F5F5F4; padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .service-footer { border-top: 1px solid var(--border); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
     .price-tag { font-size: 12px; font-weight: 700; color: var(--primary); }
     .order-btn {
-      padding: 8px; border-radius: 8px; background: #F5F5F4; color: var(--text);
+      padding: 9px; border-radius: 8px; background: rgba(255,255,255,0.06); color: var(--text);
       font-size: 12px; font-weight: 700; text-align: center; text-decoration: none; transition: 0.2s;
     }
     .order-btn:hover { background: var(--primary); color: #fff; }
 
     /* Reviews */
-    .reviews-sec { padding: 56px 0; background: #F5F5F4; border-top: 1px solid var(--border); }
+    .reviews-sec { padding: 56px 0; background: rgba(255,255,255,0.01); border-top: 1px solid var(--border); }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .review-card { padding: 20px; border-radius: 14px; background: #FFFFFF; border: 1px solid var(--border); }
+    .review-card { padding: 20px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--border); }
     .stars { color: #F59E0B; margin-bottom: 6px; font-size: 14px; letter-spacing: 1px; }
-    .review-card p { font-size: 13px; font-style: italic; color: #44403C; margin-bottom: 12px; }
+    .review-card p { font-size: 13px; font-style: italic; color: var(--text); margin-bottom: 12px; }
     .review-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); }
 
     /* Booking Form */
     .booking-sec { padding: 64px 0; }
     .form-box {
       max-width: 640px; margin: 0 auto; padding: 36px; border-radius: 20px;
-      background: #FFFFFF; border: 1px solid var(--border); box-shadow: 0 15px 35px -10px rgba(0,0,0,0.06);
+      background: var(--card-bg); border: 1px solid var(--border); box-shadow: 0 15px 35px -10px rgba(0,0,0,0.5);
     }
     .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #44403C; margin-bottom: 5px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 5px; }
     .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 10px 12px; border-radius: 8px; background: #FAFAF9;
-      border: 1px solid #D6D3D1; font-size: 13px; font-family: inherit; outline: none;
+      width: 100%; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); color: var(--text); font-size: 13px; font-family: inherit; outline: none;
     }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .btn-submit {
@@ -177,13 +193,13 @@
     .btn-submit:hover { background: var(--primary-hover); }
 
     /* Location */
-    .location-sec { padding: 56px 0; background: #F5F5F4; border-top: 1px solid var(--border); }
+    .location-sec { padding: 56px 0; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); }
     .location-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: center; }
     .map-frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); height: 260px; }
     .map-frame iframe { width: 100%; height: 100%; border: 0; }
 
     /* Footer */
-    footer { padding: 40px 0; border-top: 1px solid var(--border); background: #FFFFFF; font-size: 12px; color: var(--text-muted); }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); background: var(--bg); font-size: 12px; color: var(--text-muted); }
     .footer-flex { display: flex; justify-content: space-between; align-items: center; }
 
     @media (max-width: 768px) {
@@ -210,8 +226,8 @@
         </div>
       </div>
       <div class="header-actions">
-        <a href="tel:03364255323" class="btn-phone">📞 03364255323</a>
-        <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%20your%20services%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" class="btn-wa">
+        <a href="tel:+923364255323" class="btn-phone">📞 +92 336 4255323</a>
+        <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%20your%20services%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" class="btn-wa">
                 Book on WhatsApp
               </a>
       </div>
@@ -230,7 +246,7 @@
           <div class="metrics-strip">
             <div class="metric-card">
               <div class="metric-val">4.8 ★</div>
-              <div class="metric-lbl">Verified Satisfaction</div>
+              <div class="metric-lbl">180+ Reviews</div>
             </div>
             <div class="metric-card">
               <div class="metric-val" style="color:var(--primary);">100%</div>
@@ -243,7 +259,7 @@
           </div>
 
           <div class="hero-ctas">
-            <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20schedule%20an%20inquiry." target="_blank" class="cta-main">
+            <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20schedule%20an%20inquiry." target="_blank" class="cta-main">
                     💬 Book on WhatsApp →
                   </a>
             <a href="#signature-matcher" class="cta-outline">Select Your Per ↓</a>
@@ -252,10 +268,10 @@
 
         <div>
           <div class="showcase-box">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm_ME6HKh4Rz_DdAA5aJNOpG5Oo8t-3zy2E6uCLqRv3ieI6h6zinCLYlRhOQoRNrMLSyW1YFUAtyikQI3tVWoF6mIo-_pbDxLgzKLhhokkKalHJFHhILcLye6PECMckn3q6oYIV=w408-h306-k-no" alt="Xtreme Fitness">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Xtreme Fitness">
             <div class="showcase-info">
               <strong style="font-size:14px;color:#1C1917;">Xtreme Fitness</strong>
-              <div style="font-size:12px;color:#78716C;margin-top:2px;">DHA Phase 8 - Ex Air Avenue Block M Air Avenue, Lahore, 54792, Pakistan</div>
+              <div style="font-size:12px;color:#78716C;margin-top:2px;">DHA Phase 8 - Ex Air Avenue Block M Air Avenue</div>
             </div>
           </div>
 
@@ -267,7 +283,7 @@
                 <div style="font-size:11px;color:#78716C;">CSCS Certified Performance Coach</div>
               </div>
             </div>
-            <a href="https://wa.me/03364255323?text=Hi%20Coach!%20I%20would%20like%20to%20claim%20a%20trial%20pass%20and%20tour%20Xtreme%20Fitness." target="_blank" style="padding:6px 12px;border-radius:6px;background:#D1FAE5;color:#065F46;font-size:11px;font-weight:700;text-decoration:none;">Chat Direct</a>
+            <a href="https://wa.me/923364255323?text=Hi%20Coach!%20I%20would%20like%20to%20claim%20a%20trial%20pass%20and%20tour%20Xtreme%20Fitness." target="_blank" style="padding:6px 12px;border-radius:6px;background:#D1FAE5;color:#065F46;font-size:11px;font-weight:700;text-decoration:none;">Chat Direct</a>
           </div>
         </div>
       </div>
@@ -294,7 +310,7 @@
         </div>
         <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%20Hypertrophy%20%26%20Muscle%20Building%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%20Hypertrophy%20%26%20Muscle%20Building%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
         </div>
       </div>
     
@@ -309,7 +325,7 @@
         </div>
         <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%20Olympic%20Strength%20%26%20Power%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%20Olympic%20Strength%20%26%20Power%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
         </div>
       </div>
     
@@ -324,7 +340,7 @@
         </div>
         <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%20High-Intensity%20Metabolic%20HIIT%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%20High-Intensity%20Metabolic%20HIIT%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
         </div>
       </div>
     
@@ -339,7 +355,7 @@
         </div>
         <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%201-on-1%20Personalized%20Coaching%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%201-on-1%20Personalized%20Coaching%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
         </div>
       </div>
     
@@ -354,7 +370,7 @@
         </div>
         <div style="margin-top:14px;padding-top:10px;border-top:1px solid #E7E5E4;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:11px;font-weight:700;color:#065F46;">Tap to Consult</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%20Athletic%20Recovery%20%26%20Mobility%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20inquire%20about%20Athletic%20Recovery%20%26%20Mobility%20in%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue." target="_blank" style="padding:4px 10px;border-radius:6px;background:#065F46;color:#fff;font-size:11px;font-weight:700;text-decoration:none;">Claim Pass →</a>
         </div>
       </div>
     
@@ -382,7 +398,7 @@
         </div>
         <div class="service-footer">
           <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%3A%20Strength%20%26%20Functional%20Hypertrophy" target="_blank" class="order-btn">
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%3A%20Strength%20%26%20Functional%20Hypertrophy" target="_blank" class="order-btn">
             Book on WhatsApp →
           </a>
         </div>
@@ -399,7 +415,7 @@
         </div>
         <div class="service-footer">
           <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%3A%201-on-1%20Athletic%20Performance%20Coaching" target="_blank" class="order-btn">
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%3A%201-on-1%20Athletic%20Performance%20Coaching" target="_blank" class="order-btn">
             Book on WhatsApp →
           </a>
         </div>
@@ -416,7 +432,7 @@
         </div>
         <div class="service-footer">
           <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%3A%20High-Intensity%20Metabolic%20Sprints" target="_blank" class="order-btn">
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%3A%20High-Intensity%20Metabolic%20Sprints" target="_blank" class="order-btn">
             Book on WhatsApp →
           </a>
         </div>
@@ -433,7 +449,7 @@
         </div>
         <div class="service-footer">
           <span class="price-tag">Contact for personalized quote</span>
-          <a href="https://wa.me/03364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%3A%20Nutrition%20%26%20Athletic%20Macro%20Planning" target="_blank" class="order-btn">
+          <a href="https://wa.me/923364255323?text=Hi%20Xtreme%20Fitness!%20I%20would%20like%20to%20consult%20about%3A%20Nutrition%20%26%20Athletic%20Macro%20Planning" target="_blank" class="order-btn">
             Book on WhatsApp →
           </a>
         </div>
@@ -452,14 +468,14 @@
           <h2 class="sec-title" style="margin-top:2px;">Trusted by Clients Across Lahore</h2>
         </div>
         <div style="padding:6px 12px;background:#fff;border-radius:8px;border:1px solid var(--border);font-size:12px;font-weight:700;">
-          ★ 4.8 Rating · Verified Feedback
+          ★ 4.8 Rating · 180+ Reviews
         </div>
       </div>
       <div class="reviews-grid">
         
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p>Top-rated Fitness center in Lahore with authentic Google verified customer satisfaction.</p>
+          <p>Top-rated Gym / Fitness Center in Lahore with authentic Google verified customer satisfaction.</p>
           <div class="review-meta">
             <strong>Google Maps Community</strong>
             <span>4.8★ Satisfaction</span>
@@ -530,18 +546,18 @@
         <div>
           <span class="sec-tag" style="color:var(--primary);">Location & Directions</span>
           <h2 style="font-size:24px;font-weight:800;color:#0C0A09;margin:4px 0 8px;">DHA Phase 8 - Ex Air Avenue Block M Air Avenue</h2>
-          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">DHA Phase 8 - Ex Air Avenue Block M Air Avenue, Lahore, 54792, Pakistan</p>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">DHA Phase 8 - Ex Air Avenue Block M Air Avenue</p>
           <div style="padding:12px;background:#fff;border-radius:10px;border:1px solid var(--border);margin-bottom:14px;font-size:12px;">
             <strong>🕒 Operating Hours</strong>
             <div style="color:var(--text-muted);margin-top:2px;">Monday – Sunday: Open Daily</div>
           </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Xtreme%20Fitness%2C%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue%2C%20Lahore%2C%2054792%2C%20Pakistan" target="_blank" style="padding:8px 14px;border-radius:8px;background:#fff;border:1px solid var(--border);color:#1C1917;font-size:12px;font-weight:600;text-decoration:none;">
+          <a href="https://www.google.com/maps/search/?api=1&query=Xtreme%20Fitness%2C%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue" target="_blank" style="padding:8px 14px;border-radius:8px;background:#fff;border:1px solid var(--border);color:#1C1917;font-size:12px;font-weight:600;text-decoration:none;">
             🗺️ Open Google Maps Directions ↗
           </a>
         </div>
         <div>
           <div class="map-frame">
-            <iframe src="https://maps.google.com/maps?q=Xtreme%20Fitness%2C%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue%2C%20Lahore%2C%2054792%2C%20Pakistan&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Xtreme Fitness Map"></iframe>
+            <iframe src="https://maps.google.com/maps?q=Xtreme%20Fitness%2C%20DHA%20Phase%208%20-%20Ex%20Air%20Avenue%20Block%20M%20Air%20Avenue&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Xtreme Fitness Map"></iframe>
           </div>
         </div>
       </div>
@@ -553,7 +569,7 @@
     <div class="container footer-flex">
       <div>
         <strong style="color:#1C1917;font-size:13px;">Xtreme Fitness</strong>
-        <div>Fitness center · DHA Phase 8 - Ex Air Avenue Block M Air Avenue, Lahore</div>
+        <div>Gym / Fitness Center · DHA Phase 8 - Ex Air Avenue Block M Air Avenue, Lahore</div>
       </div>
       <div>Digital Experience crafted for Xtreme Fitness</div>
     </div>
@@ -576,7 +592,7 @@
       const notes = document.getElementById('formNotes').value;
 
       const msg = "Hi Xtreme Fitness! 👋\n\nI would like to request an appointment/inquiry via your website:\n\n👤 *Name:* " + name + "\n📞 *Phone:* " + phone + "\n💼 *Service:* " + service + "\n📅 *Date & Time:* " + date + " at " + time + "\n📝 *Notes:* " + (notes || "None") + "\n\nPlease confirm availability.";
-      window.open("https://wa.me/03364255323?text=" + encodeURIComponent(msg), "_blank");
+      window.open("https://wa.me/923364255323?text=" + encodeURIComponent(msg), "_blank");
     }
   </script>
 </body>
