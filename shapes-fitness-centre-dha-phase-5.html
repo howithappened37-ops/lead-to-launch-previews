@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shapes Fitness Centre | DHA Phase 5 · Heavyweight Athletic & Performance Club</title>
+  <meta name="description" content="12,000 sq ft high-performance training arena, 100% Eleiko loaded, Olympic lifting platforms, and CSCS coach-led protocols in 275.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090D14;
+      --card-bg: #131926;
+      --primary: #E11D48;
+      --primary-hover: #BE123C;
+      --accent: #F59E0B;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: rgba(255,255,255,0.08);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.5; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .ticker { background: #000; border-bottom: 1px solid var(--border); padding: 8px 0; font-size: 11px; font-family: monospace; color: var(--text-muted); text-align: center; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(9, 13, 20, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .brand-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; }
+    .brand-sub { font-size: 11px; color: var(--text-muted); font-family: monospace; }
+    .btn-pass { background: var(--primary); color: #fff; text-decoration: none; padding: 10px 22px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.2s; }
+    .btn-pass:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .hero-sec { padding: 80px 0 60px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
+    .badge-live { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px; background: rgba(225, 29, 72, 0.12); border: 1px solid rgba(225, 29, 72, 0.3); color: #FDA4AF; font-size: 11px; font-weight: 700; font-family: monospace; margin-bottom: 24px; }
+    .hero-sec h1 { font-family: var(--font-display); font-size: 56px; font-weight: 800; line-height: 1.05; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -0.03em; }
+    .hero-sec h1 span { color: var(--primary); }
+    .hero-sec p { font-size: 16px; color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .hero-img-box { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); height: 440px; }
+    .hero-img-box img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-img-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(to top, rgba(9,13,20,0.95), transparent); }
+    .spec-matrix { padding: 80px 0; border-top: 1px solid var(--border); }
+    .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+    .spec-card { background: var(--card-bg); padding: 32px; border-radius: 16px; border: 1px solid var(--border); }
+    .spec-val { font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+    .spec-name { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .spec-desc { font-size: 13px; color: var(--text-muted); }
+    .passes-sec { padding: 80px 0; background: #05080E; border-top: 1px solid var(--border); }
+    .pass-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+    .pass-card { background: var(--card-bg); padding: 36px; border-radius: 16px; border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; }
+    .pass-card.featured { border: 2px solid var(--primary); position: relative; }
+    .pass-title { font-family: var(--font-display); font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .pass-price { font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+    .pass-btn { display: block; text-align: center; background: rgba(255,255,255,0.08); color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 12px; text-transform: uppercase; }
+    .pass-btn:hover { background: var(--primary); }
+    footer { padding: 48px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); font-family: monospace; }
+    .footer-flex { display: flex; justify-content: space-between; }
+    @media (max-width: 768px) {
+      .hero-sec { grid-template-columns: 1fr; }
+      .hero-sec h1 { font-size: 38px; }
+      .spec-grid, .pass-grid { grid-template-columns: 1fr; }
+      .footer-flex { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ticker">⚡ 24/7 BIOMETRIC ACCESS · 12,000 SQ FT TRAINING FLOOR · ELEIKO IPF SPEC · 275</div>
+  <header>
+    <div class="container nav-flex">
+      <div>
+        <div class="brand-title">Shapes Fitness Centre | DHA Phase 5</div>
+        <div class="brand-sub">ATHLETIC CLUB · 275</div>
+      </div>
+      <a href="https://wa.me/04237177961?text=Hi%20Shapes%20Fitness%20Centre%20%7C%20DHA%20Phase%205!%20I%20would%20like%20to%20claim%20my%20trial%20pass." target="_blank" class="btn-pass">Claim Day Pass</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero-sec">
+      <div>
+        <div class="badge-live">● FLOOR TELEMETRY ACTIVE · 4.4★ (32+ REVIEWS)</div>
+        <h1>Shapes Fitness Centre | DHA Phase 5 <span>Elite Strength, Conditioning &amp; Coaching</span></h1>
+        <p>Transform your physical potential with Olympic-grade equipment, tailored athletic protocols, and high-energy coaching in 275.</p>
+        <a href="https://wa.me/04237177961?text=Hi%20Shapes%20Fitness%20Centre%20%7C%20DHA%20Phase%205!%20I%20would%20like%20to%20claim%20a%201-day%20pass." target="_blank" class="btn-pass" style="padding:14px 28px; font-size:14px;">Claim VIP Trial Pass →</a>
+      </div>
+      <div class="hero-img-box">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnp49cqpTFM_oHKVx78oXs95BGw_lOAUhVUt_2TejQ_EJvSg_XpSDjKWNflQiU0AazlH1TV9X7T6fzxwGtT2PBHvaji44AM5XkZwgR-saegZdkXc2Cd0ocUuWz-HmKT-vXlQxkU=w408-h306-k-no" alt="Shapes Fitness Centre | DHA Phase 5 Floor">
+        <div class="hero-img-overlay">
+          <div style="font-family:var(--font-display); font-size:20px; font-weight:800;">12,000 SQ FT ARENA</div>
+          <div style="font-size:12px; color:var(--text-muted);">275, Shapes Fitness Center DHA, 1 St 13, Sector G Phase 5 D.H.A, Lahore, 54000, Pakistan</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container spec-matrix">
+      <div style="font-family:monospace; color:var(--primary); font-size:12px; font-weight:700;">// FACILITY TELEMETRY</div>
+      <h2 style="font-family:var(--font-display); font-size:36px; font-weight:800; text-transform:uppercase; margin-top:8px;">Engineered Without Compromise.</h2>
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-val">100%</div>
+          <div class="spec-name">Eleiko Calibrated Plates</div>
+          <div class="spec-desc">Competition IPF bars, bumper plates, and dual-pulley cable arrays.</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-val">60M</div>
+          <div class="spec-name">Sprint Turf Track</div>
+          <div class="spec-desc">Dedicated sprint and sled lanes with high-density shock absorbent underlay.</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-val">CSCS</div>
+          <div class="spec-name">Certified Floor Coaches</div>
+          <div class="spec-desc">Elite Olympic biomechanics and progressive overload programming on duty.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="passes-sec">
+      <div class="container">
+        <div style="font-family:monospace; color:var(--primary); font-size:12px; font-weight:700;">// MEMBERSHIP ACCESS</div>
+        <h2 style="font-family:var(--font-display); font-size:36px; font-weight:800; text-transform:uppercase; margin-top:8px;">Zero-Crowd Passes.</h2>
+        <div class="pass-grid">
+          
+            <div class="pass-card">
+              <div>
+                <div class="pass-title">Strength &amp; Functional Hypertrophy</div>
+                <div class="pass-price">Contact for personalized quote</div>
+                <p style="font-size:13px; color:var(--text-muted); margin-bottom:24px;">Olympic free-weight platforms, Eleiko calibrated plates, and periodized hypertrophy protocols.</p>
+              </div>
+              <a href="https://wa.me/04237177961?text=Hi%20Shapes%20Fitness%20Centre%20%7C%20DHA%20Phase%205!%20I%20want%20to%20join%20Strength%20%26%20Functional%20Hypertrophy." target="_blank" class="pass-btn">Join via WhatsApp →</a>
+            </div>
+          
+            <div class="pass-card">
+              <div>
+                <div class="pass-title">1-on-1 Athletic Performance Coaching</div>
+                <div class="pass-price">Contact for personalized quote</div>
+                <p style="font-size:13px; color:var(--text-muted); margin-bottom:24px;">Specialized biomechanical coaching tailored to muscle gain, body composition, and functional power.</p>
+              </div>
+              <a href="https://wa.me/04237177961?text=Hi%20Shapes%20Fitness%20Centre%20%7C%20DHA%20Phase%205!%20I%20want%20to%20join%201-on-1%20Athletic%20Performance%20Coaching." target="_blank" class="pass-btn">Join via WhatsApp →</a>
+            </div>
+          
+            <div class="pass-card">
+              <div>
+                <div class="pass-title">High-Intensity Metabolic Sprints</div>
+                <div class="pass-price">Contact for personalized quote</div>
+                <p style="font-size:13px; color:var(--text-muted); margin-bottom:24px;">Coach-led interval sessions engineered for cardiovascular endurance, VO2 max, and stamina.</p>
+              </div>
+              <a href="https://wa.me/04237177961?text=Hi%20Shapes%20Fitness%20Centre%20%7C%20DHA%20Phase%205!%20I%20want%20to%20join%20High-Intensity%20Metabolic%20Sprints." target="_blank" class="pass-btn">Join via WhatsApp →</a>
+            </div>
+          
+            <div class="pass-card">
+              <div>
+                <div class="pass-title">Nutrition &amp; Athletic Macro Planning</div>
+                <div class="pass-price">Contact for personalized quote</div>
+                <p style="font-size:13px; color:var(--text-muted); margin-bottom:24px;">Structured macronutrient guidance and metabolic planning for sustainable performance.</p>
+              </div>
+              <a href="https://wa.me/04237177961?text=Hi%20Shapes%20Fitness%20Centre%20%7C%20DHA%20Phase%205!%20I%20want%20to%20join%20Nutrition%20%26%20Athletic%20Macro%20Planning." target="_blank" class="pass-btn">Join via WhatsApp →</a>
+            </div>
+          
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-flex">
+      <div>© 2026 Shapes Fitness Centre | DHA Phase 5 · ALL RIGHTS RESERVED.</div>
+      <div>275, Shapes Fitness Center DHA, 1 St 13, Sector G Phase 5 D.H.A, Lahore, 54000, Pakistan · 04237177961</div>
+    </div>
+  </footer>
+</body>
+</html>
