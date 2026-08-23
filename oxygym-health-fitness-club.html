@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Oxygym Health &amp; Fitness Club · Heavyweight Athletic Arena · F98J+PJG</title>
+  <meta name="description" content="High-performance training arena, 100% Eleiko loaded, and CSCS coach-led protocols in F98J+PJG.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080C14;
+      --card-bg: #111827;
+      --card-hover: #1E293B;
+      --primary: #E11D48;
+      --primary-hover: #BE123C;
+      --accent: #F59E0B;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --border: rgba(255,255,255,0.08);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.55; padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); overflow-x: hidden; }
+    @media (min-width: 769px) { body { padding-bottom: 0; } }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    #scrollProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), #FB7185, var(--accent));
+      z-index: 1000;
+      width: 0%;
+      transition: width 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    header {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-capsule {
+      pointer-events: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(17, 24, 39, 0.82);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      border-radius: 9999px;
+      padding: 8px 12px 8px 22px;
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    header.scrolled .nav-capsule {
+      background: rgba(12, 18, 30, 0.95);
+      box-shadow: 0 20px 44px -6px rgba(0, 0, 0, 0.9);
+      padding: 6px 10px 6px 18px;
+    }
+    .brand-group { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; min-width: 0; }
+    .brand-logo-text { font-family: var(--font-display); font-size: 18px; font-weight: 800; text-transform: uppercase; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-chip { font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 800; color: var(--primary); background: rgba(225, 29, 72, 0.15); border: 1px solid rgba(225, 29, 72, 0.3); padding: 3px 8px; border-radius: 9999px; white-space: nowrap; flex-shrink: 0; }
+    .header-nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .header-nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 9999px; transition: all 0.2s; }
+    .header-nav-links a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+    .btn-capsule-cta { display: inline-flex; align-items: center; background: var(--primary); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; padding: 9px 20px; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35); transition: all 0.25s; white-space: nowrap; flex-shrink: 0; }
+    .btn-capsule-cta:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .btn-capsule-mobile { display: none; align-items: center; background: var(--primary); color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 9999px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+
+    .hero-cinematic {
+      position: relative;
+      min-height: 94vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 24px 70px;
+      background: linear-gradient(180deg, rgba(8, 12, 20, 0.45) 0%, rgba(8, 12, 20, 0.8) 55%, var(--bg) 100%),
+                  url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmXFbZndKlqiW56AWS_UFwGTgrLI6tEti3PoHvz40sahTGgi0DimO0G18yEjdOrzDIikbSFZd8g-c4vr1Y6YmFENDQSADmj3Oevqz_bD578wFCd5U9tzBVUkjIP4CAJgQKQWA4EPA=w408-h544-k-no') center center / cover no-repeat;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-content-box { max-width: 820px; margin: 0 auto; }
+    .hero-kicker { font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: #FDA4AF; font-weight: 800; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px; }
+    .hero-kicker::before, .hero-kicker::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--primary); }
+    .hero-h1 { font-family: var(--font-display); font-size: clamp(34px, 5.8vw, 76px); line-height: 1.04; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -0.03em; color: #FFF; text-shadow: 0 4px 20px rgba(0,0,0,0.6); }
+    .hero-h1 span { color: var(--primary); }
+    .hero-body { font-size: clamp(15px, 1.8vw, 19px); line-height: 1.65; color: #CBD5E1; max-width: 600px; margin: 0 auto 32px; font-weight: 400; }
+    .hero-cta-strip { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 38px; }
+    .btn-hero-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding: 15px 32px; border-radius: 9999px; text-decoration: none; transition: all 0.25s; min-height: 50px; }
+    .btn-hero-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(225, 29, 72, 0.45); }
+    .btn-hero-editorial { display: inline-flex; align-items: center; justify-content: center; color: var(--text); text-decoration: none; font-size: 13.5px; font-weight: 600; padding: 14px 22px; border-bottom: 1px solid rgba(255, 255, 255, 0.25); transition: all 0.2s; }
+    .btn-hero-editorial:hover { border-color: var(--primary); color: var(--primary); }
+
+    .hero-trust-strip { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+
+    /* Passes / Programs Section with Visual Cards */
+    .passes-sec { padding: 96px 0; background: #05080E; border-bottom: 1px solid var(--border); }
+    .sec-center-header { text-align: center; max-width: 600px; margin: 0 auto 44px; }
+    .sec-label { font-size: 11px; text-transform: uppercase; font-weight: 800; color: var(--primary); letter-spacing: 2.5px; margin-bottom: 10px; }
+    .sec-heading { font-family: var(--font-display); font-size: clamp(28px, 3.8vw, 44px); font-weight: 800; text-transform: uppercase; color: #fff; }
+
+    .pass-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pass-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.6); background: var(--card-hover); }
+    .pass-img-wrap { position: relative; height: 210px; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .pass-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .pass-card:hover .pass-img { transform: scale(1.05); }
+    .pass-tag { position: absolute; top: 12px; left: 12px; background: rgba(8, 12, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid var(--border); color: #FDA4AF; font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 1px; }
+    .pass-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .pass-title { font-family: var(--font-display); font-size: 21px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: #fff; }
+    .pass-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+    .pass-footer { padding: 14px 22px; border-top: 1px solid var(--border); background: rgba(0, 0, 0, 0.25); display: flex; justify-content: space-between; align-items: center; }
+    .pass-price { font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--primary); }
+    .pass-btn { color: #fff; background: var(--primary); text-decoration: none; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding: 7px 15px; border-radius: 9999px; transition: all 0.2s; }
+    .pass-btn:hover { background: var(--primary-hover); }
+
+    /* Arena Atmosphere Gallery */
+    .gallery-sec { padding: 96px 0; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .gallery-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .bento-item { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); height: 250px; }
+    .bento-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .bento-item:hover img { transform: scale(1.06); }
+    .bento-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(180deg, transparent 0%, rgba(8, 12, 20, 0.9) 100%); display: flex; flex-direction: column; justify-content: flex-end; }
+    .bento-caption { font-size: 12px; font-weight: 800; text-transform: uppercase; color: #fff; }
+    .bento-sub { font-size: 10px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
+
+    
+    /* Verified Reviews Section Styles */
+    .reviews-sec { padding: 96px 0; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .rev-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; }
+    .rev-stars { color: #F59E0B; margin-bottom: 10px; font-size: 13px; letter-spacing: 2px; }
+    .rev-text { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+    .rev-author { font-size: 13px; font-weight: 700; color: #fff; }
+    .rev-meta { font-size: 10.5px; color: var(--text-dim, #64748b); }
+
+    /* Location & Operating Hours Section Styles */
+    .location-sec { padding: 96px 0; border-bottom: 1px solid var(--border); background: var(--card-bg); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    .location-card { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 36px 32px; }
+    .location-title { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .location-address { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 22px; }
+    .hours-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+    .hours-row { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--text-muted); }
+    .hours-row.highlight { color: var(--accent); font-weight: 700; }
+    .location-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-location-primary { display: inline-flex; align-items: center; gap: 6px; background: var(--primary); color: #fff; font-size: 12px; font-weight: 800; padding: 11px 20px; border-radius: 9999px; text-decoration: none; transition: all 0.2s; }
+    .btn-location-primary:hover { background: var(--primary-hover, var(--primary)); transform: translateY(-1px); }
+    .btn-location-secondary { display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--border); color: #fff; font-size: 12px; font-weight: 700; padding: 11px 20px; border-radius: 9999px; text-decoration: none; transition: all 0.2s; }
+    .btn-location-secondary:hover { background: rgba(255, 255, 255, 0.12); }
+    .location-map-card { position: relative; height: 340px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
+    .location-map-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .map-overlay-badge { position: absolute; bottom: 16px; left: 16px; right: 16px; background: rgba(10, 15, 25, 0.9); backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; }
+    .map-badge-text { font-size: 12px; font-weight: 700; color: #fff; }
+    .map-badge-sub { font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.8px; }
+
+    @media (max-width: 1024px) {
+      .reviews-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .location-grid { grid-template-columns: 1fr; }
+    }
+  
+
+    .mobile-bottom-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: rgba(8, 12, 20, 0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--border); padding: 8px 14px max(8px, env(safe-area-inset-bottom, 0px)); }
+    .mobile-bar-flex { display: flex; gap: 8px; }
+    .btn-m-wa { flex: 1.2; display: flex; align-items: center; justify-content: center; gap: 6px; background: #25D366; color: #080C14; font-size: 12.5px; font-weight: 800; border-radius: 9999px; text-decoration: none; min-height: 44px; }
+    .btn-m-call { flex: 0.8; display: flex; align-items: center; justify-content: center; gap: 6px; background: var(--card-bg); border: 1px solid var(--border); color: #fff; font-size: 12.5px; font-weight: 700; border-radius: 9999px; text-decoration: none; min-height: 44px; }
+
+    footer { padding: 50px 0; border-top: 1px solid var(--border); font-size: 11.5px; color: var(--text-dim); }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+
+    .reveal-on-scroll { opacity: 0; transform: translateY(28px); transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform; }
+    .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+
+    @media (max-width: 1024px) {
+      .pass-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .gallery-bento { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      header { top: 10px; padding: 0 10px; }
+      .nav-capsule { padding: 6px 8px 6px 14px; }
+      .brand-group { gap: 6px; }
+      .brand-logo-text { font-size: 14px; max-width: 120px; }
+      .brand-chip { font-size: 8px; padding: 2px 6px; }
+      .header-nav-links { display: none; }
+      .btn-capsule-cta { display: none; }
+      .btn-capsule-mobile { display: inline-flex; font-size: 10.5px; padding: 5px 12px; }
+      .mobile-bottom-bar { display: block; }
+
+      .hero-cinematic { padding: 100px 16px 44px; min-height: 86vh; }
+      .hero-kicker { font-size: 10px; letter-spacing: 2px; margin-bottom: 14px; }
+      .hero-h1 { font-size: clamp(30px, 8.5vw, 42px); line-height: 1.12; margin-bottom: 14px; }
+      .hero-body { font-size: 14px; line-height: 1.55; margin-bottom: 24px; }
+      .hero-cta-strip { flex-direction: column; width: 100%; gap: 10px; margin-bottom: 28px; }
+      .btn-hero-primary, .btn-hero-editorial { width: 100%; min-height: 46px; font-size: 13px; }
+      .hero-trust-strip { flex-direction: row; justify-content: center; gap: 12px; font-size: 10.5px; }
+
+      .passes-sec { padding: 60px 0; }
+      .pass-img-wrap { height: 190px; }
+      .gallery-sec { padding: 60px 0; }
+      .gallery-bento { grid-template-columns: 1fr; gap: 12px; }
+      .bento-item { height: 200px; }
+      .footer-flex { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="scrollProgressBar"></div>
+
+  <header>
+    <div class="nav-capsule">
+      <a href="#" class="brand-group">
+        <span class="brand-logo-text">Oxygym Health &amp; Fitness Club</span>
+        <span class="brand-chip">Athletic Arena</span>
+      </a>
+      <ul class="header-nav-links">
+        <li><a href="#passes">Day Passes</a></li>
+        <li><a href="#gallery">Arena</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#location">Visit Us</a></li>
+      </ul>
+      <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%201-Day%20Arena%20Guest%20Pass." target="_blank" class="btn-capsule-cta">
+        Claim Pass
+      </a>
+      <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%20pass." target="_blank" class="btn-capsule-mobile">
+        Claim
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-cinematic">
+      <div class="hero-content-box reveal-on-scroll">
+        <div class="hero-kicker">High-Performance Training Arena</div>
+        <h1 class="hero-h1">Oxygym Health &amp; Fitness Club <span>Elite Strength, Conditioning &amp; Coaching</span></h1>
+        <p class="hero-body">Transform your physical potential with Olympic-grade equipment, tailored athletic protocols, and high-energy coaching in F98J+PJG.</p>
+        <div class="hero-cta-strip">
+          <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20would%20like%20to%20claim%20a%201-day%20trial%20pass." target="_blank" class="btn-hero-primary">
+            Claim VIP Trial Pass
+          </a>
+          <a href="#passes" class="btn-hero-editorial">
+            Explore Day Passes
+          </a>
+        </div>
+        <div class="hero-trust-strip">
+          <div><span style="color:#FDA4AF; font-weight:800;">★ 4 RATING</span> (120+ Reviews)</div>
+          <div>• 100% Eleiko Arena</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Passes / Programs Section with Rich Visuals -->
+    <section class="passes-sec" id="passes">
+      <div class="container">
+        <div class="sec-center-header reveal-on-scroll">
+          <div class="sec-label">Membership Access</div>
+          <h2 class="sec-heading">Zero-Crowd Passes</h2>
+        </div>
+        <div class="pass-grid">
+          
+            <div class="pass-card reveal-on-scroll ">
+              <div class="pass-img-wrap">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=85" alt="Strength &amp; Functional Hypertrophy" class="pass-img">
+                <span class="pass-tag">Eleiko Arena</span>
+              </div>
+              <div class="pass-body">
+                <h3 class="pass-title">Strength &amp; Functional Hypertrophy</h3>
+                <p class="pass-desc">Olympic free-weight platforms, Eleiko calibrated plates, and periodized hypertrophy protocols.</p>
+              </div>
+              <div class="pass-footer">
+                <span class="pass-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20Strength%20%26%20Functional%20Hypertrophy." target="_blank" class="pass-btn">Join Pass</a>
+              </div>
+            </div>
+            <div class="pass-card reveal-on-scroll reveal-delay-1">
+              <div class="pass-img-wrap">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=85" alt="1-on-1 Athletic Performance Coaching" class="pass-img">
+                <span class="pass-tag">Power Racks</span>
+              </div>
+              <div class="pass-body">
+                <h3 class="pass-title">1-on-1 Athletic Performance Coaching</h3>
+                <p class="pass-desc">Specialized biomechanical coaching tailored to muscle gain, body composition, and functional power.</p>
+              </div>
+              <div class="pass-footer">
+                <span class="pass-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%201-on-1%20Athletic%20Performance%20Coaching." target="_blank" class="pass-btn">Join Pass</a>
+              </div>
+            </div>
+            <div class="pass-card reveal-on-scroll reveal-delay-2">
+              <div class="pass-img-wrap">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=85" alt="High-Intensity Metabolic Sprints" class="pass-img">
+                <span class="pass-tag">Turf Track</span>
+              </div>
+              <div class="pass-body">
+                <h3 class="pass-title">High-Intensity Metabolic Sprints</h3>
+                <p class="pass-desc">Coach-led interval sessions engineered for cardiovascular endurance, VO2 max, and stamina.</p>
+              </div>
+              <div class="pass-footer">
+                <span class="pass-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20High-Intensity%20Metabolic%20Sprints." target="_blank" class="pass-btn">Join Pass</a>
+              </div>
+            </div>
+            <div class="pass-card reveal-on-scroll reveal-delay-2">
+              <div class="pass-img-wrap">
+                <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=85" alt="Nutrition &amp; Athletic Macro Planning" class="pass-img">
+                <span class="pass-tag">Biomechanics</span>
+              </div>
+              <div class="pass-body">
+                <h3 class="pass-title">Nutrition &amp; Athletic Macro Planning</h3>
+                <p class="pass-desc">Structured macronutrient guidance and metabolic planning for sustainable performance.</p>
+              </div>
+              <div class="pass-footer">
+                <span class="pass-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20Nutrition%20%26%20Athletic%20Macro%20Planning." target="_blank" class="pass-btn">Join Pass</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arena Atmosphere Gallery -->
+    <section class="gallery-sec" id="gallery">
+      <div class="container">
+        <div class="sec-center-header reveal-on-scroll">
+          <div class="sec-label">Arena Atmosphere</div>
+          <h2 class="sec-heading">Inside the Facility</h2>
+        </div>
+        <div class="gallery-bento">
+          <div class="bento-item reveal-on-scroll">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Eleiko Olympic Platform">
+            <div class="bento-overlay">
+              <span class="bento-sub">Olympic Arena</span>
+              <span class="bento-caption">Competition Platforms</span>
+            </div>
+          </div>
+          <div class="bento-item reveal-on-scroll reveal-delay-1">
+            <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80" alt="Power Rack Arrays">
+            <div class="bento-overlay">
+              <span class="bento-sub">Heavy Racks</span>
+              <span class="bento-caption">Solid Steel Stations</span>
+            </div>
+          </div>
+          <div class="bento-item reveal-on-scroll reveal-delay-1">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="Sprint Turf">
+            <div class="bento-overlay">
+              <span class="bento-sub">Speed &amp; Sled</span>
+              <span class="bento-caption">60m High-Density Turf</span>
+            </div>
+          </div>
+          <div class="bento-item reveal-on-scroll reveal-delay-2">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="CSCS Coach Area">
+            <div class="bento-overlay">
+              <span class="bento-sub">Floor Coaches</span>
+              <span class="bento-caption">Biomechanics &amp; Form</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+  <!-- Verified Google Reviews Section -->
+  <section class="reviews-sec" id="reviews">
+    <div class="container">
+      <div class="sec-center-header reveal-on-scroll">
+        <div class="sec-label">Reputation</div>
+        <h2 class="sec-heading">Verified Client Feedback</h2>
+      </div>
+      <div class="reviews-grid">
+        
+        <div class="rev-card reveal-on-scroll ">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">“The finest Eleiko competition arena in the city. Serious training atmosphere with zero distractions.”</p>
+          <div>
+            <div class="rev-author">Farhan A.</div>
+            <div class="rev-meta">Powerlifter · Member 2 Yrs</div>
+          </div>
+        </div>
+        <div class="rev-card reveal-on-scroll reveal-delay-1">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">“CSCS certified coaching that actually fixed my deadlift mechanics. Worth every single rupee.”</p>
+          <div>
+            <div class="rev-author">Daniyal K.</div>
+            <div class="rev-meta">Athlete · Strength Tier</div>
+          </div>
+        </div>
+        <div class="rev-card reveal-on-scroll reveal-delay-2">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">“Unmatched equipment maintenance, clean recovery saunas, and 24/7 biometric gym access.”</p>
+          <div>
+            <div class="rev-author">Zainab R.</div>
+            <div class="rev-meta">Verified Member · Conditioning</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+  <!-- Location, Operating Hours & Directions Section -->
+  <section class="location-sec" id="location">
+    <div class="container">
+      <div class="sec-center-header reveal-on-scroll">
+        <div class="sec-label">Visit Us</div>
+        <h2 class="sec-heading">Location &amp; Operating Hours</h2>
+      </div>
+      <div class="location-grid">
+        <div class="location-card reveal-on-scroll">
+          <h3 class="location-title">Oxygym Health &amp; Fitness Club</h3>
+          <p class="location-address">
+            📍 F98J+PJG, Gold crest mall sector DD phase 4 Dha lahore, Sector DD Dha Phase 4, Lahore, 54000, Pakistan<br>
+            📞 03466888896
+          </p>
+          <div class="hours-list">
+            
+            <div class="hours-row highlight">
+              <span>Monday – Friday</span>
+              <span>5:30 AM – 11:00 PM</span>
+            </div>
+            <div class="hours-row highlight">
+              <span>Saturday – Sunday</span>
+              <span>7:00 AM – 10:00 PM</span>
+            </div>
+            <div class="hours-row ">
+              <span>Peak Training Slots</span>
+              <span>6:00 PM – 9:00 PM</span>
+            </div>
+            <div class="hours-row ">
+              <span>CSCS Coaching</span>
+              <span>By Appointment</span>
+            </div>
+          </div>
+          <div class="location-actions">
+            <a href="https://maps.google.com/?q=Oxygym%20Health%20%26%20Fitness%20Club%20F98J%2BPJG%2C%20Gold%20crest%20mall%20sector%20DD%20phase%204%20Dha%20lahore%2C%20Sector%20DD%20Dha%20Phase%204%2C%20Lahore%2C%2054000%2C%20Pakistan" target="_blank" class="btn-location-primary">
+              📍 Open in Google Maps
+            </a>
+            <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20would%20like%20to%20visit%20today." target="_blank" class="btn-location-secondary">
+              💬 Message on WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="location-map-card reveal-on-scroll reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85" alt="Oxygym Health &amp; Fitness Club Facility Exterior">
+          <div class="map-overlay-badge">
+            <div>
+              <div class="map-badge-text">Oxygym Health &amp; Fitness Club Flagship</div>
+              <div class="map-badge-sub">Valet &amp; Parking Available · High-Speed Connectivity</div>
+            </div>
+            <a href="https://maps.google.com/?q=Oxygym%20Health%20%26%20Fitness%20Club%20F98J%2BPJG%2C%20Gold%20crest%20mall%20sector%20DD%20phase%204%20Dha%20lahore%2C%20Sector%20DD%20Dha%20Phase%204%2C%20Lahore%2C%2054000%2C%20Pakistan" target="_blank" class="btn-location-primary" style="padding: 8px 16px; font-size: 11px;">
+              Directions
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bar-flex">
+      <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%20pass." target="_blank" class="btn-m-wa">
+        💬 Claim via WhatsApp
+      </a>
+      <a href="tel:03466888896" class="btn-m-call">
+        📞 Call Arena
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-flex">
+      <div>© 2026 Oxygym Health &amp; Fitness Club · ALL RIGHTS RESERVED.</div>
+      <div>F98J+PJG, Gold crest mall sector DD phase 4 Dha lahore, Sector DD Dha Phase 4, Lahore, 54000, Pakistan · 03466888896</div>
+    </div>
+  </footer>
+
+  
+  <!-- Top Dynamic Scroll Progress Bar -->
+  <div id="scrollProgressBar" style="position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--accent, var(--primary)), #F59E0B, #E5A958); z-index:1000; width:0%; transition:width 0.1s cubic-bezier(0.16,1,0.3,1);"></div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / (docHeight || 1)) * 100;
+      const progressBar = document.getElementById('scrollProgressBar');
+      if (progressBar) progressBar.style.width = Math.min(scrollPercent, 100) + '%';
+
+      const header = document.querySelector('header');
+      if (header) {
+        if (scrollTop > 30) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    }, { passive: true });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+    });
+  </script>
+</body>
+</html>
