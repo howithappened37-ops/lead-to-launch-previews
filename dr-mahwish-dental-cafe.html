@@ -14,7 +14,7 @@
   <!-- Spline 3D WebGL Viewer Engine -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"></script>
 
-  <!-- Tailwind CSS 3 CDN with Extended Dynamic Tokens -->
+  <!-- Tailwind CSS 3 CDN with Dynamic Tokens from Design Library -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -22,21 +22,21 @@
         extend: {
           colors: {
             brand: {
-              bgDark: '#0A1C16',
-              cardDark: '#112821',
-              cardHover: '#17362D',
-              borderDark: 'rgba(255, 255, 255, 0.08)',
-              primary: '#10B981',
-              primaryHover: '#059669',
-              accent: '#C9A86A',
-              accentLight: '#E0C796',
+              bgDark: '#060C14',
+              cardDark: '#0A1520',
+              cardHover: '#102233',
+              borderDark: 'rgba(255, 255, 255, 0.09)',
+              primary: '#0BB8B8',
+              primaryHover: '#089797',
+              accent: '#C9A060',
+              accentLight: '#E5C896',
               textDark: '#FDFBF7',
-              textMutedDark: '#9BB3AB',
-              bgLight: '#FDFBF7',
+              textMutedDark: '#7A8BA0',
+              bgLight: '#EEF2F7',
               cardLight: '#FFFFFF',
-              borderLight: '#EAE6DF',
-              textLight: '#1A1816',
-              textMutedLight: '#6B7280',
+              borderLight: '#DDE4EE',
+              textLight: '#0A1520',
+              textMutedLight: '#64748B',
             }
           },
           fontFamily: {
@@ -51,11 +51,11 @@
 
   <style>
     :root {
-      --primary: #10B981;
-      --accent: #C9A86A;
+      --primary: #0BB8B8;
+      --accent: #C9A060;
     }
     body {
-      background-color: #0A1C16;
+      background-color: #060C14;
       color: #FDFBF7;
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
@@ -66,8 +66,14 @@
     .font-display { font-family: 'Fraunces', serif; }
     .font-mono-spec { font-family: 'JetBrains Mono', monospace; }
 
+    /* Word Blur Entrance Keyframe */
+    @keyframes wordBlurIn {
+      0% { opacity: 0; transform: translateY(24px); filter: blur(10px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+    }
+
     .glass-nav {
-      background: rgba(10, 28, 22, 0.88);
+      background: rgba(6, 12, 20, 0.88);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -99,7 +105,7 @@
       height: 6px;
     }
     .custom-scroll::-webkit-scrollbar-thumb {
-      background: #10B981;
+      background: #0BB8B8;
       border-radius: 9999px;
     }
 
@@ -117,7 +123,7 @@
     .reveal-delay-2 { transition-delay: 0.22s; }
 
     .signature-card.active-signature {
-      border-color: #C9A86A !important;
+      border-color: #C9A060 !important;
       background: rgba(255, 255, 255, 0.08) !important;
       transform: translateY(-4px) scale(1.02);
       box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
@@ -149,7 +155,7 @@
 <body class="selection:bg-brand-primary selection:text-white">
 
   <!-- 1. Live Operating Status Ticker -->
-  <div class="w-full bg-[#06080E] border-b border-brand-borderDark py-2 px-4 text-xs font-mono-spec tracking-wider text-brand-textMutedDark overflow-x-auto whitespace-nowrap flex items-center justify-between z-40 relative">
+  <div class="w-full bg-[#05080E] border-b border-brand-borderDark py-2 px-4 text-xs font-mono-spec tracking-wider text-brand-textMutedDark overflow-x-auto whitespace-nowrap flex items-center justify-between z-40 relative">
     <div class="flex items-center gap-6 mx-auto max-w-7xl">
       <span class="flex items-center gap-2 text-brand-accent font-semibold">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -180,11 +186,12 @@
       </a>
 
       <nav class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-brand-textMutedDark">
+        <a href="#journey" class="hover:text-brand-textDark transition">Protocol</a>
         <a href="#services" class="hover:text-brand-textDark transition">Suites</a>
+        <a href="#why-us" class="hover:text-brand-textDark transition">Excellence</a>
         <a href="#signature" class="hover:text-brand-textDark transition">Assessment</a>
         <a href="#transformation" class="hover:text-brand-textDark transition">3D Results</a>
-        <a href="#specialist" class="hover:text-brand-textDark transition">Specialist</a>
-        <a href="#reviews" class="hover:text-brand-textDark transition">Reviews</a>
+        <a href="#faq" class="hover:text-brand-textDark transition">FAQ</a>
       </nav>
 
       <div class="flex items-center gap-3">
@@ -197,21 +204,40 @@
   </header>
 
   <main>
-    <!-- 3. Asymmetric 65/35 Hero Section with Real Spline 3D Integration -->
+    <!-- 3. Asymmetric Hero Section with Real Spline 3D Scene + Per-Word Stagger Animation -->
     <section class="relative pt-12 pb-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark overflow-hidden">
-      <!-- Ambient Glow Behind 3D Scene -->
       <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <!-- Left Column: 65% Narrative Architecture -->
-        <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+        <div class="lg:col-span-7 space-y-6">
           <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-brand-borderDark text-xs font-mono-spec text-brand-textMutedDark">
             <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
             <span class="text-brand-textDark font-semibold uppercase">Precision Smile Architecture</span> · Sector CCA
           </div>
 
           <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
-            Boutique Aesthetic Dentistry <em class="not-italic text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight">Precision Dentistry</em>
+            
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both;">
+      Boutique
+    </span>
+   
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s both;">
+      Aesthetic
+    </span>
+   
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.30000000000000004s both;">
+      Dentistry
+    </span>
+   <em class="not-italic text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight">
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s both;">
+      Precision
+    </span>
+   
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.52s both;">
+      Dentistry
+    </span>
+  </em>
           </h1>
 
           <p class="text-base sm:text-lg text-brand-textMutedDark leading-relaxed max-w-xl font-normal">
@@ -240,7 +266,7 @@
         </div>
 
         <!-- Right Column: 35% Interactive 3D Spline Scene & Overlapping Glass Card -->
-        <div class="lg:col-span-5 relative reveal-on-scroll reveal-delay-1">
+        <div class="lg:col-span-5 relative">
           <div class="card-3d-tilt relative rounded-3xl overflow-hidden border border-brand-borderDark bg-black/40 shadow-2xl h-[460px]">
             <div class="card-glare"></div>
 
@@ -261,7 +287,83 @@
       </div>
     </section>
 
-    <!-- 4. Interactive 3D Card Carousel Section (Smooth Track + Arrow Controls) -->
+    <!-- 4. 4-Step Interactive Progress Journey Bar (From Design Library Blueprint) -->
+    <section class="py-14 px-6 border-b border-brand-borderDark bg-[#060A10]" id="journey">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-10 reveal-on-scroll">
+          <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Methodical Excellence</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white mt-1">4-Step Delivery Protocol</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark relative space-y-3 reveal-on-scroll ">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-black font-display text-brand-accent/70">01</span>
+              <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Comprehensive Scan</h3>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">High-definition 3D intraoral digital imaging with zero radiation.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark relative space-y-3 reveal-on-scroll reveal-delay-1">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-black font-display text-brand-accent/70">02</span>
+              <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Smile Architecture</h3>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Custom cosmetic simulation tailored to your facial proportions.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark relative space-y-3 reveal-on-scroll reveal-delay-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-black font-display text-brand-accent/70">03</span>
+              <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Micro-Layering</h3>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Painless ceramic veneer bonding and laser contouring.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark relative space-y-3 reveal-on-scroll reveal-delay-3">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-black font-display text-brand-accent/70">04</span>
+              <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Lifetime Polish</h3>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Long-term preventative maintenance and protective sealant.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Animated Metric Stats Strip (Count-Up on Scroll) -->
+    <section class="py-16 px-6 border-b border-brand-borderDark bg-[#05080E]">
+      <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        
+        <div class="space-y-1">
+          <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight stat-counter" data-target="99.8" data-prefix="" data-suffix="%" data-decimal="true">
+            0%
+          </div>
+          <div class="text-xs font-mono-spec text-brand-textMutedDark uppercase tracking-wider">Patient Comfort Score</div>
+        </div>
+        <div class="space-y-1">
+          <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight stat-counter" data-target="14000" data-prefix="" data-suffix="+" data-decimal="false">
+            0+
+          </div>
+          <div class="text-xs font-mono-spec text-brand-textMutedDark uppercase tracking-wider">Smile Restorations</div>
+        </div>
+        <div class="space-y-1">
+          <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight stat-counter" data-target="15" data-prefix="" data-suffix="+ Yrs" data-decimal="false">
+            0+ Yrs
+          </div>
+          <div class="text-xs font-mono-spec text-brand-textMutedDark uppercase tracking-wider">Clinical Mastery</div>
+        </div>
+        <div class="space-y-1">
+          <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight stat-counter" data-target="4.9" data-prefix="★ " data-suffix=" (140+)" data-decimal="true">
+            ★ 0 (140+)
+          </div>
+          <div class="text-xs font-mono-spec text-brand-textMutedDark uppercase tracking-wider">Verified Google Rating</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Interactive 3D Card Carousel Section (Smooth Track + Controls) -->
     <section class="py-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark" id="services">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal-on-scroll">
         <div>
@@ -432,7 +534,52 @@
       </div>
     </section>
 
-    <!-- 5. Interactive Drag-to-Compare Transformation Slider (21st.dev Quality Feature) -->
+    <!-- 7. Why Choose Us 3D Bento Grid (From Design Library Blueprint) -->
+    <section class="py-24 px-6 max-w-7xl mx-auto border-b border-brand-borderDark" id="why-us">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+        <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Uncompromising Quality</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">The Standard of Distinction</h2>
+        <p class="text-sm text-brand-textMutedDark">Engineered around precision, comfort, and direct specialist reachability.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-3d-tilt p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-brand-borderDark space-y-4 reveal-on-scroll ">
+          <div class="card-glare"></div>
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Zero-Anxiety Environment</h3>
+          <p class="text-xs text-brand-textMutedDark leading-relaxed">Tranquil private suites with noise-canceling acoustics and soothing comfort amenities.</p>
+        </div>
+        <div class="card-3d-tilt p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-brand-borderDark space-y-4 reveal-on-scroll reveal-delay-1">
+          <div class="card-glare"></div>
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">3D Digital Imaging</h3>
+          <p class="text-xs text-brand-textMutedDark leading-relaxed">Instant intraoral scans eliminate uncomfortable traditional mold impressions forever.</p>
+        </div>
+        <div class="card-3d-tilt p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-brand-borderDark space-y-4 reveal-on-scroll reveal-delay-2">
+          <div class="card-glare"></div>
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.731.47l-4.261-2.24-4.26 2.24a.5.5 0 0 1-.732-.47l1.515-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Master Ceramists</h3>
+          <p class="text-xs text-brand-textMutedDark leading-relaxed">Hand-layered ceramic porcelain veneers that replicate natural dental light translucency.</p>
+        </div>
+        <div class="card-3d-tilt p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-brand-borderDark space-y-4 reveal-on-scroll reveal-delay-3">
+          <div class="card-glare"></div>
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Transparent Pricing</h3>
+          <p class="text-xs text-brand-textMutedDark leading-relaxed">Complete upfront fee clarity with zero hidden facility surcharges or surprise bills.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Interactive Drag-to-Compare Transformation Slider (21st.dev Quality Feature) -->
     <section class="py-24 px-6 max-w-5xl mx-auto border-b border-brand-borderDark" id="transformation">
       <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
         <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Interactive Telemetry</span>
@@ -464,7 +611,7 @@
       </div>
     </section>
 
-    <!-- 6. Interactive Signature Brand Assessment Widget -->
+    <!-- 9. Interactive Signature Brand Assessment Widget -->
     <section class="py-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark" id="signature">
       <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
         <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Interactive Patient Assessment</span>
@@ -569,7 +716,7 @@
       </div>
     </section>
 
-    <!-- 7. Specialist On-Duty Dock (21st.dev Style) -->
+    <!-- 10. Specialist On-Duty Dock (21st.dev Style) -->
     <section class="py-20 px-6 max-w-5xl mx-auto" id="specialist">
       <div class="card-3d-tilt p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-cardDark to-[#0A0D15] border border-brand-borderDark shadow-2xl relative overflow-hidden reveal-on-scroll">
         <div class="card-glare"></div>
@@ -598,8 +745,54 @@
       </div>
     </section>
 
-    <!-- 8. Verified Google Reviews Showcase Bento -->
-    <section class="py-24 px-6 border-t border-brand-borderDark bg-[#06080E]" id="reviews">
+    <!-- 11. Interactive Accordion FAQ Section (transitions.dev #21) -->
+    <section class="py-24 px-6 max-w-4xl mx-auto border-t border-brand-borderDark" id="faq">
+      <div class="text-center max-w-xl mx-auto mb-14 reveal-on-scroll">
+        <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Frequently Asked Questions</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Transparent Clarity</h2>
+        <p class="text-sm text-brand-textMutedDark">Everything you need to know prior to your first appointment.</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="rounded-2xl bg-white/[0.02] border border-brand-borderDark overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 text-white hover:text-brand-accent transition">
+            <span class="font-display font-bold text-base sm:text-lg">Are cosmetic porcelain veneer procedures painful?</span>
+            <div class="faq-chevron transition duration-300 transform flex-shrink-0 text-brand-accent">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-body hidden px-6 pb-6 text-xs sm:text-sm text-brand-textMutedDark leading-relaxed border-t border-white/[0.04] pt-4">
+            Not at all. We utilize gentle micro-anesthesia and conservative preparation techniques ensuring a completely comfortable, pain-free appointment.
+          </div>
+        </div>
+        <div class="rounded-2xl bg-white/[0.02] border border-brand-borderDark overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 text-white hover:text-brand-accent transition">
+            <span class="font-display font-bold text-base sm:text-lg">How long does a full smile transformation take?</span>
+            <div class="faq-chevron transition duration-300 transform flex-shrink-0 text-brand-accent">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-body hidden px-6 pb-6 text-xs sm:text-sm text-brand-textMutedDark leading-relaxed border-t border-white/[0.04] pt-4">
+            Most transformations take between 2 to 3 appointments over a 10-day window, including digital design preview, preparation, and final bonding.
+          </div>
+        </div>
+        <div class="rounded-2xl bg-white/[0.02] border border-brand-borderDark overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 text-white hover:text-brand-accent transition">
+            <span class="font-display font-bold text-base sm:text-lg">Do you accommodate same-day dental appointments?</span>
+            <div class="faq-chevron transition duration-300 transform flex-shrink-0 text-brand-accent">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-body hidden px-6 pb-6 text-xs sm:text-sm text-brand-textMutedDark leading-relaxed border-t border-white/[0.04] pt-4">
+            Yes, we reserve daily priority slots for urgent consultations and dental emergencies with direct WhatsApp coordination.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Verified Google Reviews Showcase Bento -->
+    <section class="py-24 px-6 border-t border-brand-borderDark bg-[#05080E]" id="reviews">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
           <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Reputation &amp; Trust</span>
@@ -661,7 +854,7 @@
       </div>
     </section>
 
-    <!-- 9. Location & Operating Hours Section -->
+    <!-- 13. Location & Operating Hours Section -->
     <section class="py-24 px-6 border-t border-brand-borderDark" id="location">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -685,18 +878,18 @@
               
               <div class="flex items-center justify-between text-xs py-1 border-b border-white/[0.04]">
                 <span class="text-white font-semibold">Monday – Friday</span>
-                <span class="text-brand-accent font-mono-spec font-bold">9:00 AM – 8:30 PM</span>
+                <span class="text-brand-accent font-mono-spec font-bold">9:00 AM – 8:00 PM</span>
               </div>
               <div class="flex items-center justify-between text-xs py-1 border-b border-white/[0.04]">
                 <span class="text-white font-semibold">Saturday</span>
-                <span class="text-brand-accent font-mono-spec font-bold">10:00 AM – 6:00 PM</span>
+                <span class="text-brand-accent font-mono-spec font-bold">10:00 AM – 5:00 PM</span>
               </div>
               <div class="flex items-center justify-between text-xs py-1 border-b border-white/[0.04]">
                 <span class="text-neutral-400">Sunday</span>
-                <span class="text-neutral-400 font-mono-spec">On-Call Emergency</span>
+                <span class="text-neutral-400 font-mono-spec">Closed / WhatsApp Support</span>
               </div>
               <div class="flex items-center justify-between text-xs py-1 border-b border-white/[0.04]">
-                <span class="text-neutral-400">Consultation Panels</span>
+                <span class="text-neutral-400">Specialist Slots</span>
                 <span class="text-neutral-400 font-mono-spec">Prior Booking Recommended</span>
               </div>
             </div>
@@ -730,7 +923,7 @@
     </section>
   </main>
 
-  <!-- 10. Interactive 21st.dev Frosted Consultation Modal Dialog -->
+  <!-- 14. Interactive 21st.dev Frosted Consultation Modal Dialog -->
   <div id="consultationModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center p-4">
     <div class="relative w-full max-w-lg rounded-3xl glass-nav border border-white/15 p-8 shadow-2xl space-y-6">
       <div class="flex items-center justify-between border-b border-white/10 pb-4">
@@ -764,7 +957,7 @@
     </div>
   </div>
 
-  <!-- 11. Sticky Mobile Bottom Action Dock (<= 768px) with Clean SVG Icons -->
+  <!-- 15. Sticky Mobile Bottom Action Dock (<= 768px) with Clean SVG Icons -->
   <div class="block md:hidden fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-brand-borderDark p-3.5">
     <div class="flex items-center gap-3">
       <button onclick="openConsultationModal('', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-emerald-600 active:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider shadow-lg min-h-[46px]">
@@ -779,7 +972,7 @@
     </div>
   </div>
 
-  <!-- 12. Architectural Footer -->
+  <!-- 16. Architectural Footer -->
   <footer class="py-12 px-6 border-t border-brand-borderDark bg-[#06080E] text-xs text-neutral-500">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
       <div>
@@ -814,12 +1007,12 @@
       }
     }, { passive: true });
 
-    // 2. Intersection Observer for Scroll Reveals
+    // 2. Intersection Observer for Scroll Reveals & Stat Counters
     document.addEventListener('DOMContentLoaded', () => {
       const observerOptions = {
         root: null,
         rootMargin: '0px 0px -40px 0px',
-        threshold: 0.1
+        threshold: 0.15
       };
 
       const revealObserver = new IntersectionObserver((entries) => {
@@ -831,6 +1024,40 @@
       }, observerOptions);
 
       document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+
+      // Animated Stat Counters
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const targetVal = parseFloat(counter.getAttribute('data-target') || '0');
+            const suffix = counter.getAttribute('data-suffix') || '';
+            const prefix = counter.getAttribute('data-prefix') || '';
+            const isDecimal = counter.getAttribute('data-decimal') === 'true';
+            let start = 0;
+            const duration = 1400;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // EaseOutQuad
+              const easeProgress = progress * (2 - progress);
+              const currentVal = start + (targetVal - start) * easeProgress;
+              counter.innerText = prefix + (isDecimal ? currentVal.toFixed(1) : Math.floor(currentVal)) + suffix;
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.innerText = prefix + (isDecimal ? targetVal.toFixed(1) : targetVal) + suffix;
+              }
+            }
+            requestAnimationFrame(updateCounter);
+            countObserver.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      document.querySelectorAll('.stat-counter').forEach(el => countObserver.observe(el));
 
       // 3. 3D Card Hover Tilt with Cursor Glare Physics (transitions.dev #19)
       document.querySelectorAll('.card-3d-tilt').forEach(card => {
@@ -873,7 +1100,7 @@
 
         sliderContainer.addEventListener('touchstart', (e) => { isDragging = true; onMove(e.touches[0].clientX); }, { passive: true });
         window.addEventListener('touchend', () => { isDragging = false; });
-        window.addEventListener('touchmove', (e) => { if (isDragging) onMove(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('toumousemove', (e) => { if (isDragging) onMove(e.touches[0].clientX); }, { passive: true });
       }
     });
 
@@ -900,7 +1127,23 @@
       }
     }
 
-    // 7. Interactive Consultation Dialog Modal (21st.dev Component)
+    // 7. Interactive FAQ Accordion (transitions.dev #21)
+    function toggleFaq(btn) {
+      const body = btn.nextElementSibling;
+      const chevron = btn.querySelector('.faq-chevron');
+      const isOpen = !body.classList.contains('hidden');
+      
+      // Close all
+      document.querySelectorAll('.faq-body').forEach(b => b.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.style.transform = 'rotate(0deg)');
+
+      if (!isOpen) {
+        body.classList.remove('hidden');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // 8. Interactive Consultation Dialog Modal (21st.dev Component)
     function openConsultationModal(serviceTitle, waBase, businessName) {
       const modal = document.getElementById('consultationModal');
       const titleEl = document.getElementById('modalServiceTitle');
