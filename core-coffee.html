@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Core Coffee · Direct-Trade Micro-Lots &amp; Sensory Lab · Phase 8 (X</title>
+  <meta name="description" content="Small-batch micro-lot roastery and sensory tasting laboratory in Phase 8 (X. Direct-trade single origins, precision profiling, and manual lever extraction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-pitch: #080605;
+      --bg-dark: #0F0B08;
+      --bg-surface: #17120E;
+      --bg-card: #221A14;
+      --bg-stone: #F5EFE6;
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-accent: rgba(217, 119, 6, 0.35);
+      --amber: #D97706;
+      --amber-light: #F59E0B;
+      --gold: #E5A958;
+      --text-white: #FAF6EF;
+      --text-muted: #A39686;
+      --text-dim: #6E6457;
+      --text-stone: #1C140E;
+      --font-display: 'Fraunces', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background-color: var(--bg-pitch); }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-pitch);
+      color: var(--text-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding-bottom: 74px;
+    }
+    @media (min-width: 769px) { body { padding-bottom: 0; } }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+
+    .top-telemetry {
+      background: #050403;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .telemetry-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .status-live { display: inline-flex; align-items: center; gap: 8px; color: #34D399; }
+    .live-dot { height: 6px; width: 6px; border-radius: 50%; background: #10B981; box-shadow: 0 0 10px #10B981; }
+
+    /* 1. Floating Glass Capsule Navigation */
+    header {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 20px;
+      max-width: 1140px;
+      margin: 0 auto;
+      pointer-events: none;
+    }
+    .nav-capsule {
+      pointer-events: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(14, 10, 8, 0.72);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 8px 12px 8px 24px;
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-capsule:hover {
+      border-color: rgba(217, 119, 6, 0.4);
+      box-shadow: 0 20px 44px -6px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo-text {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .brand-chip {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--amber-light);
+      background: rgba(217, 119, 6, 0.15);
+      border: 1px solid rgba(217, 119, 6, 0.25);
+      padding: 3px 8px;
+      border-radius: 9999px;
+    }
+    .header-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+    .header-nav-links a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header-nav-links a:hover {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .btn-capsule-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--amber), #B45309);
+      color: #080605;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-capsule-cta:hover {
+      background: linear-gradient(135deg, var(--amber-light), var(--amber));
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(217, 119, 6, 0.5);
+    }
+
+    /* 2. Full-Bleed Panoramic Cinematic Hero */
+    .hero-cinematic {
+      position: relative;
+      min-height: 96vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 24px 80px;
+      background: linear-gradient(180deg, rgba(8, 6, 5, 0.45) 0%, rgba(8, 6, 5, 0.75) 55%, var(--bg-pitch) 100%),
+                  url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnoEPif9Zt8_WUBNzYRNbRDbnfg1sdJllKrWDiAAVJfQBAzdiaQrcVtCM5PZG6LnWsxyzFP07k3-A8md6shBYh55ihIw6j-V9tns9pmpw6F5b3998FOAUEg4NeBLOmf4MX5fR-8z5XwbewM=w408-h544-k-no') center center / cover no-repeat;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .hero-content-box {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .hero-kicker {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      font-weight: 800;
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-kicker::before, .hero-kicker::after {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(46px, 6.5vw, 84px);
+      line-height: 1.04;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+      color: #FFF;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+    .hero-h1 em {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .hero-body {
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.7;
+      color: #E2D9CC;
+      max-width: 680px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .hero-cta-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--amber);
+      color: #080605;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      min-height: 52px;
+      box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4);
+    }
+    .btn-hero-primary:hover {
+      background: var(--amber-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(217, 119, 6, 0.55);
+    }
+    .btn-hero-editorial {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.2s;
+    }
+    .btn-hero-editorial:hover {
+      border-color: var(--amber);
+      color: var(--amber-light);
+      transform: translateX(4px);
+    }
+
+    .hero-trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .trust-metric-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .trust-gold {
+      color: #F59E0B;
+      font-weight: 800;
+    }
+
+    .chronicle-sec { padding: 120px 0; border-bottom: 1px solid var(--border-subtle); background: var(--bg-dark); }
+    .chronicle-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+    .photo-main { border-radius: 20px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: 0 24px 48px rgba(0,0,0,0.6); }
+    .photo-main img { width: 100%; height: 480px; object-fit: cover; display: block; }
+    .sec-kicker { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 800; color: var(--amber); margin-bottom: 16px; }
+    .sec-h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 400; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 24px; color: #fff; }
+    .chronicle-narrative { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 32px; }
+    .chronicle-specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-top: 24px; border-top: 1px solid var(--border-subtle); }
+    .spec-num { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--amber-light); line-height: 1; margin-bottom: 6px; }
+    .spec-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); font-weight: 700; }
+
+    .dialin-sec { padding: 110px 0; background: radial-gradient(circle at 50% 10%, rgba(217, 119, 6, 0.06) 0%, transparent 60%), var(--bg-pitch); border-bottom: 1px solid var(--border-subtle); }
+    .sec-center-header { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+    .matrix-box { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 24px; padding: 36px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+    .matrix-details-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+    .matrix-flag { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); font-weight: 800; margin-bottom: 8px; }
+    .matrix-bean-title { font-family: var(--font-display); font-size: 32px; font-weight: 600; margin-bottom: 16px; color: #fff; }
+    .matrix-tasting-notes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .note-pill { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); color: #fff; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 8px; }
+    .matrix-telemetry-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .tele-card { background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px 18px; }
+    .tele-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); font-weight: 700; margin-bottom: 2px; }
+    .tele-val { font-size: 14px; font-weight: 700; color: #fff; }
+    .matrix-order-card { background: linear-gradient(145deg, rgba(23, 18, 14, 0.9), rgba(34, 26, 20, 0.8)); border: 1px solid var(--border-accent); border-radius: 20px; padding: 32px; text-align: center; }
+    .price-num { font-family: var(--font-display); font-size: 38px; font-weight: 700; color: var(--amber-light); margin-bottom: 4px; }
+    .price-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; }
+
+    .roster-sec { padding: 110px 0; border-bottom: 1px solid var(--border-subtle); background: var(--bg-dark); }
+    .roster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .roster-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.35s; }
+    .roster-card:hover { border-color: var(--amber); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+    .roster-card-body { padding: 28px; }
+    .roster-batch-id { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); font-weight: 800; margin-bottom: 8px; }
+    .roster-card-title { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 10px; color: #fff; }
+    .roster-card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .roster-card-footer { padding: 18px 28px; border-top: 1px solid var(--border-subtle); background: rgba(0, 0, 0, 0.2); display: flex; justify-content: space-between; align-items: center; }
+    .roster-price { font-weight: 700; color: #fff; font-size: 14px; }
+    .roster-link { color: var(--amber-light); text-decoration: none; font-weight: 700; font-size: 12px; letter-spacing: 0.5px; }
+
+    .manifesto-sec { padding: 100px 0; background: var(--bg-stone); color: var(--text-stone); border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .manifesto-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+    .manifesto-quote { font-family: var(--font-display); font-size: clamp(24px, 3.5vw, 38px); font-weight: 400; line-height: 1.3; margin-bottom: 28px; letter-spacing: -0.02em; }
+    .manifesto-quote em { font-style: italic; color: #78350F; }
+    .manifesto-author { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #78350F; }
+    .manifesto-sub { font-size: 12px; color: #57534E; margin-top: 4px; }
+
+    .mobile-bottom-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: rgba(8, 6, 5, 0.96); backdrop-filter: blur(20px); border-top: 1px solid var(--border-accent); padding: 12px 18px; box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8); }
+    .mobile-bar-flex { display: flex; gap: 12px; }
+    .btn-m-wa { flex: 1.2; display: flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #080605; font-size: 13px; font-weight: 800; border-radius: 9999px; text-decoration: none; min-height: 48px; }
+    .btn-m-call { flex: 0.8; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border-subtle); color: #fff; font-size: 13px; font-weight: 700; border-radius: 9999px; text-decoration: none; min-height: 48px; }
+
+    footer { padding: 60px 0; font-size: 12px; color: var(--text-dim); border-top: 1px solid var(--border-subtle); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+
+    @media (max-width: 1024px) {
+      .chronicle-grid { grid-template-columns: 1fr; }
+      .matrix-details-grid { grid-template-columns: 1fr; }
+      .roster-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .header-nav-links { display: none; }
+      .btn-capsule-cta { display: none; }
+      .mobile-bottom-bar { display: block; }
+      .hero-cinematic { padding: 120px 20px 60px; min-height: 85vh; }
+      .matrix-box { padding: 20px; }
+      .chronicle-specs { grid-template-columns: 1fr; }
+      .hero-trust-strip { flex-direction: column; gap: 12px; }
+      .footer-row { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Glass Capsule Navigation -->
+  <header>
+    <div class="nav-capsule">
+      <a href="#" class="brand-group">
+        <span class="brand-logo-text">Core Coffee</span>
+        <span class="brand-chip">Specialty Lab</span>
+      </a>
+
+      <ul class="header-nav-links">
+        <li><a href="#chronicle">Origin Story</a></li>
+        <li><a href="#tasting-matrix">Sensory Dial-In</a></li>
+        <li><a href="#roster">Current Offerings</a></li>
+      </ul>
+
+      <a href="https://wa.me/03419423283?text=Hi%20Core%20Coffee!%20I%20would%20like%20to%20reserve%20a%20private%20tasting%20session%20or%20beans." target="_blank" class="btn-capsule-cta">
+        WhatsApp Barista
+      </a>
+    </div>
+  </header>
+
+  <!-- Full-Bleed Panoramic Cinematic Hero -->
+  <main>
+    <section class="hero-cinematic">
+      <div class="hero-content-box">
+        <div class="hero-kicker">Direct-Trade Single Origins</div>
+        <h1 class="hero-h1">Core Coffee <em>Specialty Roasts &amp; Hand-Crafted Brews</em></h1>
+        <p class="hero-body">Single-origin espressos, slow-steeped cold brews, and freshly baked pastries crafted daily in Phase 8 (X.</p>
+        <div class="hero-cta-strip">
+          <a href="https://wa.me/03419423283?text=Hi%20Core%20Coffee!%20Please%20reserve%20today's%20fresh%20roast%20batch%20for%20me." target="_blank" class="btn-hero-primary">
+            Reserve Fresh Roast
+          </a>
+          <a href="#tasting-matrix" class="btn-hero-editorial">
+            Explore Tasting Matrix
+          </a>
+        </div>
+
+        <div class="hero-trust-strip">
+          <div class="trust-metric-item">
+            <span class="trust-gold">★ 4.4 RATING</span>
+            <span>(120+ Verified Google Maps Reviews)</span>
+          </div>
+          <div class="trust-metric-item">
+            <span>•</span>
+            <span>100% Direct Farm Sourced</span>
+          </div>
+          <div class="trust-metric-item">
+            <span>•</span>
+            <span>Sub-6kg Micro-Batching</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chronicle-sec" id="chronicle">
+      <div class="container chronicle-grid">
+        <div class="photo-main">
+          <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1000&q=85" alt="Single-origin bean inspection">
+        </div>
+        <div>
+          <div class="sec-kicker">Our Philosophy</div>
+          <h2 class="sec-h2">Transparency in sourcing. Respect in roasting.</h2>
+          <p class="chronicle-narrative">
+            Every bean we roast has a named producer, a GPS altitude coordinate, and a documented processing timeline. We roast in sub-6kg batches in Phase 8 (X to showcase the terroir of high-altitude volcanic soils.
+          </p>
+          <div class="chronicle-specs">
+            <div>
+              <div class="spec-num">2,100m</div>
+              <div class="spec-label">Peak Elevation</div>
+            </div>
+            <div>
+              <div class="spec-num">sub-6kg</div>
+              <div class="spec-label">Micro-Lot Batches</div>
+            </div>
+            <div>
+              <div class="spec-num">100%</div>
+              <div class="spec-label">Direct Farm Trade</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dialin-sec" id="tasting-matrix">
+      <div class="container">
+        <div class="sec-center-header">
+          <div class="sec-kicker">Interactive Tasting Dock</div>
+          <h2 class="sec-h2">Dial-In Your Perfect Cup</h2>
+        </div>
+
+        <div class="matrix-box">
+          <div class="matrix-details-grid">
+            <div>
+              <div class="matrix-flag">Washed Micro-Lot · 2,100m Elevation</div>
+              <h3 class="matrix-bean-title">Ethiopia Yirgacheffe G1 Chelbesa</h3>
+              <div class="matrix-tasting-notes">
+                <span class="note-pill">Jasmine Blossom</span>
+                <span class="note-pill">Bergamot</span>
+                <span class="note-pill">White Peach</span>
+                <span class="note-pill">Wild Honey</span>
+              </div>
+              <div class="matrix-telemetry-cards">
+                <div class="tele-card">
+                  <div class="tele-lbl">Processing</div>
+                  <div class="tele-val">Washed Slow-Dry</div>
+                </div>
+                <div class="tele-card">
+                  <div class="tele-lbl">Roast Profile</div>
+                  <div class="tele-val">Nordic Filter Light</div>
+                </div>
+                <div class="tele-card">
+                  <div class="tele-lbl">Extraction</div>
+                  <div class="tele-val">V60 / Origami (92°C)</div>
+                </div>
+                <div class="tele-card">
+                  <div class="tele-lbl">Packaging</div>
+                  <div class="tele-val">250g Nitrogen-Flushed</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="matrix-order-card">
+              <div class="price-num">Rs. 3,800</div>
+              <div class="price-meta">Fresh Whole Bean · Nitrogen Sealed in Phase 8 (X</div>
+              <a href="https://wa.me/03419423283?text=Hi%20Core%20Coffee!%20I%20want%20to%20order%20the%20Ethiopia%20Yirgacheffe%20G1%20Chelbesa%20(Rs.%203%2C800)." target="_blank" class="btn-hero-primary" style="width: 100%; justify-content: center;">
+                Order Fresh Bag via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="roster-sec" id="roster">
+      <div class="container">
+        <div class="sec-center-header">
+          <div class="sec-kicker">Curated Seasonal Offerings</div>
+          <h2 class="sec-h2">Current Micro-Lot Releases</h2>
+        </div>
+
+        <div class="roster-grid">
+          
+            <div class="roster-card">
+              <div class="roster-card-body">
+                <div class="roster-batch-id">Batch #001 · Micro-Lot</div>
+                <h3 class="roster-card-title">Single-Origin Espresso &amp; Hand-Drip V60</h3>
+                <p class="roster-card-desc">Freshly dialed-in Ethiopian, Colombian, and specialty micro-lots brewed to precise extraction ratios.</p>
+              </div>
+              <div class="roster-card-footer">
+                <span class="roster-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03419423283?text=Hi%20Core%20Coffee!%20I%20want%20to%20inquire%20about%20Single-Origin%20Espresso%20%26%20Hand-Drip%20V60." target="_blank" class="roster-link">Inquire</a>
+              </div>
+            </div>
+          
+            <div class="roster-card">
+              <div class="roster-card-body">
+                <div class="roster-batch-id">Batch #002 · Micro-Lot</div>
+                <h3 class="roster-card-title">18-Hour Slow-Steeped Cold Brew</h3>
+                <p class="roster-card-desc">Signature cold-extracted roasts and botanical nitro infusions served chilled with deep flavor notes.</p>
+              </div>
+              <div class="roster-card-footer">
+                <span class="roster-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03419423283?text=Hi%20Core%20Coffee!%20I%20want%20to%20inquire%20about%2018-Hour%20Slow-Steeped%20Cold%20Brew." target="_blank" class="roster-link">Inquire</a>
+              </div>
+            </div>
+          
+            <div class="roster-card">
+              <div class="roster-card-body">
+                <div class="roster-batch-id">Batch #003 · Micro-Lot</div>
+                <h3 class="roster-card-title">Daily Artisanal Bakes &amp; Sourdough Pastries</h3>
+                <p class="roster-card-desc">Daily scratch-baked butter croissants, cruffins, and sweet pastry pairings.</p>
+              </div>
+              <div class="roster-card-footer">
+                <span class="roster-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03419423283?text=Hi%20Core%20Coffee!%20I%20want%20to%20inquire%20about%20Daily%20Artisanal%20Bakes%20%26%20Sourdough%20Pastries." target="_blank" class="roster-link">Inquire</a>
+              </div>
+            </div>
+          
+            <div class="roster-card">
+              <div class="roster-card-body">
+                <div class="roster-batch-id">Batch #004 · Micro-Lot</div>
+                <h3 class="roster-card-title">Gourmet Brunch Plates &amp; Savory Toasts</h3>
+                <p class="roster-card-desc">Wholesome sourdough tartines, farm-fresh eggs, and savory artisan plates made to order.</p>
+              </div>
+              <div class="roster-card-footer">
+                <span class="roster-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03419423283?text=Hi%20Core%20Coffee!%20I%20want%20to%20inquire%20about%20Gourmet%20Brunch%20Plates%20%26%20Savory%20Toasts." target="_blank" class="roster-link">Inquire</a>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto-sec">
+      <div class="container manifesto-inner">
+        <blockquote class="manifesto-quote">
+          “Specialty coffee is not an industrial commodity. It is the agricultural fingerprint of climate, soil, and the relentless craft of the farmer.”
+        </blockquote>
+        <div class="manifesto-author">Core Coffee Roastery Lab</div>
+        <div class="manifesto-sub">Head of Sourcing &amp; Quality Control · Phase 8 (X</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bar-flex">
+      <a href="https://wa.me/03419423283?text=Hi%20Core%20Coffee!%20I%20want%20to%20order%20beans%20or%20book%20a%20tasting." target="_blank" class="btn-m-wa">
+        💬 Order via WhatsApp
+      </a>
+      <a href="tel:03419423283" class="btn-m-call">
+        📞 Call Lab
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© 2026 Core Coffee · ALL RIGHTS RESERVED.</div>
+      <div>Phase 8 (X, Park View, 23 cca, Block D DHA, Lahore, 54000, Pakistan · 03419423283</div>
+    </div>
+  </footer>
+</body>
+</html>

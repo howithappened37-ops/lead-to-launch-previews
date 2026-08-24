@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Extraction Coffee, Ph. 3 DHA · Direct-Trade Micro-Lots · C 47</title>
+  <meta name="description" content="Small-batch micro-lot roastery in C 47. Direct-trade single origins and precision manual extractions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-pitch: #080605;
+      --bg-dark: #0F0B08;
+      --bg-surface: #16110D;
+      --bg-card: #1E1611;
+      --bg-card-hover: #271E17;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(217, 119, 6, 0.3);
+      --amber: #D97706;
+      --amber-light: #F59E0B;
+      --gold: #E5A958;
+      --text-white: #FAF6EF;
+      --text-muted: #A89B8C;
+      --text-dim: #706557;
+      --font-display: 'Fraunces', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background-color: var(--bg-pitch); scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-pitch);
+      color: var(--text-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    }
+
+    @media (min-width: 769px) { body { padding-bottom: 0; } }
+
+    #scrollProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), #F59E0B, #E5A958);
+      z-index: 1000;
+      width: 0%;
+      transition: width 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-capsule {
+      pointer-events: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(14, 10, 8, 0.82);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 8px 12px 8px 22px;
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    header.scrolled .nav-capsule {
+      background: rgba(10, 7, 5, 0.95);
+      border-color: rgba(217, 119, 6, 0.35);
+      box-shadow: 0 20px 44px -6px rgba(0, 0, 0, 0.9);
+      padding: 6px 10px 6px 18px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+    .brand-logo-text {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand-chip {
+      font-size: 9px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--amber-light);
+      background: rgba(217, 119, 6, 0.15);
+      border: 1px solid rgba(217, 119, 6, 0.25);
+      padding: 3px 8px;
+      border-radius: 9999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .header-nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .header-nav-links a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header-nav-links a:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+    .btn-capsule-cta {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--amber), #B45309);
+      color: #080605;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-capsule-cta:hover { background: linear-gradient(135deg, var(--amber-light), var(--amber)); transform: translateY(-1px); }
+    .btn-capsule-mobile {
+      display: none;
+      align-items: center;
+      background: var(--amber);
+      color: #080605;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .hero-cinematic {
+      position: relative;
+      min-height: 94vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 24px 70px;
+      background: linear-gradient(180deg, rgba(8, 6, 5, 0.45) 0%, rgba(8, 6, 5, 0.75) 55%, var(--bg-pitch) 100%),
+                  url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnxT4MNY8MHnRPWuQAyO9rCUixPqWUuMuveX_aOpdojMk1V1If8_YoA0hfjB0a-BJRP7lq72J1FxuUePao7VA4GzNFmdKbVQNIrMDg2FlrVIukpQzFufXcSov8km741YkiLr_o1pQ=w408-h725-k-no') center center / cover no-repeat;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .hero-content-box { max-width: 820px; margin: 0 auto; }
+    .hero-kicker {
+      font-size: 11px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      font-weight: 800;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-kicker::before, .hero-kicker::after {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 5.8vw, 76px);
+      line-height: 1.08;
+      font-weight: 300;
+      letter-spacing: -0.035em;
+      margin-bottom: 20px;
+      color: #FFF;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+    .hero-h1 em { font-style: italic; font-weight: 600; color: var(--gold); }
+    .hero-body {
+      font-size: clamp(15px, 1.8vw, 19px);
+      line-height: 1.65;
+      color: #D6CCC0;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      font-weight: 400;
+    }
+    .hero-cta-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--amber);
+      color: #080605;
+      font-size: 13.5px;
+      font-weight: 800;
+      padding: 15px 32px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      min-height: 50px;
+      box-shadow: 0 8px 24px rgba(217, 119, 6, 0.35);
+    }
+    .btn-hero-primary:hover {
+      background: var(--amber-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(217, 119, 6, 0.5);
+    }
+    .btn-hero-editorial {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 14px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.2s;
+    }
+    .btn-hero-editorial:hover { border-color: var(--amber); color: var(--amber-light); }
+
+    .hero-trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .trust-gold { color: #F59E0B; font-weight: 800; }
+
+    /* Product Section with Rich Imagery & Visual Badges */
+    .roster-sec { padding: 96px 0; border-bottom: 1px solid var(--border-subtle); background: var(--bg-dark); }
+    .sec-center-header { text-align: center; max-width: 600px; margin: 0 auto 44px; }
+    .sec-kicker { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 800; color: var(--amber); margin-bottom: 10px; }
+    .sec-h2 { font-family: var(--font-display); font-size: clamp(28px, 3.8vw, 44px); font-weight: 400; line-height: 1.15; letter-spacing: -0.03em; color: #fff; }
+
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .product-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover {
+      border-color: var(--amber);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      background: var(--bg-card-hover);
+    }
+    .product-img-wrap {
+      position: relative;
+      height: 230px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .product-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .product-card:hover .product-img { transform: scale(1.05); }
+    .product-origin-chip {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(8, 6, 5, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+    .product-elev-chip {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(8, 6, 5, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .product-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .product-title { font-family: var(--font-display); font-size: 21px; font-weight: 600; margin-bottom: 8px; color: #fff; }
+    .flavor-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .flavor-pill {
+      font-size: 11px;
+      font-weight: 600;
+      color: #E2D9CC;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .roast-meter { margin-bottom: 16px; }
+    .roast-meter-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+    .roast-meter-head span:last-child { color: var(--amber-light); }
+    .roast-bar-track { height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 9999px; overflow: hidden; }
+    .roast-bar-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--gold)); border-radius: 9999px; }
+
+    .product-footer {
+      padding: 14px 22px;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product-price { font-size: 15px; font-weight: 800; color: var(--amber-light); }
+    .product-btn {
+      color: #080605;
+      background: var(--amber);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 7px 15px;
+      border-radius: 9999px;
+      transition: all 0.2s;
+    }
+    .product-btn:hover { background: var(--amber-light); }
+
+    /* Visual Craft Gallery */
+    .gallery-sec { padding: 96px 0; border-bottom: 1px solid var(--border-subtle); background: var(--bg-pitch); }
+    .gallery-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .bento-item { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); height: 250px; }
+    .bento-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .bento-item:hover img { transform: scale(1.06); }
+    .bento-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8, 6, 5, 0.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .bento-caption { font-size: 12px; font-weight: 700; color: #fff; }
+    .bento-sub { font-size: 10px; color: var(--amber-light); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
+
+    .mobile-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 150;
+      background: rgba(8, 6, 5, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-accent);
+      padding: 8px 14px max(8px, env(safe-area-inset-bottom, 0px));
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+    }
+    .mobile-bar-flex { display: flex; gap: 8px; }
+    .btn-m-wa {
+      flex: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #25D366;
+      color: #080605;
+      font-size: 12.5px;
+      font-weight: 800;
+      border-radius: 9999px;
+      text-decoration: none;
+      min-height: 44px;
+    }
+    .btn-m-call {
+      flex: 0.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 700;
+      border-radius: 9999px;
+      text-decoration: none;
+      min-height: 44px;
+    }
+
+    footer { padding: 50px 0; font-size: 11.5px; color: var(--text-dim); border-top: 1px solid var(--border-subtle); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+
+    @media (max-width: 1024px) {
+      .product-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .gallery-bento { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      header { top: 10px; padding: 0 10px; }
+      .nav-capsule { padding: 6px 8px 6px 14px; }
+      .brand-group { gap: 6px; }
+      .brand-logo-text { font-size: 14px; max-width: 120px; }
+      .brand-chip { font-size: 8px; padding: 2px 6px; }
+      .header-nav-links { display: none; }
+      .btn-capsule-cta { display: none; }
+      .btn-capsule-mobile { display: inline-flex; font-size: 10.5px; padding: 5px 12px; }
+      .mobile-bottom-bar { display: block; }
+      
+      .hero-cinematic { padding: 100px 16px 44px; min-height: 86vh; }
+      .hero-kicker { font-size: 10px; letter-spacing: 2px; margin-bottom: 14px; }
+      .hero-h1 { font-size: clamp(30px, 8.5vw, 42px); line-height: 1.12; margin-bottom: 14px; }
+      .hero-body { font-size: 14px; line-height: 1.55; margin-bottom: 24px; }
+      .hero-cta-strip { flex-direction: column; width: 100%; gap: 10px; margin-bottom: 28px; }
+      .btn-hero-primary, .btn-hero-editorial { width: 100%; min-height: 46px; font-size: 13px; }
+      .hero-trust-strip { flex-direction: row; justify-content: center; gap: 12px; font-size: 10.5px; }
+
+      .roster-sec { padding: 60px 0; }
+      .product-img-wrap { height: 190px; }
+      .gallery-sec { padding: 60px 0; }
+      .gallery-bento { grid-template-columns: 1fr; gap: 12px; }
+      .bento-item { height: 200px; }
+      .footer-row { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="scrollProgressBar"></div>
+
+  <header>
+    <div class="nav-capsule">
+      <a href="#" class="brand-group">
+        <span class="brand-logo-text">Extraction Coffee, Ph. 3 DHA</span>
+        <span class="brand-chip">Roastery</span>
+      </a>
+
+      <ul class="header-nav-links">
+        <li><a href="#offerings">Offerings</a></li>
+        <li><a href="#gallery">Craft</a></li>
+      </ul>
+
+      <a href="https://wa.me/03254444312?text=Hi%20Extraction%20Coffee%2C%20Ph.%203%20DHA!%20I%20would%20like%20to%20reserve%20a%20tasting%20session%20or%20beans." target="_blank" class="btn-capsule-cta">
+        WhatsApp Barista
+      </a>
+      <a href="https://wa.me/03254444312?text=Hi%20Extraction%20Coffee%2C%20Ph.%203%20DHA!%20I%20want%20to%20reserve%20coffee." target="_blank" class="btn-capsule-mobile">
+        Reserve
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-cinematic">
+      <div class="hero-content-box reveal-on-scroll">
+        <div class="hero-kicker">Direct-Trade Micro-Lots</div>
+        <h1 class="hero-h1">Extraction Coffee, Ph. 3 DHA <em>Specialty Roasts &amp; Hand-Crafted Brews</em></h1>
+        <p class="hero-body">Single-origin espressos, slow-steeped cold brews, and freshly baked pastries crafted daily in C 47.</p>
+        <div class="hero-cta-strip">
+          <a href="https://wa.me/03254444312?text=Hi%20Extraction%20Coffee%2C%20Ph.%203%20DHA!%20Please%20reserve%20fresh%20roast%20beans%20for%20me." target="_blank" class="btn-hero-primary">
+            Reserve Fresh Roast
+          </a>
+          <a href="#offerings" class="btn-hero-editorial">
+            Explore Curated Menu
+          </a>
+        </div>
+
+        <div class="hero-trust-strip">
+          <div><span class="trust-gold">★ 4.3 RATING</span> (100+ Reviews)</div>
+          <div>• 100% Direct Farm Trade</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Product Showcase with Rich Visuals -->
+    <section class="roster-sec" id="offerings">
+      <div class="container">
+        <div class="sec-center-header reveal-on-scroll">
+          <div class="sec-kicker">Curated Seasonal Releases</div>
+          <h2 class="sec-h2">Direct-Trade Micro-Lots</h2>
+        </div>
+
+        <div class="product-grid">
+          
+            <div class="product-card reveal-on-scroll ">
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=85" alt="Single-Origin Espresso &amp; Hand-Drip V60" class="product-img">
+                <span class="product-origin-chip">Ethiopia</span>
+                <span class="product-elev-chip">2,100m</span>
+              </div>
+              <div class="product-body">
+                <h3 class="product-title">Single-Origin Espresso &amp; Hand-Drip V60</h3>
+                <div class="flavor-pills">
+                  <span class="flavor-pill">Jasmine</span><span class="flavor-pill">Bergamot</span><span class="flavor-pill">White Peach</span>
+                </div>
+                <div class="roast-meter">
+                  <div class="roast-meter-head">
+                    <span>Roast Profile</span>
+                    <span>Light Nordic (28%)</span>
+                  </div>
+                  <div class="roast-bar-track">
+                    <div class="roast-bar-fill" style="width: 28%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-footer">
+                <span class="product-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03254444312?text=Hi%20Extraction%20Coffee%2C%20Ph.%203%20DHA!%20I%20want%20to%20order%20Single-Origin%20Espresso%20%26%20Hand-Drip%20V60." target="_blank" class="product-btn">Order Bag</a>
+              </div>
+            </div>
+            <div class="product-card reveal-on-scroll reveal-delay-1">
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=85" alt="18-Hour Slow-Steeped Cold Brew" class="product-img">
+                <span class="product-origin-chip">Colombia</span>
+                <span class="product-elev-chip">1,950m</span>
+              </div>
+              <div class="product-body">
+                <h3 class="product-title">18-Hour Slow-Steeped Cold Brew</h3>
+                <div class="flavor-pills">
+                  <span class="flavor-pill">Pink Guava</span><span class="flavor-pill">Pomegranate</span><span class="flavor-pill">Cane Sugar</span>
+                </div>
+                <div class="roast-meter">
+                  <div class="roast-meter-head">
+                    <span>Roast Profile</span>
+                    <span>Medium-Light (45%)</span>
+                  </div>
+                  <div class="roast-bar-track">
+                    <div class="roast-bar-fill" style="width: 45%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-footer">
+                <span class="product-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03254444312?text=Hi%20Extraction%20Coffee%2C%20Ph.%203%20DHA!%20I%20want%20to%20order%2018-Hour%20Slow-Steeped%20Cold%20Brew." target="_blank" class="product-btn">Order Bag</a>
+              </div>
+            </div>
+            <div class="product-card reveal-on-scroll reveal-delay-2">
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=85" alt="Daily Artisanal Bakes &amp; Sourdough Pastries" class="product-img">
+                <span class="product-origin-chip">Panama</span>
+                <span class="product-elev-chip">1,800m</span>
+              </div>
+              <div class="product-body">
+                <h3 class="product-title">Daily Artisanal Bakes &amp; Sourdough Pastries</h3>
+                <div class="flavor-pills">
+                  <span class="flavor-pill">Papaya</span><span class="flavor-pill">Lemongrass</span><span class="flavor-pill">Meyer Lemon</span>
+                </div>
+                <div class="roast-meter">
+                  <div class="roast-meter-head">
+                    <span>Roast Profile</span>
+                    <span>Ultra-Light (20%)</span>
+                  </div>
+                  <div class="roast-bar-track">
+                    <div class="roast-bar-fill" style="width: 20%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-footer">
+                <span class="product-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03254444312?text=Hi%20Extraction%20Coffee%2C%20Ph.%203%20DHA!%20I%20want%20to%20order%20Daily%20Artisanal%20Bakes%20%26%20Sourdough%20Pastries." target="_blank" class="product-btn">Order Bag</a>
+              </div>
+            </div>
+            <div class="product-card reveal-on-scroll reveal-delay-2">
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=85" alt="Gourmet Brunch Plates &amp; Savory Toasts" class="product-img">
+                <span class="product-origin-chip">Costa Rica</span>
+                <span class="product-elev-chip">1,750m</span>
+              </div>
+              <div class="product-body">
+                <h3 class="product-title">Gourmet Brunch Plates &amp; Savory Toasts</h3>
+                <div class="flavor-pills">
+                  <span class="flavor-pill">Green Apple</span><span class="flavor-pill">Honey</span><span class="flavor-pill">Almond</span>
+                </div>
+                <div class="roast-meter">
+                  <div class="roast-meter-head">
+                    <span>Roast Profile</span>
+                    <span>Medium-Light (40%)</span>
+                  </div>
+                  <div class="roast-bar-track">
+                    <div class="roast-bar-fill" style="width: 40%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-footer">
+                <span class="product-price">Contact for personalized quote</span>
+                <a href="https://wa.me/03254444312?text=Hi%20Extraction%20Coffee%2C%20Ph.%203%20DHA!%20I%20want%20to%20order%20Gourmet%20Brunch%20Plates%20%26%20Savory%20Toasts." target="_blank" class="product-btn">Order Bag</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Atmospheric Visual Craft Gallery -->
+    <section class="gallery-sec" id="gallery">
+      <div class="container">
+        <div class="sec-center-header reveal-on-scroll">
+          <div class="sec-kicker">Atmosphere &amp; Craft</div>
+          <h2 class="sec-h2">Inside the Tasting Lab</h2>
+        </div>
+
+        <div class="gallery-bento">
+          <div class="bento-item reveal-on-scroll">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Manual Espresso Extraction">
+            <div class="bento-overlay">
+              <span class="bento-sub">Manual Lever</span>
+              <span class="bento-caption">9-Bar Extraction</span>
+            </div>
+          </div>
+          <div class="bento-item reveal-on-scroll reveal-delay-1">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Precision Pour-Over">
+            <div class="bento-overlay">
+              <span class="bento-sub">V60 Dial-In</span>
+              <span class="bento-caption">92°C Single Pour</span>
+            </div>
+          </div>
+          <div class="bento-item reveal-on-scroll reveal-delay-1">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Artisan Latte Art">
+            <div class="bento-overlay">
+              <span class="bento-sub">Microfoam</span>
+              <span class="bento-caption">Silk Texture Flat White</span>
+            </div>
+          </div>
+          <div class="bento-item reveal-on-scroll reveal-delay-2">
+            <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80" alt="Direct-Trade Green Coffee">
+            <div class="bento-overlay">
+              <span class="bento-sub">Cupping Table</span>
+              <span class="bento-caption">SCA Q-Grade 88+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bar-flex">
+      <a href="https://wa.me/03254444312?text=Hi%20Extraction%20Coffee%2C%20Ph.%203%20DHA!%20I%20want%20to%20order%20coffee." target="_blank" class="btn-m-wa">
+        💬 Order WhatsApp
+      </a>
+      <a href="tel:03254444312" class="btn-m-call">
+        📞 Call Lab
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© 2026 Extraction Coffee, Ph. 3 DHA · ALL RIGHTS RESERVED.</div>
+      <div>C 47, Z, Sector Z Block Phase 3 DHA Phase 3, Lahore, Pakistan · 03254444312</div>
+    </div>
+  </footer>
+
+  
+  <!-- Top Dynamic Scroll Progress Bar -->
+  <div id="scrollProgressBar" style="position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--accent, var(--primary)), #F59E0B, #E5A958); z-index:1000; width:0%; transition:width 0.1s cubic-bezier(0.16,1,0.3,1);"></div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / (docHeight || 1)) * 100;
+      const progressBar = document.getElementById('scrollProgressBar');
+      if (progressBar) progressBar.style.width = Math.min(scrollPercent, 100) + '%';
+
+      const header = document.querySelector('header');
+      if (header) {
+        if (scrollTop > 30) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    }, { passive: true });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+    });
+  </script>
+</body>
+</html>

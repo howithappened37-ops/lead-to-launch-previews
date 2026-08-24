@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roast &amp; Ritual Specialty Coffee Roasters · DHA Phase 6 Lahore</title>
+  <meta name="description" content="Micro-lot single-origin coffees, precision manual hand-drips, and daily scratch-baked sourdough in Commercial Area, DHA Phase 6, Lahore.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-linen: #FAF7F2;
+      --bg-surface: #FFFFFF;
+      --bg-card-tint: #F4EFEA;
+      --bg-espresso: #1A110B;
+      --accent-caramel: #C27803;
+      --accent-caramel-hover: #A36202;
+      --accent-terracotta: #9A3412;
+      --text-charcoal: #1C1917;
+      --text-muted: #78716C;
+      --border-subtle: rgba(61, 35, 20, 0.1);
+      --border-strong: rgba(61, 35, 20, 0.2);
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-linen);
+      color: var(--text-charcoal);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Top Roast Status Ribbon */
+    .roast-ribbon {
+      background: #F0EAE1;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 9px 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #655B53;
+    }
+    .ribbon-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .roast-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-terracotta);
+    }
+    .roast-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-terracotta);
+      animation: gentle-pulse 2.5s infinite;
+    }
+    @keyframes gentle-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Minimal Architectural Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 18px 0;
+    }
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-charcoal);
+    }
+    .brand-locality {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .btn-nav-order {
+      background: var(--text-charcoal);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+    .btn-nav-order:hover {
+      background: #3D2314;
+      transform: translateY(-1px);
+    }
+
+    /* SECTION 1: Asymmetric 65/35 Terroir Hero with Sensory Strip (Onyx + Kurasu Cue) */
+    .hero-sec {
+      padding: 80px 0 100px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .batch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(194, 120, 3, 0.1);
+      border: 1px solid rgba(194, 120, 3, 0.25);
+      color: var(--accent-caramel);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero-sec h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text-charcoal);
+      margin-bottom: 18px;
+    }
+    .hero-sec h1 span {
+      font-style: italic;
+      color: var(--accent-terracotta);
+      font-weight: 400;
+    }
+    .sensory-strip {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-caramel);
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .sensory-strip span:not(:last-child)::after {
+      content: "·";
+      margin-left: 8px;
+      color: var(--text-muted);
+    }
+    .hero-lead {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-hero-order {
+      background: var(--text-charcoal);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(28, 25, 23, 0.15);
+    }
+    .btn-hero-order:hover {
+      background: #3D2314;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(28, 25, 23, 0.22);
+    }
+    .btn-menu-link {
+      color: var(--text-charcoal);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--text-charcoal);
+      padding-bottom: 4px;
+      transition: color 0.2s;
+    }
+    .btn-menu-link:hover {
+      color: var(--accent-terracotta);
+      border-color: var(--accent-terracotta);
+    }
+
+    /* Hero Right Photo with Floating Tasting Card (Kurasu style) */
+    .hero-photo-container {
+      position: relative;
+      width: 100%;
+    }
+    .hero-coffee-photo {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      display: block;
+      box-shadow: 0 16px 40px rgba(61, 35, 20, 0.08);
+    }
+    .cupping-float-card {
+      position: absolute;
+      bottom: -24px;
+      left: -24px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      padding: 20px 24px;
+      box-shadow: 0 20px 50px rgba(61, 35, 20, 0.14);
+      max-width: 300px;
+    }
+    .float-score {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-caramel);
+      margin-bottom: 4px;
+    }
+    .float-origin {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-charcoal);
+    }
+    .float-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* SECTION 2: Single-Origin Cupping Registry (Horizontal 3-Card Matrix) */
+    .registry-sec {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+    }
+    .sec-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-caramel);
+      margin-bottom: 12px;
+    }
+    .sec-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.8vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-charcoal);
+      margin-bottom: 16px;
+    }
+    .sec-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+    .registry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .cupping-card {
+      background: var(--bg-linen);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .cupping-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+      box-shadow: 0 16px 36px rgba(61, 35, 20, 0.07);
+    }
+    .card-top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .score-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-caramel);
+      background: rgba(194, 120, 3, 0.12);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .elevation-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .card-origin-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-charcoal);
+      margin-bottom: 8px;
+    }
+    .card-notes {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-terracotta);
+      margin-bottom: 14px;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .btn-card-bag {
+      color: var(--text-charcoal);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 16px;
+      transition: color 0.2s;
+    }
+    .btn-card-bag:hover {
+      color: var(--accent-caramel);
+    }
+
+    /* SECTION 3: Interactive Extraction Dial-In Deck (21st.dev Component) */
+    .dial-sec {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-linen);
+    }
+    .dial-box {
+      background: #FFFFFF;
+      border-radius: 18px;
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 20px 60px rgba(61, 35, 20, 0.06);
+      overflow: hidden;
+    }
+    .dial-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: #F4EFEA;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .dial-tab-btn {
+      background: transparent;
+      border: none;
+      padding: 22px 20px;
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: #8C827A;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+      border-right: 1px solid var(--border-subtle);
+      position: relative;
+    }
+    .dial-tab-btn:last-child {
+      border-right: none;
+    }
+    .dial-tab-btn.active {
+      background: #FFFFFF;
+      color: var(--text-charcoal);
+    }
+    .dial-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-caramel);
+    }
+
+    .dial-content-grid {
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .dial-method-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-charcoal);
+      margin-bottom: 10px;
+    }
+    .dial-method-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .dial-specs-matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .spec-block {
+      background: var(--bg-linen);
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+    .spec-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .spec-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-charcoal);
+    }
+    .btn-dial-wa {
+      background: var(--text-charcoal);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-dial-wa:hover {
+      background: #3D2314;
+    }
+    .dial-media-img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* SECTION 4: Master Roaster & Barista Cupping Lab (High-Contrast Espresso #1A110B) */
+    .roaster-sec {
+      padding: 110px 0;
+      background: var(--bg-espresso);
+      color: #F8FAFC;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .roaster-card {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .roaster-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background: rgba(194, 120, 3, 0.2);
+      border: 1px solid rgba(194, 120, 3, 0.35);
+      color: #FBBF24;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .roaster-heading {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .roaster-role {
+      font-size: 13px;
+      color: #A8A29E;
+      font-weight: 600;
+    }
+    .roaster-quote-box {
+      border-left: 2px solid var(--accent-caramel);
+      padding-left: 32px;
+    }
+    .roaster-quote {
+      font-size: 16px;
+      font-style: italic;
+      color: #E7E5E4;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .btn-flight-wa {
+      color: #FBBF24;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-flight-wa:hover {
+      text-decoration: underline;
+    }
+
+    /* SECTION 5: Seasonal Sourdough & Pastry Pairing Ribbon */
+    .pastry-sec {
+      padding: 90px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+    }
+    .pastry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .pastry-card {
+      background: var(--bg-linen);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .pastry-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-charcoal);
+      margin-bottom: 6px;
+    }
+    .pastry-pair {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-terracotta);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .pastry-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Minimal Architectural Footer */
+    footer {
+      padding: 60px 0 40px;
+      background: #140E0A;
+      color: #A8A29E;
+      font-size: 12px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      color: #A8A29E;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .dial-content-grid, .roaster-card {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .registry-grid, .pastry-grid {
+        grid-template-columns: 1fr;
+      }
+      .cupping-float-card {
+        position: static;
+        margin-top: 16px;
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .dial-tabs {
+        grid-template-columns: 1fr;
+      }
+      .ribbon-flex {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Roast Status Ribbon -->
+  <div class="roast-ribbon">
+    <div class="container ribbon-flex">
+      <div class="roast-status">
+        <span class="roast-dot"></span>
+        <span>TODAY'S ROAST: BATCH 108 ACTIVE · ETHIOPIA BOMBE &amp; COLOMBIA GESHA</span>
+      </div>
+      <div>COMMERCIAL AREA · DHA PHASE 6, LAHORE · OPEN DAILY 7:30 AM – 11:30 PM</div>
+    </div>
+  </div>
+
+  <!-- Minimal Architectural Header -->
+  <header>
+    <div class="container nav-flex">
+      <div>
+        <div class="brand-title">Roast &amp; Ritual</div>
+        <div class="brand-locality">Specialty Roasters · DHA Phase 6</div>
+      </div>
+      <a href="https://wa.me/923008472911?text=Hi%20Roast%20%26%20Ritual!%20I%20would%20like%20to%20reserve%20a%20table%20or%20order%20beans." target="_blank" class="btn-nav-order">
+        WhatsApp Desk →
+      </a>
+    </div>
+  </header>
+
+  <!-- SECTION 1: Asymmetric 65/35 Terroir Hero with Sensory Strip (Onyx + Kurasu Cue) -->
+  <section class="hero-sec">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="batch-badge">
+            <span>●</span>
+            <span>Single-Origin Micro-Lot Program</span>
+          </div>
+          <h1>Micro-Lot Terroir. <span>Precision</span> Hand-Drip Extraction.</h1>
+          <div class="sensory-strip">
+            <span>Jasmine</span>
+            <span>Bergamot</span>
+            <span>White Peach</span>
+            <span>Raw Wild Honey</span>
+          </div>
+          <p class="hero-lead">
+            Direct-trade specialty green beans roasted in small 5kg batches in DHA Phase 6. Dialed in daily on customized Mahlkönig grinders and poured on Japanese ceramic V60 drippers.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/923008472911?text=Hi%20Roast%20%26%20Ritual!%20I%20would%20like%20to%20order%20a%20fresh-roasted%20coffee%20bag%20or%20book%20a%20tasting." target="_blank" class="btn-hero-order">
+              <span>Order Fresh Roast on WhatsApp</span> →
+            </a>
+            <a href="#cupping" class="btn-menu-link">
+              Explore Cupping Registry ↓
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-photo-container">
+          <img class="hero-coffee-photo" src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=80" alt="Specialty Pour-Over at Roast & Ritual">
+          <div class="cupping-float-card">
+            <div class="float-score">89.5 PTS · SCA CUPPING</div>
+            <div class="float-origin">Ethiopia Bombe Natural</div>
+            <div class="float-meta">Sidama Region · 2,150m · Anaerobic 72hr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Single-Origin Cupping Registry (Horizontal 3-Card Matrix) -->
+  <section class="registry-sec" id="cupping">
+    <div class="container">
+      <div class="sec-tag">Seasonal Micro-Lots</div>
+      <h2 class="sec-heading">Curated Single-Origin Registry.</h2>
+      <p class="sec-subtitle">
+        Ethically sourced directly from partner washing stations. Each micro-lot is roasted light-to-medium to preserve original terroir characteristics.
+      </p>
+
+      <div class="registry-grid">
+        <div class="cupping-card">
+          <div>
+            <div class="card-top-meta">
+              <span class="score-badge">91.0 SCA</span>
+              <span class="elevation-tag">2,050 MASL</span>
+            </div>
+            <div class="card-origin-title">Colombia Huila Gesha</div>
+            <div class="card-notes">Jasmine · Meyer Lemon · Apricot</div>
+            <p class="card-desc">Fully washed micro-lot with sparkling malic acidity, delicate floral aromatics, and a sweet honeysuckle finish.</p>
+          </div>
+          <a href="https://wa.me/923008472911?text=Hi%20Roast%20%26%20Ritual!%20I%20would%20like%20to%20order%20the%20Colombia%20Huila%20Gesha%20beans." target="_blank" class="btn-card-bag">
+            Order 250g Whole Bean on WhatsApp →
+          </a>
+        </div>
+
+        <div class="cupping-card">
+          <div>
+            <div class="card-top-meta">
+              <span class="score-badge">89.5 SCA</span>
+              <span class="elevation-tag">2,200 MASL</span>
+            </div>
+            <div class="card-origin-title">Ethiopia Yirgacheffe</div>
+            <div class="card-notes">Blueberry · Bergamot · Cocoa Nib</div>
+            <p class="card-desc">Anaerobic slow-dried natural processing producing an intensely juicy cup with distinct wild berry notes.</p>
+          </div>
+          <a href="https://wa.me/923008472911?text=Hi%20Roast%20%26%20Ritual!%20I%20would%20like%20to%20order%20the%20Ethiopia%20Yirgacheffe%20beans." target="_blank" class="btn-card-bag">
+            Order 250g Whole Bean on WhatsApp →
+          </a>
+        </div>
+
+        <div class="cupping-card">
+          <div>
+            <div class="card-top-meta">
+              <span class="score-badge">88.0 SCA</span>
+              <span class="elevation-tag">1,850 MASL</span>
+            </div>
+            <div class="card-origin-title">Guatemala Antigua</div>
+            <div class="card-notes">Dark Cacao · Toasted Pecan · Molasses</div>
+            <p class="card-desc">Volcanic soil terroir offering rich velvety body, low acidity, and deep bittersweet chocolate notes perfect for espresso.</p>
+          </div>
+          <a href="https://wa.me/923008472911?text=Hi%20Roast%20%26%20Ritual!%20I%20would%20like%20to%20order%20the%20Guatemala%20Antigua%20beans." target="_blank" class="btn-card-bag">
+            Order 250g Whole Bean on WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Interactive Extraction Dial-In Deck (21st.dev Component) -->
+  <section class="dial-sec">
+    <div class="container">
+      <div class="sec-tag">Brew Methodology</div>
+      <h2 class="sec-heading">Manual Barista Dial-In Deck.</h2>
+      <p class="sec-subtitle">
+        Select an extraction method to inspect our exact calibrated parameters, water temperature, dose ratio, and grind specifications.
+      </p>
+
+      <div class="dial-box">
+        <div class="dial-tabs">
+          <button class="dial-tab-btn active" onclick="switchMethod(0)">V60 Ceramic Hand-Drip</button>
+          <button class="dial-tab-btn" onclick="switchMethod(1)">Inverted Aeropress</button>
+          <button class="dial-tab-btn" onclick="switchMethod(2)">9-Bar Double Shot Espresso</button>
+        </div>
+
+        <div class="dial-content-grid">
+          <div>
+            <div class="dial-method-title" id="method-title">Hario V60 Ceramic Pour-Over</div>
+            <p class="dial-method-desc" id="method-desc">
+              Three-stage pulse pour emphasizing clarity, floral aromatics, and bright terroir acidity with zero paper sediment.
+            </p>
+
+            <div class="dial-specs-matrix">
+              <div class="spec-block">
+                <div class="spec-label">Water Temperature</div>
+                <div class="spec-value" id="spec-temp">93.5°C Mineral Water</div>
+              </div>
+              <div class="spec-block">
+                <div class="spec-label">Brew Ratio / Dose</div>
+                <div class="spec-value" id="spec-ratio">15g In : 240g Out (1:16)</div>
+              </div>
+              <div class="spec-block">
+                <div class="spec-label">Grind Micron Target</div>
+                <div class="spec-value" id="spec-grind">Medium-Coarse (680μm)</div>
+              </div>
+              <div class="spec-block">
+                <div class="spec-label">Target Extraction Time</div>
+                <div class="spec-value" id="spec-time">2m 45s Total Drawdown</div>
+              </div>
+            </div>
+
+            <a href="https://wa.me/923008472911?text=Hi%20Roast%20%26%20Ritual!%20I%20am%20coming%20over%20for%20a%20Hario%20V60%20Hand-Drip." target="_blank" class="btn-dial-wa" id="method-cta">
+              <span>Order V60 Hand-Drip on WhatsApp</span> →
+            </a>
+          </div>
+
+          <div>
+            <img id="method-img" class="dial-media-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Brew Method">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Master Roaster & Barista Cupping Lab (High-Contrast Espresso #1A110B) -->
+  <section class="roaster-sec">
+    <div class="container">
+      <div class="roaster-card">
+        <div>
+          <div class="roaster-badge">Terroir Mastery</div>
+          <div class="roaster-heading">Cupping Lab &amp; Head Roaster</div>
+          <div class="roaster-role">Q-Grader Certified · Direct-Trade Green Bean Sourcing</div>
+        </div>
+        <div class="roaster-quote-box">
+          <p class="roaster-quote">
+            "Great coffee is grown, not made. Our role at Roast &amp; Ritual is simply not to obscure the incredible terroir crafted by the farmers on the mountain."
+          </p>
+          <a href="https://wa.me/923008472911?text=Hi!%20I%20would%20like%20to%20book%20a%20private%20coffee%20flight%20tasting%20at%20Roast%20%26%20Ritual." target="_blank" class="btn-flight-wa">
+            Book a Private Coffee Flight Tasting on WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Seasonal Sourdough & Pastry Pairing Ribbon -->
+  <section class="pastry-sec">
+    <div class="container">
+      <div class="sec-tag">Scratch Bakery</div>
+      <h2 class="sec-heading">Morning Bakes &amp; Sourdough Pairings.</h2>
+      <p class="sec-subtitle">
+        Baked fresh at dawn every day to complement our single-origin extractions.
+      </p>
+
+      <div class="pastry-grid">
+        <div class="pastry-card">
+          <div class="pastry-title">Cardamom &amp; Cinnamon Morning Bun</div>
+          <div class="pastry-pair">Pairs with Colombia Gesha</div>
+          <p class="pastry-desc">Laminated 72-hour dough rolled with crushed green cardamom pods and raw demerara sugar.</p>
+        </div>
+
+        <div class="pastry-card">
+          <div class="pastry-title">Whipped Ricotta Sourdough Toast</div>
+          <div class="pastry-pair">Pairs with Ethiopia Yirgacheffe</div>
+          <p class="pastry-desc">House-milled heritage wheat sourdough toasted with cultured butter, lemon zest, and local wild honey.</p>
+        </div>
+
+        <div class="pastry-card">
+          <div class="pastry-title">Valrhona Dark Chocolate Croissant</div>
+          <div class="pastry-pair">Pairs with Guatemala Espresso</div>
+          <p class="pastry-desc">French butter layers folded around twin batons of 70% bittersweet Valrhona dark chocolate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal Architectural Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-title">Roast &amp; Ritual Specialty Coffee Roasters</div>
+        <ul class="footer-links">
+          <li><a href="#cupping">Cupping Registry</a></li>
+          <li><a href="https://wa.me/923008472911" target="_blank">WhatsApp Desk</a></li>
+          <li><a href="tel:+923008472911">+92 300 8472911</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <div>Commercial Area, DHA Phase 6, Lahore · 4.9★ (162+ Verified Google Reviews)</div>
+        <div>© 2026 Roast &amp; Ritual Roasters. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for 21st.dev Interactive Dial-In Deck -->
+  <script>
+    const methods = [
+      {
+        title: "Hario V60 Ceramic Pour-Over",
+        desc: "Three-stage pulse pour emphasizing clarity, floral aromatics, and bright terroir acidity with zero paper sediment.",
+        temp: "93.5°C Mineral Water",
+        ratio: "15g In : 240g Out (1:16)",
+        grind: "Medium-Coarse (680μm)",
+        time: "2m 45s Total Drawdown",
+        image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+        waText: "Hi Roast & Ritual! I am coming over for a Hario V60 Hand-Drip."
+      },
+      {
+        title: "Inverted Aeropress Immersion",
+        desc: "Full-immersion steep with paper and metal dual-filtration delivering intense body, silky mouthfeel, and rich cocoa extraction.",
+        temp: "88.0°C Mineral Water",
+        ratio: "18g In : 200g Out (1:11)",
+        grind: "Medium-Fine (450μm)",
+        time: "1m 30s Steep + 30s Press",
+        image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+        waText: "Hi Roast & Ritual! I am coming over for an Inverted Aeropress extraction."
+      },
+      {
+        title: "9-Bar Double Shot Espresso",
+        desc: "Precision calibrated 1:2 extraction on our Synesso MVP with pre-infusion pressure profiling for thick syrupy crema.",
+        temp: "92.0°C Calibrated Boiler",
+        ratio: "19g In : 38g Out (1:2)",
+        grind: "Fine Espresso (220μm)",
+        time: "28–32s Shot Duration",
+        image: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80",
+        waText: "Hi Roast & Ritual! I would like to order a double shot specialty espresso."
+      }
+    ];
+
+    function switchMethod(index) {
+      const m = methods[index];
+      const buttons = document.querySelectorAll('.dial-tab-btn');
+      buttons.forEach((btn, i) => {
+        if (i === index) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+
+      document.getElementById('method-title').textContent = m.title;
+      document.getElementById('method-desc').textContent = m.desc;
+      document.getElementById('spec-temp').textContent = m.temp;
+      document.getElementById('spec-ratio').textContent = m.ratio;
+      document.getElementById('spec-grind').textContent = m.grind;
+      document.getElementById('spec-time').textContent = m.time;
+      document.getElementById('method-img').src = m.image;
+      document.getElementById('method-cta').href = `https://wa.me/923008472911?text=${encodeURIComponent(m.waText)}`;
+      document.getElementById('method-cta').querySelector('span').textContent = `Order ${m.title.split(' ')[0]} on WhatsApp`;
+    }
+  </script>
+</body>
+</html>
