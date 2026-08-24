@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Seeme Beauty Parlour · Couture Atelier · Moon Market</title>
+  <meta name="description" content="Elevate your personal aesthetic with master stylist consultations and restorative skin wellness in Moon Market.">
+
+  <!-- Google Fonts Optical Sizing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Spline 3D WebGL Viewer Engine -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"></script>
+
+  <!-- Tailwind CSS 3 CDN with Dynamic Tokens from Design Library -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bgDark: '#140A10',
+              cardDark: '#1F1019',
+              cardHover: '#2C1724',
+              borderDark: 'rgba(255, 255, 255, 0.08)',
+              primary: '#BE185D',
+              primaryHover: '#9D174D',
+              accent: '#D97706',
+              accentLight: '#FDE68A',
+              textDark: '#FDF8F9',
+              textMutedDark: '#A8969F',
+              bgLight: '#FDF8F9',
+              cardLight: '#FFFFFF',
+              borderLight: '#E8DFE4',
+              textLight: '#1F1019',
+              textMutedLight: '#786872',
+            }
+          },
+          fontFamily: {
+            display: ['Fraunces', serif],
+            body: ['Plus Jakarta Sans', sans-serif],
+            mono: ['JetBrains Mono', monospace]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --primary: #BE185D;
+      --accent: #D97706;
+    }
+    body {
+      background-color: #140A10;
+      color: #FDF8F9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    }
+    @media (min-width: 769px) { body { padding-bottom: 0; } }
+
+    .font-display { font-family: 'Fraunces', serif; }
+    .font-mono-spec { font-family: 'JetBrains Mono', monospace; }
+
+    /* Word Blur Entrance Keyframe */
+    @keyframes wordBlurIn {
+      0% { opacity: 0; transform: translateY(24px); filter: blur(10px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+    }
+
+    .glass-nav {
+      background: rgba(20, 10, 16, 0.88);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* 3D Card Hover Tilt with Cursor-Tracked Glare (transitions.dev #19) */
+    .card-3d-tilt {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+      position: relative;
+    }
+    .card-glare {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.12) 0%, transparent 65%);
+      opacity: 0;
+      border-radius: inherit;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+    .card-3d-tilt:hover .card-glare {
+      opacity: 1;
+    }
+
+    /* Horizontal Carousel Custom Scroll */
+    .custom-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #BE185D;
+      border-radius: 9999px;
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+
+    .signature-card.active-signature {
+      border-color: #D97706 !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Seeme Beauty Parlour",
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkLvEu0Q6dCdpno4xC7jXVMXJGOrLQ_HhorF5Gqs8WyyejHrh_whec_UUt_O3i_cGprl2pQRZgB1D_b_p7ydJjnYM40jhpnC7khiv4ZmxiRI_Aft1Ov-rDGZmLQ9N2hniw_6nM=w408-h272-k-no",
+    "telephone": "03059898989",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Moon Market, Satluj Block Allama Iqbal Town, Lahore, 54000, Pakistan",
+      "addressLocality": "Lahore",
+      "addressCountry": "PK"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "84"
+    }
+  }
+  </script>
+</head>
+<body class="selection:bg-brand-primary selection:text-white">
+
+  <!-- 1. Live Operating Status Ticker -->
+  <div class="w-full bg-[#05080E] border-b border-brand-borderDark py-2 px-4 text-xs font-mono-spec tracking-wider text-brand-textMutedDark overflow-x-auto whitespace-nowrap flex items-center justify-between z-40 relative">
+    <div class="flex items-center gap-6 mx-auto max-w-7xl">
+      <span class="flex items-center gap-2 text-brand-accent font-semibold">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        BEAUTY ATELIER SUITES OPEN · 📍 MOON MARKET · COUTURE COLOR MELTING · BRIDAL SUITES
+      </span>
+      <span class="text-neutral-700">/</span>
+      <span>Lead Colorist &amp; Dermal Specialist</span>
+      <span class="text-neutral-700">/</span>
+      <span class="text-amber-400 font-semibold">★ 4.8 (80+ REVIEWS)</span>
+    </div>
+  </div>
+
+  <!-- 2. Sticky Glass Capsule Navigation -->
+  <header class="sticky top-4 z-50 px-4 max-w-6xl mx-auto pointer-events-none transition-all duration-300">
+    <div class="glass-nav rounded-full px-5 py-3.5 shadow-2xl flex items-center justify-between pointer-events-auto gap-4">
+      <a href="#" class="flex items-center gap-3 no-underline group">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center font-display font-black text-white text-sm shadow-md">
+          SB
+        </div>
+        <div>
+          <span class="font-display font-bold text-base text-brand-textDark group-hover:text-brand-accent transition truncate max-w-[180px] sm:max-w-[260px] block">
+            Seeme Beauty Parlour
+          </span>
+          <span class="text-[10px] font-mono-spec uppercase tracking-widest text-brand-accent">
+            Couture Atelier
+          </span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-brand-textMutedDark">
+        <a href="#journey" class="hover:text-brand-textDark transition">Protocol</a>
+        <a href="#services" class="hover:text-brand-textDark transition">Suites</a>
+        <a href="#why-us" class="hover:text-brand-textDark transition">Excellence</a>
+        <a href="#signature" class="hover:text-brand-textDark transition">Assessment</a>
+        <a href="#transformation" class="hover:text-brand-textDark transition">3D Results</a>
+        <a href="#faq" class="hover:text-brand-textDark transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button onclick="openConsultationModal('', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-bold uppercase tracking-wider shadow-lg transition active:scale-95">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          <span>Book Consultation</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 3. Asymmetric Hero Section with Real Spline 3D Scene + Per-Word Stagger Animation -->
+    <section class="relative pt-12 pb-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark overflow-hidden">
+      <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <!-- Left Column: 65% Narrative Architecture -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-brand-borderDark text-xs font-mono-spec text-brand-textMutedDark">
+            <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+            <span class="text-brand-textDark font-semibold uppercase">Couture Hair &amp; Dermal Aesthetics</span> · Moon Market
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
+            
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both;">
+      Bespoke
+    </span>
+   
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s both;">
+      Beauty
+    </span>
+   
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.30000000000000004s both;">
+      Atelier
+    </span>
+   <em class="not-italic text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight">
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s both;">
+      Bespoke
+    </span>
+   
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.52s both;">
+      Styling,
+    </span>
+   
+    <span class="inline-block transition-all duration-700" style="animation: wordBlurIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.64s both;">
+      Color
+    </span>
+  </em>
+          </h1>
+
+          <p class="text-base sm:text-lg text-brand-textMutedDark leading-relaxed max-w-xl font-normal">
+            Elevate your personal aesthetic with master stylist consultations and restorative skin wellness in Moon Market.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button onclick="openConsultationModal('', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-brand-primary/25 transition hover:-translate-y-0.5 active:scale-95 min-h-[48px]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+              <span>Book Priority Consultation</span>
+            </button>
+            <a href="#services" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-brand-borderDark text-white text-sm font-semibold transition min-h-[48px]">
+              <span>Explore 3D Catalog</span>
+            </a>
+          </div>
+
+          <div class="flex items-center gap-6 pt-4 border-t border-brand-borderDark text-xs text-brand-textMutedDark">
+            <div class="flex items-center gap-2 text-amber-400 font-bold">
+              ★ 4.8 Verified Rating
+            </div>
+            <div>•</div>
+            <div>84+ Google Client Reviews</div>
+            <div>•</div>
+            <div>Moon Market Flagship</div>
+          </div>
+        </div>
+
+        <!-- Right Column: 35% Interactive 3D Spline Scene & Overlapping Glass Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="card-3d-tilt relative rounded-3xl overflow-hidden border border-brand-borderDark bg-black/40 shadow-2xl h-[460px]">
+            <div class="card-glare"></div>
+
+            <!-- Spline 3D Interactive Viewer Canvas -->
+            <spline-viewer url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" class="w-full h-full block"></spline-viewer>
+
+            <!-- Floating Glass Proof Card Over 3D Scene -->
+            <div class="absolute bottom-5 left-5 right-5 glass-nav p-5 rounded-2xl border border-white/10 shadow-xl space-y-2 pointer-events-none">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-semibold">In Studio</span>
+                <span class="text-xs text-white font-bold">★ 4.8</span>
+              </div>
+              <div class="font-display text-lg font-bold text-white">Master Stylist &amp; Aesthetician</div>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">Lead Colorist &amp; Dermal Specialist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 4-Step Interactive Progress Journey Bar (From Design Library Blueprint) -->
+    <section class="py-14 px-6 border-b border-brand-borderDark bg-[#060A10]" id="journey">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-10 reveal-on-scroll">
+          <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Methodical Excellence</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white mt-1">4-Step Delivery Protocol</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark relative space-y-3 reveal-on-scroll ">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-black font-display text-brand-accent/70">01</span>
+              <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Tone Consultation</h3>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Assessing skin undertones, hair density, and lifestyle preferences.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark relative space-y-3 reveal-on-scroll reveal-delay-1">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-black font-display text-brand-accent/70">02</span>
+              <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Bond-Building Color</h3>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Ammonia-free French lightening and multi-tonal balayage melting.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark relative space-y-3 reveal-on-scroll reveal-delay-2">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-black font-display text-brand-accent/70">03</span>
+              <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Glass Glaze</h3>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Hydrating botanical gloss sealing cuticles with liquid glass shine.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark relative space-y-3 reveal-on-scroll reveal-delay-3">
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-black font-display text-brand-accent/70">04</span>
+              <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Couture Styling</h3>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Voluminous runway finish and custom at-home maintenance prescription.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Animated Metric Stats Strip (Count-Up on Scroll) -->
+    <section class="py-16 px-6 border-b border-brand-borderDark bg-[#05080E]">
+      <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        
+        <div class="space-y-1">
+          <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight stat-counter" data-target="100" data-prefix="" data-suffix="%" data-decimal="false">
+            0%
+          </div>
+          <div class="text-xs font-mono-spec text-brand-textMutedDark uppercase tracking-wider">Organic Bond Building Care</div>
+        </div>
+        <div class="space-y-1">
+          <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight stat-counter" data-target="8500" data-prefix="" data-suffix="+" data-decimal="false">
+            0+
+          </div>
+          <div class="text-xs font-mono-spec text-brand-textMutedDark uppercase tracking-wider">Color Transformations</div>
+        </div>
+        <div class="space-y-1">
+          <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight stat-counter" data-target="12" data-prefix="" data-suffix=" Stylists" data-decimal="false">
+            0 Stylists
+          </div>
+          <div class="text-xs font-mono-spec text-brand-textMutedDark uppercase tracking-wider">Master Color Directors</div>
+        </div>
+        <div class="space-y-1">
+          <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accentLight stat-counter" data-target="4.9" data-prefix="★ " data-suffix=" (180+)" data-decimal="true">
+            ★ 0 (180+)
+          </div>
+          <div class="text-xs font-mono-spec text-brand-textMutedDark uppercase tracking-wider">Client Satisfaction</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Interactive 3D Card Carousel Section (Smooth Track + Controls) -->
+    <section class="py-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark" id="services">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal-on-scroll">
+        <div>
+          <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Salon Services</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">Curated Beauty Suites</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="scrollCarousel(-1)" class="w-11 h-11 rounded-full glass-nav border border-brand-borderDark flex items-center justify-center text-white hover:bg-white/10 active:scale-95 transition">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button onclick="scrollCarousel(1)" class="w-11 h-11 rounded-full glass-nav border border-brand-borderDark flex items-center justify-center text-white hover:bg-white/10 active:scale-95 transition">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3D Card Carousel Track -->
+      <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 pt-2 custom-scroll" id="servicesCarousel">
+        
+          <div class="snap-start flex-shrink-0 w-[300px] sm:w-[360px] card-3d-tilt rounded-2xl overflow-hidden bg-brand-cardDark border border-brand-borderDark flex flex-col justify-between group shadow-xl">
+            <div class="card-glare"></div>
+            <div class="relative h-52 overflow-hidden bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=85" alt="Hand-Painted Balayage &amp; Couture Color Melt" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-white/10">
+                Balayage
+              </span>
+              <span class="absolute top-3 right-3 px-2.5 py-0.5 rounded bg-brand-primary/90 text-[9px] font-mono-spec text-white">
+                French Color Melt
+              </span>
+            </div>
+            <div class="p-6 flex-1 space-y-3">
+              <h3 class="font-display font-bold text-xl text-white">Hand-Painted Balayage &amp; Couture Color Melt</h3>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">Custom dimensional hair painting tailored to facial harmony, undertones, and natural movement.</p>
+              <div class="space-y-1 pt-2">
+                
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Personalized Tone Consultation</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Olaplex Bond Protection</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Seamless Root Blending</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-brand-borderDark bg-black/20 flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-accent font-mono-spec">Contact for personalized quote</span>
+              <button onclick="openConsultationModal('Hand-Painted Balayage &amp; Couture Color Melt', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition active:scale-95">
+                Inquire 3D Slot
+              </button>
+            </div>
+          </div>
+          <div class="snap-start flex-shrink-0 w-[300px] sm:w-[360px] card-3d-tilt rounded-2xl overflow-hidden bg-brand-cardDark border border-brand-borderDark flex flex-col justify-between group shadow-xl">
+            <div class="card-glare"></div>
+            <div class="relative h-52 overflow-hidden bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=85" alt="Hydra-Glow Dermal Facial &amp; Skin Radiance" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-white/10">
+                Dermal Care
+              </span>
+              <span class="absolute top-3 right-3 px-2.5 py-0.5 rounded bg-brand-primary/90 text-[9px] font-mono-spec text-white">
+                Hydra-Facial Glow
+              </span>
+            </div>
+            <div class="p-6 flex-1 space-y-3">
+              <h3 class="font-display font-bold text-xl text-white">Hydra-Glow Dermal Facial &amp; Skin Radiance</h3>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">Deep pore ultrasonic cleansing, multi-peptide hydration, and collagen-boosting therapies.</p>
+              <div class="space-y-1 pt-2">
+                
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Deep Ultrasonic Cleansing</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Hyaluronic Acid Infusions</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Immediate Glass-Skin Glow</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-brand-borderDark bg-black/20 flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-accent font-mono-spec">Contact for personalized quote</span>
+              <button onclick="openConsultationModal('Hydra-Glow Dermal Facial &amp; Skin Radiance', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition active:scale-95">
+                Inquire 3D Slot
+              </button>
+            </div>
+          </div>
+          <div class="snap-start flex-shrink-0 w-[300px] sm:w-[360px] card-3d-tilt rounded-2xl overflow-hidden bg-brand-cardDark border border-brand-borderDark flex flex-col justify-between group shadow-xl">
+            <div class="card-glare"></div>
+            <div class="relative h-52 overflow-hidden bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=85" alt="Zero-Damage Keratin &amp; Silk Blowouts" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-white/10">
+                Bridal Suite
+              </span>
+              <span class="absolute top-3 right-3 px-2.5 py-0.5 rounded bg-brand-primary/90 text-[9px] font-mono-spec text-white">
+                Runway Finish
+              </span>
+            </div>
+            <div class="p-6 flex-1 space-y-3">
+              <h3 class="font-display font-bold text-xl text-white">Zero-Damage Keratin &amp; Silk Blowouts</h3>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">Formaldehyde-free smoothing treatments engineered for mirror shine and humidity resistance.</p>
+              <div class="space-y-1 pt-2">
+                
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Organic Keratin Complex</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Anti-Frizz Seal</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Long-Lasting Silk Finish</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-brand-borderDark bg-black/20 flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-accent font-mono-spec">Contact for personalized quote</span>
+              <button onclick="openConsultationModal('Zero-Damage Keratin &amp; Silk Blowouts', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition active:scale-95">
+                Inquire 3D Slot
+              </button>
+            </div>
+          </div>
+          <div class="snap-start flex-shrink-0 w-[300px] sm:w-[360px] card-3d-tilt rounded-2xl overflow-hidden bg-brand-cardDark border border-brand-borderDark flex flex-col justify-between group shadow-xl">
+            <div class="card-glare"></div>
+            <div class="relative h-52 overflow-hidden bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=85" alt="Artisanal Gel Manicures &amp; Pedicure Lounge" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-white/10">
+                Nail Atelier
+              </span>
+              <span class="absolute top-3 right-3 px-2.5 py-0.5 rounded bg-brand-primary/90 text-[9px] font-mono-spec text-white">
+                Russian Gel Art
+              </span>
+            </div>
+            <div class="p-6 flex-1 space-y-3">
+              <h3 class="font-display font-bold text-xl text-white">Artisanal Gel Manicures &amp; Pedicure Lounge</h3>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">Therapeutic nail restoration with long-wearing non-toxic polishes and exfoliating scrubs.</p>
+              <div class="space-y-1 pt-2">
+                
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Medical-Grade Sterilization</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Long-Wear Gel Finishes</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Cuticle Health Focus</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-brand-borderDark bg-black/20 flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-accent font-mono-spec">Contact for personalized quote</span>
+              <button onclick="openConsultationModal('Artisanal Gel Manicures &amp; Pedicure Lounge', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition active:scale-95">
+                Inquire 3D Slot
+              </button>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- 7. Why Choose Us 3D Bento Grid (From Design Library Blueprint) -->
+    <section class="py-24 px-6 max-w-7xl mx-auto border-b border-brand-borderDark" id="why-us">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+        <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Uncompromising Quality</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">The Standard of Distinction</h2>
+        <p class="text-sm text-brand-textMutedDark">Engineered around precision, comfort, and direct specialist reachability.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-3d-tilt p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-brand-borderDark space-y-4 reveal-on-scroll ">
+          <div class="card-glare"></div>
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" x2="8.12" y1="4" y2="15.88"/><line x1="14.47" x2="20" y1="14.48" y2="20"/><line x1="8.12" x2="12" y1="8.12" y2="12"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Couture Color Directors</h3>
+          <p class="text-xs text-brand-textMutedDark leading-relaxed">Senior French-trained colorists specializing in soft, low-maintenance root blends.</p>
+        </div>
+        <div class="card-3d-tilt p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-brand-borderDark space-y-4 reveal-on-scroll reveal-delay-1">
+          <div class="card-glare"></div>
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Hydra-Facial Infusion</h3>
+          <p class="text-xs text-brand-textMutedDark leading-relaxed">Medical-grade non-invasive dermal peeling for instant porcelain glow with zero downtime.</p>
+        </div>
+        <div class="card-3d-tilt p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-brand-borderDark space-y-4 reveal-on-scroll reveal-delay-2">
+          <div class="card-glare"></div>
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Private VIP Suites</h3>
+          <p class="text-xs text-brand-textMutedDark leading-relaxed">Dedicated private rooms for bridal preparations and veiled client consultations.</p>
+        </div>
+        <div class="card-3d-tilt p-7 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-brand-borderDark space-y-4 reveal-on-scroll reveal-delay-3">
+          <div class="card-glare"></div>
+          <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.731.47l-4.261-2.24-4.26 2.24a.5.5 0 0 1-.732-.47l1.515-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Premium Clean Formulations</h3>
+          <p class="text-xs text-brand-textMutedDark leading-relaxed">Sulfate-free, cruelty-free luxury hair care that restores structural integrity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Interactive Drag-to-Compare Transformation Slider (21st.dev Quality Feature) -->
+    <section class="py-24 px-6 max-w-5xl mx-auto border-b border-brand-borderDark" id="transformation">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
+        <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Interactive Telemetry</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Balayage Radiance Transformation</h2>
+        <p class="text-sm text-brand-textMutedDark">Drag to compare brassy baseline hair vs. seamless French cream balayage melt.</p>
+      </div>
+
+      <!-- Before/After Interactive Canvas -->
+      <div class="relative w-full h-[420px] rounded-3xl overflow-hidden border border-brand-borderDark shadow-2xl select-none" id="beforeAfterContainer">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="After Results" class="absolute inset-0 w-full h-full object-cover">
+        <span class="absolute bottom-5 right-5 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur text-xs font-bold font-mono-spec text-brand-accent border border-white/10 z-10">
+          Couture Balayage
+        </span>
+
+        <!-- Before Clip Layer -->
+        <div class="absolute inset-0 overflow-hidden" id="beforeLayer" style="width: 50%;">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80" alt="Before Assessment" class="absolute inset-0 w-full h-full object-cover max-w-none" style="width: 100%; height: 100%;">
+          <span class="absolute bottom-5 left-5 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur text-xs font-bold font-mono-spec text-white border border-white/10">
+            Base Undertone
+          </span>
+        </div>
+
+        <!-- Draggable Handle -->
+        <div class="absolute top-0 bottom-0 w-1 bg-white shadow-2xl cursor-ew-resize flex items-center justify-center z-20" id="sliderHandle" style="left: 50%;">
+          <div class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center shadow-2xl text-sm font-bold font-mono">
+            ⇄
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Interactive Signature Brand Assessment Widget -->
+    <section class="py-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark" id="signature">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
+        <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Bespoke Beauty Consultation</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Select Your Style Transformation &amp; Treatment</h2>
+        <p class="text-sm text-brand-textMutedDark leading-relaxed">Choose your desired service for customized stylist assignment and pricing in Moon Market.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <div onclick="selectSignatureItem(this, 'Hand-Painted Balayage &amp; Melt', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll  active-signature">
+          <div class="card-glare"></div>
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" x2="8.12" y1="4" y2="15.88"/><line x1="14.47" x2="20" y1="14.48" y2="20"/><line x1="8.12" x2="12" y1="8.12" y2="12"/></svg>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg text-white">Hand-Painted Balayage &amp; Melt</h3>
+              <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-brand-accent/20 text-brand-accent border border-brand-accent/30 font-bold">Featured</span>
+            </div>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Custom dimensional hair painting with Olaplex bond protection</p>
+          </div>
+          <div class="pt-3 border-t border-brand-borderDark flex items-center justify-between text-xs font-semibold text-brand-accent">
+            <span>Tap to prepare inquiry</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+        </div>
+        <div onclick="selectSignatureItem(this, 'Precision Couture Haircut', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-1 ">
+          <div class="card-glare"></div>
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg text-white">Precision Couture Haircut</h3>
+              
+            </div>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Face-framing architectural cut &amp; luxury blowdry finish</p>
+          </div>
+          <div class="pt-3 border-t border-brand-borderDark flex items-center justify-between text-xs font-semibold text-brand-accent">
+            <span>Tap to prepare inquiry</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+        </div>
+        <div onclick="selectSignatureItem(this, 'Hydra-Glow Dermal Facial', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 active-signature">
+          <div class="card-glare"></div>
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg text-white">Hydra-Glow Dermal Facial</h3>
+              <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-brand-accent/20 text-brand-accent border border-brand-accent/30 font-bold">Featured</span>
+            </div>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Deep pore ultrasonic cleanse &amp; multi-peptide hydration</p>
+          </div>
+          <div class="pt-3 border-t border-brand-borderDark flex items-center justify-between text-xs font-semibold text-brand-accent">
+            <span>Tap to prepare inquiry</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+        </div>
+        <div onclick="selectSignatureItem(this, 'Organic Keratin Silk Therapy', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 ">
+          <div class="card-glare"></div>
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg text-white">Organic Keratin Silk Therapy</h3>
+              
+            </div>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Formaldehyde-free smoothing for high mirror shine</p>
+          </div>
+          <div class="pt-3 border-t border-brand-borderDark flex items-center justify-between text-xs font-semibold text-brand-accent">
+            <span>Tap to prepare inquiry</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+        </div>
+        <div onclick="selectSignatureItem(this, 'Luxury Bridal &amp; Glam Suite', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 ">
+          <div class="card-glare"></div>
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.731.47l-4.261-2.24-4.26 2.24a.5.5 0 0 1-.732-.47l1.515-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg text-white">Luxury Bridal &amp; Glam Suite</h3>
+              
+            </div>
+            <p class="text-xs text-brand-textMutedDark leading-relaxed">Comprehensive hair, makeup &amp; nail styling packages</p>
+          </div>
+          <div class="pt-3 border-t border-brand-borderDark flex items-center justify-between text-xs font-semibold text-brand-accent">
+            <span>Tap to prepare inquiry</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center">
+        <a id="signatureActionBtn" href="https://wa.me/03059898989?text=Hi%20Seeme%20Beauty%20Parlour!%20I%20would%20like%20to%20consult%20with%20your%20team." target="_blank" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-accent hover:brightness-110 text-black font-extrabold text-xs uppercase tracking-wider shadow-lg transition active:scale-95">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+          <span>Consult for Featured Service</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 10. Specialist On-Duty Dock (21st.dev Style) -->
+    <section class="py-20 px-6 max-w-5xl mx-auto" id="specialist">
+      <div class="card-3d-tilt p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-cardDark to-[#0A0D15] border border-brand-borderDark shadow-2xl relative overflow-hidden reveal-on-scroll">
+        <div class="card-glare"></div>
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 relative z-10">
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center font-display font-black text-2xl text-white shadow-xl flex-shrink-0">
+            MS
+          </div>
+          <div class="flex-1 text-center sm:text-left space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono-spec">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>In Studio</span> · DIRECT CONSULTATION
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white">Master Stylist &amp; Aesthetician</h3>
+            <p class="text-sm text-brand-textMutedDark">Lead Colorist &amp; Dermal Specialist</p>
+            <p class="text-xs text-neutral-400 pt-2 max-w-xl">
+              Connect directly with our senior specialist for customized guidance, appointment scheduling, and procedural inquiries with zero reception delays.
+            </p>
+          </div>
+          <div class="pt-2 sm:pt-0">
+            <button onclick="openConsultationModal('', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-xs uppercase tracking-wider shadow-lg transition active:scale-95 whitespace-nowrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+              <span>Chat with Specialist</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Interactive Accordion FAQ Section (transitions.dev #21) -->
+    <section class="py-24 px-6 max-w-4xl mx-auto border-t border-brand-borderDark" id="faq">
+      <div class="text-center max-w-xl mx-auto mb-14 reveal-on-scroll">
+        <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Frequently Asked Questions</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Transparent Clarity</h2>
+        <p class="text-sm text-brand-textMutedDark">Everything you need to know prior to your first appointment.</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="rounded-2xl bg-white/[0.02] border border-brand-borderDark overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 text-white hover:text-brand-accent transition">
+            <span class="font-display font-bold text-base sm:text-lg">How long does a balayage transformation take?</span>
+            <div class="faq-chevron transition duration-300 transform flex-shrink-0 text-brand-accent">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-body hidden px-6 pb-6 text-xs sm:text-sm text-brand-textMutedDark leading-relaxed border-t border-white/[0.04] pt-4">
+            A full couture balayage and gloss treatment typically takes 3 to 4 hours to ensure thorough, healthy lightening.
+          </div>
+        </div>
+        <div class="rounded-2xl bg-white/[0.02] border border-brand-borderDark overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 text-white hover:text-brand-accent transition">
+            <span class="font-display font-bold text-base sm:text-lg">Do you offer private styling rooms?</span>
+            <div class="faq-chevron transition duration-300 transform flex-shrink-0 text-brand-accent">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-body hidden px-6 pb-6 text-xs sm:text-sm text-brand-textMutedDark leading-relaxed border-t border-white/[0.04] pt-4">
+            Yes, we provide secluded VIP styling lounges for complete privacy and relaxation during long services.
+          </div>
+        </div>
+        <div class="rounded-2xl bg-white/[0.02] border border-brand-borderDark overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex items-center justify-between gap-4 text-white hover:text-brand-accent transition">
+            <span class="font-display font-bold text-base sm:text-lg">How do I book a bridal appointment?</span>
+            <div class="faq-chevron transition duration-300 transform flex-shrink-0 text-brand-accent">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq-body hidden px-6 pb-6 text-xs sm:text-sm text-brand-textMutedDark leading-relaxed border-t border-white/[0.04] pt-4">
+            You can schedule a pre-wedding consultation and hair trial directly via WhatsApp with our senior bridal coordinator.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Verified Google Reviews Showcase Bento -->
+    <section class="py-24 px-6 border-t border-brand-borderDark bg-[#05080E]" id="reviews">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+          <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Reputation &amp; Trust</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Verified Client Reviews</h2>
+          <p class="text-sm text-brand-textMutedDark">Backed by genuine customer satisfaction scores on Google Maps.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="card-3d-tilt p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll ">
+            <div class="card-glare"></div>
+            <div class="space-y-3">
+              <div class="text-amber-400 text-sm tracking-widest">★★★★★</div>
+              <p class="text-sm text-brand-textMutedDark italic leading-relaxed">“The balayage blend is absolute perfection. My hair feels healthier and looks straight out of Vogue.”</p>
+            </div>
+            <div class="pt-4 border-t border-brand-borderDark flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold text-white font-display">Natasha S.</div>
+                <div class="text-[10px] font-mono-spec text-brand-accent">Verified Client · Couture Color</div>
+              </div>
+              <div class="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-3d-tilt p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll reveal-delay-1">
+            <div class="card-glare"></div>
+            <div class="space-y-3">
+              <div class="text-amber-400 text-sm tracking-widest">★★★★★</div>
+              <p class="text-sm text-brand-textMutedDark italic leading-relaxed">“Private VIP suite for bridal styling made my wedding morning completely stress-free.”</p>
+            </div>
+            <div class="pt-4 border-t border-brand-borderDark flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold text-white font-display">Mahnoor K.</div>
+                <div class="text-[10px] font-mono-spec text-brand-accent">Bridal Styling Client</div>
+              </div>
+              <div class="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="card-3d-tilt p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll reveal-delay-2">
+            <div class="card-glare"></div>
+            <div class="space-y-3">
+              <div class="text-amber-400 text-sm tracking-widest">★★★★★</div>
+              <p class="text-sm text-brand-textMutedDark italic leading-relaxed">“Best Hydra-Facial and dermal sculpting treatment. Instant glow with zero downtime.”</p>
+            </div>
+            <div class="pt-4 border-t border-brand-borderDark flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold text-white font-display">Sara J.</div>
+                <div class="text-[10px] font-mono-spec text-brand-accent">Regular Client · Aesthetics</div>
+              </div>
+              <div class="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. Location & Operating Hours Section -->
+    <section class="py-24 px-6 border-t border-brand-borderDark" id="location">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 space-y-6 reveal-on-scroll">
+            <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Visit Us</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Seeme Beauty Parlour</h2>
+            <div class="space-y-1 text-sm text-brand-textMutedDark">
+              <p class="flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Moon Market, Satluj Block Allama Iqbal Town, Lahore, 54000, Pakistan</span>
+              </p>
+              
+              <p class="flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>03059898989</span>
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark space-y-3">
+              <div class="text-xs font-mono-spec uppercase text-neutral-400 font-bold mb-2">Operating Hours</div>
+              
+              <div class="flex items-center justify-between text-xs py-1 border-b border-white/[0.04]">
+                <span class="text-white font-semibold">Monday – Friday</span>
+                <span class="text-brand-accent font-mono-spec font-bold">9:00 AM – 8:00 PM</span>
+              </div>
+              <div class="flex items-center justify-between text-xs py-1 border-b border-white/[0.04]">
+                <span class="text-white font-semibold">Saturday</span>
+                <span class="text-brand-accent font-mono-spec font-bold">10:00 AM – 5:00 PM</span>
+              </div>
+              <div class="flex items-center justify-between text-xs py-1 border-b border-white/[0.04]">
+                <span class="text-neutral-400">Sunday</span>
+                <span class="text-neutral-400 font-mono-spec">Closed / WhatsApp Support</span>
+              </div>
+              <div class="flex items-center justify-between text-xs py-1 border-b border-white/[0.04]">
+                <span class="text-neutral-400">Specialist Slots</span>
+                <span class="text-neutral-400 font-mono-spec">Prior Booking Recommended</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="https://maps.google.com/?q=Seeme%20Beauty%20Parlour%2C%20Moon%20Market%2C%20Satluj%20Block%20Allama%20Iqbal%20Town%2C%20Lahore%2C%2054000%2C%20Pakistan" target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider transition">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Open in Google Maps</span>
+              </a>
+              <a href="https://wa.me/03059898989?text=Hi%20Seeme%20Beauty%20Parlour!%20I%20would%20like%20to%20visit%20today." target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-bold uppercase tracking-wider transition">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+                <span>Message Desk</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 relative rounded-3xl overflow-hidden border border-brand-borderDark shadow-2xl h-96 reveal-on-scroll reveal-delay-1">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkLvEu0Q6dCdpno4xC7jXVMXJGOrLQ_HhorF5Gqs8WyyejHrh_whec_UUt_O3i_cGprl2pQRZgB1D_b_p7ydJjnYM40jhpnC7khiv4ZmxiRI_Aft1Ov-rDGZmLQ9N2hniw_6nM=w408-h272-k-no" alt="Seeme Beauty Parlour Flagship Location" class="w-full h-full object-cover">
+            <div class="absolute bottom-6 left-6 right-6 glass-nav p-5 rounded-2xl border border-white/10 flex items-center justify-between">
+              <div>
+                <div class="font-display font-bold text-white text-sm">Seeme Beauty Parlour Flagship</div>
+                <div class="text-[11px] text-brand-accent font-mono-spec">Valet Parking &amp; High-Speed Connectivity Available</div>
+              </div>
+              <a href="https://maps.google.com/?q=Seeme%20Beauty%20Parlour%2C%20Moon%20Market%2C%20Satluj%20Block%20Allama%20Iqbal%20Town%2C%20Lahore%2C%2054000%2C%20Pakistan" target="_blank" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition">
+                Directions
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 14. Interactive 21st.dev Frosted Consultation Modal Dialog -->
+  <div id="consultationModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center p-4">
+    <div class="relative w-full max-w-lg rounded-3xl glass-nav border border-white/15 p-8 shadow-2xl space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <span class="text-[10px] font-mono-spec uppercase tracking-widest text-brand-accent font-bold">VIP Scheduling</span>
+          <h3 class="font-display text-2xl font-bold text-white" id="modalServiceTitle">Priority Consultation</h3>
+        </div>
+        <button onclick="closeConsultationModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition">
+          ✕
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs text-brand-textMutedDark">
+        <p>Confirm your booking request with <strong>Seeme Beauty Parlour</strong>. You will be routed directly to the verified coordinator on WhatsApp with your selected service specifications pre-filled.</p>
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
+          <div class="flex justify-between"><span class="text-neutral-400">Location:</span><span class="text-white font-semibold">Moon Market</span></div>
+          <div class="flex justify-between"><span class="text-neutral-400">Coordinator:</span><span class="text-brand-accent font-semibold">Master Stylist &amp; Aesthetician</span></div>
+          <div class="flex justify-between"><span class="text-neutral-400">Status:</span><span class="text-emerald-400 font-semibold font-mono-spec">Direct Access (Zero Queue)</span></div>
+        </div>
+      </div>
+
+      <div class="pt-2 flex gap-3">
+        <a id="modalConfirmBtn" href="https://wa.me/03059898989" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-xs uppercase tracking-wider shadow-lg transition active:scale-95">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+          <span>Proceed via WhatsApp</span>
+        </a>
+        <button onclick="closeConsultationModal()" class="px-5 py-3.5 rounded-full bg-white/10 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. Sticky Mobile Bottom Action Dock (<= 768px) with Clean SVG Icons -->
+  <div class="block md:hidden fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-brand-borderDark p-3.5">
+    <div class="flex items-center gap-3">
+      <button onclick="openConsultationModal('', 'https://wa.me/03059898989', 'Seeme Beauty Parlour')" class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-emerald-600 active:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider shadow-lg min-h-[46px]">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+        <span>WhatsApp</span>
+      </button>
+      
+      <a href="tel:03059898989" class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-white/10 active:bg-white/20 border border-white/15 text-white text-xs font-bold uppercase tracking-wider min-h-[46px]">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 16. Architectural Footer -->
+  <footer class="py-12 px-6 border-t border-brand-borderDark bg-[#06080E] text-xs text-neutral-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <span class="text-white font-bold font-display">Seeme Beauty Parlour</span> · © 2026 ALL RIGHTS RESERVED.
+      </div>
+      <div>
+        Moon Market, Satluj Block Allama Iqbal Town, Lahore, 54000, Pakistan · 03059898989
+      </div>
+    </div>
+  </footer>
+
+  
+  <!-- Top Dynamic Scroll Progress Bar -->
+  <div id="scrollProgressBar" style="position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--accent, #D97706), var(--primary, #10B981), #F59E0B); z-index:1000; width:0%; transition:width 0.1s cubic-bezier(0.16,1,0.3,1);"></div>
+
+  <script>
+    // 1. Scroll Progress & Header Glass Effect
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / (docHeight || 1)) * 100;
+      const progressBar = document.getElementById('scrollProgressBar');
+      if (progressBar) progressBar.style.width = Math.min(scrollPercent, 100) + '%';
+
+      const header = document.querySelector('header');
+      if (header) {
+        if (scrollTop > 30) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    }, { passive: true });
+
+    // 2. Intersection Observer for Scroll Reveals & Stat Counters
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.15
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+
+      // Animated Stat Counters
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const targetVal = parseFloat(counter.getAttribute('data-target') || '0');
+            const suffix = counter.getAttribute('data-suffix') || '';
+            const prefix = counter.getAttribute('data-prefix') || '';
+            const isDecimal = counter.getAttribute('data-decimal') === 'true';
+            let start = 0;
+            const duration = 1400;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // EaseOutQuad
+              const easeProgress = progress * (2 - progress);
+              const currentVal = start + (targetVal - start) * easeProgress;
+              counter.innerText = prefix + (isDecimal ? currentVal.toFixed(1) : Math.floor(currentVal)) + suffix;
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.innerText = prefix + (isDecimal ? targetVal.toFixed(1) : targetVal) + suffix;
+              }
+            }
+            requestAnimationFrame(updateCounter);
+            countObserver.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      document.querySelectorAll('.stat-counter').forEach(el => countObserver.observe(el));
+
+      // 3. 3D Card Hover Tilt with Cursor Glare Physics (transitions.dev #19)
+      document.querySelectorAll('.card-3d-tilt').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -9;
+          const rotateY = ((x - centerX) / centerX) * 9;
+          card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+          card.style.setProperty('--mouse-x', (x / rect.width * 100) + '%');
+          card.style.setProperty('--mouse-y', (y / rect.height * 100) + '%');
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+      });
+
+      // 4. Before/After Interactive Drag Slider
+      const sliderHandle = document.getElementById('sliderHandle');
+      const beforeLayer = document.getElementById('beforeLayer');
+      const sliderContainer = document.getElementById('beforeAfterContainer');
+
+      if (sliderHandle && beforeLayer && sliderContainer) {
+        let isDragging = false;
+        const onMove = (clientX) => {
+          const rect = sliderContainer.getBoundingClientRect();
+          let posX = clientX - rect.left;
+          posX = Math.max(0, Math.min(posX, rect.width));
+          const percentage = (posX / rect.width) * 100;
+          beforeLayer.style.width = percentage + '%';
+          sliderHandle.style.left = percentage + '%';
+        };
+
+        sliderContainer.addEventListener('mousedown', (e) => { isDragging = true; onMove(e.clientX); });
+        window.addEventListener('mouseup', () => { isDragging = false; });
+        window.addEventListener('mousemove', (e) => { if (isDragging) onMove(e.clientX); });
+
+        sliderContainer.addEventListener('touchstart', (e) => { isDragging = true; onMove(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('touchend', () => { isDragging = false; });
+        window.addEventListener('toumousemove', (e) => { if (isDragging) onMove(e.touches[0].clientX); }, { passive: true });
+      }
+    });
+
+    // 5. Interactive Horizontal Carousel Controller
+    function scrollCarousel(dir) {
+      const carousel = document.getElementById('servicesCarousel');
+      if (carousel) {
+        const scrollAmount = carousel.clientWidth * 0.8 * dir;
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    // 6. Signature Brand Item Selector
+    function selectSignatureItem(el, title, waBase, businessName) {
+      document.querySelectorAll('.signature-card').forEach(c => {
+        c.classList.remove('active-signature');
+      });
+      el.classList.add('active-signature');
+      const targetUrl = waBase + '?text=' + encodeURIComponent('Hi ' + businessName + '! I am interested in consulting about ' + title + '.');
+      const actionBtn = document.getElementById('signatureActionBtn');
+      if (actionBtn) {
+        actionBtn.href = targetUrl;
+        actionBtn.innerHTML = '<span>Consult for ' + title + '</span>';
+      }
+    }
+
+    // 7. Interactive FAQ Accordion (transitions.dev #21)
+    function toggleFaq(btn) {
+      const body = btn.nextElementSibling;
+      const chevron = btn.querySelector('.faq-chevron');
+      const isOpen = !body.classList.contains('hidden');
+      
+      // Close all
+      document.querySelectorAll('.faq-body').forEach(b => b.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.style.transform = 'rotate(0deg)');
+
+      if (!isOpen) {
+        body.classList.remove('hidden');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // 8. Interactive Consultation Dialog Modal (21st.dev Component)
+    function openConsultationModal(serviceTitle, waBase, businessName) {
+      const modal = document.getElementById('consultationModal');
+      const titleEl = document.getElementById('modalServiceTitle');
+      const confirmBtn = document.getElementById('modalConfirmBtn');
+      if (titleEl) titleEl.innerText = serviceTitle || 'Bespoke Consultation';
+      if (confirmBtn) {
+        confirmBtn.href = waBase + '?text=' + encodeURIComponent('Hi ' + businessName + '! I would like to schedule an appointment for ' + (serviceTitle || 'a consultation') + '.');
+      }
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeConsultationModal() {
+      const modal = document.getElementById('consultationModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+  </script>
+</body>
+</html>
