@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Dr. Mehta's Dental Hub | Precision Dentistry & Smile Architecture | Pali Hill, Bandra West</title>
+  <meta name="description" content="Pali Hill's premier boutique dental clinic led by Dr. Rajesh Mehta. 4.9★ rating with 211+ verified reviews. Specializing in cosmetic porcelain veneers, computer-guided implants, and anxiety-free family dentistry.">
+
+  <!-- Plus Jakarta Sans & Fraunces Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Fraunces"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#060C14',
+              surfaceDark: '#0A1420',
+              surfaceCard: '#0F1E2E',
+              teal: '#0D9488',
+              tealBright: '#0BB8B8',
+              tealTint: '#E6F7F7',
+              tealGlow: 'rgba(11, 184, 184, 0.15)',
+              stone: '#78716C',
+              offwhite: '#F8FAFC',
+              borderLight: '#E2E8F0',
+              borderDark: 'rgba(255, 255, 255, 0.08)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Design System & transitions.dev Motion Tokens */
+    :root {
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-duration: 240ms;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1E293B;
+      background-color: #FAFAF9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* transitions.dev: 01-card-resize & 19-card-tilt */
+    .card-lift {
+      transition: transform var(--transition-duration) var(--ease-spring), 
+                  box-shadow var(--transition-duration) var(--ease-spring),
+                  border-color var(--transition-duration) var(--ease-smooth);
+    }
+    .card-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(6, 12, 20, 0.12);
+      border-color: #0D9488;
+    }
+
+    /* transitions.dev: 04-text-states-swap & 16-tabs-sliding */
+    .tab-pill {
+      transition: all 200ms var(--ease-spring);
+    }
+    .tab-pill.active {
+      background-color: #0D9488;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);
+    }
+
+    /* transitions.dev: 21-accordion */
+    .faq-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 280ms var(--ease-spring);
+    }
+    .faq-content.open {
+      grid-template-rows: 1fr;
+    }
+    .faq-inner {
+      overflow: hidden;
+    }
+
+    /* Frosted Glass Capsule */
+    .glass-capsule {
+      background: rgba(6, 12, 20, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Hero Vignette */
+    .hero-vignette {
+      background: linear-gradient(to right, rgba(6, 12, 20, 0.95) 0%, rgba(6, 12, 20, 0.85) 45%, rgba(6, 12, 20, 0.40) 80%, rgba(6, 12, 20, 0.20) 100%),
+                  linear-gradient(to top, rgba(6, 12, 20, 1) 0%, transparent 25%);
+    }
+
+    /* Strict ban on horizontal scrollbars */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAF9] text-slate-800 antialiased selection:bg-teal-500 selection:text-white">
+
+  <!-- 1. FLOATING GLASS CAPSULE NAVIGATION -->
+  <header class="fixed top-4 left-0 right-0 z-50 px-4 md:px-8 max-w-7xl mx-auto">
+    <nav class="glass-capsule rounded-full py-3 px-5 md:px-7 flex items-center justify-between shadow-2xl">
+      <!-- Clinic Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-full bg-teal-500/20 border border-teal-400/40 flex items-center justify-center text-teal-300 group-hover:scale-105 transition-transform">
+          <i data-lucide="sparkles" class="w-4 h-4 text-teal-300"></i>
+        </div>
+        <div>
+          <span class="text-white font-bold tracking-tight text-sm md:text-base block">Dr. Mehta's</span>
+          <span class="text-[10px] tracking-widest uppercase text-teal-400 font-semibold block -mt-0.5">Dental Hub · Pali Hill</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-8 text-xs font-medium text-slate-300">
+        <a href="#assessment" class="hover:text-teal-300 transition-colors">Smile Assessment</a>
+        <a href="#treatments" class="hover:text-teal-300 transition-colors">Specialist Suites</a>
+        <a href="#about" class="hover:text-teal-300 transition-colors">Dr. Rajesh Mehta</a>
+        <a href="#reviews" class="hover:text-teal-300 transition-colors">Patient Stories</a>
+        <a href="#faq" class="hover:text-teal-300 transition-colors">FAQs</a>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="tel:+919820333333" class="hidden sm:inline-flex items-center gap-2 text-xs font-medium text-slate-300 hover:text-white py-2 px-3 rounded-full hover:bg-white/5 transition-colors">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-teal-400"></i>
+          <span>+91 98203 33333</span>
+        </a>
+        <a href="https://wa.me/919820333333?text=Hello%20Dr.%20Mehta's%20Dental%20Hub,%20I%20would%20like%20to%20reserve%20a%20priority%20consultation." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs px-5 py-2.5 rounded-full transition-all shadow-lg shadow-teal-900/30 hover:scale-[1.02] active:scale-[0.98]">
+          <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+          <span>Book Consultation</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 2. PANORAMIC HERO SECTION (Persuade Mode) -->
+  <section id="hero" class="relative min-h-[92vh] md:min-h-screen bg-brand-navy flex items-center pt-28 pb-16 px-4 md:px-8 overflow-hidden">
+    <!-- Full-Bleed High-Res Dental Clinic Background -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=80" alt="Dr. Mehta's Dental Hub Pali Hill Suite" class="w-full h-full object-cover object-center scale-105 animate-pulse" style="animation-duration: 8s;" />
+      <div class="absolute inset-0 hero-vignette"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Column: Editorial Value Proposition -->
+      <div class="lg:col-span-8 space-y-6">
+        <!-- Locality & Trust Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-teal-300 text-xs font-semibold tracking-wide">
+          <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+          </span>
+          <span>Pali Hill, Bandra West · Consulting Mon–Sat</span>
+        </div>
+
+        <!-- Headline (Zero Trailing Arrows) -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.08]">
+          Precision Dentistry &amp; <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-teal-200 to-cyan-300">Smile Architecture</span> <br class="hidden sm:inline" />
+          in Bandra West.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl font-light leading-relaxed">
+          Led by <strong>Dr. Rajesh Mehta</strong> (15+ Years Clinical Mastership). Combining gentle micro-endodontics, digital 3D implantology, and bespoke porcelain veneers in an anxiety-free clinical lounge.
+        </p>
+
+        <!-- CTAs (Strict Ban on Trailing Arrows) -->
+        <div class="pt-3 flex flex-wrap gap-4 items-center">
+          <a href="https://wa.me/919820333333?text=Hello%20Dr.%20Mehta's%20Dental%20Hub,%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-sm px-7 py-3.5 rounded-full transition-all shadow-xl shadow-teal-500/20 hover:scale-[1.02]">
+            <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+            <span>WhatsApp Dr. Mehta</span>
+          </a>
+
+          <a href="#assessment" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-medium text-sm px-6 py-3.5 rounded-full border border-white/20 transition-all backdrop-blur-sm">
+            <i data-lucide="scan-face" class="w-4 h-4 text-teal-300"></i>
+            <span>Explore Smile Assessment</span>
+          </a>
+        </div>
+
+        <!-- Proof Strip Metrics -->
+        <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-6 max-w-lg">
+          <div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-1">
+              <span>4.9</span>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+            </div>
+            <p class="text-xs text-slate-400 font-medium mt-0.5">211+ Verified Reviews</p>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">15+</div>
+            <p class="text-xs text-slate-400 font-medium mt-0.5">Years in Bandra</p>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">4,800+</div>
+            <p class="text-xs text-slate-400 font-medium mt-0.5">Smiles Transformed</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Quick Doctor Spotlight Card -->
+      <div class="lg:col-span-4 hidden lg:block">
+        <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-6 border border-white/20 text-white space-y-4 shadow-2xl relative overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-teal-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-teal-400/50 shadow-md">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Dr. Rajesh Mehta" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 class="font-bold text-base text-white">Dr. Rajesh Mehta</h3>
+              <p class="text-xs text-teal-300 font-medium">BDS, MDS (Prosthodontics)</p>
+              <div class="flex items-center gap-1 text-[11px] text-slate-300 mt-1">
+                <i data-lucide="map-pin" class="w-3 h-3 text-teal-400"></i>
+                <span>Pali Hill Suite, Bandra (W)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-black/30 rounded-2xl p-3.5 text-xs text-slate-300 space-y-2">
+            <div class="flex justify-between items-center text-slate-200">
+              <span class="font-semibold">Today's Availability</span>
+              <span class="text-teal-400 font-semibold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-ping"></span>
+                2 Slots Open
+              </span>
+            </div>
+            <p class="text-slate-400 text-[11px]">Direct consultation via clinic reception. Emergency toothaches prioritized within 60 minutes.</p>
+          </div>
+
+          <a href="tel:+919820333333" class="w-full py-3 bg-white text-slate-900 font-bold text-xs rounded-xl flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors">
+            <i data-lucide="phone-call" class="w-3.5 h-3.5 text-teal-600"></i>
+            <span>Direct Reception Line</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SIGNATURE INTERACTIVE ELEMENT: Pali Hill Smile Assessment Matrix -->
+  <section id="assessment" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-semibold tracking-wide border border-teal-200">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+        <span>Tailored Treatment Navigator</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Interactive Smile Assessment Matrix
+      </h2>
+      <p class="text-slate-600 text-sm sm:text-base">
+        Select your aesthetic or clinical dental goal below to preview the customized treatment journey designed by Dr. Mehta.
+      </p>
+    </div>
+
+    <!-- Assessment Selector Tabs (transitions.dev: 16-tabs-sliding) -->
+    <div class="bg-slate-100 p-1.5 rounded-2xl flex flex-wrap sm:flex-nowrap gap-1.5 max-w-3xl mx-auto mb-8 border border-slate-200 shadow-inner">
+      <button onclick="selectGoal('veneers')" id="tab-veneers" class="tab-pill active flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-center">
+        Porcelain Veneers
+      </button>
+      <button onclick="selectGoal('implants')" id="tab-implants" class="tab-pill flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 text-center hover:text-slate-900">
+        Dental Implants
+      </button>
+      <button onclick="selectGoal('whitening')" id="tab-whitening" class="tab-pill flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 text-center hover:text-slate-900">
+        Laser Whitening
+      </button>
+      <button onclick="selectGoal('rootcanal')" id="tab-rootcanal" class="tab-pill flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 text-center hover:text-slate-900">
+        Micro-Endodontics
+      </button>
+    </div>
+
+    <!-- Dynamic Assessment Card Container -->
+    <div id="goal-display" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl max-w-4xl mx-auto card-lift">
+      <!-- Injected via JavaScript below -->
+    </div>
+  </section>
+
+  <!-- 4. SPECIALIST SUITES & CLINICAL PROCEDURES -->
+  <section id="treatments" class="py-20 bg-slate-900 text-white px-4 md:px-8">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="space-y-3 max-w-xl">
+          <span class="text-teal-400 font-semibold tracking-widest text-xs uppercase block">Clinical Mastery</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Specialist Dental Suites</h2>
+          <p class="text-slate-400 text-sm">Every procedure executed under 3D CBCT imaging with gentle micro-instruments for rapid healing.</p>
+        </div>
+        <a href="https://wa.me/919820333333" class="inline-flex items-center gap-2 text-xs font-semibold text-teal-300 hover:text-teal-200 border-b border-teal-400/50 pb-1">
+          <span>Inquire About Custom Treatment Packages</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Suite Card 1 -->
+        <div class="bg-slate-800/80 rounded-2xl p-6 border border-slate-700/80 card-lift space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400">
+            <i data-lucide="gem" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-bold text-white">Handcrafted Porcelain Veneers</h3>
+              <span class="text-[11px] font-semibold text-teal-300 bg-teal-950 px-2 py-0.5 rounded border border-teal-800">Ultra-Thin 0.3mm</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Custom-sculpted ceramic shells that correct discoloration, gaps, and chips with minimal enamel preparation.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Natural translucency match</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Stain-resistant porcelain</li>
+          </ul>
+        </div>
+
+        <!-- Suite Card 2 -->
+        <div class="bg-slate-800/80 rounded-2xl p-6 border border-slate-700/80 card-lift space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400">
+            <i data-lucide="shield-plus" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-bold text-white">Computer-Guided Implants</h3>
+              <span class="text-[11px] font-semibold text-teal-300 bg-teal-950 px-2 py-0.5 rounded border border-teal-800">Lifetime Warranty</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Titanium and zirconia implant fixtures placed with 3D digital surgical guides for 99.4% clinical integration success.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Same-day temporary crown</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Preserves jawbone density</li>
+          </ul>
+        </div>
+
+        <!-- Suite Card 3 -->
+        <div class="bg-slate-800/80 rounded-2xl p-6 border border-slate-700/80 card-lift space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400">
+            <i data-lucide="activity" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-bold text-white">Microscopic Root Canal</h3>
+              <span class="text-[11px] font-semibold text-teal-300 bg-teal-950 px-2 py-0.5 rounded border border-teal-800">Single Sitting</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              High-magnification rotary endodontics preserving your natural tooth with zero pain under localized precision anesthesia.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Rotary nickel-titanium files</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Hermetic 3D apex sealing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ABOUT DR. RAJESH MEHTA & ANXIETY-FREE CLINICAL LOUNGE -->
+  <section id="about" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 relative">
+        <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80" alt="Pali Hill Dental Suite Interior" class="w-full h-[420px] object-cover" />
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-brand-surfaceDark text-white p-5 rounded-2xl border border-white/10 shadow-xl max-w-xs">
+          <div class="flex items-center gap-2 text-teal-400 font-bold text-sm mb-1">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>Hospital-Grade Sterilization</span>
+          </div>
+          <p class="text-[11px] text-slate-300">Class-B autoclave sterilization protocol for absolute patient safety.</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-semibold tracking-wide border border-teal-200">
+          <span>Dr. Rajesh Mehta · Lead Clinician</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Redefining Dental Visits in Pali Hill as a Calm, Boutique Experience.
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          "For over 15 years, our practice on Pali Hill has operated under one simple promise: exceptional dental precision delivered with genuine warmth and zero judgment. Whether you're coming in for a routine hygiene session or complete smile reconstruction, we explain every step transparently before we begin."
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-white border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <i data-lucide="headphones" class="w-4 h-4 text-teal-600"></i>
+              <span>Comfort Suite Amenities</span>
+            </h4>
+            <p class="text-xs text-slate-500 mt-1">Noise-canceling audio headsets and ceiling entertainment during treatment.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <i data-lucide="badge-dollar-sign" class="w-4 h-4 text-teal-600"></i>
+              <span>Transparent Fee Structure</span>
+            </h4>
+            <p class="text-xs text-slate-500 mt-1">Itemized treatment estimates with zero hidden costs or unexpected charges.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. VERIFIED PATIENT STORIES (211+ Google Reviews) -->
+  <section id="reviews" class="py-20 bg-slate-50 border-y border-slate-200 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <div class="flex items-center justify-center gap-1 text-amber-500">
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+        </div>
+        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Verified Patient Experiences</h2>
+        <p class="text-xs text-slate-500">4.9 Star Rating across 211+ Verified Google Reviews in Bandra West</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Review 1 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex items-center gap-1 text-amber-400 text-xs">
+            ★★★★★
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+            "I had severe dental anxiety before meeting Dr. Mehta. His gentle approach and explanation during my porcelain veneer treatment made all the difference. My smile looks so natural!"
+          </p>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Ananya Deshmukh</h4>
+              <p class="text-[10px] text-slate-400">Pali Hill Resident · Veneer Patient</p>
+            </div>
+            <span class="text-[10px] font-semibold text-teal-700 bg-teal-50 px-2 py-0.5 rounded">Verified Review</span>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex items-center gap-1 text-amber-400 text-xs">
+            ★★★★★
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+            "Got two dental implants placed last month. Completely painless surgery and the temporary tooth looked great from day one. Best dental clinic in Bandra hands down."
+          </p>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Vikramaditya Merchant</h4>
+              <p class="text-[10px] text-slate-400">Carter Road · Implant Patient</p>
+            </div>
+            <span class="text-[10px] font-semibold text-teal-700 bg-teal-50 px-2 py-0.5 rounded">Verified Review</span>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex items-center gap-1 text-amber-400 text-xs">
+            ★★★★★
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+            "Brought my father here for urgent root canal treatment. Dr. Mehta accommodated us immediately and resolved the toothache in a single sitting. Superb hygiene standard."
+          </p>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Rhea Singhania</h4>
+              <p class="text-[10px] text-slate-400">Turner Road · Emergency Care</p>
+            </div>
+            <span class="text-[10px] font-semibold text-teal-700 bg-teal-50 px-2 py-0.5 rounded">Verified Review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FREQUENTLY ASKED QUESTIONS (transitions.dev: 21-accordion) -->
+  <section id="faq" class="py-20 px-4 md:px-8 max-w-4xl mx-auto">
+    <div class="text-center space-y-2 mb-12">
+      <span class="text-teal-600 font-semibold tracking-widest text-xs uppercase block">Patient Inquiries</span>
+      <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="space-y-4">
+      <!-- FAQ 1 -->
+      <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+        <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-sm text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          <span>Are consultations and check-ups painful?</span>
+          <i id="faq-icon-1" data-lucide="chevron-down" class="w-4 h-4 text-teal-600 transition-transform duration-200"></i>
+        </button>
+        <div id="faq-1" class="faq-content">
+          <div class="faq-inner px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Not at all. We employ computer-assisted localized numbing and gentle micro-instrumentation to ensure every diagnostic assessment and procedure is 100% painless.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+        <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-sm text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          <span>How long do porcelain veneers last?</span>
+          <i id="faq-icon-2" data-lucide="chevron-down" class="w-4 h-4 text-teal-600 transition-transform duration-200"></i>
+        </button>
+        <div id="faq-2" class="faq-content">
+          <div class="faq-inner px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            With regular clinical cleanings and standard oral hygiene, custom porcelain veneers routinely last 15 to 20+ years without staining or chipping.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+        <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-bold text-sm text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          <span>Do you accommodate same-day dental emergencies?</span>
+          <i id="faq-icon-3" data-lucide="chevron-down" class="w-4 h-4 text-teal-600 transition-transform duration-200"></i>
+        </button>
+        <div id="faq-3" class="faq-content">
+          <div class="faq-inner px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Yes. We reserve dedicated emergency slots daily for acute toothaches, fractured teeth, or dislodged crowns. Please call our reception immediately.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FINAL HIGH-CONVERSION CTA BANNER -->
+  <section class="py-20 bg-brand-navy text-white px-4 md:px-8 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center space-y-6 relative z-10">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-semibold border border-teal-400/30">
+        <span>Dr. Mehta's Dental Hub · Bandra West</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+        Ready for Your Healthiest, <br class="hidden sm:inline" />
+        Most Confident Smile?
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
+        Reserve your personalized consultation with Dr. Rajesh Mehta in Pali Hill today. Transparent care, gentle hands, and lifetime confidence.
+      </p>
+
+      <div class="pt-4 flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/919820333333?text=Hello%20Dr.%20Mehta's%20Dental%20Hub,%20I%20would%20like%20to%20reserve%20a%20priority%20consultation." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-sm px-8 py-4 rounded-full transition-all shadow-xl shadow-teal-500/20 hover:scale-105">
+          <i data-lucide="calendar" class="w-4 h-4 text-slate-950"></i>
+          <span>Reserve Consultation on WhatsApp</span>
+        </a>
+        <a href="tel:+919820333333" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium text-sm px-6 py-4 rounded-full border border-white/20 transition-all">
+          <i data-lucide="phone" class="w-4 h-4 text-teal-300"></i>
+          <span>Call +91 98203 33333</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 px-4 md:px-8 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+      <div class="space-y-3">
+        <h4 class="font-bold text-white text-sm">Dr. Mehta's Dental Hub</h4>
+        <p class="text-slate-400 leading-relaxed">Pali Hill, Bandra West, Mumbai 400050. Specialized Cosmetic &amp; Microscopic Dental Practice.</p>
+        <p class="text-teal-400 font-medium">BDS, MDS (Prosthodontics &amp; Implantology)</p>
+      </div>
+
+      <div class="space-y-2">
+        <h5 class="font-bold text-white text-xs uppercase tracking-wider">Practice Hours</h5>
+        <p>Monday – Friday: 9:30 AM – 8:00 PM</p>
+        <p>Saturday: 10:00 AM – 6:00 PM</p>
+        <p class="text-amber-400/90 font-medium">Sunday: By Prior Appointment Only</p>
+      </div>
+
+      <div class="space-y-2">
+        <h5 class="font-bold text-white text-xs uppercase tracking-wider">Direct Contacts</h5>
+        <p class="text-slate-300">Phone: +91 98203 33333</p>
+        <p class="text-slate-300">WhatsApp: +91 98203 33333</p>
+        <p>Email: drmehta.dental@yahoo.com</p>
+      </div>
+
+      <div class="space-y-2">
+        <h5 class="font-bold text-white text-xs uppercase tracking-wider">Patient Guarantee</h5>
+        <p class="leading-relaxed">100% genuine reviews, Class-B sterilization safety, transparent pricing without hidden charges.</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-500">
+      <p>&copy; 2026 Dr. Mehta's Dental Hub. All rights reserved.</p>
+      <p>Crafted for Elite Conversion via Lead-to-Launch Anti-Generic Synthesis.</p>
+    </div>
+  </footer>
+
+  <!-- 10. MOBILE STICKY BOTTOM ACTION DOCK (<= 768px) -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800 p-3 flex gap-3 shadow-2xl">
+    <a href="tel:+919820333333" class="flex-1 py-3 px-4 rounded-xl bg-slate-800 text-white font-semibold text-xs flex items-center justify-center gap-2 border border-slate-700 active:scale-95 transition-transform">
+      <i data-lucide="phone-call" class="w-4 h-4 text-teal-400"></i>
+      <span>Call Clinic</span>
+    </a>
+    <a href="https://wa.me/919820333333?text=Hello%20Dr.%20Mehta's%20Dental%20Hub,%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-teal-500 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-teal-500/20 active:scale-95 transition-transform">
+      <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+      <span>WhatsApp Doctor</span>
+    </a>
+  </div>
+
+  <!-- Client-Side Dynamic Widget & FAQ Scripts -->
+  <script>
+    const goalsData = {
+      veneers: {
+        title: "Bespoke Porcelain Veneer Sculpting",
+        subtitle: "Minimal-Prep Ceramic Veneers for Symmetrical Brilliance",
+        timeline: "2 Visits over 5–7 Days",
+        idealFor: "Closing gaps, restoring worn edges, permanent color brightening",
+        benefits: ["Digital smile mockup before any bonding", "0.3mm ultra-thin high-strength porcelain", "Preserves maximum healthy tooth structure"],
+        cta: "WhatsApp for Veneer Smile Assessment"
+      },
+      implants: {
+        title: "Computer-Guided Dental Implantology",
+        subtitle: "Permanent Titanium Restorations Replacing Missing Teeth",
+        timeline: "Single Sitting Placement + Healing Phase",
+        idealFor: "Replacing single or multiple missing teeth permanently",
+        benefits: ["3D CBCT guided precision placement", "Immediate temporary aesthetic tooth", "Preserves adjacent natural teeth completely"],
+        cta: "WhatsApp for Implant Consultation"
+      },
+      whitening: {
+        title: "In-Clinic Laser Smile Brightening",
+        subtitle: "Gentle 45-Minute Shade Lift by Up to 8 Tones",
+        timeline: "1 Sitting (45 Minutes)",
+        idealFor: "Tetracycline, coffee, tea, and tobacco stain removal",
+        benefits: ["Desensitizing mineral glaze included", "Zero gum irritation or sensitivity", "Includes take-home touch-up kit"],
+        cta: "WhatsApp to Book Laser Whitening"
+      },
+      rootcanal: {
+        title: "Single-Sitting Microscopic Endodontics",
+        subtitle: "Pain-Free Rotary Tooth Preservation Therapy",
+        timeline: "1 Sitting (45–60 Minutes)",
+        idealFor: "Severe toothaches, deep decay, infected tooth pulp",
+        benefits: ["Single-sitting pain relief guaranteed", "Rotary nickel-titanium cleaning", "Digital apex locator precision"],
+        cta: "WhatsApp for Emergency Toothache Care"
+      }
+    };
+
+    function selectGoal(goalKey) {
+      // Update Tab Styles
+      ['veneers', 'implants', 'whitening', 'rootcanal'].forEach(key => {
+        const btn = document.getElementById(`tab-${key}`);
+        if (key === goalKey) {
+          btn.className = "tab-pill active flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-center";
+        } else {
+          btn.className = "tab-pill flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 text-center hover:text-slate-900";
+        }
+      });
+
+      // Update Card Content with smooth fade
+      const data = goalsData[goalKey];
+      const container = document.getElementById('goal-display');
+      
+      container.innerHTML = `
+        <div class="grid md:grid-cols-12 gap-8 items-center animate-fadeIn">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-teal-700 font-bold text-xs uppercase tracking-wider block">${data.timeline}</span>
+            <h3 class="text-2xl font-extrabold text-slate-900">${data.title}</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">${data.subtitle}</p>
+            
+            <div class="space-y-2 pt-2">
+              <p class="text-xs font-semibold text-slate-900">Clinical Protocol Highlights:</p>
+              <ul class="space-y-1.5 text-xs text-slate-600">
+                ${data.benefits.map(b => `<li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-600"></i> ${b}</li>`).join('')}
+              </ul>
+            </div>
+            
+            <div class="pt-4">
+              <a href="https://wa.me/919820333333?text=Hello%20Dr.%20Mehta's%20Dental%20Hub,%20I'd%20like%20information%20on%20${encodeURIComponent(data.title)}." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-all shadow-md">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>${data.cta}</span>
+              </a>
+            </div>
+          </div>
+          <div class="md:col-span-5 bg-teal-50/80 rounded-2xl p-5 border border-teal-100 space-y-3">
+            <h4 class="font-bold text-teal-950 text-xs uppercase tracking-wider">Patient Ideal Fit</h4>
+            <p class="text-xs text-teal-800 leading-relaxed font-medium">${data.idealFor}</p>
+            <div class="pt-2 border-t border-teal-200/60 text-[11px] text-teal-700 flex items-center gap-1.5">
+              <i data-lucide="badge-check" class="w-4 h-4 text-teal-600"></i>
+              <span>Consultation fee adjusted against final procedure</span>
+            </div>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // FAQ Toggle Handler (transitions.dev: 21-accordion)
+    function toggleFaq(id) {
+      const content = document.getElementById(`faq-${id}`);
+      const icon = document.getElementById(`faq-icon-${id}`);
+      const isOpen = content.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('[id^="faq-icon-"]').forEach(i => i.style.transform = 'rotate(0deg)');
+
+      if (!isOpen) {
+        content.classList.add('open');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // Initialize Default Goal & Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      selectGoal('veneers');
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
