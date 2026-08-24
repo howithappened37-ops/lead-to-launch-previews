@@ -41,12 +41,12 @@
 
     header {
       position: fixed;
-      top: 16px;
+      top: 18px;
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 0 16px;
-      max-width: 1060px;
+      padding: 0 20px;
+      max-width: 1100px;
       margin: 0 auto;
       pointer-events: none;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -56,57 +56,55 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(17, 24, 39, 0.85);
+      background: rgba(17, 24, 39, 0.82);
       backdrop-filter: blur(28px) saturate(180%);
       -webkit-backdrop-filter: blur(28px) saturate(180%);
       border: 1px solid rgba(225, 29, 72, 0.3);
       border-radius: 9999px;
-      padding: 6px 10px 6px 18px;
+      padding: 8px 12px 8px 22px;
       box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      gap: 12px;
     }
     header.scrolled .nav-capsule {
       background: rgba(12, 18, 30, 0.95);
       box-shadow: 0 20px 44px -6px rgba(0, 0, 0, 0.9);
-      padding: 5px 8px 5px 16px;
+      padding: 6px 10px 6px 18px;
     }
-    .brand-group { display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; min-width: 0; flex-shrink: 1; }
-    .brand-logo-text { font-family: var(--font-display); font-size: 15px; font-weight: 800; text-transform: uppercase; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
-    .brand-chip { font-size: 8.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 800; color: var(--primary); background: rgba(225, 29, 72, 0.15); border: 1px solid rgba(225, 29, 72, 0.3); padding: 2px 7px; border-radius: 9999px; white-space: nowrap; flex-shrink: 0; }
-    .header-nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; flex-shrink: 0; }
-    .header-nav-links li { white-space: nowrap; }
-    .header-nav-links a { color: var(--text-muted); text-decoration: none; font-size: 12.5px; font-weight: 600; padding: 6px 11px; border-radius: 9999px; white-space: nowrap; transition: all 0.2s ease; display: inline-block; }
+    .brand-group { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; min-width: 0; }
+    .brand-logo-text { font-family: var(--font-display); font-size: 18px; font-weight: 800; text-transform: uppercase; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-chip { font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 800; color: var(--primary); background: rgba(225, 29, 72, 0.15); border: 1px solid rgba(225, 29, 72, 0.3); padding: 3px 8px; border-radius: 9999px; white-space: nowrap; flex-shrink: 0; }
+    .header-nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .header-nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 9999px; transition: all 0.2s; }
     .header-nav-links a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
-    .btn-capsule-cta { display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; font-size: 11.5px; font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase; padding: 7px 16px; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35); transition: all 0.25s; white-space: nowrap; flex-shrink: 0; }
+    .btn-capsule-cta { display: inline-flex; align-items: center; background: var(--primary); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; padding: 9px 20px; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35); transition: all 0.25s; white-space: nowrap; flex-shrink: 0; }
     .btn-capsule-cta:hover { background: var(--primary-hover); transform: translateY(-1px); }
-    .btn-capsule-mobile { display: none; align-items: center; background: var(--primary); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase; padding: 5px 12px; border-radius: 9999px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+    .btn-capsule-mobile { display: none; align-items: center; background: var(--primary); color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 9999px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
 
     .hero-cinematic {
       position: relative;
-      min-height: 88vh;
+      min-height: 94vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 20px 60px;
+      padding: 130px 24px 70px;
       background: linear-gradient(180deg, rgba(8, 12, 20, 0.45) 0%, rgba(8, 12, 20, 0.8) 55%, var(--bg) 100%),
-                  url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80') center center / cover no-repeat;
+                  url('https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmXFbZndKlqiW56AWS_UFwGTgrLI6tEti3PoHvz40sahTGgi0DimO0G18yEjdOrzDIikbSFZd8g-c4vr1Y6YmFENDQSADmj3Oevqz_bD578wFCd5U9tzBVUkjIP4CAJgQKQWA4EPA=w408-h544-k-no') center center / cover no-repeat;
       border-bottom: 1px solid var(--border);
     }
-    .hero-content-box { max-width: 700px; margin: 0 auto; }
-    .hero-kicker { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #FDA4AF; font-weight: 800; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 8px; }
-    .hero-kicker::before, .hero-kicker::after { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--primary); opacity: 0.7; }
-    .hero-h1 { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 42px); line-height: 1.12; font-weight: 800; text-transform: uppercase; margin: 0 auto 16px; max-width: 640px; letter-spacing: -0.02em; color: #FFF; text-shadow: 0 3px 16px rgba(0,0,0,0.5); }
+    .hero-content-box { max-width: 820px; margin: 0 auto; }
+    .hero-kicker { font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: #FDA4AF; font-weight: 800; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px; }
+    .hero-kicker::before, .hero-kicker::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--primary); }
+    .hero-h1 { font-family: var(--font-display); font-size: clamp(34px, 5.8vw, 76px); line-height: 1.04; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -0.03em; color: #FFF; text-shadow: 0 4px 20px rgba(0,0,0,0.6); }
     .hero-h1 span { color: var(--primary); }
-    .hero-body { font-size: clamp(14px, 1.4vw, 16.5px); line-height: 1.55; color: #CBD5E1; max-width: 520px; margin: 0 auto 24px; font-weight: 400; }
-    .hero-cta-strip { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
-    .btn-hero-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; padding: 13px 28px; border-radius: 9999px; text-decoration: none; transition: all 0.25s; min-height: 46px; }
+    .hero-body { font-size: clamp(15px, 1.8vw, 19px); line-height: 1.65; color: #CBD5E1; max-width: 600px; margin: 0 auto 32px; font-weight: 400; }
+    .hero-cta-strip { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 38px; }
+    .btn-hero-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding: 15px 32px; border-radius: 9999px; text-decoration: none; transition: all 0.25s; min-height: 50px; }
     .btn-hero-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(225, 29, 72, 0.45); }
-    .btn-hero-editorial { display: inline-flex; align-items: center; justify-content: center; color: var(--text); text-decoration: none; font-size: 13px; font-weight: 600; padding: 12px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.25); transition: all 0.2s; }
+    .btn-hero-editorial { display: inline-flex; align-items: center; justify-content: center; color: var(--text); text-decoration: none; font-size: 13.5px; font-weight: 600; padding: 14px 22px; border-bottom: 1px solid rgba(255, 255, 255, 0.25); transition: all 0.2s; }
     .btn-hero-editorial:hover { border-color: var(--primary); color: var(--primary); }
 
-    .hero-trust-strip { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); }
+    .hero-trust-strip { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
 
     /* Passes / Programs Section with Visual Cards */
     .passes-sec { padding: 96px 0; background: #05080E; border-bottom: 1px solid var(--border); }
@@ -215,19 +213,11 @@
 
       .hero-cinematic { padding: 100px 16px 44px; min-height: 86vh; }
       .hero-kicker { font-size: 10px; letter-spacing: 2px; margin-bottom: 14px; }
-      .hero-h1 { font-size: clamp(22px, 6.5vw, 32px); line-height: 1.12; margin-bottom: 14px; }
+      .hero-h1 { font-size: clamp(30px, 8.5vw, 42px); line-height: 1.12; margin-bottom: 14px; }
       .hero-body { font-size: 14px; line-height: 1.55; margin-bottom: 24px; }
       .hero-cta-strip { flex-direction: column; width: 100%; gap: 10px; margin-bottom: 28px; }
       .btn-hero-primary, .btn-hero-editorial { width: 100%; min-height: 46px; font-size: 13px; }
       .hero-trust-strip { flex-direction: row; justify-content: center; gap: 12px; font-size: 10.5px; }
-
-      .passes-sec { padding: 60px 0; }
-      .pass-img-wrap { height: 190px; }
-      .gallery-sec { padding: 60px 0; }
-      .gallery-bento { grid-template-columns: 1fr; gap: 12px; }
-      .bento-item { height: 200px; }
-      .footer-flex { flex-direction: column; text-align: center; }
-    }
 
       .passes-sec { padding: 60px 0; }
       .pass-img-wrap { height: 190px; }
@@ -253,10 +243,10 @@
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#location">Visit Us</a></li>
       </ul>
-      <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%201-Day%20Arena%20Guest%20Pass." target="_blank" class="btn-capsule-cta">
+      <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%201-Day%20Arena%20Guest%20Pass." target="_blank" class="btn-capsule-cta">
         Claim Pass
       </a>
-      <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%20pass." target="_blank" class="btn-capsule-mobile">
+      <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%20pass." target="_blank" class="btn-capsule-mobile">
         Claim
       </a>
     </div>
@@ -266,10 +256,10 @@
     <section class="hero-cinematic">
       <div class="hero-content-box reveal-on-scroll">
         <div class="hero-kicker">High-Performance Training Arena</div>
-        <h1 class="hero-h1">Heavyweight Athletic Performance <span>Elite Strength, Conditioning</span></h1>
+        <h1 class="hero-h1">Oxygym Health &amp; Fitness Club <span>Elite Strength, Conditioning &amp; Coaching</span></h1>
         <p class="hero-body">Transform your physical potential with Olympic-grade equipment, tailored athletic protocols, and high-energy coaching in F98J+PJG.</p>
         <div class="hero-cta-strip">
-          <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20would%20like%20to%20claim%20a%201-day%20trial%20pass." target="_blank" class="btn-hero-primary">
+          <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20would%20like%20to%20claim%20a%201-day%20trial%20pass." target="_blank" class="btn-hero-primary">
             Claim VIP Trial Pass
           </a>
           <a href="#passes" class="btn-hero-editorial">
@@ -277,9 +267,10 @@
           </a>
         </div>
         <div class="hero-trust-strip">
-          <div><span style="color:#FDA4AF; font-weight:800;">★ 4.9 RATING</span> (284+ Reviews)</div>
+          <div><span style="color:#FDA4AF; font-weight:800;">★ 4 RATING</span> (120+ Reviews)</div>
           <div>• 100% Eleiko Arena</div>
         </div>
+      </div>
     </section>
 
     <!-- Passes / Programs Section with Rich Visuals -->
@@ -302,7 +293,7 @@
               </div>
               <div class="pass-footer">
                 <span class="pass-price">Contact for personalized quote</span>
-                <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20Strength%20%26%20Functional%20Hypertrophy." target="_blank" class="pass-btn">Join Pass</a>
+                <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20Strength%20%26%20Functional%20Hypertrophy." target="_blank" class="pass-btn">Join Pass</a>
               </div>
             </div>
             <div class="pass-card reveal-on-scroll reveal-delay-1">
@@ -316,7 +307,7 @@
               </div>
               <div class="pass-footer">
                 <span class="pass-price">Contact for personalized quote</span>
-                <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%201-on-1%20Athletic%20Performance%20Coaching." target="_blank" class="pass-btn">Join Pass</a>
+                <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%201-on-1%20Athletic%20Performance%20Coaching." target="_blank" class="pass-btn">Join Pass</a>
               </div>
             </div>
             <div class="pass-card reveal-on-scroll reveal-delay-2">
@@ -330,7 +321,7 @@
               </div>
               <div class="pass-footer">
                 <span class="pass-price">Contact for personalized quote</span>
-                <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20High-Intensity%20Metabolic%20Sprints." target="_blank" class="pass-btn">Join Pass</a>
+                <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20High-Intensity%20Metabolic%20Sprints." target="_blank" class="pass-btn">Join Pass</a>
               </div>
             </div>
             <div class="pass-card reveal-on-scroll reveal-delay-2">
@@ -344,7 +335,7 @@
               </div>
               <div class="pass-footer">
                 <span class="pass-price">Contact for personalized quote</span>
-                <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20Nutrition%20%26%20Athletic%20Macro%20Planning." target="_blank" class="pass-btn">Join Pass</a>
+                <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20join%20Nutrition%20%26%20Athletic%20Macro%20Planning." target="_blank" class="pass-btn">Join Pass</a>
               </div>
             </div>
         </div>
@@ -440,8 +431,8 @@
         <div class="location-card reveal-on-scroll">
           <h3 class="location-title">Oxygym Health &amp; Fitness Club</h3>
           <p class="location-address">
-            📍 F98J+PJG, Sector G DHA Phase 5, Lahore<br>
-            📞 +92 300 1234567
+            📍 F98J+PJG, Gold crest mall sector DD phase 4 Dha lahore, Sector DD Dha Phase 4, Lahore, 54000, Pakistan<br>
+            📞 03466888896
           </p>
           <div class="hours-list">
             
@@ -463,10 +454,10 @@
             </div>
           </div>
           <div class="location-actions">
-            <a href="https://maps.google.com/?q=Oxygym%20Health%20%26%20Fitness%20Club%20F98J%2BPJG%2C%20Sector%20G%20DHA%20Phase%205%2C%20Lahore" target="_blank" class="btn-location-primary">
+            <a href="https://maps.google.com/?q=Oxygym%20Health%20%26%20Fitness%20Club%20F98J%2BPJG%2C%20Gold%20crest%20mall%20sector%20DD%20phase%204%20Dha%20lahore%2C%20Sector%20DD%20Dha%20Phase%204%2C%20Lahore%2C%2054000%2C%20Pakistan" target="_blank" class="btn-location-primary">
               📍 Open in Google Maps
             </a>
-            <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20would%20like%20to%20visit%20today." target="_blank" class="btn-location-secondary">
+            <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20would%20like%20to%20visit%20today." target="_blank" class="btn-location-secondary">
               💬 Message on WhatsApp
             </a>
           </div>
@@ -478,7 +469,7 @@
               <div class="map-badge-text">Oxygym Health &amp; Fitness Club Flagship</div>
               <div class="map-badge-sub">Valet &amp; Parking Available · High-Speed Connectivity</div>
             </div>
-            <a href="https://maps.google.com/?q=Oxygym%20Health%20%26%20Fitness%20Club%20F98J%2BPJG%2C%20Sector%20G%20DHA%20Phase%205%2C%20Lahore" target="_blank" class="btn-location-primary" style="padding: 8px 16px; font-size: 11px;">
+            <a href="https://maps.google.com/?q=Oxygym%20Health%20%26%20Fitness%20Club%20F98J%2BPJG%2C%20Gold%20crest%20mall%20sector%20DD%20phase%204%20Dha%20lahore%2C%20Sector%20DD%20Dha%20Phase%204%2C%20Lahore%2C%2054000%2C%20Pakistan" target="_blank" class="btn-location-primary" style="padding: 8px 16px; font-size: 11px;">
               Directions
             </a>
           </div>
@@ -490,10 +481,10 @@
 
   <div class="mobile-bottom-bar">
     <div class="mobile-bar-flex">
-      <a href="https://wa.me/923001234567?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%20pass." target="_blank" class="btn-m-wa">
+      <a href="https://wa.me/03466888896?text=Hi%20Oxygym%20Health%20%26%20Fitness%20Club!%20I%20want%20to%20claim%20a%20pass." target="_blank" class="btn-m-wa">
         💬 Claim via WhatsApp
       </a>
-      <a href="tel:+92 300 1234567" class="btn-m-call">
+      <a href="tel:03466888896" class="btn-m-call">
         📞 Call Arena
       </a>
     </div>
@@ -502,7 +493,7 @@
   <footer>
     <div class="container footer-flex">
       <div>© 2026 Oxygym Health &amp; Fitness Club · ALL RIGHTS RESERVED.</div>
-      <div>F98J+PJG, Sector G DHA Phase 5, Lahore · +92 300 1234567</div>
+      <div>F98J+PJG, Gold crest mall sector DD phase 4 Dha lahore, Sector DD Dha Phase 4, Lahore, 54000, Pakistan · 03466888896</div>
     </div>
   </footer>
 

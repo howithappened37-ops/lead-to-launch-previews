@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rose Palace Hotel (Gulberg) · Boutique Dental Studio & Aesthetic Lounge</title>
+  <meta name="description" content="A gentle, luxury approach to modern aesthetic dentistry, smile design, and zero-anxiety care in 55-N Gurumangat Rd.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FDFBF7;
+      --card-bg: #FFFFFF;
+      --primary: #0D3B2E;
+      --primary-hover: #145341;
+      --accent: #C9A86A;
+      --text: #1A1816;
+      --text-muted: #57534E;
+      --border: #EAE6DF;
+      --serif: 'Fraunces', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans); background: var(--bg); color: var(--text);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(253, 251, 247, 0.94); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 18px 0;
+    }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .brand-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--primary); letter-spacing: -0.01em; }
+    .brand-sub { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .btn-consult {
+      background: var(--primary); color: #fff; text-decoration: none;
+      padding: 10px 20px; border-radius: 9999px; font-size: 13px; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+    }
+    .btn-consult:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+    /* Section 1: Single-Column Editorial Hero */
+    .hero-editorial { padding: 80px 0 60px; text-align: center; }
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 9999px; background: rgba(13, 59, 46, 0.06);
+      border: 1px solid rgba(13, 59, 46, 0.12); color: var(--primary);
+      font-size: 12px; font-weight: 600; margin-bottom: 24px;
+    }
+    .hero-editorial h1 {
+      font-family: var(--serif); font-size: 52px; font-weight: 400; line-height: 1.15;
+      color: var(--primary); letter-spacing: -0.02em; max-width: 860px; margin: 0 auto 20px;
+    }
+    .hero-editorial h1 em { font-style: italic; font-weight: 600; color: var(--accent); }
+    .hero-editorial p {
+      font-size: 18px; color: var(--text-muted); max-width: 640px; margin: 0 auto 32px; line-height: 1.6;
+    }
+    .hero-photo-banner {
+      border-radius: 24px; overflow: hidden; height: 380px; position: relative;
+      box-shadow: 0 20px 40px -15px rgba(26, 24, 22, 0.08); border: 1px solid var(--border);
+    }
+    .hero-photo-banner img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 32px;
+      background: linear-gradient(to top, rgba(13,59,46,0.85), transparent);
+      display: flex; justify-content: space-between; align-items: flex-end; color: #fff;
+    }
+
+    /* Section 2: 3 Tenets of Care (Horizontal Narrative Bento) */
+    .tenets-sec { padding: 90px 0; border-top: 1px solid var(--border); }
+    .sec-label { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--accent); letter-spacing: 2px; margin-bottom: 12px; }
+    .sec-heading { font-family: var(--serif); font-size: 36px; font-weight: 600; color: var(--primary); line-height: 1.25; margin-bottom: 48px; }
+    .tenets-stack { display: flex; flex-direction: column; gap: 20px; }
+    .tenet-row {
+      display: grid; grid-template-columns: 80px 1fr 1.2fr; gap: 32px; align-items: center;
+      padding: 32px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--border);
+      transition: 0.2s;
+    }
+    .tenet-row:hover { border-color: var(--primary); box-shadow: 0 12px 30px -10px rgba(13,59,46,0.06); }
+    .tenet-num { font-family: var(--serif); font-size: 32px; font-weight: 400; color: var(--accent); }
+    .tenet-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+    .tenet-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* Section 3: Lead Clinician Profile */
+    .doctor-sec {
+      padding: 80px 0; background: rgba(13, 59, 46, 0.03);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .doctor-card {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center;
+      background: var(--card-bg); border-radius: 24px; padding: 44px; border: 1px solid var(--border);
+    }
+    .doc-quote { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--primary); margin-bottom: 20px; line-height: 1.4; }
+    .doc-credentials { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+    .doc-badge {
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px;
+      border-radius: 6px; background: rgba(201, 168, 106, 0.15); color: #8A6B29;
+      font-size: 11px; font-weight: 700; margin-top: 16px;
+    }
+
+    /* Section 4: Treatment Suite (Luxury Table Menu) */
+    .menu-sec { padding: 90px 0; }
+    .treatment-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+    .treatment-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 0; border-bottom: 1px solid var(--border); gap: 24px;
+    }
+    .t-info h4 { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+    .t-info p { font-size: 13px; color: var(--text-muted); }
+    .t-action a {
+      padding: 8px 18px; border-radius: 9999px; border: 1px solid var(--primary);
+      color: var(--primary); text-decoration: none; font-size: 12px; font-weight: 600;
+      white-space: nowrap; transition: 0.2s;
+    }
+    .t-action a:hover { background: var(--primary); color: #fff; }
+
+    /* Section 5: Concierge Desk & Footer */
+    .concierge-sec {
+      padding: 80px 0; background: var(--primary); color: #fff; text-align: center;
+      border-radius: 32px; margin: 0 24px 60px;
+    }
+    .concierge-sec h3 { font-family: var(--serif); font-size: 38px; font-weight: 400; margin-bottom: 14px; }
+    .concierge-sec p { font-size: 16px; opacity: 0.85; max-width: 540px; margin: 0 auto 28px; }
+    .btn-wa-large {
+      background: var(--accent); color: #1A1816; text-decoration: none;
+      padding: 16px 36px; border-radius: 9999px; font-size: 15px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 10px; transition: 0.2s;
+    }
+    .btn-wa-large:hover { opacity: 0.95; transform: scale(1.02); }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 768px) {
+      .hero-editorial h1 { font-size: 36px; }
+      .tenet-row { grid-template-columns: 1fr; gap: 12px; padding: 24px; }
+      .doctor-card { grid-template-columns: 1fr; padding: 28px; }
+      .treatment-item { flex-direction: column; align-items: flex-start; }
+      .hero-photo-banner { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-flex">
+      <div>
+        <div class="brand-title">Rose Palace Hotel (Gulberg)</div>
+        <div class="brand-sub">Sector CCA · DHA Phase 4, Lahore</div>
+      </div>
+      <a href="https://wa.me/03154337172?text=Hi%20Rose%20Palace%20Hotel%20(Gulberg)!%20I%20would%20like%20to%20inquire%20about%20a%20dental%20consultation." target="_blank" class="btn-consult">
+        <span>VIP WhatsApp Desk</span> →
+      </a>
+    </div>
+  </header>
+
+  <!-- 1. Single-Column Editorial Hero -->
+  <section class="hero-editorial">
+    <div class="container">
+      <div class="badge-pill">
+        <span>PMDC VERIFIED CLINICAL TEAM · ZERO-ANXIETY CARE</span>
+      </div>
+      <h1>A Calm Sanctuary for <em>Precision Aesthetic Dentistry</em> in DHA Phase 4.</h1>
+      <p>Gentle micro-layer porcelain veneers, painless microscopic endodontics, and 3D digital smile simulation delivered in an ultra-comfort aesthetic lounge.</p>
+      
+      <div class="hero-photo-banner">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnN0nxxBORZoV3-9iSFs_xO3-LPoLj8pZ5KJqRhCe5zNKjFpEWKW6noqFUFF_7dgUlK-D0oz6NjIPr75O0unrc3m8mIUlFlenlsjVS_aehQSfjVnkaQepKlPnScg0Cwse508Fdn=w426-h240-k-no" alt="Rose Palace Hotel (Gulberg)">
+        <div class="hero-photo-overlay">
+          <div>
+            <div style="font-size:18px;font-family:var(--serif);font-weight:700;">Dental Care Without Dread or Judgment</div>
+            <div style="font-size:12px;opacity:0.9;">Sector CCA, Commercial Area, DHA Phase 4, Lahore</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:14px;font-weight:700;color:var(--accent);">5.0★ Google Verified</div>
+            <div style="font-size:11px;opacity:0.9;">38+ Happy Patient Transformations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. The 3 Tenets of Care (Horizontal Narrative Bento) -->
+  <section class="tenets-sec">
+    <div class="container">
+      <div class="sec-label">The Studio Standard</div>
+      <h2 class="sec-heading">How We Re-engineered the Dental Experience.</h2>
+      
+      <div class="tenets-stack">
+        <div class="tenet-row">
+          <div class="tenet-num">01</div>
+          <div>
+            <div class="tenet-title">Zero-Anxiety Sensory Studio</div>
+            <div class="tenet-desc">Warm ambiance, noise-canceling headphones, and gentle computer-assisted anesthesia.</div>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted);border-left:1px solid var(--border);padding-left:24px;">
+            Every appointment begins with a calm conversation. We never rush procedures or pressure patients into unnecessary treatments.
+          </div>
+        </div>
+
+        <div class="tenet-row">
+          <div class="tenet-num">02</div>
+          <div>
+            <div class="tenet-title">3D Digital Enamel Architecture</div>
+            <div class="tenet-desc">Intraoral laser optical scanning and ultra-thin custom Swiss porcelain veneers.</div>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted);border-left:1px solid var(--border);padding-left:24px;">
+            Simulate your new smile in 3D before touching enamel. Minimal-prep porcelain preserves your natural tooth structure.
+          </div>
+        </div>
+
+        <div class="tenet-row">
+          <div class="tenet-num">03</div>
+          <div>
+            <div class="tenet-title">Microscopic Tooth Preservation</div>
+            <div class="tenet-desc">High-magnification micro-endodontic therapy saving natural dental roots painlessly.</div>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted);border-left:1px solid var(--border);padding-left:24px;">
+            Our philosophy is always tooth preservation first, utilizing Zeiss magnification and biological restorative bonding.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Lead Clinician Profile Feature -->
+  <section class="doctor-sec">
+    <div class="container">
+      <div class="doctor-card">
+        <div>
+          <div class="sec-label">Clinical Leadership</div>
+          <div class="doc-quote">"Dentistry should be an empowering self-care ritual, not an intimidating medical ordeal."</div>
+          <div class="doc-credentials">
+            <strong>Dr. Mahwish Khan & Senior Clinical Team</strong><br>
+            Consultant Dental Surgeon · PMDC Certified · Specialist in Aesthetic Restorative Care & Micro-Endodontics.
+          </div>
+          <div class="doc-badge">✓ On Duty Today in DHA Phase 4</div>
+        </div>
+        <div style="border-left:1px solid var(--border);padding-left:32px;">
+          <div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:8px;">Why Patients Trust Dental Cafe:</div>
+          <ul style="list-style:none;font-size:13px;color:var(--text-muted);line-height:2;">
+            <li>✓ Transparent upfront quotes with zero surprises</li>
+            <li>✓ European Class-B autoclave sterilization protocol</li>
+            <li>✓ Single-visit digital crowns & pain-free root canals</li>
+            <li>✓ Direct WhatsApp access to Dr. Mahwish</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Treatment Suite (Luxury Table Menu) -->
+  <section class="menu-sec">
+    <div class="container">
+      <div class="sec-label">Care Capabilities</div>
+      <h2 class="sec-heading">Curated Aesthetic & Restorative Services.</h2>
+      
+      <div class="treatment-list">
+        
+          <div class="treatment-item">
+            <div class="t-info">
+              <h4>Specialized Professional Services</h4>
+              <p>Dedicated solutions designed to deliver consistent, high-standard customer satisfaction. · <span style="color:var(--accent);font-weight:600;">Certified Quality · Customer-First Focus · Proven Track Record</span></p>
+            </div>
+            <div class="t-action">
+              <a href="https://wa.me/03154337172?text=Hi%20Rose%20Palace%20Hotel%20(Gulberg)!%20I%20would%20like%20to%20inquire%20about%20Specialized%20Professional%20Services." target="_blank">
+                Inquire & Book →
+              </a>
+            </div>
+          </div>
+        
+          <div class="treatment-item">
+            <div class="t-info">
+              <h4>Direct Consultations &amp; Inquiries</h4>
+              <p>Convenient direct communication channels to discuss your specific needs and timeline. · <span style="color:var(--accent);font-weight:600;">Quick Response Time · Personalized Attention · Transparent Communication</span></p>
+            </div>
+            <div class="t-action">
+              <a href="https://wa.me/03154337172?text=Hi%20Rose%20Palace%20Hotel%20(Gulberg)!%20I%20would%20like%20to%20inquire%20about%20Direct%20Consultations%20%26%20Inquiries." target="_blank">
+                Inquire & Book →
+              </a>
+            </div>
+          </div>
+        
+          <div class="treatment-item">
+            <div class="t-info">
+              <h4>Quality Guaranteed Delivery</h4>
+              <p>Every project and order is managed with strict attention to detail and client care. · <span style="color:var(--accent);font-weight:600;">Reliable Execution · Dedicated Follow-through · Satisfaction Focused</span></p>
+            </div>
+            <div class="t-action">
+              <a href="https://wa.me/03154337172?text=Hi%20Rose%20Palace%20Hotel%20(Gulberg)!%20I%20would%20like%20to%20inquire%20about%20Quality%20Guaranteed%20Delivery." target="_blank">
+                Inquire & Book →
+              </a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. VIP Concierge Desk -->
+  <section class="concierge-sec">
+    <div class="container">
+      <h3>Ready for a Calmer Dental Experience?</h3>
+      <p>Message our clinical team directly on WhatsApp for appointment scheduling, treatment quotes, or emergency consultation in DHA Phase 4.</p>
+      <a href="https://wa.me/03154337172?text=Hi%20Rose%20Palace%20Hotel%20(Gulberg)!%20I%20would%20like%20to%20schedule%20a%20consultation%20with%20Dr.%20Mahwish%20Khan." target="_blank" class="btn-wa-large">
+        <span>Connect with Dr. Mahwish on WhatsApp</span> →
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-flex">
+      <div>© 2026 Rose Palace Hotel (Gulberg) · All Rights Reserved.</div>
+      <div>Sector CCA, DHA Phase 4, Lahore · 03154337172</div>
+    </div>
+  </footer>
+
+</body>
+</html>
