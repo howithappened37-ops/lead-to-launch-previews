@@ -11,7 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS 3 CDN with Dynamic Theme Config -->
+  <!-- Spline 3D WebGL Viewer Engine -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"></script>
+
+  <!-- Tailwind CSS 3 CDN with Extended Dynamic Tokens -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -69,11 +72,35 @@
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+
+    /* 3D Card Hover Tilt with Cursor-Tracked Glare (transitions.dev #19) */
+    .card-3d-tilt {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+      position: relative;
+    }
+    .card-glare {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.12) 0%, transparent 65%);
+      opacity: 0;
+      border-radius: inherit;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+    .card-3d-tilt:hover .card-glare {
+      opacity: 1;
+    }
+
+    /* Horizontal Carousel Custom Scroll */
+    .custom-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #10B981;
+      border-radius: 9999px;
     }
 
     .reveal-on-scroll {
@@ -92,12 +119,12 @@
     .signature-card.active-signature {
       border-color: #C9A86A !important;
       background: rgba(255, 255, 255, 0.08) !important;
-      transform: translateY(-3px);
-      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
     }
   </style>
 
-  <!-- Schema.org Structured Data -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -155,24 +182,27 @@
       <nav class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-brand-textMutedDark">
         <a href="#services" class="hover:text-brand-textDark transition">Suites</a>
         <a href="#signature" class="hover:text-brand-textDark transition">Assessment</a>
+        <a href="#transformation" class="hover:text-brand-textDark transition">3D Results</a>
         <a href="#specialist" class="hover:text-brand-textDark transition">Specialist</a>
         <a href="#reviews" class="hover:text-brand-textDark transition">Reviews</a>
-        <a href="#location" class="hover:text-brand-textDark transition">Location</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="https://wa.me/923001234567?text=Hi%20Doctor!%20I%20would%20like%20to%20consult%20about%20dental%20treatments%20at%20Dr.%20Mahwish%20Dental%20Cafe." target="_blank" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-bold uppercase tracking-wider shadow-lg transition active:scale-95">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
-          <span>Consult Specialist</span>
-        </a>
+        <button onclick="openConsultationModal('', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-bold uppercase tracking-wider shadow-lg transition active:scale-95">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          <span>Book Consultation</span>
+        </button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- 3. Asymmetric 65/35 Hero Section (Equinox / Third Space Inspired) -->
-    <section class="relative pt-12 pb-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- 3. Asymmetric 65/35 Hero Section with Real Spline 3D Integration -->
+    <section class="relative pt-12 pb-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark overflow-hidden">
+      <!-- Ambient Glow Behind 3D Scene -->
+      <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <!-- Left Column: 65% Narrative Architecture -->
         <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
           <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-brand-borderDark text-xs font-mono-spec text-brand-textMutedDark">
@@ -189,12 +219,12 @@
           </p>
 
           <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="https://wa.me/923001234567?text=Hi%20Doctor!%20I%20would%20like%20to%20consult%20about%20dental%20treatments%20at%20Dr.%20Mahwish%20Dental%20Cafe." target="_blank" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-brand-primary/25 transition hover:-translate-y-0.5 active:scale-95 min-h-[48px]">
+            <button onclick="openConsultationModal('', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-sm uppercase tracking-wider shadow-xl shadow-brand-primary/25 transition hover:-translate-y-0.5 active:scale-95 min-h-[48px]">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
               <span>Book Priority Consultation</span>
-            </a>
-            <a href="#signature" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-brand-borderDark text-white text-sm font-semibold transition min-h-[48px]">
-              <span>Explore Dental Studio</span>
+            </button>
+            <a href="#services" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-brand-borderDark text-white text-sm font-semibold transition min-h-[48px]">
+              <span>Explore 3D Catalog</span>
             </a>
           </div>
 
@@ -209,14 +239,16 @@
           </div>
         </div>
 
-        <!-- Right Column: 35% Overlapping Visual & Telemetry Card -->
+        <!-- Right Column: 35% Interactive 3D Spline Scene & Overlapping Glass Card -->
         <div class="lg:col-span-5 relative reveal-on-scroll reveal-delay-1">
-          <div class="relative rounded-3xl overflow-hidden border border-brand-borderDark shadow-2xl group">
-            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Dr. Mahwish Dental Cafe" class="w-full h-[460px] object-cover transition duration-700 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-bgDark via-transparent to-transparent opacity-80"></div>
+          <div class="card-3d-tilt relative rounded-3xl overflow-hidden border border-brand-borderDark bg-black/40 shadow-2xl h-[460px]">
+            <div class="card-glare"></div>
 
-            <!-- Floating Glass Proof Card -->
-            <div class="absolute bottom-5 left-5 right-5 glass-nav p-5 rounded-2xl border border-white/10 shadow-xl space-y-2">
+            <!-- Spline 3D Interactive Viewer Canvas -->
+            <spline-viewer url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" class="w-full h-full block"></spline-viewer>
+
+            <!-- Floating Glass Proof Card Over 3D Scene -->
+            <div class="absolute bottom-5 left-5 right-5 glass-nav p-5 rounded-2xl border border-white/10 shadow-xl space-y-2 pointer-events-none">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-semibold">On Duty</span>
                 <span class="text-xs text-white font-bold">★ 4.9</span>
@@ -229,7 +261,210 @@
       </div>
     </section>
 
-    <!-- 4. Interactive Signature Brand Section (UI/UX Pro Max Dynamic Widget) -->
+    <!-- 4. Interactive 3D Card Carousel Section (Smooth Track + Arrow Controls) -->
+    <section class="py-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark" id="services">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal-on-scroll">
+        <div>
+          <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Clinical Specialties</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">Curated Treatment Suites</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="scrollCarousel(-1)" class="w-11 h-11 rounded-full glass-nav border border-brand-borderDark flex items-center justify-center text-white hover:bg-white/10 active:scale-95 transition">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button onclick="scrollCarousel(1)" class="w-11 h-11 rounded-full glass-nav border border-brand-borderDark flex items-center justify-center text-white hover:bg-white/10 active:scale-95 transition">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3D Card Carousel Track -->
+      <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 pt-2 custom-scroll" id="servicesCarousel">
+        
+          <div class="snap-start flex-shrink-0 w-[300px] sm:w-[360px] card-3d-tilt rounded-2xl overflow-hidden bg-brand-cardDark border border-brand-borderDark flex flex-col justify-between group shadow-xl">
+            <div class="card-glare"></div>
+            <div class="relative h-52 overflow-hidden bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=85" alt="Porcelain Veneers &amp; Smile Architecture" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-white/10">
+                Smile Design
+              </span>
+              <span class="absolute top-3 right-3 px-2.5 py-0.5 rounded bg-brand-primary/90 text-[9px] font-mono-spec text-white">
+                Micro-Layer Porcelain
+              </span>
+            </div>
+            <div class="p-6 flex-1 space-y-3">
+              <h3 class="font-display font-bold text-xl text-white">Porcelain Veneers &amp; Smile Architecture</h3>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">Custom ultra-thin ceramic facings, structural smile design, and natural enamel preservation.</p>
+              <div class="space-y-1 pt-2">
+                
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Minimal-Prep Veneers</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>3D Digital Smile Simulation</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Natural Translucency</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-brand-borderDark bg-black/20 flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-accent font-mono-spec">Contact for personalized quote</span>
+              <button onclick="openConsultationModal('Porcelain Veneers &amp; Smile Architecture', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition active:scale-95">
+                Inquire 3D Slot
+              </button>
+            </div>
+          </div>
+          <div class="snap-start flex-shrink-0 w-[300px] sm:w-[360px] card-3d-tilt rounded-2xl overflow-hidden bg-brand-cardDark border border-brand-borderDark flex flex-col justify-between group shadow-xl">
+            <div class="card-glare"></div>
+            <div class="relative h-52 overflow-hidden bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=85" alt="Micro-Endodontics &amp; Tooth Preservation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-white/10">
+                Laser Whitening
+              </span>
+              <span class="absolute top-3 right-3 px-2.5 py-0.5 rounded bg-brand-primary/90 text-[9px] font-mono-spec text-white">
+                Zero-Sensitivity
+              </span>
+            </div>
+            <div class="p-6 flex-1 space-y-3">
+              <h3 class="font-display font-bold text-xl text-white">Micro-Endodontics &amp; Tooth Preservation</h3>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">High-magnification root canal therapy and restorative pulp care using gentle, zero-anxiety protocols.</p>
+              <div class="space-y-1 pt-2">
+                
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Microscopic Precision</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Painless Single-Visit Care</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Structural Core Buildup</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-brand-borderDark bg-black/20 flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-accent font-mono-spec">Contact for personalized quote</span>
+              <button onclick="openConsultationModal('Micro-Endodontics &amp; Tooth Preservation', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition active:scale-95">
+                Inquire 3D Slot
+              </button>
+            </div>
+          </div>
+          <div class="snap-start flex-shrink-0 w-[300px] sm:w-[360px] card-3d-tilt rounded-2xl overflow-hidden bg-brand-cardDark border border-brand-borderDark flex flex-col justify-between group shadow-xl">
+            <div class="card-glare"></div>
+            <div class="relative h-52 overflow-hidden bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=85" alt="Invisalign &amp; Clear Orthodontic Alignment" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-white/10">
+                Orthodontics
+              </span>
+              <span class="absolute top-3 right-3 px-2.5 py-0.5 rounded bg-brand-primary/90 text-[9px] font-mono-spec text-white">
+                3D Digital Scan
+              </span>
+            </div>
+            <div class="p-6 flex-1 space-y-3">
+              <h3 class="font-display font-bold text-xl text-white">Invisalign &amp; Clear Orthodontic Alignment</h3>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">Customized clear aligner therapy engineered for discrete teeth realignment and healthy occlusion.</p>
+              <div class="space-y-1 pt-2">
+                
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Discreet Clear Aligners</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Predictable Movement Tracking</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Adult &amp; Teen Orthodontics</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-brand-borderDark bg-black/20 flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-accent font-mono-spec">Contact for personalized quote</span>
+              <button onclick="openConsultationModal('Invisalign &amp; Clear Orthodontic Alignment', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition active:scale-95">
+                Inquire 3D Slot
+              </button>
+            </div>
+          </div>
+          <div class="snap-start flex-shrink-0 w-[300px] sm:w-[360px] card-3d-tilt rounded-2xl overflow-hidden bg-brand-cardDark border border-brand-borderDark flex flex-col justify-between group shadow-xl">
+            <div class="card-glare"></div>
+            <div class="relative h-52 overflow-hidden bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=85" alt="Laser Teeth Whitening &amp; Enamel Care" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-accent border border-white/10">
+                Implantology
+              </span>
+              <span class="absolute top-3 right-3 px-2.5 py-0.5 rounded bg-brand-primary/90 text-[9px] font-mono-spec text-white">
+                Guided Surgery
+              </span>
+            </div>
+            <div class="p-6 flex-1 space-y-3">
+              <h3 class="font-display font-bold text-xl text-white">Laser Teeth Whitening &amp; Enamel Care</h3>
+              <p class="text-xs text-brand-textMutedDark leading-relaxed">In-office gentle photo-activation delivering 4-6 shades brighter results in a single calm session.</p>
+              <div class="space-y-1 pt-2">
+                
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Non-Invasive Enamel Brightening</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Desensitizing Protocol</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-brand-textMutedDark">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Immediate Visible Results</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-brand-borderDark bg-black/20 flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-accent font-mono-spec">Contact for personalized quote</span>
+              <button onclick="openConsultationModal('Laser Teeth Whitening &amp; Enamel Care', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="px-4 py-2 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition active:scale-95">
+                Inquire 3D Slot
+              </button>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- 5. Interactive Drag-to-Compare Transformation Slider (21st.dev Quality Feature) -->
+    <section class="py-24 px-6 max-w-5xl mx-auto border-b border-brand-borderDark" id="transformation">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
+        <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Interactive Telemetry</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Smile Design Transformation</h2>
+        <p class="text-sm text-brand-textMutedDark">Drag the separator to observe porcelain veneer characterization &amp; shade brightness.</p>
+      </div>
+
+      <!-- Before/After Interactive Canvas -->
+      <div class="relative w-full h-[420px] rounded-3xl overflow-hidden border border-brand-borderDark shadow-2xl select-none" id="beforeAfterContainer">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80" alt="After Results" class="absolute inset-0 w-full h-full object-cover">
+        <span class="absolute bottom-5 right-5 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur text-xs font-bold font-mono-spec text-brand-accent border border-white/10 z-10">
+          Veneer Architecture
+        </span>
+
+        <!-- Before Clip Layer -->
+        <div class="absolute inset-0 overflow-hidden" id="beforeLayer" style="width: 50%;">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80" alt="Before Assessment" class="absolute inset-0 w-full h-full object-cover max-w-none" style="width: 100%; height: 100%;">
+          <span class="absolute bottom-5 left-5 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur text-xs font-bold font-mono-spec text-white border border-white/10">
+            Initial Assessment
+          </span>
+        </div>
+
+        <!-- Draggable Handle -->
+        <div class="absolute top-0 bottom-0 w-1 bg-white shadow-2xl cursor-ew-resize flex items-center justify-center z-20" id="sliderHandle" style="left: 50%;">
+          <div class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center shadow-2xl text-sm font-bold font-mono">
+            ⇄
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Interactive Signature Brand Assessment Widget -->
     <section class="py-20 px-6 max-w-7xl mx-auto border-b border-brand-borderDark" id="signature">
       <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
         <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Interactive Patient Assessment</span>
@@ -239,7 +474,8 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
-        <div onclick="selectSignatureItem(this, 'Laser Teeth Whitening', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll  active-signature">
+        <div onclick="selectSignatureItem(this, 'Laser Teeth Whitening', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll  active-signature">
+          <div class="card-glare"></div>
           <div class="space-y-3">
             <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
@@ -255,7 +491,8 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
           </div>
         </div>
-        <div onclick="selectSignatureItem(this, 'Invisalign &amp; Clear Aligners', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-1 ">
+        <div onclick="selectSignatureItem(this, 'Invisalign &amp; Clear Aligners', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-1 ">
+          <div class="card-glare"></div>
           <div class="space-y-3">
             <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
@@ -271,7 +508,8 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
           </div>
         </div>
-        <div onclick="selectSignatureItem(this, 'Cosmetic Porcelain Veneers', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 active-signature">
+        <div onclick="selectSignatureItem(this, 'Cosmetic Porcelain Veneers', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 active-signature">
+          <div class="card-glare"></div>
           <div class="space-y-3">
             <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -287,7 +525,8 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
           </div>
         </div>
-        <div onclick="selectSignatureItem(this, 'Dental Implants &amp; Restorations', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 ">
+        <div onclick="selectSignatureItem(this, 'Dental Implants &amp; Restorations', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 ">
+          <div class="card-glare"></div>
           <div class="space-y-3">
             <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.48 12H2"/></svg>
@@ -303,7 +542,8 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
           </div>
         </div>
-        <div onclick="selectSignatureItem(this, 'Painless Root Canal &amp; Crown', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 ">
+        <div onclick="selectSignatureItem(this, 'Painless Root Canal &amp; Crown', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="signature-card card-3d-tilt cursor-pointer p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-brand-borderDark transition duration-300 space-y-4 flex flex-col justify-between reveal-on-scroll reveal-delay-2 ">
+          <div class="card-glare"></div>
           <div class="space-y-3">
             <div class="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
@@ -329,168 +569,10 @@
       </div>
     </section>
 
-    <!-- 5. High-Contrast Section (Third Space Light Material Shift) -->
-    <section class="py-24 px-6 bg-brand-bgLight text-brand-textLight border-b border-brand-borderLight transition-colors" id="services">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
-          <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-primary font-bold">Clinical Specialties</span>
-          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-textLight mt-2 mb-4">Curated Treatment Suites</h2>
-          <p class="text-sm text-brand-textMutedLight leading-relaxed">Dedicated service suites engineered with uncompromising standard and client focus in Sector CCA.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-            <div class="rounded-2xl overflow-hidden bg-brand-cardLight border border-brand-borderLight shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group reveal-on-scroll ">
-              <div class="relative h-48 overflow-hidden bg-neutral-200">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=85" alt="Porcelain Veneers &amp; Smile Architecture" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-primary shadow">
-                  Smile Design
-                </span>
-                <span class="absolute top-3 right-3 px-2 py-0.5 rounded bg-black/60 backdrop-blur text-[9px] font-mono-spec text-white">
-                  Micro-Layer Porcelain
-                </span>
-              </div>
-              <div class="p-6 flex-1 space-y-3">
-                <h3 class="font-display font-bold text-xl text-brand-textLight">Porcelain Veneers &amp; Smile Architecture</h3>
-                <p class="text-xs text-brand-textMutedLight leading-relaxed">Custom ultra-thin ceramic facings, structural smile design, and natural enamel preservation.</p>
-                <div class="space-y-1 pt-2">
-                  
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Minimal-Prep Veneers</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>3D Digital Smile Simulation</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Natural Translucency</span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-5 border-t border-brand-borderLight bg-neutral-50/70 flex items-center justify-between">
-                <span class="text-xs font-bold text-brand-primary font-mono-spec">Contact for personalized quote</span>
-                <a href="https://wa.me/923001234567?text=Hi%20Dr.%20Mahwish%20Dental%20Cafe!%20I%20want%20to%20inquire%20about%20Porcelain%20Veneers%20%26%20Smile%20Architecture." target="_blank" class="px-4 py-1.5 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition">
-                  Inquire
-                </a>
-              </div>
-            </div>
-            <div class="rounded-2xl overflow-hidden bg-brand-cardLight border border-brand-borderLight shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group reveal-on-scroll reveal-delay-1">
-              <div class="relative h-48 overflow-hidden bg-neutral-200">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=85" alt="Micro-Endodontics &amp; Tooth Preservation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-primary shadow">
-                  Laser Whitening
-                </span>
-                <span class="absolute top-3 right-3 px-2 py-0.5 rounded bg-black/60 backdrop-blur text-[9px] font-mono-spec text-white">
-                  Zero-Sensitivity
-                </span>
-              </div>
-              <div class="p-6 flex-1 space-y-3">
-                <h3 class="font-display font-bold text-xl text-brand-textLight">Micro-Endodontics &amp; Tooth Preservation</h3>
-                <p class="text-xs text-brand-textMutedLight leading-relaxed">High-magnification root canal therapy and restorative pulp care using gentle, zero-anxiety protocols.</p>
-                <div class="space-y-1 pt-2">
-                  
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Microscopic Precision</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Painless Single-Visit Care</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Structural Core Buildup</span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-5 border-t border-brand-borderLight bg-neutral-50/70 flex items-center justify-between">
-                <span class="text-xs font-bold text-brand-primary font-mono-spec">Contact for personalized quote</span>
-                <a href="https://wa.me/923001234567?text=Hi%20Dr.%20Mahwish%20Dental%20Cafe!%20I%20want%20to%20inquire%20about%20Micro-Endodontics%20%26%20Tooth%20Preservation." target="_blank" class="px-4 py-1.5 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition">
-                  Inquire
-                </a>
-              </div>
-            </div>
-            <div class="rounded-2xl overflow-hidden bg-brand-cardLight border border-brand-borderLight shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group reveal-on-scroll reveal-delay-2">
-              <div class="relative h-48 overflow-hidden bg-neutral-200">
-                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=85" alt="Invisalign &amp; Clear Orthodontic Alignment" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-primary shadow">
-                  Orthodontics
-                </span>
-                <span class="absolute top-3 right-3 px-2 py-0.5 rounded bg-black/60 backdrop-blur text-[9px] font-mono-spec text-white">
-                  3D Digital Scan
-                </span>
-              </div>
-              <div class="p-6 flex-1 space-y-3">
-                <h3 class="font-display font-bold text-xl text-brand-textLight">Invisalign &amp; Clear Orthodontic Alignment</h3>
-                <p class="text-xs text-brand-textMutedLight leading-relaxed">Customized clear aligner therapy engineered for discrete teeth realignment and healthy occlusion.</p>
-                <div class="space-y-1 pt-2">
-                  
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Discreet Clear Aligners</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Predictable Movement Tracking</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Adult &amp; Teen Orthodontics</span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-5 border-t border-brand-borderLight bg-neutral-50/70 flex items-center justify-between">
-                <span class="text-xs font-bold text-brand-primary font-mono-spec">Contact for personalized quote</span>
-                <a href="https://wa.me/923001234567?text=Hi%20Dr.%20Mahwish%20Dental%20Cafe!%20I%20want%20to%20inquire%20about%20Invisalign%20%26%20Clear%20Orthodontic%20Alignment." target="_blank" class="px-4 py-1.5 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition">
-                  Inquire
-                </a>
-              </div>
-            </div>
-            <div class="rounded-2xl overflow-hidden bg-brand-cardLight border border-brand-borderLight shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group reveal-on-scroll reveal-delay-2">
-              <div class="relative h-48 overflow-hidden bg-neutral-200">
-                <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=85" alt="Laser Teeth Whitening &amp; Enamel Care" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-brand-primary shadow">
-                  Implantology
-                </span>
-                <span class="absolute top-3 right-3 px-2 py-0.5 rounded bg-black/60 backdrop-blur text-[9px] font-mono-spec text-white">
-                  Guided Surgery
-                </span>
-              </div>
-              <div class="p-6 flex-1 space-y-3">
-                <h3 class="font-display font-bold text-xl text-brand-textLight">Laser Teeth Whitening &amp; Enamel Care</h3>
-                <p class="text-xs text-brand-textMutedLight leading-relaxed">In-office gentle photo-activation delivering 4-6 shades brighter results in a single calm session.</p>
-                <div class="space-y-1 pt-2">
-                  
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Non-Invasive Enamel Brightening</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Desensitizing Protocol</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-xs text-brand-textMutedLight">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Immediate Visible Results</span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-5 border-t border-brand-borderLight bg-neutral-50/70 flex items-center justify-between">
-                <span class="text-xs font-bold text-brand-primary font-mono-spec">Contact for personalized quote</span>
-                <a href="https://wa.me/923001234567?text=Hi%20Dr.%20Mahwish%20Dental%20Cafe!%20I%20want%20to%20inquire%20about%20Laser%20Teeth%20Whitening%20%26%20Enamel%20Care." target="_blank" class="px-4 py-1.5 rounded-full bg-brand-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-primaryHover transition">
-                  Inquire
-                </a>
-              </div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Specialist On-Duty Dock (21st.dev & shadcn Style) -->
+    <!-- 7. Specialist On-Duty Dock (21st.dev Style) -->
     <section class="py-20 px-6 max-w-5xl mx-auto" id="specialist">
-      <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-cardDark to-[#0A0D15] border border-brand-borderDark shadow-2xl relative overflow-hidden reveal-on-scroll">
+      <div class="card-3d-tilt p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-cardDark to-[#0A0D15] border border-brand-borderDark shadow-2xl relative overflow-hidden reveal-on-scroll">
+        <div class="card-glare"></div>
         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 relative z-10">
           <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center font-display font-black text-2xl text-white shadow-xl flex-shrink-0">
             DR
@@ -507,56 +589,16 @@
             </p>
           </div>
           <div class="pt-2 sm:pt-0">
-            <a href="https://wa.me/923001234567?text=Hi%20Doctor!%20I%20would%20like%20to%20consult%20about%20dental%20treatments%20at%20Dr.%20Mahwish%20Dental%20Cafe." target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-xs uppercase tracking-wider shadow-lg transition active:scale-95 whitespace-nowrap">
+            <button onclick="openConsultationModal('', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-xs uppercase tracking-wider shadow-lg transition active:scale-95 whitespace-nowrap">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
               <span>Chat with Specialist</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 7. Atmosphere Gallery Bento -->
-    <section class="py-20 px-6 max-w-7xl mx-auto border-t border-brand-borderDark">
-      <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
-        <span class="text-xs font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Studio Atmosphere</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Inside the Clinic Lounge</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        
-        <div class="relative h-64 rounded-2xl overflow-hidden border border-brand-borderDark group reveal-on-scroll ">
-          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Zero-Anxiety Lounge" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-5 flex flex-col justify-end">
-            <span class="text-[10px] font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Private Suite</span>
-            <span class="text-xs font-bold text-white font-display">Zero-Anxiety Lounge</span>
-          </div>
-        </div>
-        <div class="relative h-64 rounded-2xl overflow-hidden border border-brand-borderDark group reveal-on-scroll reveal-delay-1">
-          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="3D Intraoral Scanner" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-5 flex flex-col justify-end">
-            <span class="text-[10px] font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Digital Lab</span>
-            <span class="text-xs font-bold text-white font-display">3D Intraoral Scanner</span>
-          </div>
-        </div>
-        <div class="relative h-64 rounded-2xl overflow-hidden border border-brand-borderDark group reveal-on-scroll reveal-delay-2">
-          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="Natural Translucency" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-5 flex flex-col justify-end">
-            <span class="text-[10px] font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Ceramists</span>
-            <span class="text-xs font-bold text-white font-display">Natural Translucency</span>
-          </div>
-        </div>
-        <div class="relative h-64 rounded-2xl overflow-hidden border border-brand-borderDark group reveal-on-scroll reveal-delay-2">
-          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="1-on-1 Smile Planning" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-5 flex flex-col justify-end">
-            <span class="text-[10px] font-mono-spec uppercase tracking-widest text-brand-accent font-bold">Consultation</span>
-            <span class="text-xs font-bold text-white font-display">1-on-1 Smile Planning</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Verified Google Reviews Showcase -->
+    <!-- 8. Verified Google Reviews Showcase Bento -->
     <section class="py-24 px-6 border-t border-brand-borderDark bg-[#06080E]" id="reviews">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
@@ -567,7 +609,8 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          <div class="p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll ">
+          <div class="card-3d-tilt p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll ">
+            <div class="card-glare"></div>
             <div class="space-y-3">
               <div class="text-amber-400 text-sm tracking-widest">★★★★★</div>
               <p class="text-sm text-brand-textMutedDark italic leading-relaxed">“Zero anxiety and completely transformed my smile. The porcelain veneer precision is unlike anything else.”</p>
@@ -578,11 +621,12 @@
                 <div class="text-[10px] font-mono-spec text-brand-accent">Verified Patient · Cosmetic Suite</div>
               </div>
               <div class="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               </div>
             </div>
           </div>
-          <div class="p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll reveal-delay-1">
+          <div class="card-3d-tilt p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll reveal-delay-1">
+            <div class="card-glare"></div>
             <div class="space-y-3">
               <div class="text-amber-400 text-sm tracking-widest">★★★★★</div>
               <p class="text-sm text-brand-textMutedDark italic leading-relaxed">“The lounge feels like a 5-star hotel, not a clinic. Dr. and staff are remarkably attentive and gentle.”</p>
@@ -593,11 +637,12 @@
                 <div class="text-[10px] font-mono-spec text-brand-accent">Google Local Guide · 84 Reviews</div>
               </div>
               <div class="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               </div>
             </div>
           </div>
-          <div class="p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll reveal-delay-2">
+          <div class="card-3d-tilt p-8 rounded-2xl bg-white/[0.03] border border-brand-borderDark flex flex-col justify-between space-y-6 reveal-on-scroll reveal-delay-2">
+            <div class="card-glare"></div>
             <div class="space-y-3">
               <div class="text-amber-400 text-sm tracking-widest">★★★★★</div>
               <p class="text-sm text-brand-textMutedDark italic leading-relaxed">“Same-day 3D digital scan and painless laser whitening. The results exceeded all my expectations.”</p>
@@ -608,7 +653,7 @@
                 <div class="text-[10px] font-mono-spec text-brand-accent">Verified Patient · Whitening</div>
               </div>
               <div class="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               </div>
             </div>
           </div>
@@ -616,7 +661,7 @@
       </div>
     </section>
 
-    <!-- 9. Location, Hours & Directions Section -->
+    <!-- 9. Location & Operating Hours Section -->
     <section class="py-24 px-6 border-t border-brand-borderDark" id="location">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -635,7 +680,6 @@
               </p>
             </div>
 
-            <!-- Operating Hours Table -->
             <div class="p-6 rounded-2xl bg-white/[0.02] border border-brand-borderDark space-y-3">
               <div class="text-xs font-mono-spec uppercase text-neutral-400 font-bold mb-2">Operating Hours</div>
               
@@ -686,13 +730,47 @@
     </section>
   </main>
 
-  <!-- 10. Sticky Mobile Bottom Action Dock (<= 768px) with Clean SVG Icons -->
+  <!-- 10. Interactive 21st.dev Frosted Consultation Modal Dialog -->
+  <div id="consultationModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center p-4">
+    <div class="relative w-full max-w-lg rounded-3xl glass-nav border border-white/15 p-8 shadow-2xl space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <span class="text-[10px] font-mono-spec uppercase tracking-widest text-brand-accent font-bold">VIP Scheduling</span>
+          <h3 class="font-display text-2xl font-bold text-white" id="modalServiceTitle">Priority Consultation</h3>
+        </div>
+        <button onclick="closeConsultationModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition">
+          ✕
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs text-brand-textMutedDark">
+        <p>Confirm your booking request with <strong>Dr. Mahwish Dental Cafe</strong>. You will be routed directly to the verified coordinator on WhatsApp with your selected service specifications pre-filled.</p>
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
+          <div class="flex justify-between"><span class="text-neutral-400">Location:</span><span class="text-white font-semibold">Sector CCA</span></div>
+          <div class="flex justify-between"><span class="text-neutral-400">Coordinator:</span><span class="text-brand-accent font-semibold">Dr. Mahwish Khan &amp; Team</span></div>
+          <div class="flex justify-between"><span class="text-neutral-400">Status:</span><span class="text-emerald-400 font-semibold font-mono-spec">Direct Access (Zero Queue)</span></div>
+        </div>
+      </div>
+
+      <div class="pt-2 flex gap-3">
+        <a id="modalConfirmBtn" href="https://wa.me/923001234567" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-xs uppercase tracking-wider shadow-lg transition active:scale-95">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+          <span>Proceed via WhatsApp</span>
+        </a>
+        <button onclick="closeConsultationModal()" class="px-5 py-3.5 rounded-full bg-white/10 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. Sticky Mobile Bottom Action Dock (<= 768px) with Clean SVG Icons -->
   <div class="block md:hidden fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-brand-borderDark p-3.5">
     <div class="flex items-center gap-3">
-      <a href="https://wa.me/923001234567?text=Hi%20Dr.%20Mahwish%20Dental%20Cafe!%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-emerald-600 active:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider shadow-lg min-h-[46px]">
+      <button onclick="openConsultationModal('', 'https://wa.me/923001234567', 'Dr. Mahwish Dental Cafe')" class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-emerald-600 active:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider shadow-lg min-h-[46px]">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
         <span>WhatsApp</span>
-      </a>
+      </button>
       
       <a href="tel:+92 300 1234567" class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-full bg-white/10 active:bg-white/20 border border-white/15 text-white text-xs font-bold uppercase tracking-wider min-h-[46px]">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -701,7 +779,7 @@
     </div>
   </div>
 
-  <!-- 11. Architectural Footer -->
+  <!-- 12. Architectural Footer -->
   <footer class="py-12 px-6 border-t border-brand-borderDark bg-[#06080E] text-xs text-neutral-500">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
       <div>
@@ -718,6 +796,7 @@
   <div id="scrollProgressBar" style="position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--accent, #D97706), var(--primary, #10B981), #F59E0B); z-index:1000; width:0%; transition:width 0.1s cubic-bezier(0.16,1,0.3,1);"></div>
 
   <script>
+    // 1. Scroll Progress & Header Glass Effect
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -735,6 +814,7 @@
       }
     }, { passive: true });
 
+    // 2. Intersection Observer for Scroll Reveals
     document.addEventListener('DOMContentLoaded', () => {
       const observerOptions = {
         root: null,
@@ -751,8 +831,62 @@
       }, observerOptions);
 
       document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+
+      // 3. 3D Card Hover Tilt with Cursor Glare Physics (transitions.dev #19)
+      document.querySelectorAll('.card-3d-tilt').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -9;
+          const rotateY = ((x - centerX) / centerX) * 9;
+          card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+          card.style.setProperty('--mouse-x', (x / rect.width * 100) + '%');
+          card.style.setProperty('--mouse-y', (y / rect.height * 100) + '%');
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+      });
+
+      // 4. Before/After Interactive Drag Slider
+      const sliderHandle = document.getElementById('sliderHandle');
+      const beforeLayer = document.getElementById('beforeLayer');
+      const sliderContainer = document.getElementById('beforeAfterContainer');
+
+      if (sliderHandle && beforeLayer && sliderContainer) {
+        let isDragging = false;
+        const onMove = (clientX) => {
+          const rect = sliderContainer.getBoundingClientRect();
+          let posX = clientX - rect.left;
+          posX = Math.max(0, Math.min(posX, rect.width));
+          const percentage = (posX / rect.width) * 100;
+          beforeLayer.style.width = percentage + '%';
+          sliderHandle.style.left = percentage + '%';
+        };
+
+        sliderContainer.addEventListener('mousedown', (e) => { isDragging = true; onMove(e.clientX); });
+        window.addEventListener('mouseup', () => { isDragging = false; });
+        window.addEventListener('mousemove', (e) => { if (isDragging) onMove(e.clientX); });
+
+        sliderContainer.addEventListener('touchstart', (e) => { isDragging = true; onMove(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('touchend', () => { isDragging = false; });
+        window.addEventListener('touchmove', (e) => { if (isDragging) onMove(e.touches[0].clientX); }, { passive: true });
+      }
     });
 
+    // 5. Interactive Horizontal Carousel Controller
+    function scrollCarousel(dir) {
+      const carousel = document.getElementById('servicesCarousel');
+      if (carousel) {
+        const scrollAmount = carousel.clientWidth * 0.8 * dir;
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    // 6. Signature Brand Item Selector
     function selectSignatureItem(el, title, waBase, businessName) {
       document.querySelectorAll('.signature-card').forEach(c => {
         c.classList.remove('active-signature');
@@ -763,6 +897,29 @@
       if (actionBtn) {
         actionBtn.href = targetUrl;
         actionBtn.innerHTML = '<span>Consult for ' + title + '</span>';
+      }
+    }
+
+    // 7. Interactive Consultation Dialog Modal (21st.dev Component)
+    function openConsultationModal(serviceTitle, waBase, businessName) {
+      const modal = document.getElementById('consultationModal');
+      const titleEl = document.getElementById('modalServiceTitle');
+      const confirmBtn = document.getElementById('modalConfirmBtn');
+      if (titleEl) titleEl.innerText = serviceTitle || 'Bespoke Consultation';
+      if (confirmBtn) {
+        confirmBtn.href = waBase + '?text=' + encodeURIComponent('Hi ' + businessName + '! I would like to schedule an appointment for ' + (serviceTitle || 'a consultation') + '.');
+      }
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeConsultationModal() {
+      const modal = document.getElementById('consultationModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
       }
     }
   </script>
